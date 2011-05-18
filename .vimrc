@@ -75,6 +75,7 @@ Bundle 'kogent/vim-nagios'
 Bundle 'nono/jquery.vim'
 Bundle 'gregsexton/gitv'
 Bundle 'skammer/vim-css-color'
+Bundle 'anadgouda/taskmanagementvim'
 
 " vim-scripts GitHub repositories
 Bundle 'taglist.vim'
