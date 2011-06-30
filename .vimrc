@@ -15,9 +15,10 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set hlsearch
-set nobackup
 set backspace=2
 set guifont=Courier_New:h10:cANSI
+set backupdir=~/.vim/tmp
+set directory=~/.vim/tmp
 
 syntax on
 
