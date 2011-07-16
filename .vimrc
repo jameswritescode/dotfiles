@@ -66,6 +66,10 @@ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
+" let g:syntastic_enable_signs = 1
+" let g:syntastic_auto_jump = 1
+" let g:syntastic_auto_loc_list = 1
+
 Bundle 'Sindacious/snipmate.vim'
 let snips_author = 'James Newton <james@Zaphyous.com>'
 
