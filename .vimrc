@@ -53,6 +53,7 @@ augroup filetype
     au! BufRead,BufNewFile /usr/local/nagios/etc/objects/* set ft=nagios
     au! BufRead,BufNewFile *.mxml compiler flex
     au! BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+    au! BufRead,BufNewFile *.py set textwidth=79 " keep things PEP-8 friendly
 augroup end
 " " }}}
 
@@ -84,6 +85,7 @@ Bundle 'gregsexton/gitv'
 Bundle 'skammer/vim-css-color'
 Bundle 'anadgouda/taskmanagementvim'
 Bundle 'kana/vim-scratch'
+Bundle 'Raimondi/delimitMate'
 
 " vim-scripts GitHub repositories
 Bundle 'taglist.vim'
