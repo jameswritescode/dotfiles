@@ -54,6 +54,7 @@ augroup filetype
     au! BufRead,BufNewFile *.mxml compiler flex
     au! BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
     au! BufRead,BufNewFile *.py set textwidth=79 " keep things PEP-8 friendly
+    au! BufRead,BufNewFile *.m set ft=objc
 augroup end
 " " }}}
 
@@ -86,11 +87,8 @@ Bundle 'skammer/vim-css-color'
 Bundle 'anadgouda/taskmanagementvim'
 Bundle 'kana/vim-scratch'
 Bundle 'Raimondi/delimitMate'
-
-" vim-scripts GitHub repositories
-Bundle 'taglist.vim'
-let Tlist_Ctags_Cmd = '/usr/bin/ctags'
-let Tlist_WinWidth = 50
+Bundle 'msanders/cocoa.vim'
+Bundle 'majutsushi/tagbar'
 
 " Other Plugins
 Bundle 'git://git.wincent.com/command-t.git'
