@@ -89,6 +89,7 @@ Bundle 'kana/vim-scratch'
 Bundle 'Raimondi/delimitMate'
 Bundle 'msanders/cocoa.vim'
 Bundle 'majutsushi/tagbar'
+let g:tagbar_ctags_bin='/usr/bin/ctags'
 
 " Other Plugins
 Bundle 'git://git.wincent.com/command-t.git'
