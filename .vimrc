@@ -20,6 +20,7 @@ set guifont=Courier_New:h10:cANSI
 set backupdir=~/.vim/tmp
 set directory=~/.vim/tmp
 set incsearch
+set virtualedit=all
 
 syntax on
 
