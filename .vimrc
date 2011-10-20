@@ -26,7 +26,7 @@ syntax on
 
 filetype plugin indent on
 
-colors molokai
+colors twilight256
 
 map <C-h> :set invhlsearch<cr>
 map <F1> <nop>
