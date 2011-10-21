@@ -26,7 +26,7 @@ syntax on
 
 filetype plugin indent on
 
-colors twilight256
+colors wombat256
 
 map <C-h> :set invhlsearch<cr>
 map <F1> <nop>
@@ -89,7 +89,7 @@ Bundle 'kana/vim-scratch'
 Bundle 'Raimondi/delimitMate'
 Bundle 'msanders/cocoa.vim'
 Bundle 'majutsushi/tagbar'
-let g:tagbar_ctags_bin='/usr/local/Cellar/ctags/5.8/bin/ctags'
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 
 " Other Plugins
 Bundle 'git://git.wincent.com/command-t.git'
