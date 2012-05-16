@@ -43,6 +43,13 @@ autocmd BufEnter * call ChangeDir()
 
 " File Types " {{{
 augroup filetype
+    au! BufRead,BufNewFile fabfile set ft=python
+    au! BufRead,BufNewFile *.rb set ts=2 sw=2
+    au! BufRead,BufNewFile Rakefile set ts=2 sw=2
+    au! BufRead,BufNewFile rakefile set ts=2 sw=2
+    au! BufRead,BufNewFile capfile set ft=ruby ts=2 sw=2
+    au! BufRead,BufNewFile Capfile set ft=ruby ts=2 sw=2
+    au! BufRead,BufNewFile *.go set ft=go
     au! BufRead,BufNewFile *.wsgi set ft=python
     au! BufRead,BufNewFile *.tumblr.html set ft=tumblr
     au! BufRead,BufNewFile *.bf set ft=brainfuck
