@@ -43,6 +43,7 @@ autocmd BufEnter * call ChangeDir()
 
 " File Types " {{{
 augroup filetype
+    au! BufRead,BufNewFile *.coffee set ft=coffee
     au! BufRead,BufNewFile fabfile set ft=python
     au! BufRead,BufNewFile *.rb set ts=2 sw=2
     au! BufRead,BufNewFile Rakefile set ts=2 sw=2
@@ -83,6 +84,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'Sindacious/snipmate.vim'
 let snips_author = 'James Newton <james@Zaphyous.com>'
 
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-fugitive'
@@ -103,6 +105,7 @@ Bundle 'git://git.wincent.com/command-t.git'
 
 " " }}}
 
+" {{{ Functions
 function! ToggleFold() " {{{
     if foldlevel('.') == 0
          normal! l
@@ -133,3 +136,4 @@ function! ChangeDir() " {{{
     exec "cd " . _dir
     unlet _dir
 endfunction " }}}
+" }}}
