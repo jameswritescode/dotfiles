@@ -4,6 +4,7 @@ set background=dark
 set visualbell
 set laststatus=2
 set nocompatible
+set encoding=utf-8
 set foldmethod=marker
 set showmatch
 set cmdheight=2
@@ -99,6 +100,9 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'msanders/cocoa.vim'
 Bundle 'majutsushi/tagbar'
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+
+Bundle 'Lokaltog/vim-powerline'
+let g:Powerline_symbols = 'fancy'
 
 " Other Plugins
 Bundle 'git://git.wincent.com/command-t.git'
