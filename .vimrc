@@ -22,6 +22,7 @@ set backupdir=~/.vim/tmp
 set directory=~/.vim/tmp
 set incsearch
 set virtualedit=all
+set mouse=a
 
 syntax on
 
@@ -65,6 +66,8 @@ augroup filetype
     au! BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
     au! BufRead,BufNewFile *.py set textwidth=79 " keep things PEP-8 friendly
     au! BufRead,BufNewFile *.m set ft=objc
+    au! BufRead,BufNewFile *.sass set ts=2 sw=2
+    au! BufRead,BufNewFile *.scss set ts=2 sw=2
 augroup end
 " " }}}
 
