@@ -39,6 +39,11 @@ map <F4> :set autoindent<return>
 map <a-space> :call ToggleAllFolds()<CR>
 map <leader>s ?{<CR>jV/^\s*\}\=$<CR>k:sort<CR>:let @/=''<CR>
 
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+
 noremap <space> :call ToggleFold()<CR>
 
 autocmd BufEnter * call ChangeDir()
