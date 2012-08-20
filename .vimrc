@@ -115,6 +115,7 @@ Bundle 'Lokaltog/vim-powerline'
 let g:Powerline_symbols = 'fancy'
 
 Bundle 'myusuf3/numbers.vim'
+Bundle 'ervandew/supertab'
 
 " Other Plugins
 Bundle 'git://git.wincent.com/command-t.git'
