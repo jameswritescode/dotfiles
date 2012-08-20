@@ -12,8 +12,9 @@ set showcmd
 set autowrite
 set autoindent
 set number
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set hlsearch
 set backspace=2
@@ -99,6 +100,7 @@ Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-haml'
+Bundle 'vim-ruby/vim-ruby'
 Bundle 'kogent/vim-nagios'
 Bundle 'nono/jquery.vim'
 Bundle 'gregsexton/gitv'
