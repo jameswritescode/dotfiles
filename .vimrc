@@ -90,7 +90,7 @@ Bundle 'scrooloose/syntastic'
 " let g:syntastic_auto_jump = 1
 " let g:syntastic_auto_loc_list = 1
 
-Bundle 'Sindacious/snipmate.vim'
+Bundle 'jameswritescode/snipmate.vim'
 let snips_author = 'James Newton <james@Zaphyous.com>'
 
 Bundle 'kchmck/vim-coffee-script'
