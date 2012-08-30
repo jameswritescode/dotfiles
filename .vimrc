@@ -24,6 +24,13 @@ set directory=~/.vim/tmp
 set incsearch
 set mouse=a
 
+set list
+set listchars=""
+set listchars=tab:\ \
+set listchars+=trail:.
+set listchars+=extends:>
+set listchars+=precedes:<
+
 syntax on
 
 filetype plugin indent on
@@ -47,6 +54,8 @@ noremap <Right> <nop>
 noremap <space> :call ToggleFold()<CR>
 
 autocmd BufEnter * call ChangeDir()
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " File Types " {{{
 augroup filetype
@@ -117,6 +126,9 @@ let g:Powerline_symbols = 'fancy'
 
 Bundle 'myusuf3/numbers.vim'
 Bundle 'ervandew/supertab'
+Bundle 'spolu/dwm.vim'
+Bundle 'AndrewRadev/splitjoin.vim'
+Bundle 'aaronjensen/vim-sass-status'
 
 " Other Plugins
 Bundle 'git://git.wincent.com/command-t.git'
