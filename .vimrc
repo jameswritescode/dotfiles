@@ -10,8 +10,10 @@ set showmatch
 set cmdheight=2
 set showcmd
 set autowrite
-set autoindent
 set number
+set autoindent
+set smartindent
+set smarttab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
