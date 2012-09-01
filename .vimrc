@@ -101,7 +101,10 @@ Bundle 'scrooloose/syntastic'
 " let g:syntastic_auto_jump = 1
 " let g:syntastic_auto_loc_list = 1
 
-Bundle 'jameswritescode/snipmate.vim'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'honza/snipmate-snippets'
+Bundle 'garbas/vim-snipmate'
 let snips_author = 'James Newton <james@Zaphyous.com>'
 
 Bundle 'kchmck/vim-coffee-script'
