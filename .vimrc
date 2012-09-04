@@ -37,7 +37,7 @@ syntax on
 
 filetype plugin indent on
 
-colors wombat256
+colors tomorrow-night
 
 map <C-h> :set invhlsearch<cr>
 map <F1> <nop>
