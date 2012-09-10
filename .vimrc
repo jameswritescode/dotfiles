@@ -134,6 +134,7 @@ Bundle 'ervandew/supertab'
 Bundle 'spolu/dwm.vim'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'aaronjensen/vim-sass-status'
+Bundle 'editorconfig/editorconfig-vim'
 
 " Other Plugins
 Bundle 'git://git.wincent.com/command-t.git'
