@@ -48,6 +48,9 @@ map <F4> :set autoindent<return>
 map <a-space> :call ToggleAllFolds()<CR>
 map <leader>s ?{<CR>jV/^\s*\}\=$<CR>k:sort<CR>:let @/=''<CR>
 
+nmap sj :SplitjoinSplit<cr>
+nmap sk :SplitjoinJoin<cr>
+
 noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
@@ -133,6 +136,7 @@ Bundle 'myusuf3/numbers.vim'
 Bundle 'ervandew/supertab'
 Bundle 'spolu/dwm.vim'
 Bundle 'AndrewRadev/splitjoin.vim'
+Bundle 'AndrewRadev/switch.vim'
 Bundle 'aaronjensen/vim-sass-status'
 Bundle 'editorconfig/editorconfig-vim'
 
