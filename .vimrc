@@ -81,6 +81,7 @@ augroup filetype
     au! BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
     au! FileType python setlocal textwidth=79 sw=4 sts=4
     au! BufRead,BufNewFile *.m set ft=objc
+    au! FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
 augroup end
 " " }}}
 
