@@ -139,6 +139,8 @@ Bundle 'AndrewRadev/switch.vim'
 Bundle 'aaronjensen/vim-sass-status'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'spf13/PIV'
+let g:DisableAutoPHPFolding = 1
+
 Bundle 'amirh/HTML-AutoCloseTag'
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'godlygeek/tabular'
