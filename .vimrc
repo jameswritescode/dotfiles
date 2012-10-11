@@ -65,14 +65,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 " File Types " {{{
 augroup filetype
-    au! BufRead,BufNewFile *.coffee set ft=coffee
+    au! FileType php setlocal sw=4 sts=4 cin
+    au! FileType coffee setlocal ft=coffee
     au! BufRead,BufNewFile fabfile set ft=python
-    au! BufRead,BufNewFile *.rb set ts=2 sw=2
-    au! BufRead,BufNewFile Rakefile set ts=2 sw=2
-    au! BufRead,BufNewFile rakefile set ts=2 sw=2
-    au! BufRead,BufNewFile capfile set ft=ruby ts=2 sw=2
-    au! BufRead,BufNewFile Capfile set ft=ruby ts=2 sw=2
-    au! BufRead,BufNewFile *.go set ft=go
+    au! BufRead,BufNewFile go setlocal ft=go
     au! BufRead,BufNewFile *.wsgi set ft=python
     au! BufRead,BufNewFile *.tumblr.html set ft=tumblr
     au! BufRead,BufNewFile *.bf set ft=brainfuck
@@ -82,12 +78,9 @@ augroup filetype
     au! BufRead,BufNewFile .tmux.conf set ft=tmux
     au! BufRead,BufNewFile *.as set ft=actionscript
     au! BufRead,BufNewFile /usr/local/nagios/etc/objects/* set ft=nagios
-    au! BufRead,BufNewFile *.mxml compiler flex
     au! BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-    au! BufRead,BufNewFile *.py set textwidth=79 " keep things PEP-8 friendly
+    au! FileType python setlocal textwidth=79 sw=4 sts=4
     au! BufRead,BufNewFile *.m set ft=objc
-    au! BufRead,BufNewFile *.sass set ts=2 sw=2
-    au! BufRead,BufNewFile *.scss set ts=2 sw=2
 augroup end
 " " }}}
 
@@ -113,17 +106,21 @@ let snips_author = 'James Newton <james@Zaphyous.com>'
 
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mileszs/ack.vim'
+Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-rails'
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_rails = 1
+
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'kogent/vim-nagios'
 Bundle 'nono/jquery.vim'
 Bundle 'gregsexton/gitv'
-Bundle 'skammer/vim-css-color'
 Bundle 'kana/vim-scratch'
 Bundle 'Raimondi/delimitMate'
 Bundle 'msanders/cocoa.vim'
@@ -140,6 +137,11 @@ Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'aaronjensen/vim-sass-status'
 Bundle 'editorconfig/editorconfig-vim'
+Bundle 'spf13/PIV'
+Bundle 'amirh/HTML-AutoCloseTag'
+Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+Bundle 'godlygeek/tabular'
+Bundle 'godlygeek/csapprox'
 
 " Other Plugins
 Bundle 'git://git.wincent.com/command-t.git'
