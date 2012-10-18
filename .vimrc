@@ -67,6 +67,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 augroup filetype
     au! FileType php setlocal sw=4 sts=4 cin
     au! FileType coffee setlocal ft=coffee
+    au! BufRead,BufNewFile Guardfile set ft=ruby
     au! BufRead,BufNewFile fabfile set ft=python
     au! BufRead,BufNewFile go setlocal ft=go
     au! BufRead,BufNewFile *.wsgi set ft=python
@@ -93,6 +94,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdtree'
+let NERDTreeShowHidden = 1
+
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 " let g:syntastic_enable_signs = 1
