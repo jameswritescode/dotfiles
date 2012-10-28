@@ -60,8 +60,10 @@ noremap <Right> <nop>
 noremap <space> :call ToggleFold()<CR>
 
 autocmd BufEnter * call ChangeDir()
-autocmd vimenter * NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd VimEnter * NERDTree
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd FileType * nested :call tagbar#autoopen(0)
+autocmd VimEnter * nested :call tagbar#autoopen(1)
 
 " File Types " {{{
 augroup filetype
