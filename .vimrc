@@ -97,6 +97,7 @@ Bundle 'gmarik/vundle'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdtree'
 let NERDTreeShowHidden = 1
+let NERDTreeChDirMode = 2
 
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
