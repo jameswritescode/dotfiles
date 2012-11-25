@@ -51,6 +51,7 @@ map <leader>s ?{<CR>jV/^\s*\}\=$<CR>k:sort<CR>:let @/=''<CR>
 nmap sj :SplitjoinSplit<cr>
 nmap sk :SplitjoinJoin<cr>
 nmap sc :CoffeeCompile vert watch<cr>
+nmap , :noh<cr>
 
 noremap <Up> <nop>
 noremap <Down> <nop>
