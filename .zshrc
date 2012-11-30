@@ -1,5 +1,6 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="powerline"
+DISABLE_AUTO_TITLE=true
 
 plugins=()
 
@@ -28,7 +29,7 @@ alias off="pmset sleepnow"
 # Customize to your needs...
 #export PATH=/usr/local/bin:/usr/local/sbin:/Users/james/pear/bin:/Users/james/wrk/bin:/Users/james/.rbenv/shims:/Users/james/.rvm/gems/ruby-1.9.3-p286-perf/bin:/Users/james/.rvm/gems/ruby-1.9.3-p286-perf@global/bin:/Users/james/.rvm/rubies/ruby-1.9.3-p286-perf/bin:/Users/james/.rvm/bin:/Users/james/.pythonbrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/james/projects/zaphyous/sub-zaph/bin
 export PATH=/usr/local/bin:/usr/local/sbin:/Users/james/pear/bin:/Users/james/wek/bin:$PATH
-export TERM="xterm-256color"
+#export TERM="xterm-256color"
 export EDITOR="vim"
 export BUNDLE_EDITOR="vim"
 export RUBY_HEAP_MIN_SLOTS=800000
