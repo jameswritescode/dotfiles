@@ -12,6 +12,7 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(fasd --init auto)"
+eval "$(/Users/james/projects/zaphyous/sub-zaph/bin/zaph init -)"
 
 alias j="z"
 alias ls="ls -G -a"
