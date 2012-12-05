@@ -1,0 +1,29 @@
+[user]
+	name = James Newton
+	email = james@Zaphyous.com
+[alias]
+	co = checkout
+	st = status
+	stats = shortlog -sne --no-merges
+	forget = rm --cached
+	b = branch
+  c = checkout
+	pus = push
+	ad = add
+  dif = diff
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	pul = pull
+[color]
+	ui = auto
+[mergetool]
+	keepBackup = true
+[difftool "Kaleidoscope"]
+	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
+[push]
+	default = simple
+[core]
+	editor = vim
