@@ -113,6 +113,8 @@ let snips_author = 'James Newton <james@Zaphyous.com>'
 
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mileszs/ack.vim'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-endwise'
