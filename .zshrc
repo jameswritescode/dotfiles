@@ -26,6 +26,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias ccat="pygmentize -O style=monokai -f console256 -g"
 alias off="pmset sleepnow"
+alias git="nocorrect git"
 
 # Customize to your needs...
 #export PATH=/usr/local/bin:/usr/local/sbin:/Users/james/pear/bin:/Users/james/wrk/bin:/Users/james/.rbenv/shims:/Users/james/.rvm/gems/ruby-1.9.3-p286-perf/bin:/Users/james/.rvm/gems/ruby-1.9.3-p286-perf@global/bin:/Users/james/.rvm/rubies/ruby-1.9.3-p286-perf/bin:/Users/james/.rvm/bin:/Users/james/.pythonbrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/james/projects/zaphyous/sub-zaph/bin
