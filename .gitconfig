@@ -13,6 +13,8 @@
   dif = diff
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	pul = pull
+	squash = stash
+	squish = stash
 [color]
 	ui = auto
 [mergetool]
@@ -25,5 +27,3 @@
 	tool = Kaleidoscope
 [push]
 	default = simple
-[core]
-	editor = vim
