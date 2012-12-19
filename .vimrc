@@ -33,6 +33,12 @@ set listchars+=trail:.
 set listchars+=extends:>
 set listchars+=precedes:<
 
+set nofoldenable
+set foldnestmax=20
+set foldlevel=20
+set foldmethod=indent
+set foldcolumn=1
+
 syntax on
 
 filetype plugin indent on
