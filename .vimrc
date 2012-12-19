@@ -204,4 +204,24 @@ function! ChangeDir() " {{{
     exec "cd " . _dir
     unlet _dir
 endfunction " }}}
+
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+function! <SID>StripEmptyLines()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    g/^$/d
+    let @/=_s
+    call cursor(l, c)
+endfunction
 " }}}
