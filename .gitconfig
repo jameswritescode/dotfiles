@@ -15,6 +15,8 @@
 	pul = pull
 	squash = stash
 	squish = stash
+  recent = for-each-ref --count=5 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+	feature = flow feature
 [color]
 	ui = auto
 [mergetool]
