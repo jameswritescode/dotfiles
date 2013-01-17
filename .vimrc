@@ -12,11 +12,6 @@ set showcmd
 set autowrite
 set number
 set autoindent
-set smartindent
-set smarttab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
 set expandtab
 set hlsearch
 set backspace=2
@@ -73,7 +68,7 @@ autocmd VimEnter * nested :call tagbar#autoopen(1)
 
 " File Types " {{{
 augroup filetype
-    au! FileType php setlocal sw=4 sts=4 cin
+    au! FileType php setlocal cin
     au! FileType coffee setlocal ft=coffee
     au! BufRead,BufNewFile Guardfile set ft=ruby
     au! BufRead,BufNewFile fabfile set ft=python
@@ -88,7 +83,7 @@ augroup filetype
     au! BufRead,BufNewFile *.as set ft=actionscript
     au! BufRead,BufNewFile /usr/local/nagios/etc/objects/* set ft=nagios
     au! BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-    au! FileType python setlocal textwidth=79 sw=4 sts=4
+    au! FileType python setlocal textwidth=79
     au! BufRead,BufNewFile *.m set ft=objc
     au! FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
 augroup end
@@ -119,6 +114,7 @@ let snips_author = 'James Newton <james@Zaphyous.com>'
 
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mileszs/ack.vim'
+Bundle 'tpope/vim-sleuth'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-surround'
