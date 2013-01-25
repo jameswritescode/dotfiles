@@ -89,7 +89,7 @@ augroup filetype
 augroup end
 " " }}}
 
-python from powerline.ext.vim import source_plugin; source_plugin()
+python from powerline.bindings.vim import source_plugin; source_plugin()
 
 " Vundle " {{{
 set rtp+=~/.vim/bundle/vundle/
