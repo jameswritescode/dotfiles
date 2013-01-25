@@ -89,6 +89,8 @@ augroup filetype
 augroup end
 " " }}}
 
+python from powerline.ext.vim import source_plugin; source_plugin()
+
 " Vundle " {{{
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -137,9 +139,6 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'msanders/cocoa.vim'
 Bundle 'majutsushi/tagbar'
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
-
-Bundle 'Lokaltog/vim-powerline'
-let g:Powerline_symbols = 'fancy'
 
 Bundle 'myusuf3/numbers.vim'
 Bundle 'ervandew/supertab'
