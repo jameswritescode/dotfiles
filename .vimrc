@@ -154,9 +154,7 @@ Bundle 'amirh/HTML-AutoCloseTag'
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'godlygeek/tabular'
 Bundle 'godlygeek/csapprox'
-
-" Other Plugins
-Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'wincent/Command-T'
 
 " " }}}
 
