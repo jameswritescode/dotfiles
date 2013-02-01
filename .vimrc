@@ -68,6 +68,7 @@ autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 augroup filetype
     au! FileType php setlocal cin
     au! FileType coffee setlocal ft=coffee
+    au! BufRead,BufNewFile *.handlebars set ft=handlebars
     au! BufRead,BufNewFile Guardfile set ft=ruby
     au! BufRead,BufNewFile fabfile set ft=python
     au! BufRead,BufNewFile go setlocal ft=go
@@ -131,6 +132,7 @@ let g:rubycomplete_rails = 1
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'kogent/vim-nagios'
 Bundle 'nono/jquery.vim'
+Bundle 'nono/vim-handlebars'
 Bundle 'gregsexton/gitv'
 Bundle 'kana/vim-scratch'
 Bundle 'Raimondi/delimitMate'
