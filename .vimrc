@@ -66,8 +66,8 @@ autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 " File Types " {{{
 augroup filetype
-    au! FileType php setlocal cin
-    au! FileType coffee setlocal ft=coffee
+    au! BufRead,BufNewFile *.php setlocal cin
+    au! BufRead,BufNewFile *.coffee setlocal ft=coffee
     au! BufRead,BufNewFile *.handlebars set ft=handlebars
     au! BufRead,BufNewFile Guardfile set ft=ruby
     au! BufRead,BufNewFile fabfile set ft=python
