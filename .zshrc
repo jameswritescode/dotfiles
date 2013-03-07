@@ -27,6 +27,7 @@ alias ....="cd ../../.."
 alias ccat="pygmentize -O style=monokai -f console256 -g"
 alias off="pmset sleepnow"
 alias git="nocorrect git"
+alias rvm="nocorrect rvm"
 
 # Customize to your needs...
 #export PATH=/usr/local/bin:/usr/local/sbin:/Users/james/pear/bin:/Users/james/wrk/bin:/Users/james/.rbenv/shims:/Users/james/.rvm/gems/ruby-1.9.3-p286-perf/bin:/Users/james/.rvm/gems/ruby-1.9.3-p286-perf@global/bin:/Users/james/.rvm/rubies/ruby-1.9.3-p286-perf/bin:/Users/james/.rvm/bin:/Users/james/.pythonbrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/Users/james/projects/zaphyous/sub-zaph/bin
@@ -39,3 +40,16 @@ export RUBY_HEAP_FREE_MIN=100000
 export RUBY_HEAP_SLOTS_INCREMENT=300000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=79000000
+
+# Add the following to your ~/.bashrc or ~/.zshrc
+#
+# Alternatively, copy/symlink this file and source in your shell.  See `hitch --setup-path`.
+
+hitch() {
+  command hitch "$@"
+  if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
+}
+alias unhitch='hitch -u'
+
+# Uncomment to persist pair info between terminal instances
+# hitch

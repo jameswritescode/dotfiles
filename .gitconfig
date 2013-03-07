@@ -28,4 +28,8 @@
 [diff]
 	tool = Kaleidoscope
 [push]
-	default = simple
+	default = current
+[rerere]
+	enabled = true
+[core]
+	excludesfile = ~/.gitignore
