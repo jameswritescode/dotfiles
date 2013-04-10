@@ -48,6 +48,9 @@ map <F3> :set noautoindent<return>
 map <F4> :set autoindent<return>
 map <a-space> :call ToggleAllFolds()<CR>
 map <leader>s ?{<CR>jV/^\s*\}\=$<CR>k:sort<CR>:let @/=''<CR>
+map <leader>pb <C-^><CR>
+map <leader>nt :NERDTreeToggle<CR>
+map <leader>t :CtrlP<CR>
 
 nmap sj :SplitjoinSplit<cr>
 nmap sk :SplitjoinJoin<cr>
@@ -63,9 +66,12 @@ noremap <space> :call ToggleFold()<CR>
 
 " autocmd VimEnter * NERDTree
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+au VimEnter * highlight clear SignColumn
 
 " File Types " {{{
 augroup filetype
+    au! BufRead,BufNewFile *.go set ft=go
+    au! BufRead,BufNewFile *.clj set ft=clojure
     au! BufRead,BufNewFile *.php setlocal cin
     au! BufRead,BufNewFile *.coffee setlocal ft=coffee
     au! BufRead,BufNewFile *.handlebars set ft=handlebars
@@ -83,6 +89,7 @@ augroup filetype
     au! BufRead,BufNewFile /usr/local/nagios/etc/objects/* set ft=nagios
     au! BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
     au! FileType python setlocal textwidth=79
+    au! FileType ruby setlocal textwidth=79
     au! BufRead,BufNewFile *.m set ft=objc
     au! FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
 augroup end
@@ -125,10 +132,14 @@ Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-tbone'
+Bundle 'tpope/vim-fireplace'
+" Bundle 'tpope/vim-classpath'
 Bundle 'tpope/vim-rails'
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_rails = 1
 
+Bundle 'guns/vim-clojure-static'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'kogent/vim-nagios'
 Bundle 'nono/jquery.vim'
@@ -154,7 +165,24 @@ Bundle 'amirh/HTML-AutoCloseTag'
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'godlygeek/tabular'
 Bundle 'godlygeek/csapprox'
-Bundle 'wincent/Command-T'
+" Bundle 'wincent/Command-T'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'hlissner/vim-multiedit'
+Bundle 'hlissner/vim-forrestgump'
+Bundle 'kien/ctrlp.vim'
+Bundle 'Rip-Rip/clang_complete'
+let g:clang_complete_auto = 0
+let g:clang_use_library = 1
+let g:clang_periodic_quickfix = 0
+let g:clang_close_preview = 1
+let g:clang_snippets = 1
+let g:clang_snippets_engine = 'ultisnips'
+let g:clang_exec = '/usr/bin/clang'
+let g:clang_library_path = '/usr/lib/libclang.dylib'
+
+Bundle 'eraserhd/vim-ios'
+Bundle 'jpalardy/vim-slime'
+let g:slime_target = "tmux"
 
 " " }}}
 
