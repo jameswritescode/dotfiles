@@ -20,6 +20,8 @@ set backupdir=~/.vim/tmp
 set directory=~/.vim/tmp
 set incsearch
 set mouse=a
+set splitbelow
+set splitright
 
 set list
 set listchars=""
@@ -165,9 +167,7 @@ Bundle 'amirh/HTML-AutoCloseTag'
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'godlygeek/tabular'
 Bundle 'godlygeek/csapprox'
-" Bundle 'wincent/Command-T'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'hlissner/vim-multiedit'
+" Bundle 'mhinz/vim-signify'
 Bundle 'hlissner/vim-forrestgump'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Rip-Rip/clang_complete'
@@ -184,6 +184,8 @@ Bundle 'eraserhd/vim-ios'
 Bundle 'jpalardy/vim-slime'
 let g:slime_target = "tmux"
 
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'marijnh/tern_for_vim'
 " " }}}
 
 if exists("$TMUX")
