@@ -97,7 +97,9 @@ augroup filetype
 augroup end
 " " }}}
 
-python from powerline.bindings.vim import source_plugin; source_plugin()
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
 " Vundle " {{{
 set rtp+=~/.vim/bundle/vundle/
@@ -118,7 +120,7 @@ Bundle 'scrooloose/syntastic'
 
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
-Bundle 'honza/snipmate-snippets'
+Bundle 'honza/vim-snippets'
 Bundle 'garbas/vim-snipmate'
 let snips_author = 'James Newton <james@Zaphyous.com>'
 
