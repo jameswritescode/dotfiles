@@ -97,10 +97,6 @@ augroup filetype
 augroup end
 " " }}}
 
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-
 " Vundle " {{{
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -188,6 +184,8 @@ let g:slime_target = "tmux"
 
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'marijnh/tern_for_vim'
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'wakatime/vim-wakatime'
 " " }}}
 
 if exists("$TMUX")
