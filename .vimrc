@@ -152,6 +152,8 @@ Bundle 'majutsushi/tagbar'
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 
 Bundle 'myusuf3/numbers.vim'
+let g:numbers_exclude = ['nerdtree', 'tagbar']
+
 Bundle 'ervandew/supertab'
 Bundle 'spolu/dwm.vim'
 Bundle 'AndrewRadev/splitjoin.vim'
