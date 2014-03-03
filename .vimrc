@@ -141,11 +141,9 @@ let g:rubycomplete_rails = 1
 
 Bundle 'guns/vim-clojure-static'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'kogent/vim-nagios'
 Bundle 'nono/jquery.vim'
 Bundle 'nono/vim-handlebars'
 Bundle 'gregsexton/gitv'
-Bundle 'kana/vim-scratch'
 Bundle 'Raimondi/delimitMate'
 Bundle 'msanders/cocoa.vim'
 Bundle 'majutsushi/tagbar'
@@ -153,7 +151,6 @@ let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 
 Bundle 'myusuf3/numbers.vim'
 Bundle 'ervandew/supertab'
-Bundle 'spolu/dwm.vim'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'aaronjensen/vim-sass-status'
@@ -179,10 +176,6 @@ let g:clang_exec = '/usr/bin/clang'
 let g:clang_library_path = '/usr/lib/libclang.dylib'
 
 Bundle 'eraserhd/vim-ios'
-Bundle 'jpalardy/vim-slime'
-let g:slime_target = "tmux"
-
-Bundle 'terryma/vim-multiple-cursors'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'wakatime/vim-wakatime'
