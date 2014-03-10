@@ -155,7 +155,6 @@ Bundle 'myusuf3/numbers.vim'
 let g:numbers_exclude = ['nerdtree', 'tagbar']
 
 Bundle 'ervandew/supertab'
-Bundle 'spolu/dwm.vim'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'aaronjensen/vim-sass-status'
@@ -188,6 +187,16 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'wakatime/vim-wakatime'
+
+Bundle 'airblade/vim-gitgutter'
+highlight SignColumn term=underline ctermfg=101 ctermbg=232 guifg=#857b6f guibg=#121212
+
+Bundle 'joker1007/vim-ruby-heredoc-syntax'
+let g:ruby_heredoc_syntax_filetypes = {
+  \ "ruby" : {
+  \   "start" : "RUBY",
+  \},
+\}
 " " }}}
 
 if exists("$TMUX")
