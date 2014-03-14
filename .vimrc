@@ -22,6 +22,7 @@ set incsearch
 set mouse=a
 set splitbelow
 set splitright
+set shell=/bin/sh
 
 set list
 set listchars=""
@@ -36,6 +37,8 @@ set foldlevel=20
 set foldmethod=indent
 set foldcolumn=1
 
+let mapleader=","
+
 syntax on
 
 filetype plugin indent on
@@ -49,15 +52,13 @@ map <F2> :set number<return>
 map <F3> :set noautoindent<return>
 map <F4> :set autoindent<return>
 map <a-space> :call ToggleAllFolds()<CR>
-map <leader>s ?{<CR>jV/^\s*\}\=$<CR>k:sort<CR>:let @/=''<CR>
 map <leader>pb <C-^><CR>
 map <leader>nt :NERDTreeToggle<CR>
-map <leader>t :CtrlP<CR>
+map <leader>t :call RunCurrentSpecFile()<CR>
 
 nmap sj :SplitjoinSplit<cr>
 nmap sk :SplitjoinJoin<cr>
 nmap sc :CoffeeCompile vert watch<cr>
-nmap , :noh<cr>
 
 noremap <Up> <nop>
 noremap <Down> <nop>
@@ -103,6 +104,10 @@ call vundle#rc()
 
 " GitHub Plugins
 Bundle 'gmarik/vundle'
+Bundle 'thoughtbot/vim-rspec'
+let g:rspec_command="!bundle exec rspec {spec}"
+let g:rspec_runner = "os_x_iterm"
+
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdtree'
 let NERDTreeShowHidden = 1
