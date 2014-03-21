@@ -43,8 +43,6 @@ syntax on
 
 filetype plugin indent on
 
-colors wombat256
-
 map <C-h> :set invhlsearch<cr>
 map <F1> <nop>
 map <F1> :set nonumber<return>
@@ -104,6 +102,7 @@ call vundle#rc()
 
 " GitHub Plugins
 Bundle 'gmarik/vundle'
+Bundle 'junegunn/seoul256.vim'
 Bundle 'thoughtbot/vim-rspec'
 let g:rspec_command="!bundle exec rspec {spec}"
 let g:rspec_runner = "os_x_iterm"
@@ -258,3 +257,5 @@ function! <SID>StripEmptyLines()
     call cursor(l, c)
 endfunction
 " }}}
+
+colors seoul256
