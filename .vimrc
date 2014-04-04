@@ -53,6 +53,7 @@ map <a-space> :call ToggleAllFolds()<CR>
 map <leader>pb <C-^><CR>
 map <leader>nt :NERDTreeToggle<CR>
 map <leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
 
 nmap sj :SplitjoinSplit<cr>
 nmap sk :SplitjoinJoin<cr>
@@ -114,6 +115,7 @@ let NERDTreeChDirMode = 2
 
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 " let g:syntastic_enable_signs = 1
 " let g:syntastic_auto_jump = 1
 " let g:syntastic_auto_loc_list = 1
