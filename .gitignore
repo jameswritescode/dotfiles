@@ -1,2 +1,3 @@
 bundle/
-tmp/*.swp
+!tmp/.gitkeep
+tmp/*
