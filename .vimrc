@@ -50,21 +50,26 @@ map <F2> :set number<return>
 map <F3> :set noautoindent<return>
 map <F4> :set autoindent<return>
 map <a-space> :call ToggleAllFolds()<CR>
-map <leader>pb <C-^><CR>
+map <leader>sb <C-^><CR>
 map <leader>nt :NERDTreeToggle<CR>
 map <leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
+map <leader>p :set paste!<cr>
+
+vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
 
 nmap sj :SplitjoinSplit<cr>
 nmap sk :SplitjoinJoin<cr>
-nmap sc :CoffeeCompile vert watch<cr>
+nmap sc :CoffeeWatch vert<cr>
+nmap <leader>q :noh<cr>
 
 noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
-
 noremap <space> :call ToggleFold()<CR>
+
+nnoremap gp `[v`]
 
 " autocmd VimEnter * NERDTree
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -196,8 +201,15 @@ let g:ruby_heredoc_syntax_filetypes = {
   \ "ruby" : {
   \   "start" : "RUBY",
   \},
+  \ "css" : {
+  \   "start" : "CSS",
+  \},
 \}
 " " }}}
+
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+runtime macros/matchit.vim
 
 if exists("$TMUX")
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
