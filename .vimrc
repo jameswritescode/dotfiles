@@ -37,6 +37,9 @@ set foldlevel=20
 set foldmethod=indent
 set foldcolumn=1
 
+set textwidth=80
+set colorcolumn=+1
+
 let mapleader=","
 
 syntax on
@@ -78,6 +81,7 @@ au VimEnter * highlight clear SignColumn
 " File Types " {{{
 augroup filetype
     au! BufRead,BufNewFile *.go set ft=go
+    au! BufRead,BufNewFile *.md set ft=markdown
     au! BufRead,BufNewFile *.clj set ft=clojure
     au! BufRead,BufNewFile *.php setlocal cin
     au! BufRead,BufNewFile *.coffee setlocal ft=coffee
@@ -95,9 +99,8 @@ augroup filetype
     au! BufRead,BufNewFile *.as set ft=actionscript
     au! BufRead,BufNewFile /usr/local/nagios/etc/objects/* set ft=nagios
     au! BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-    au! FileType python setlocal textwidth=79
-    au! FileType ruby setlocal textwidth=79
     au! BufRead,BufNewFile *.m set ft=objc
+    au! BufRead,BufNewFile *.jade set ft=jade
     au! FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
 augroup end
 " " }}}
@@ -117,6 +120,7 @@ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdtree'
 let NERDTreeShowHidden = 1
 let NERDTreeChDirMode = 2
+let NERDTreeIgnore = ['__pycache__', '\.pyc$']
 
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
@@ -191,25 +195,18 @@ let g:clang_library_path = '/usr/lib/libclang.dylib'
 Bundle 'eraserhd/vim-ios'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Bundle 'wakatime/vim-wakatime'
 
 Bundle 'airblade/vim-gitgutter'
 highlight SignColumn term=underline ctermfg=101 ctermbg=232 guifg=#857b6f guibg=#121212
 
-Bundle 'joker1007/vim-ruby-heredoc-syntax'
-let g:ruby_heredoc_syntax_filetypes = {
-  \ "ruby" : {
-  \   "start" : "RUBY",
-  \},
-  \ "css" : {
-  \   "start" : "CSS",
-  \},
-\}
-" " }}}
-
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 runtime macros/matchit.vim
+
+Bundle 'othree/yajs.vim'
+Bundle 'digitaltoad/vim-jade'
+
+" " }}}
 
 if exists("$TMUX")
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
