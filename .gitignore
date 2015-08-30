@@ -1,3 +1,4 @@
 bundle/
 !tmp/.gitkeep
 tmp/*
+.netrwhist

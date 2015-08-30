@@ -112,12 +112,14 @@ call vundle#rc()
 " GitHub Plugins
 Bundle 'gmarik/vundle'
 Bundle 'junegunn/seoul256.vim'
+Bundle 'easymotion/vim-easymotion'
 Bundle 'thoughtbot/vim-rspec'
 let g:rspec_command="!bundle exec rspec {spec}"
 let g:rspec_runner = "os_x_iterm"
 
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-vinegar'
+" Bundle 'scrooloose/nerdtree'
 let NERDTreeShowHidden = 1
 let NERDTreeChDirMode = 2
 let NERDTreeIgnore = ['__pycache__', '\.pyc$']
@@ -170,13 +172,11 @@ let g:numbers_exclude = ['nerdtree', 'tagbar']
 Bundle 'ervandew/supertab'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'AndrewRadev/switch.vim'
-Bundle 'aaronjensen/vim-sass-status'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'spf13/PIV'
 let g:DisableAutoPHPFolding = 1
 
 Bundle 'amirh/HTML-AutoCloseTag'
-Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'godlygeek/tabular'
 Bundle 'godlygeek/csapprox'
 " Bundle 'mhinz/vim-signify'
@@ -193,7 +193,7 @@ let g:clang_exec = '/usr/bin/clang'
 let g:clang_library_path = '/usr/lib/libclang.dylib'
 
 Bundle 'eraserhd/vim-ios'
-Bundle 'marijnh/tern_for_vim'
+" Bundle 'marijnh/tern_for_vim'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 Bundle 'airblade/vim-gitgutter'
@@ -205,6 +205,7 @@ runtime macros/matchit.vim
 
 Bundle 'othree/yajs.vim'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'terryma/vim-multiple-cursors'
 
 " " }}}
 
