@@ -66,10 +66,10 @@ nmap sk :SplitjoinJoin<cr>
 nmap sc :CoffeeWatch vert<cr>
 nmap <leader>q :noh<cr>
 
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
+noremap <up>    <c-w>+
+noremap <down>  <c-w>-
+noremap <left>  1<c-w>>
+noremap <right> 1<c-w><
 noremap <space> :call ToggleFold()<CR>
 
 nnoremap gp `[v`]
