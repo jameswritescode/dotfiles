@@ -26,8 +26,9 @@ set shell=/bin/sh
 
 set list
 set listchars=""
-set listchars=tab:\ \
-set listchars+=trail:.
+set listchars=tab:›·
+set listchars+=trail:·
+set listchars+=nbsp:·
 set listchars+=extends:>
 set listchars+=precedes:<
 
@@ -38,79 +39,54 @@ set foldmethod=indent
 set foldcolumn=1
 
 set textwidth=80
+set formatoptions-=t
 set colorcolumn=+1
 
-let mapleader=","
+let mapleader="\<Space>"
 
-syntax on
+inoremap jk <esc>
 
-filetype plugin indent on
-
-map <C-h> :set invhlsearch<cr>
-map <F1> <nop>
-map <F1> :set nonumber<return>
-map <F2> :set number<return>
-map <F3> :set noautoindent<return>
-map <F4> :set autoindent<return>
-map <a-space> :call ToggleAllFolds()<CR>
 map <leader>sb <C-^><CR>
 map <leader>nt :NERDTreeToggle<CR>
-map <leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
+map <leader>tt :call RunCurrentSpecFile()<CR>
+map <Leader>ts :call RunNearestSpec()<CR>
 map <leader>p :set paste!<cr>
+map <leader>j <plug>(easymotion-bd-w)
 
 vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
 
 nmap sj :SplitjoinSplit<cr>
 nmap sk :SplitjoinJoin<cr>
 nmap sc :CoffeeWatch vert<cr>
+nmap tb :Tagbar<cr>
 nmap <leader>q :noh<cr>
 
 noremap <up>    <c-w>+
 noremap <down>  <c-w>-
 noremap <left>  1<c-w>>
 noremap <right> 1<c-w><
-noremap <space> :call ToggleFold()<CR>
 
 nnoremap gp `[v`]
+nnoremap J O<esc>Dj
+nnoremap K o<esc>Dk
+nnoremap <leader>z <c-z>
 
-" autocmd VimEnter * NERDTree
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-au VimEnter * highlight clear SignColumn
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+autocmd filetype crontab setlocal nobackup nowritebackup
 
-" File Types " {{{
 augroup filetype
-    au! BufRead,BufNewFile *.go set ft=go
-    au! BufRead,BufNewFile *.md set ft=markdown
-    au! BufRead,BufNewFile *.clj set ft=clojure
-    au! BufRead,BufNewFile *.php setlocal cin
-    au! BufRead,BufNewFile *.coffee setlocal ft=coffee
-    au! BufRead,BufNewFile *.handlebars set ft=handlebars
-    au! BufRead,BufNewFile Guardfile set ft=ruby
-    au! BufRead,BufNewFile fabfile set ft=python
-    au! BufRead,BufNewFile go setlocal ft=go
     au! BufRead,BufNewFile *.wsgi set ft=python
-    au! BufRead,BufNewFile *.tumblr.html set ft=tumblr
-    au! BufRead,BufNewFile *.bf set ft=brainfuck
-    au! BufRead,BufNewFile /usr/local/nginx/conf/* set ft=nginx
-    au! BufRead,BufNewFile *.json set ft=json
-    au! BufRead,BufNewFile hgweb.conf set ft=cfg
-    au! BufRead,BufNewFile .tmux.conf set ft=tmux
-    au! BufRead,BufNewFile *.as set ft=actionscript
-    au! BufRead,BufNewFile /usr/local/nagios/etc/objects/* set ft=nagios
-    au! BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-    au! BufRead,BufNewFile *.m set ft=objc
     au! BufRead,BufNewFile *.jade set ft=jade
     au! FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
 augroup end
-" " }}}
 
-" Vundle " {{{
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " GitHub Plugins
-Bundle 'gmarik/vundle'
+Bundle 'VundleVim/Vundle.vim'
 Bundle 'junegunn/seoul256.vim'
 Bundle 'easymotion/vim-easymotion'
 Bundle 'thoughtbot/vim-rspec'
@@ -118,27 +94,31 @@ let g:rspec_command="!bundle exec rspec {spec}"
 let g:rspec_runner = "os_x_iterm"
 
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-vinegar'
-" Bundle 'scrooloose/nerdtree'
-let NERDTreeShowHidden = 1
-let NERDTreeChDirMode = 2
-let NERDTreeIgnore = ['__pycache__', '\.pyc$']
-
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
+function! FindPythonExec()
+  let g:syntastic_python_python_exec=system('which python')
+endfunction
+call FindPythonExec()
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+let g:syntastic_python_pylint_args = '-d missing-docstring,attribute-defined-outside-init,bare-except,too-many-instance-attributes,logging-format-interpolation,invalid-name'
+let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 " let g:syntastic_enable_signs = 1
 " let g:syntastic_auto_jump = 1
 " let g:syntastic_auto_loc_list = 1
 
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
-Bundle 'honza/vim-snippets'
 Bundle 'garbas/vim-snipmate'
 let snips_author = 'James Newton <james@Zaphyous.com>'
+Bundle 'honza/vim-snippets'
+Bundle 'justinj/vim-react-snippets'
 
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mileszs/ack.vim'
+Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-sleuth'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-commentary'
@@ -151,7 +131,7 @@ Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-tbone'
 Bundle 'tpope/vim-fireplace'
-" Bundle 'tpope/vim-classpath'
+Bundle 'tpope/vim-classpath'
 Bundle 'tpope/vim-rails'
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_rails = 1
@@ -192,7 +172,6 @@ let g:clang_snippets_engine = 'ultisnips'
 let g:clang_exec = '/usr/bin/clang'
 let g:clang_library_path = '/usr/lib/libclang.dylib'
 
-Bundle 'eraserhd/vim-ios'
 " Bundle 'marijnh/tern_for_vim'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
@@ -206,8 +185,29 @@ runtime macros/matchit.vim
 Bundle 'othree/yajs.vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'leafgarland/typescript-vim'
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'pangloss/vim-javascript'
+Bundle 'mxw/vim-jsx'
+let g:jsx_ext_required = 0
 
-" " }}}
+Bundle 'fatih/vim-go'
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+Bundle 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
+
+call vundle#end()
+
+filetype plugin indent on
+syntax on
 
 if exists("$TMUX")
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -216,38 +216,6 @@ else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=2\x7"
 endif
-
-" {{{ Functions
-function! ToggleFold() " {{{
-    if foldlevel('.') == 0
-         normal! l
-    else
-         if foldclosed('.') < 0
-            . foldclose
-        else
-            . foldopen
-        endif
-    endif
-    echo
-endfunction " }}}
-
-function! ToggleAllFolds() " {{{
-    if exists("g:folded") == 0
-        echo "Opened all folds"
-        normal! zR
-        let g:folded = 0
-    else
-        echo "Closed all folds"
-        normal! zM
-        unlet g:folded
-    endif
-endfunction " }}}
-
-function! ChangeDir() " {{{
-    let _dir = expand("%:p:h")
-    exec "cd " . _dir
-    unlet _dir
-endfunction " }}}
 
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
@@ -258,16 +226,5 @@ function! <SID>StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunction
-
-function! <SID>StripEmptyLines()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    g/^$/d
-    let @/=_s
-    call cursor(l, c)
-endfunction
-" }}}
 
 colors seoul256
