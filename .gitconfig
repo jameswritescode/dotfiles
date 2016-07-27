@@ -1,35 +1,19 @@
 [user]
-	name = James Newton
-	email = james@Zaphyous.com
+        name = James Newton
+        email = hello@jamesnewton.com
 [alias]
-	co = checkout
-	st = status
-	stats = shortlog -sne --no-merges
-	forget = rm --cached
-	b = branch
-  c = checkout
-	pus = push
-	ad = add
-  dif = diff
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	pul = pull
-	squash = stash
-	squish = stash
-  recent = for-each-ref --count=5 --sort=-committerdate refs/heads/ --format='%(refname:short)'
-	feature = flow feature
+        co = checkout
+        st = status -sb
+        g = grep --break --heading --line-number
+        b = branch
+        forget = rm --cached
+        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [color]
-	ui = auto
-[mergetool]
-	keepBackup = true
-[difftool "Kaleidoscope"]
-	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
-[difftool]
-	prompt = false
-[diff]
-	tool = Kaleidoscope
+        ui = auto
+[grep]
+        extendRegexp = true
+        lineNumber = true
+[http]
+        sslVerify = false
 [push]
-	default = current
-[rerere]
-	enabled = true
-[core]
-	excludesfile = ~/.gitignore
+        default = simple
