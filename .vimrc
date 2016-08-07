@@ -102,12 +102,14 @@ endfunction
 call FindPythonExec()
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:syntastic_python_pylint_args = '-d missing-docstring,attribute-defined-outside-init,bare-except,too-many-instance-attributes,logging-format-interpolation,invalid-name'
-let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 " let g:syntastic_enable_signs = 1
 " let g:syntastic_auto_jump = 1
 " let g:syntastic_auto_loc_list = 1
+let g:syntastic_quiet_messages = {}
 
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
@@ -118,6 +120,10 @@ Bundle 'justinj/vim-react-snippets'
 
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mileszs/ack.vim'
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-sleuth'
 Bundle 'tpope/vim-repeat'
@@ -162,6 +168,11 @@ Bundle 'godlygeek/csapprox'
 " Bundle 'mhinz/vim-signify'
 Bundle 'hlissner/vim-forrestgump'
 Bundle 'kien/ctrlp.vim'
+let g:ctrl_p_cache_dir = $HOME . '/.cache/ctrlp'
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
 Bundle 'Rip-Rip/clang_complete'
 let g:clang_complete_auto = 0
 let g:clang_use_library = 1
@@ -203,6 +214,8 @@ let g:go_highlight_build_constraints = 1
 Bundle 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
+
+Bundle 'kylef/apiblueprint.vim'
 
 call vundle#end()
 
