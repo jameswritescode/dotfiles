@@ -103,7 +103,7 @@ call FindPythonExec()
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:syntastic_python_pylint_args = '-d missing-docstring,attribute-defined-outside-init,bare-except,too-many-instance-attributes,logging-format-interpolation,invalid-name'
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 " let g:syntastic_enable_signs = 1
@@ -138,6 +138,7 @@ Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-tbone'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
+Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-rails'
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_rails = 1
