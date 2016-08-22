@@ -140,11 +140,18 @@ Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-rails'
-let g:rubycomplete_buffer_loading = 1
-let g:rubycomplete_rails = 1
+let g:rails_gem_projections = {
+      \ "pundit": {
+      \   "app/policies/*_policy.rb": {
+      \     "command": "policy",
+      \     "affinity": "model",
+      \     "alternate": "app/models/{}.rb"
+      \ }}}
 
 Bundle 'guns/vim-clojure-static'
 Bundle 'vim-ruby/vim-ruby'
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_rails = 1
 Bundle 'nono/jquery.vim'
 Bundle 'nono/vim-handlebars'
 Bundle 'gregsexton/gitv'
