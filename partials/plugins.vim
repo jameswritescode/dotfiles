@@ -161,4 +161,8 @@ if executable('lein')
   Bundle 'tpope/vim-classpath'
 endif
 
+if executable('rustc')
+  Bundle 'rust-lang/rust.vim'
+endif
+
 call vundle#end()
