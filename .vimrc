@@ -44,32 +44,7 @@ set colorcolumn=+1
 
 let mapleader="\<Space>"
 
-inoremap jk <esc>
-
-map <leader>sb <C-^><CR>
-map <leader>nt :NERDTreeToggle<CR>
-map <leader>tt :call RunCurrentSpecFile()<CR>
-map <Leader>ts :call RunNearestSpec()<CR>
-map <leader>p :set paste!<cr>
-map <leader>j <plug>(easymotion-bd-w)
-
-vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
-
-nmap sj :SplitjoinSplit<cr>
-nmap sk :SplitjoinJoin<cr>
-nmap sc :CoffeeWatch vert<cr>
-nmap tb :Tagbar<cr>
-nmap <leader>q :noh<cr>
-
-noremap <up>    <c-w>+
-noremap <down>  <c-w>-
-noremap <left>  1<c-w>>
-noremap <right> 1<c-w><
-
-nnoremap gp `[v`]
-nnoremap J O<esc>Dj
-nnoremap K o<esc>Dk
-nnoremap <leader>z <c-z>
+source ~/.vim/partials/mappings.vim
 
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 autocmd filetype crontab setlocal nobackup nowritebackup
