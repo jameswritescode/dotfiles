@@ -30,11 +30,10 @@ let g:syntastic_quiet_messages = {}
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
-let snips_author = 'James Newton <james@Zaphyous.com>'
+let snips_author = 'James Newton <hello@jamesnewton.com>'
 Bundle 'honza/vim-snippets'
 Bundle 'justinj/vim-react-snippets'
 
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'mileszs/ack.vim'
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -83,13 +82,10 @@ Bundle 'ervandew/supertab'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'editorconfig/editorconfig-vim'
-Bundle 'spf13/PIV'
-let g:DisableAutoPHPFolding = 1
 
 Bundle 'amirh/HTML-AutoCloseTag'
 Bundle 'godlygeek/tabular'
 Bundle 'godlygeek/csapprox'
-" Bundle 'mhinz/vim-signify'
 Bundle 'hlissner/vim-forrestgump'
 Bundle 'kien/ctrlp.vim'
 let g:ctrl_p_cache_dir = $HOME . '/.cache/ctrlp'
@@ -122,23 +118,37 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'leafgarland/typescript-vim'
 Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'elixir-lang/vim-elixir'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
-
-Bundle 'fatih/vim-go'
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_interfaces = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
 
 Bundle 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
 Bundle 'kylef/apiblueprint.vim'
+
+if executable('go')
+  Bundle 'fatih/vim-go'
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_structs = 1
+  let g:go_highlight_interfaces = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_build_constraints = 1
+endif
+
+if executable('iex')
+  Bundle 'elixir-lang/vim-elixir'
+endif
+
+if executable('php')
+  Bundle 'spf13/PIV'
+  let g:DisableAutoPHPFolding = 1
+endif
+
+if executable('coffee')
+  Bundle 'kchmck/vim-coffee-script'
+endif
 
 call vundle#end()

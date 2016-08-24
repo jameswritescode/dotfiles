@@ -13,6 +13,8 @@ nmap sk :SplitjoinJoin<cr>
 nmap sc :CoffeeWatch vert<cr>
 nmap tb :Tagbar<cr>
 nmap <leader>q :noh<cr>
+nmap <leader>j <plug>(easymotion-overwin-w)
+nmap <leader>k <plug>(easymotion-overwin-f)
 
 noremap <up>    <c-w>+
 noremap <down>  <c-w>-
