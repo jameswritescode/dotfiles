@@ -5,10 +5,6 @@ call vundle#begin()
 Bundle 'VundleVim/Vundle.vim'
 Bundle 'junegunn/seoul256.vim'
 Bundle 'easymotion/vim-easymotion'
-Bundle 'thoughtbot/vim-rspec'
-let g:rspec_command="!bundle exec rspec {spec}"
-let g:rspec_runner = "os_x_iterm"
-
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
@@ -34,11 +30,6 @@ let snips_author = 'James Newton <hello@jamesnewton.com>'
 Bundle 'honza/vim-snippets'
 Bundle 'justinj/vim-react-snippets'
 
-Bundle 'mileszs/ack.vim'
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
 Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-sleuth'
 Bundle 'tpope/vim-repeat'
@@ -48,25 +39,8 @@ Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-tbone'
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-classpath'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-rails'
-let g:rails_gem_projections = {
-      \ "pundit": {
-      \   "app/policies/*_policy.rb": {
-      \     "command": "policy",
-      \     "affinity": "model",
-      \     "alternate": "app/models/{}.rb"
-      \ }}}
 
-Bundle 'guns/vim-clojure-static'
-Bundle 'vim-ruby/vim-ruby'
-let g:rubycomplete_buffer_loading = 1
-let g:rubycomplete_rails = 1
 Bundle 'nono/jquery.vim'
 Bundle 'nono/vim-handlebars'
 Bundle 'gregsexton/gitv'
@@ -89,9 +63,6 @@ Bundle 'godlygeek/csapprox'
 Bundle 'hlissner/vim-forrestgump'
 Bundle 'kien/ctrlp.vim'
 let g:ctrl_p_cache_dir = $HOME . '/.cache/ctrlp'
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
 
 Bundle 'Rip-Rip/clang_complete'
 let g:clang_complete_auto = 0
@@ -110,8 +81,6 @@ Bundle 'airblade/vim-gitgutter'
 highlight SignColumn term=underline ctermfg=101 ctermbg=232 guifg=#857b6f guibg=#121212
 
 Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-runtime macros/matchit.vim
 
 Bundle 'othree/yajs.vim'
 Bundle 'digitaltoad/vim-jade'
@@ -149,6 +118,47 @@ endif
 
 if executable('coffee')
   Bundle 'kchmck/vim-coffee-script'
+endif
+
+if executable('rails')
+  Bundle 'tpope/vim-rails'
+  let g:rails_gem_projections = {
+        \ "pundit": {
+        \   "app/policies/*_policy.rb": {
+        \     "command": "policy",
+        \     "affinity": "model",
+        \     "alternate": "app/models/{}.rb"
+        \ }}}
+endif
+
+if executable('ruby')
+  Bundle 'tpope/vim-bundler'
+  Bundle 'tpope/vim-haml'
+  Bundle 'tpope/vim-cucumber'
+
+  Bundle 'thoughtbot/vim-rspec'
+  let g:rspec_command="!bundle exec rspec {spec}"
+  let g:rspec_runner = "os_x_iterm"
+
+  Bundle 'vim-ruby/vim-ruby'
+  let g:rubycomplete_buffer_loading = 1
+  let g:rubycomplete_rails = 1
+
+  Bundle 'nelstrom/vim-textobj-rubyblock'
+  runtime macros/matchit.vim
+endif
+
+if executable('ag')
+  Bundle 'mileszs/ack.vim'
+  let g:ackprg = 'ag --vimgrep'
+
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
+if executable('lein')
+  " Bundle 'guns/vim-clojure-static'
+  Bundle 'tpope/vim-fireplace'
+  Bundle 'tpope/vim-classpath'
 endif
 
 call vundle#end()
