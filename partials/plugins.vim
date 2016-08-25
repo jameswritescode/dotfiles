@@ -72,7 +72,6 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'othree/yajs.vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'terryma/vim-multiple-cursors'
-Bundle 'leafgarland/typescript-vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mxw/vim-jsx'
@@ -164,6 +163,11 @@ if executable('python') || executable('python3')
   call FindPythonExec()
 
   let g:syntastic_python_pylint_args = '-d missing-docstring,attribute-defined-outside-init,bare-except,too-many-instance-attributes,logging-format-interpolation,invalid-name'
+endif
+
+if executable('tsc')
+  Bundle 'leafgarland/typescript-vim'
+  Bundle 'HerringtonDarkholme/yats.vim'
 endif
 
 call vundle#end()
