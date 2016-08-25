@@ -5,7 +5,6 @@ Bundle 'VundleVim/Vundle.vim'
 Bundle 'junegunn/seoul256.vim'
 Bundle 'easymotion/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:syntastic_javascript_checkers = ['jshint']
