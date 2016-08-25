@@ -50,8 +50,6 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 autocmd filetype crontab setlocal nobackup nowritebackup
 
 augroup filetype
-    au! BufRead,BufNewFile *.wsgi set ft=python
-    au! BufRead,BufNewFile *.jade set ft=jade
     au! FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
 augroup end
 
