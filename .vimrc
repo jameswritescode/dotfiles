@@ -44,9 +44,16 @@ set colorcolumn=+1
 
 let mapleader="\<Space>"
 
+if exists("$TMUX")
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=2\x7"
+endif
+
 source ~/.vim/partials/mappings.vim
 
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 autocmd filetype crontab setlocal nobackup nowritebackup
 
 augroup filetype
@@ -60,22 +67,6 @@ source ~/.vim/partials/plugins.vim
 filetype plugin indent on
 syntax on
 
-if exists("$TMUX")
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=2\x7"
-endif
-
-function! <SID>StripTrailingWhitespaces()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    let @/=_s
-    call cursor(l, c)
-endfunction
+source ~/.vim/partials/functions.vim
 
 colors seoul256
