@@ -1,26 +1,14 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" GitHub Plugins
 Bundle 'VundleVim/Vundle.vim'
 Bundle 'junegunn/seoul256.vim'
 Bundle 'easymotion/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
-function! FindPythonExec()
-  let g:syntastic_python_python_exec=system('which python')
-endfunction
-call FindPythonExec()
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
-let g:syntastic_python_pylint_args = '-d missing-docstring,attribute-defined-outside-init,bare-except,too-many-instance-attributes,logging-format-interpolation,invalid-name'
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_ruby_checkers = ['rubocop', 'mri']
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-" let g:syntastic_enable_signs = 1
-" let g:syntastic_auto_jump = 1
-" let g:syntastic_auto_loc_list = 1
 let g:syntastic_quiet_messages = {}
 
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -74,7 +62,6 @@ let g:clang_snippets_engine = 'ultisnips'
 let g:clang_exec = '/usr/bin/clang'
 let g:clang_library_path = '/usr/lib/libclang.dylib'
 
-" Bundle 'marijnh/tern_for_vim'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 Bundle 'airblade/vim-gitgutter'
@@ -105,6 +92,9 @@ if executable('go')
   let g:go_highlight_interfaces = 1
   let g:go_highlight_operators = 1
   let g:go_highlight_build_constraints = 1
+
+  let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+  let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 endif
 
 if executable('iex')
@@ -129,6 +119,8 @@ if executable('rails')
         \     "affinity": "model",
         \     "alternate": "app/models/{}.rb"
         \ }}}
+
+  let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 endif
 
 if executable('ruby')
@@ -163,6 +155,15 @@ endif
 
 if executable('rustc')
   Bundle 'rust-lang/rust.vim'
+endif
+
+if executable('python') || executable('python3')
+  function! FindPythonExec()
+    let g:syntastic_python_python_exec=system('which python')
+  endfunction
+  call FindPythonExec()
+
+  let g:syntastic_python_pylint_args = '-d missing-docstring,attribute-defined-outside-init,bare-except,too-many-instance-attributes,logging-format-interpolation,invalid-name'
 endif
 
 call vundle#end()
