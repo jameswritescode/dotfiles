@@ -6,7 +6,8 @@ Bundle 'junegunn/seoul256.vim'
 Bundle 'easymotion/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/syntastic'
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_html_tidy_ignore_errors = [" proprietary attribute \"ng-"]
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_quiet_messages = {}
 
@@ -34,10 +35,10 @@ Bundle 'gregsexton/gitv'
 Bundle 'Raimondi/delimitMate'
 Bundle 'msanders/cocoa.vim'
 Bundle 'majutsushi/tagbar'
-let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 
 Bundle 'myusuf3/numbers.vim'
-let g:numbers_exclude = ['nerdtree', 'tagbar']
+let g:numbers_exclude = ['tagbar']
 
 Bundle 'ervandew/supertab'
 Bundle 'AndrewRadev/splitjoin.vim'
@@ -49,7 +50,6 @@ Bundle 'godlygeek/tabular'
 Bundle 'godlygeek/csapprox'
 Bundle 'hlissner/vim-forrestgump'
 Bundle 'kien/ctrlp.vim'
-let g:ctrl_p_cache_dir = $HOME . '/.cache/ctrlp'
 
 Bundle 'Rip-Rip/clang_complete'
 let g:clang_complete_auto = 0
@@ -117,8 +117,6 @@ if executable('rails')
         \     "affinity": "model",
         \     "alternate": "app/models/{}.rb"
         \ }}}
-
-  let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 endif
 
 if executable('ruby')
@@ -136,12 +134,15 @@ if executable('ruby')
 
   Bundle 'nelstrom/vim-textobj-rubyblock'
   runtime macros/matchit.vim
+
+  let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 endif
 
 if executable('ag')
   Bundle 'mileszs/ack.vim'
   let g:ackprg = 'ag --vimgrep'
 
+  let g:ctrlp_use_caching = 0
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
