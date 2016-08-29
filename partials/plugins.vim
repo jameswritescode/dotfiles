@@ -166,6 +166,7 @@ if executable('python') || executable('python3')
 endif
 
 if executable('tsc')
+  Bundle 'Quramy/tsuquyomi'
   Bundle 'leafgarland/typescript-vim'
   Bundle 'HerringtonDarkholme/yats.vim'
 endif
