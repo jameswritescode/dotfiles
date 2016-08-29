@@ -4,7 +4,6 @@ call vundle#begin()
 Bundle 'VundleVim/Vundle.vim'
 Bundle 'junegunn/seoul256.vim'
 Bundle 'easymotion/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/syntastic'
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_html_tidy_ignore_errors = [" proprietary attribute \"ng-"]
@@ -17,7 +16,6 @@ Bundle 'garbas/vim-snipmate'
 let snips_author = 'James Newton <hello@jamesnewton.com>'
 Bundle 'honza/vim-snippets'
 Bundle 'justinj/vim-react-snippets'
-
 Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-sleuth'
 Bundle 'tpope/vim-repeat'
@@ -28,7 +26,6 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-tbone'
-
 Bundle 'nono/jquery.vim'
 Bundle 'nono/vim-handlebars'
 Bundle 'gregsexton/gitv'
@@ -44,13 +41,11 @@ Bundle 'ervandew/supertab'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'editorconfig/editorconfig-vim'
-
 Bundle 'amirh/HTML-AutoCloseTag'
 Bundle 'godlygeek/tabular'
 Bundle 'godlygeek/csapprox'
 Bundle 'hlissner/vim-forrestgump'
-Bundle 'kien/ctrlp.vim'
-
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'Rip-Rip/clang_complete'
 let g:clang_complete_auto = 0
 let g:clang_use_library = 1
@@ -62,12 +57,10 @@ let g:clang_exec = '/usr/bin/clang'
 let g:clang_library_path = '/usr/lib/libclang.dylib'
 
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-
 Bundle 'airblade/vim-gitgutter'
 highlight SignColumn term=underline ctermfg=101 ctermbg=232 guifg=#857b6f guibg=#121212
 
 Bundle 'kana/vim-textobj-user'
-
 Bundle 'othree/yajs.vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'terryma/vim-multiple-cursors'
@@ -81,6 +74,8 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
 Bundle 'kylef/apiblueprint.vim'
+Bundle 'luochen1990/rainbow'
+let g:rainbow_active = 1
 
 if executable('go')
   Bundle 'fatih/vim-go'
@@ -157,6 +152,8 @@ if executable('rustc')
 endif
 
 if executable('python') || executable('python3')
+  Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+
   function! FindPythonExec()
     let g:syntastic_python_python_exec=system('which python')
   endfunction
