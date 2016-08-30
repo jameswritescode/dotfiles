@@ -1,11 +1,11 @@
-map <leader>sb <C-^><CR>
-map <leader>tt :call RunCurrentSpecFile()<CR>
-map <leader>ts :call RunNearestSpec()<CR>
+map <leader>sb <c-^><cr>
+map <leader>tt :call RunCurrentSpecFile()<cr>
+map <leader>ts :call RunNearestSpec()<cr>
 map <leader>p :set paste!<cr>
 map <leader>j <plug>(easymotion-bd-w)
 map <leader>k <plug>(easymotion-bd-f)
 
-vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
+vmap <c-c> y:call system("pbcopy", getreg("\""))<cr>
 
 nmap <leader>sc :CoffeeWatch vert<cr>
 nmap <leader>tb :Tagbar<cr>
@@ -17,10 +17,16 @@ noremap <up>    <c-w>+
 noremap <down>  <c-w>-
 noremap <left>  1<c-w>>
 noremap <right> 1<c-w><
+noremap <c-t>   <esc>:tabnew<cr>
 
 inoremap jk <esc>
 
+nnoremap ; :
+nnoremap ; :
 nnoremap gp `[v`]
-nnoremap J O<esc>Dj
-nnoremap K o<esc>Dk
 nnoremap <leader>z <c-z>
+nnoremap H gT
+nnoremap L gt
+
+vnoremap J :m '>+1<cr>gv=gv
+vnoremap K :m '<-2<cr>gv=gv
