@@ -152,6 +152,7 @@ if executable('rustc')
 endif
 
 if executable('python') || executable('python3')
+  Bundle 'klen/python-mode'
   Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 
   function! FindPythonExec()
