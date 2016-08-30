@@ -27,6 +27,7 @@ nnoremap gp `[v`]
 nnoremap <leader>z <c-z>
 nnoremap H gT
 nnoremap L gt
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 vnoremap J :m '>+1<cr>gv=gv
 vnoremap K :m '<-2<cr>gv=gv
