@@ -7,7 +7,7 @@ Bundle 'easymotion/vim-easymotion'
 Bundle 'scrooloose/syntastic'
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_html_tidy_ignore_errors = [" proprietary attribute \"ng-"]
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['jscs', 'jshint']
 let g:syntastic_quiet_messages = {}
 
 Bundle 'MarcWeber/vim-addon-mw-utils'
