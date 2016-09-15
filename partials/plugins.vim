@@ -2,12 +2,14 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Bundle 'VundleVim/Vundle.vim'
+
+" Consider using https://github.com/sheerun/vim-polyglot in the future?
+
 Bundle 'junegunn/seoul256.vim'
 Bundle 'easymotion/vim-easymotion'
 Bundle 'scrooloose/syntastic'
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_html_tidy_ignore_errors = [" proprietary attribute \"ng-"]
-let g:syntastic_javascript_checkers = ['jscs', 'jshint']
 let g:syntastic_quiet_messages = {}
 
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -27,13 +29,10 @@ Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-tbone'
 Bundle 'nono/jquery.vim'
-Bundle 'nono/vim-handlebars'
+Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'gregsexton/gitv'
 Bundle 'Raimondi/delimitMate'
 Bundle 'msanders/cocoa.vim'
-Bundle 'majutsushi/tagbar'
-let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
-
 Bundle 'myusuf3/numbers.vim'
 let g:numbers_exclude = ['tagbar']
 
@@ -77,6 +76,23 @@ Bundle 'kylef/apiblueprint.vim'
 Bundle 'luochen1990/rainbow'
 let g:rainbow_active = 1
 
+if executable('ag')
+  Bundle 'mileszs/ack.vim'
+  let g:ackprg = 'ag --vimgrep'
+
+  let g:ctrlp_use_caching = 0
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
+if executable('coffee')
+  Bundle 'kchmck/vim-coffee-script'
+endif
+
+if executable('ctags')
+  Bundle 'majutsushi/tagbar'
+  let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+endif
+
 if executable('go')
   Bundle 'fatih/vim-go'
   let g:go_highlight_functions = 1
@@ -94,13 +110,33 @@ if executable('iex')
   Bundle 'elixir-lang/vim-elixir'
 endif
 
+if executable('lein')
+  " Bundle 'guns/vim-clojure-static'
+  Bundle 'tpope/vim-fireplace'
+  Bundle 'tpope/vim-classpath'
+endif
+
+if executable('node')
+  let g:syntastic_javascript_checkers = ['jscs', 'jshint']
+endif
+
 if executable('php')
   Bundle 'spf13/PIV'
   let g:DisableAutoPHPFolding = 1
 endif
 
-if executable('coffee')
-  Bundle 'kchmck/vim-coffee-script'
+if executable('python') || executable('python3')
+  Bundle 'klen/python-mode'
+  let g:pymode_lint_write = 0
+
+  Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+  function! FindPythonExec()
+    let g:syntastic_python_python_exec=system('which python')
+  endfunction
+  call FindPythonExec()
+
+  let g:syntastic_python_pylint_args = '-d missing-docstring,attribute-defined-outside-init,bare-except,too-many-instance-attributes,logging-format-interpolation,invalid-name'
 endif
 
 if executable('rails')
@@ -133,36 +169,8 @@ if executable('ruby')
   let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 endif
 
-if executable('ag')
-  Bundle 'mileszs/ack.vim'
-  let g:ackprg = 'ag --vimgrep'
-
-  let g:ctrlp_use_caching = 0
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-
-if executable('lein')
-  " Bundle 'guns/vim-clojure-static'
-  Bundle 'tpope/vim-fireplace'
-  Bundle 'tpope/vim-classpath'
-endif
-
 if executable('rustc')
   Bundle 'rust-lang/rust.vim'
-endif
-
-if executable('python') || executable('python3')
-  Bundle 'klen/python-mode'
-  let g:pymode_lint_write = 0
-
-  Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-
-  function! FindPythonExec()
-    let g:syntastic_python_python_exec=system('which python')
-  endfunction
-  call FindPythonExec()
-
-  let g:syntastic_python_pylint_args = '-d missing-docstring,attribute-defined-outside-init,bare-except,too-many-instance-attributes,logging-format-interpolation,invalid-name'
 endif
 
 if executable('tsc')
