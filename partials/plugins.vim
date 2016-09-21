@@ -149,7 +149,15 @@ if executable('rails')
         \     "command": "policy",
         \     "affinity": "model",
         \     "alternate": "app/models/{}.rb"
-        \ }}}
+        \   }
+        \ },
+        \ "draper": {
+        \   "app/decorators/*_decorator.rb": {
+        \     "command": "decorator",
+        \     "affinity": "model",
+        \     "alternate": "app/models/{}.rb"
+        \   }
+        \ }}
 endif
 
 if executable('ruby')
