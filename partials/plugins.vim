@@ -7,10 +7,19 @@ Bundle 'VundleVim/Vundle.vim'
 
 Bundle 'junegunn/seoul256.vim'
 Bundle 'easymotion/vim-easymotion'
-Bundle 'scrooloose/syntastic'
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_html_tidy_ignore_errors = [" proprietary attribute \"ng-"]
-let g:syntastic_quiet_messages = {}
+" Bundle 'scrooloose/syntastic'
+" let g:syntastic_aggregate_errors = 1
+" let g:syntastic_html_tidy_ignore_errors = [" proprietary attribute \"ng-"]
+" let g:syntastic_quiet_messages = {}
+" let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+" let g:syntastic_javascript_checkers = ['jscs', 'jshint']
+" let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+" let g:syntastic_python_pylint_args = '-d missing-docstring,attribute-defined-outside-init,bare-except,too-many-instance-attributes,logging-format-interpolation,invalid-name'
+" function! FindPythonExec()
+"   let g:syntastic_python_python_exec=system('which python')
+" endfunction
+" call FindPythonExec()
 
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
@@ -66,7 +75,7 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mxw/vim-jsx'
-let g:jsx_ext_required = 0
+" let g:jsx_ext_required = 0
 
 Bundle 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_guide_size = 1
@@ -75,6 +84,9 @@ let g:indent_guides_start_level = 2
 Bundle 'kylef/apiblueprint.vim'
 Bundle 'luochen1990/rainbow'
 let g:rainbow_active = 1
+
+Bundle 'neomake/neomake'
+autocmd! BufWritePost * Neomake
 
 if executable('ag')
   Bundle 'mileszs/ack.vim'
@@ -101,9 +113,6 @@ if executable('go')
   let g:go_highlight_interfaces = 1
   let g:go_highlight_operators = 1
   let g:go_highlight_build_constraints = 1
-
-  let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-  let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 endif
 
 if executable('iex')
@@ -117,7 +126,7 @@ if executable('lein')
 endif
 
 if executable('node')
-  let g:syntastic_javascript_checkers = ['jscs', 'jshint']
+  let g:neomake_javascript_enabled_makers = ['jscs', 'jshint']
 endif
 
 if executable('php')
@@ -130,13 +139,6 @@ if executable('python') || executable('python3')
   let g:pymode_lint_write = 0
 
   Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-
-  function! FindPythonExec()
-    let g:syntastic_python_python_exec=system('which python')
-  endfunction
-  call FindPythonExec()
-
-  let g:syntastic_python_pylint_args = '-d missing-docstring,attribute-defined-outside-init,bare-except,too-many-instance-attributes,logging-format-interpolation,invalid-name'
 endif
 
 if executable('rails')
@@ -166,7 +168,7 @@ if executable('ruby')
   Bundle 'nelstrom/vim-textobj-rubyblock'
   runtime macros/matchit.vim
 
-  let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+  let g:neomake_ruby_enabled_makers = ['rubocop', 'mri']
 endif
 
 if executable('rustc')
