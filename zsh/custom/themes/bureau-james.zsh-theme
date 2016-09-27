@@ -16,10 +16,12 @@ ZSH_THEME_GIT_PROMPT_STAGED="%{$fg_bold[green]%}●%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg_bold[yellow]%}●%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}●%{$reset_color%}"
 
+set_retval () {
+        local RETVAL=$?
+}
+
 jobs_prompt () {
-        local symbols= () {
-                local RETVAL=$?
-        }
+        local symbols=$(set_retval)
         [[ $RETVAL -ne 0 ]] && symbols+="%{$fg[red]%}✘"
         [[ $UID -eq 0 ]] && symbols+="%{$fg[yellow]%}✔"
         [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{$fg[cyan]%}⚙"
