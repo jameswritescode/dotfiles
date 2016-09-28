@@ -24,6 +24,7 @@ set splitright
 set shell=/bin/sh
 set lazyredraw
 set ttyfast
+set exrc
 
 set list
 set listchars=""
