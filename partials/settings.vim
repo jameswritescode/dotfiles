@@ -25,6 +25,7 @@ set shell=/bin/sh
 set lazyredraw
 set ttyfast
 set exrc
+set completefunc=syntaxcomplete#Complete
 
 set list
 set listchars=""
