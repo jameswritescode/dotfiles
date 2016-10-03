@@ -1,6 +1,4 @@
 map <leader>sb <c-^><cr>
-map <leader>tt :call RunCurrentSpecFile()<cr>
-map <leader>ts :call RunNearestSpec()<cr>
 map <leader>p :set paste!<cr>
 map <leader>j <plug>(easymotion-bd-w)
 map <leader>k <plug>(easymotion-bd-f)
