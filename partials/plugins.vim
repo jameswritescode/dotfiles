@@ -9,8 +9,10 @@ Bundle 'junegunn/seoul256.vim'
 Bundle 'easymotion/vim-easymotion'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
+
 Bundle 'garbas/vim-snipmate'
 let snips_author = 'James Newton <hello@jamesnewton.com>'
+
 Bundle 'honza/vim-snippets'
 Bundle 'justinj/vim-react-snippets'
 Bundle 'tpope/vim-vinegar'
@@ -23,11 +25,13 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-tbone'
+Bundle 'tpope/vim-dispatch'
 Bundle 'nono/jquery.vim'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'gregsexton/gitv'
 Bundle 'Raimondi/delimitMate'
 Bundle 'msanders/cocoa.vim'
+
 Bundle 'myusuf3/numbers.vim'
 let g:numbers_exclude = ['tagbar']
 
@@ -39,6 +43,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'godlygeek/csapprox'
 Bundle 'hlissner/vim-forrestgump'
 Bundle 'ctrlpvim/ctrlp.vim'
+
 Bundle 'Rip-Rip/clang_complete'
 let g:clang_complete_auto = 0
 let g:clang_use_library = 1
@@ -50,6 +55,7 @@ let g:clang_exec = '/usr/bin/clang'
 let g:clang_library_path = '/usr/lib/libclang.dylib'
 
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
 Bundle 'airblade/vim-gitgutter'
 highlight SignColumn term=underline ctermfg=101 ctermbg=232 guifg=#857b6f guibg=#121212
 
@@ -67,6 +73,7 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
 Bundle 'kylef/apiblueprint.vim'
+
 Bundle 'luochen1990/rainbow'
 let g:rainbow_active = 1
 
@@ -157,7 +164,9 @@ if executable('ruby')
   Bundle 'tpope/vim-haml'
   Bundle 'tpope/vim-cucumber'
   Bundle 'sunaku/vim-ruby-minitest'
+
   Bundle 'janko-m/vim-test'
+  let test#strategy = "dispatch"
 
   Bundle 'vim-ruby/vim-ruby'
   let g:rubycomplete_buffer_loading = 1
