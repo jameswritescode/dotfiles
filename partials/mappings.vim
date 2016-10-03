@@ -12,6 +12,8 @@ nmap <leader>tb :Tagbar<cr>
 nmap <leader>q :noh<cr>
 nmap <leader>j <plug>(easymotion-overwin-w)
 nmap <leader>k <plug>(easymotion-overwin-f)
+nmap <silent> <leader>tn :TestNearest<cr>
+nmap <silent> <leader>tf :TestFile<cr>
 
 noremap <up>    <c-w>+
 noremap <down>  <c-w>-
@@ -20,7 +22,7 @@ noremap <right> 1<c-w><
 noremap <c-t>   <esc>:tabnew<cr>
 
 inoremap jk <esc>
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 nnoremap ; :
 nnoremap ; :

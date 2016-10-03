@@ -157,10 +157,7 @@ if executable('ruby')
   Bundle 'tpope/vim-haml'
   Bundle 'tpope/vim-cucumber'
   Bundle 'sunaku/vim-ruby-minitest'
-
-  Bundle 'thoughtbot/vim-rspec'
-  let g:rspec_command="!bundle exec rspec {spec}"
-  let g:rspec_runner = "os_x_iterm"
+  Bundle 'janko-m/vim-test'
 
   Bundle 'vim-ruby/vim-ruby'
   let g:rubycomplete_buffer_loading = 1
