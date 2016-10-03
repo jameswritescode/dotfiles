@@ -14,10 +14,6 @@ source ~/.vim/partials/mappings.vim
 
 autocmd filetype crontab setlocal nobackup nowritebackup
 
-augroup filetype
-    au! FileType * if exists("+omnifunc") && &omnifunc == "" | setlocal omnifunc=syntaxcomplete#Complete | endif
-augroup end
-
 filetype off
 
 source ~/.vim/partials/plugins.vim

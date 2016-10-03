@@ -20,6 +20,7 @@ noremap <right> 1<c-w><
 noremap <c-t>   <esc>:tabnew<cr>
 
 inoremap jk <esc>
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 nnoremap ; :
 nnoremap ; :

@@ -7,20 +7,6 @@ Bundle 'VundleVim/Vundle.vim'
 
 Bundle 'junegunn/seoul256.vim'
 Bundle 'easymotion/vim-easymotion'
-" Bundle 'scrooloose/syntastic'
-" let g:syntastic_aggregate_errors = 1
-" let g:syntastic_html_tidy_ignore_errors = [" proprietary attribute \"ng-"]
-" let g:syntastic_quiet_messages = {}
-" let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-" let g:syntastic_javascript_checkers = ['jscs', 'jshint']
-" let g:syntastic_ruby_checkers = ['rubocop', 'mri']
-" let g:syntastic_python_pylint_args = '-d missing-docstring,attribute-defined-outside-init,bare-except,too-many-instance-attributes,logging-format-interpolation,invalid-name'
-" function! FindPythonExec()
-"   let g:syntastic_python_python_exec=system('which python')
-" endfunction
-" call FindPythonExec()
-
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
@@ -45,7 +31,6 @@ Bundle 'msanders/cocoa.vim'
 Bundle 'myusuf3/numbers.vim'
 let g:numbers_exclude = ['tagbar']
 
-Bundle 'ervandew/supertab'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'editorconfig/editorconfig-vim'
@@ -125,6 +110,13 @@ if executable('lein')
   Bundle 'tpope/vim-classpath'
 endif
 
+if has('lua')
+  Bundle 'Shougo/neocomplete.vim'
+  let g:neocomplete#enable_at_startup = 1
+else
+  Bundle 'ervandew/supertab'
+endif
+
 if executable('node')
   let g:neomake_javascript_enabled_makers = ['jscs', 'jshint']
 endif
@@ -164,6 +156,7 @@ if executable('ruby')
   Bundle 'tpope/vim-bundler'
   Bundle 'tpope/vim-haml'
   Bundle 'tpope/vim-cucumber'
+  Bundle 'sunaku/vim-ruby-minitest'
 
   Bundle 'thoughtbot/vim-rspec'
   let g:rspec_command="!bundle exec rspec {spec}"
