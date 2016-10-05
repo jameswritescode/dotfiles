@@ -135,7 +135,8 @@ endif
 
 if executable('python') || executable('python3')
   Bundle 'klen/python-mode'
-  let g:pymode_lint_write = 0
+  let g:pymode_lint = 0
+  let g:pymode_rope = 0
 
   Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 endif
