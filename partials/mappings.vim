@@ -1,6 +1,8 @@
 nmap <leader>j <plug>(easymotion-overwin-w)
 nmap <leader>k <plug>(easymotion-overwin-f)
 
+imap <c-k> <plug>(neosnippet_expand_or_jump)
+
 inoremap jk <esc>
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
