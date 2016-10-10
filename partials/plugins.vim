@@ -7,12 +7,12 @@ Bundle 'VundleVim/Vundle.vim'
 
 Bundle 'junegunn/seoul256.vim'
 Bundle 'easymotion/vim-easymotion'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
 
-Bundle 'garbas/vim-snipmate'
-let snips_author = 'James Newton <hello@jamesnewton.com>'
+Bundle 'Shougo/neosnippet'
+let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neosnippet#snippets_directory = $HOME.'.vim/bundle/vim-snippets/snippets'
 
+Bundle 'Shougo/neosnippet-snippets'
 Bundle 'honza/vim-snippets'
 Bundle 'justinj/vim-react-snippets'
 Bundle 'tpope/vim-vinegar'
@@ -45,14 +45,15 @@ Bundle 'hlissner/vim-forrestgump'
 Bundle 'ctrlpvim/ctrlp.vim'
 
 Bundle 'Rip-Rip/clang_complete'
-let g:clang_complete_auto = 0
-let g:clang_use_library = 1
-let g:clang_periodic_quickfix = 0
-let g:clang_close_preview = 1
-let g:clang_snippets = 1
-let g:clang_snippets_engine = 'ultisnips'
-let g:clang_exec = '/usr/bin/clang'
-let g:clang_library_path = '/usr/lib/libclang.dylib'
+" TODO: clarify these settings
+" let g:clang_complete_auto = 0
+" let g:clang_use_library = 1
+" let g:clang_periodic_quickfix = 0
+" let g:clang_close_preview = 1
+" let g:clang_snippets = 1
+" let g:clang_snippets_engine = 'ultisnips'
+" let g:clang_exec = '/usr/bin/clang'
+" let g:clang_library_path = '/usr/lib/libclang.dylib'
 
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
