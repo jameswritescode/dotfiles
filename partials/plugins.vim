@@ -14,7 +14,6 @@ let g:neosnippet#snippets_directory = $HOME.'.vim/bundle/vim-snippets/snippets'
 
 Bundle 'Shougo/neosnippet-snippets'
 Bundle 'honza/vim-snippets'
-Bundle 'justinj/vim-react-snippets'
 Bundle 'tpope/vim-vinegar'
 Bundle 'tpope/vim-sleuth'
 Bundle 'tpope/vim-repeat'
