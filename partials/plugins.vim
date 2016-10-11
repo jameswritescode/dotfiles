@@ -120,9 +120,9 @@ endif
 if has('lua')
   Bundle 'Shougo/neocomplete.vim'
   let g:neocomplete#enable_at_startup = 1
-  let g:neocomplete#sources#omni#functions = {
-        \ 'go': 'gocomplete#Complete'
-        \ }
+  " let g:neocomplete#sources#omni#functions = {
+  "       \ 'go': 'gocomplete#Complete'
+  "       \ }
 else
   Bundle 'ervandew/supertab'
 endif
