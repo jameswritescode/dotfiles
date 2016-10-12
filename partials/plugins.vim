@@ -1,87 +1,68 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Bundle 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " Consider using https://github.com/sheerun/vim-polyglot in the future?
 
-Bundle 'junegunn/seoul256.vim'
-Bundle 'easymotion/vim-easymotion'
+" General
 
-Bundle 'Shougo/neosnippet'
-let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory = $HOME.'.vim/bundle/vim-snippets/snippets'
+Plugin 'junegunn/seoul256.vim'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-sleuth'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-endwise'
+Plugin 'godlygeek/tabular'
+Plugin 'godlygeek/csapprox'
+Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'AndrewRadev/switch.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'kana/vim-textobj-user'
+Plugin 'hlissner/vim-forrestgump'
 
-Bundle 'Shougo/neosnippet-snippets'
-Bundle 'honza/vim-snippets'
-Bundle 'tpope/vim-vinegar'
-Bundle 'tpope/vim-sleuth'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-tbone'
-Bundle 'tpope/vim-dispatch'
-Bundle 'nono/jquery.vim'
-Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'gregsexton/gitv'
-Bundle 'Raimondi/delimitMate'
-Bundle 'msanders/cocoa.vim'
+Plugin 'janko-m/vim-test'
+let test#strategy = "dispatch"
 
-Bundle 'myusuf3/numbers.vim'
-let g:numbers_exclude = ['tagbar']
-
-Bundle 'AndrewRadev/splitjoin.vim'
-Bundle 'AndrewRadev/switch.vim'
-Bundle 'editorconfig/editorconfig-vim'
-Bundle 'amirh/HTML-AutoCloseTag'
-Bundle 'godlygeek/tabular'
-Bundle 'godlygeek/csapprox'
-Bundle 'hlissner/vim-forrestgump'
-Bundle 'ctrlpvim/ctrlp.vim'
-
-Bundle 'Rip-Rip/clang_complete'
-" TODO: clarify these settings
-" let g:clang_complete_auto = 0
-" let g:clang_use_library = 1
-" let g:clang_periodic_quickfix = 0
-" let g:clang_close_preview = 1
-" let g:clang_snippets = 1
-" let g:clang_snippets_engine = 'ultisnips'
-" let g:clang_exec = '/usr/bin/clang'
-" let g:clang_library_path = '/usr/lib/libclang.dylib'
-
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-
-Bundle 'airblade/vim-gitgutter'
-highlight SignColumn term=underline ctermfg=101 ctermbg=232 guifg=#857b6f guibg=#121212
-
-Bundle 'kana/vim-textobj-user'
-Bundle 'othree/yajs.vim'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'pangloss/vim-javascript'
-Bundle 'mxw/vim-jsx'
-" let g:jsx_ext_required = 0
-
-Bundle 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
-
-Bundle 'kylef/apiblueprint.vim'
-
-Bundle 'luochen1990/rainbow'
+Plugin 'luochen1990/rainbow'
 let g:rainbow_active = 1
 
-Bundle 'neomake/neomake'
+Plugin 'myusuf3/numbers.vim'
+let g:numbers_exclude = ['tagbar']
+
+Plugin 'Shougo/neosnippet'
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+Plugin 'Shougo/neosnippet-snippets'
+
+Plugin 'honza/vim-snippets'
+let g:neosnippet#snippets_directory = $HOME.'.vim/bundle/vim-snippets/snippets'
+
+Plugin 'neomake/neomake'
 autocmd! BufWritePost * Neomake
 
+" Language specific
+
+Plugin 'kylef/apiblueprint.vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'amirh/HTML-AutoCloseTag'
+Plugin 'othree/yajs.vim'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'nono/jquery.vim'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
+
+" Executable required
+
 if executable('ag')
-  Bundle 'mileszs/ack.vim'
+  Plugin 'mileszs/ack.vim'
   let g:ackprg = 'ag --vimgrep'
 
   let g:ctrlp_use_caching = 0
@@ -89,16 +70,24 @@ if executable('ag')
 endif
 
 if executable('coffee')
-  Bundle 'kchmck/vim-coffee-script'
+  Plugin 'kchmck/vim-coffee-script'
 endif
 
 if executable('ctags')
-  Bundle 'majutsushi/tagbar'
+  Plugin 'majutsushi/tagbar'
   let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 endif
 
+if executable('git')
+  Plugin 'gregsexton/gitv'
+  Plugin 'tpope/vim-git'
+  Plugin 'tpope/vim-fugitive'
+  Plugin 'airblade/vim-gitgutter'
+  highlight SignColumn term=underline ctermfg=101 ctermbg=232 guifg=#857b6f guibg=#121212
+endif
+
 if executable('go')
-  Bundle 'fatih/vim-go'
+  Plugin 'fatih/vim-go'
   let g:go_highlight_functions = 1
   let g:go_highlight_methods = 1
   let g:go_highlight_structs = 1
@@ -108,23 +97,22 @@ if executable('go')
 endif
 
 if executable('iex')
-  Bundle 'elixir-lang/vim-elixir'
+  Plugin 'elixir-lang/vim-elixir'
 endif
 
 if executable('lein')
-  " Bundle 'guns/vim-clojure-static'
-  Bundle 'tpope/vim-fireplace'
-  Bundle 'tpope/vim-classpath'
+  Plugin 'tpope/vim-fireplace'
+  Plugin 'tpope/vim-classpath'
 endif
 
 if has('lua')
-  Bundle 'Shougo/neocomplete.vim'
+  Plugin 'Shougo/neocomplete.vim'
   let g:neocomplete#enable_at_startup = 1
   " let g:neocomplete#sources#omni#functions = {
   "       \ 'go': 'gocomplete#Complete'
   "       \ }
 else
-  Bundle 'ervandew/supertab'
+  Plugin 'ervandew/supertab'
 endif
 
 if executable('node')
@@ -132,20 +120,21 @@ if executable('node')
 endif
 
 if executable('php')
-  Bundle 'spf13/PIV'
+  Plugin 'spf13/PIV'
   let g:DisableAutoPHPFolding = 1
 endif
 
 if executable('python') || executable('python3')
-  Bundle 'klen/python-mode'
+  Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+  Plugin 'klen/python-mode'
   let g:pymode_lint = 0
   let g:pymode_rope = 0
 
-  Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+  Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 endif
 
 if executable('rails')
-  Bundle 'tpope/vim-rails'
+  Plugin 'tpope/vim-rails'
   let g:rails_gem_projections = {
         \ "pundit": {
         \   "app/policies/*_policy.rb": {
@@ -164,32 +153,38 @@ if executable('rails')
 endif
 
 if executable('ruby')
-  Bundle 'tpope/vim-bundler'
-  Bundle 'tpope/vim-haml'
-  Bundle 'tpope/vim-cucumber'
-  Bundle 'sunaku/vim-ruby-minitest'
+  Plugin 'tpope/vim-bundler'
+  Plugin 'tpope/vim-haml'
+  Plugin 'tpope/vim-cucumber'
+  Plugin 'sunaku/vim-ruby-minitest'
 
-  Bundle 'janko-m/vim-test'
-  let test#strategy = "dispatch"
-
-  Bundle 'vim-ruby/vim-ruby'
+  Plugin 'vim-ruby/vim-ruby'
   let g:rubycomplete_buffer_loading = 1
   let g:rubycomplete_rails = 1
 
-  Bundle 'nelstrom/vim-textobj-rubyblock'
+  Plugin 'nelstrom/vim-textobj-rubyblock'
   runtime macros/matchit.vim
 
   let g:neomake_ruby_enabled_makers = ['rubocop', 'mri']
 endif
 
 if executable('rustc')
-  Bundle 'rust-lang/rust.vim'
+  Plugin 'rust-lang/rust.vim'
+endif
+
+if executable('swift')
+  Plugin 'keith/swift.vim'
+endif
+
+if executable('tmux')
+  Plugin 'tpope/vim-tbone'
+  Plugin 'christoomey/vim-tmux-navigator'
 endif
 
 if executable('tsc')
-  Bundle 'Quramy/tsuquyomi'
-  Bundle 'leafgarland/typescript-vim'
-  Bundle 'HerringtonDarkholme/yats.vim'
+  Plugin 'Quramy/tsuquyomi'
+  Plugin 'leafgarland/typescript-vim'
+  Plugin 'HerringtonDarkholme/yats.vim'
 endif
 
 call vundle#end()
