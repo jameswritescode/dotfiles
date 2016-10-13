@@ -26,6 +26,8 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'kana/vim-textobj-user'
 Plugin 'hlissner/vim-forrestgump'
+Plugin 'Shougo/neosnippet-snippets'
+Plugin 'honza/vim-snippets'
 
 Plugin 'janko-m/vim-test'
 let test#strategy = "dispatch"
@@ -38,14 +40,12 @@ let g:numbers_exclude = ['tagbar']
 
 Plugin 'Shougo/neosnippet'
 let g:neosnippet#enable_snipmate_compatibility = 1
-
-Plugin 'Shougo/neosnippet-snippets'
-
-Plugin 'honza/vim-snippets'
 let g:neosnippet#snippets_directory = $HOME.'.vim/bundle/vim-snippets/snippets'
 
 Plugin 'neomake/neomake'
 autocmd! BufWritePost * Neomake
+let g:neomake_ruby_enabled_makers = ['rubocop', 'mri']
+let g:neomake_javascript_enabled_makers = ['jscs', 'jshint']
 
 " Language specific
 
@@ -58,6 +58,9 @@ Plugin 'nono/jquery.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
+
+Plugin 'nelstrom/vim-textobj-rubyblock'
+runtime macros/matchit.vim
 
 " Executable required
 
@@ -82,6 +85,7 @@ if executable('git')
   Plugin 'gregsexton/gitv'
   Plugin 'tpope/vim-git'
   Plugin 'tpope/vim-fugitive'
+
   Plugin 'airblade/vim-gitgutter'
   highlight SignColumn term=underline ctermfg=101 ctermbg=232 guifg=#857b6f guibg=#121212
 endif
@@ -115,10 +119,6 @@ else
   Plugin 'ervandew/supertab'
 endif
 
-if executable('node')
-  let g:neomake_javascript_enabled_makers = ['jscs', 'jshint']
-endif
-
 if executable('php')
   Plugin 'spf13/PIV'
   let g:DisableAutoPHPFolding = 1
@@ -126,11 +126,12 @@ endif
 
 if executable('python') || executable('python3')
   Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+  Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+
   Plugin 'klen/python-mode'
   let g:pymode_lint = 0
   let g:pymode_rope = 0
-
-  Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 endif
 
 if executable('rails')
@@ -161,11 +162,6 @@ if executable('ruby')
   Plugin 'vim-ruby/vim-ruby'
   let g:rubycomplete_buffer_loading = 1
   let g:rubycomplete_rails = 1
-
-  Plugin 'nelstrom/vim-textobj-rubyblock'
-  runtime macros/matchit.vim
-
-  let g:neomake_ruby_enabled_makers = ['rubocop', 'mri']
 endif
 
 if executable('rustc')
