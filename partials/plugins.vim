@@ -23,7 +23,6 @@ Plugin 'AndrewRadev/switch.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'kana/vim-textobj-user'
 Plugin 'hlissner/vim-forrestgump'
 Plugin 'Shougo/neosnippet-snippets'
@@ -59,18 +58,7 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 
-Plugin 'nelstrom/vim-textobj-rubyblock'
-runtime macros/matchit.vim
-
 " Executable required
-
-if executable('ag')
-  Plugin 'mileszs/ack.vim'
-  let g:ackprg = 'ag --vimgrep'
-
-  let g:ctrlp_use_caching = 0
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
 
 if executable('coffee')
   Plugin 'kchmck/vim-coffee-script'
@@ -158,10 +146,15 @@ if executable('ruby')
   Plugin 'tpope/vim-haml'
   Plugin 'tpope/vim-cucumber'
   Plugin 'sunaku/vim-ruby-minitest'
+  Plugin 'junegunn/fzf'
+  Plugin 'junegunn/fzf.vim'
 
   Plugin 'vim-ruby/vim-ruby'
   let g:rubycomplete_buffer_loading = 1
   let g:rubycomplete_rails = 1
+
+  Plugin 'nelstrom/vim-textobj-rubyblock'
+  runtime macros/matchit.vim
 endif
 
 if executable('rustc')
