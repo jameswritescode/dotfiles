@@ -24,6 +24,7 @@ nnoremap <up>    <c-w>+
 nnoremap <down>  <c-w>-
 nnoremap <left>  1<c-w>>
 nnoremap <right> 1<c-w><
+nnoremap <c-p> <esc>:Files<cr>
 
 vnoremap J :m '>+1<cr>gv=gv
 vnoremap K :m '<-2<cr>gv=gv
