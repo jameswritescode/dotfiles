@@ -95,6 +95,7 @@ endif
 if executable('lein')
   Plugin 'tpope/vim-fireplace'
   Plugin 'tpope/vim-classpath'
+  Plugin 'guns/vim-clojure-highlight'
 endif
 
 if has('lua')
