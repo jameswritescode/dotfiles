@@ -25,8 +25,12 @@ set shell=/bin/sh
 set lazyredraw
 set ttyfast
 set exrc
+set noshowmode
+
 set completefunc=syntaxcomplete#Complete
 set omnifunc=syntaxcomplete#Complete
+set completeopt+=menuone
+set completeopt-=preview
 
 set list
 set listchars=""

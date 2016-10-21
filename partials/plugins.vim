@@ -22,11 +22,14 @@ Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'AndrewRadev/switch.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kana/vim-textobj-user'
 Plugin 'hlissner/vim-forrestgump'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'honza/vim-snippets'
+
+Plugin 'Shougo/echodoc.vim'
+let g:echodoc_enable_at_startup = 1
 
 Plugin 'janko-m/vim-test'
 let test#strategy = "dispatch"
@@ -45,6 +48,7 @@ Plugin 'neomake/neomake'
 autocmd! BufWritePost * Neomake
 let g:neomake_ruby_enabled_makers = ['rubocop', 'mri']
 let g:neomake_javascript_enabled_makers = ['jscs', 'jshint']
+let g:neomake_go_enabled_makers = [] " Disabled in favor of vim-go functionality
 
 " Language specific
 
@@ -80,11 +84,15 @@ endif
 
 if executable('go')
   Plugin 'fatih/vim-go'
+  let g:go_fmt_command = 'goimports'
+  let g:go_highlight_types = 1
+  let g:go_highlight_fields = 1
   let g:go_highlight_functions = 1
   let g:go_highlight_methods = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_extra_types = 1
   let g:go_highlight_structs = 1
   let g:go_highlight_interfaces = 1
-  let g:go_highlight_operators = 1
   let g:go_highlight_build_constraints = 1
 endif
 
