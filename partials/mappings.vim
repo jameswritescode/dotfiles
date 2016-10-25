@@ -31,3 +31,4 @@ nnoremap <c-m>      :lprevious<cr>
 vnoremap J :m  '>+1<cr>gv=gv
 vnoremap K :m  '<-2<cr>gv=gv
 vnoremap <c-c> y:call system("pbcopy", getreg("\""))<cr>
+vnoremap // y/<c-r>"<cr>

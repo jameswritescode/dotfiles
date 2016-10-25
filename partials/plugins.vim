@@ -156,7 +156,9 @@ if executable('ruby')
   Plugin 'tpope/vim-cucumber'
   Plugin 'sunaku/vim-ruby-minitest'
   Plugin 'junegunn/fzf'
+
   Plugin 'junegunn/fzf.vim'
+  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
   Plugin 'vim-ruby/vim-ruby'
   let g:rubycomplete_buffer_loading = 1
