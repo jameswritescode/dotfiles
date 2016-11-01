@@ -61,6 +61,7 @@ Plugin 'nono/jquery.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
+Plugin 'elzr/vim-json'
 
 " Executable required
 
