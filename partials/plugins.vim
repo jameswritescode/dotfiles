@@ -130,6 +130,7 @@ if executable('python') || executable('python3')
   Plugin 'klen/python-mode'
   let g:pymode_lint = 0
   let g:pymode_rope = 0
+  let g:pymode_folding = 0
 endif
 
 if executable('rails')
