@@ -26,6 +26,7 @@ set lazyredraw
 set ttyfast
 set exrc
 set noshowmode
+set cursorline
 
 set completefunc=syntaxcomplete#Complete
 set omnifunc=syntaxcomplete#Complete
