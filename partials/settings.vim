@@ -25,6 +25,7 @@ set shell=/bin/sh
 set lazyredraw
 set ttyfast
 set exrc
+set secure
 set noshowmode
 set cursorline
 
