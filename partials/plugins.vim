@@ -142,6 +142,8 @@ if executable('python') || executable('python3')
 endif
 
 if executable('rails')
+  Plugin 'tpope/vim-rake'
+
   Plugin 'tpope/vim-rails'
   let g:rails_gem_projections = {
         \ "pundit": {
