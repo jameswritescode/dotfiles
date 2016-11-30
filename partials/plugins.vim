@@ -12,7 +12,6 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-projectionist'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-sleuth'
 Plugin 'tpope/vim-surround'
@@ -50,6 +49,9 @@ autocmd! BufWritePost * Neomake
 let g:neomake_ruby_enabled_makers = ['rubocop', 'mri']
 let g:neomake_javascript_enabled_makers = ['jscs', 'jshint']
 let g:neomake_go_enabled_makers = [] " Disabled in favor of vim-go functionality
+
+Plugin 'tpope/vim-projectionist'
+let g:projectionist_heuristics = {}
 
 " Language specific
 
@@ -96,6 +98,11 @@ if executable('go')
   let g:go_highlight_structs = 1
   let g:go_highlight_interfaces = 1
   let g:go_highlight_build_constraints = 1
+
+  let g:projectionist_heuristics['*.go'] = {
+        \ '*.go': { 'alternate': '{}_test.go', 'type': 'source' },
+        \ '*_test.go': { 'alternate': '{}.go', 'type': 'test' }
+        \}
 endif
 
 if executable('iex')
