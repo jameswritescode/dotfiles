@@ -109,6 +109,14 @@ _python_theme_prompt () {
   fi
 }
 
+_docker_theme_prompt () {
+  local count=`docker ps -q --filter "status=running" | wc -l | tr -d ' '`
+
+  if [ count != "0" ]; then
+    echo "‹%{$fg_bold[cyan]%}docker: $count%{$reset_color%}› "
+  fi
+}
+
 _PATH="%{$fg_bold[white]%}%2c%{$reset_color%}"
 
 if [[ $EUID -eq 0 ]]; then
@@ -139,7 +147,7 @@ get_space () {
 
 bureau_precmd () {
         _1LEFT="┌‹$_USERNAME› ‹$_PATH›"
-        _1RIGHT="$(_python_theme_prompt)$(_node_theme_prompt)$(_rvm_theme_prompt)‹%{$fg_bold[white]%}%*%{$reset_color%}›┐ "
+        _1RIGHT="$(_docker_theme_prompt)$(_python_theme_prompt)$(_node_theme_prompt)$(_rvm_theme_prompt)‹%{$fg_bold[white]%}%*%{$reset_color%}›┐ "
         _1SPACES=`get_space $_1LEFT $_1RIGHT`
         print
         print -rP "$_1LEFT$_1SPACES$_1RIGHT"
