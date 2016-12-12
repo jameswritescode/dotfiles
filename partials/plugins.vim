@@ -55,6 +55,7 @@ let g:projectionist_heuristics = {}
 
 " Language specific
 
+Plugin 'cespare/vim-toml'
 Plugin 'kylef/apiblueprint.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'amirh/HTML-AutoCloseTag'
