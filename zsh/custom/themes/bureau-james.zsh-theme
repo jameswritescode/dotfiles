@@ -115,10 +115,10 @@ _python_theme_prompt () {
 }
 
 _docker_theme_prompt () {
-  local count=`docker ps -q --filter "status=running" | wc -l | tr -d ' '`
+  local running=`docker ps --format "{{.Names}}" --filter "status=running" | tr "\n" ":" | sed "s/:$//"`
 
-  if [[ $count -ne 0 ]]; then
-    echo "‹%{$fg_bold[cyan]%}docker:$count%{$reset_color%}› "
+  if [[ $running != "" ]]; then
+    echo "‹%{$fg_bold[cyan]%}docker:$running%{$reset_color%}› "
   fi
 }
 
