@@ -160,6 +160,13 @@ if executable('rails')
         \     "affinity": "model",
         \     "alternate": "app/models/{}.rb"
         \   }
+        \ },
+        \ "factory_girl": {
+        \   "test/factories/*_factories.rb": {
+        \     "command": "factory",
+        \     "affinity": "model",
+        \     "alternate": "app/models/{}.rb"
+        \   }
         \ }}
 endif
 
