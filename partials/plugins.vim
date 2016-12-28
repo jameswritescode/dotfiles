@@ -58,7 +58,6 @@ let g:projectionist_heuristics = {}
 Plugin 'cespare/vim-toml'
 Plugin 'kylef/apiblueprint.vim'
 Plugin 'tpope/vim-markdown'
-Plugin 'amirh/HTML-AutoCloseTag'
 Plugin 'othree/yajs.vim'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'nono/jquery.vim'
