@@ -7,7 +7,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 " General
 
-Plugin 'junegunn/seoul256.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
@@ -52,6 +51,9 @@ let g:neomake_go_enabled_makers = [] " Disabled in favor of vim-go functionality
 
 Plugin 'tpope/vim-projectionist'
 let g:projectionist_heuristics = {}
+
+Plugin 'junegunn/seoul256.vim'
+let g:seoul256_background = 233
 
 " Language specific
 
