@@ -1,5 +1,5 @@
-nmap <leader>j <plug>(easymotion-overwin-w)
-nmap <leader>k <plug>(easymotion-overwin-f)
+nmap <leader>j <plug>(easymotion-bd-w)
+nmap <leader>k <plug>(easymotion-bd-f)
 
 imap <c-k> <plug>(neosnippet_expand_or_jump)
 
