@@ -7,6 +7,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " General
 
+Plugin 'jceb/vim-orgmode'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
@@ -15,6 +16,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-sleuth'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-speeddating'
 Plugin 'godlygeek/tabular'
 Plugin 'godlygeek/csapprox'
 Plugin 'AndrewRadev/splitjoin.vim'
@@ -180,6 +182,8 @@ if executable('ruby')
 
   Plugin 'junegunn/fzf.vim'
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+  command! -bang -nargs=* GGrep
+    \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
 
   Plugin 'vim-ruby/vim-ruby'
   let g:rubycomplete_buffer_loading = 1
