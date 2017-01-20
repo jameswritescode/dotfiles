@@ -7,7 +7,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 " General
 
-Plugin 'jceb/vim-orgmode'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
