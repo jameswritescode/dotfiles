@@ -115,7 +115,7 @@ _python_theme_prompt () {
 }
 
 _docker_theme_prompt () {
-  local running=`docker ps --format "{{.Names}}" --filter "status=running" | tr "\n" ":" | sed "s/:$//"`
+  local running=`docker ps --format "{{.Names}}" --filter "status=running" | tr "\n" ":" | sed "s/:$//" 2>/dev/null`
 
   if [[ $running != "" ]]; then
     echo "‹%{$fg_bold[cyan]%}docker:$running%{$reset_color%}› "
