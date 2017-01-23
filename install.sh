@@ -1,3 +1,3 @@
 git clone http://github.com/VundleVim/Vundle.vim bundle/Vundle.vim
-vim +BundleInstall +qa
+vim +PluginInstall +qa
 echo "vimfiles installed" | vim -
