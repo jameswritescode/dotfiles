@@ -56,6 +56,9 @@ let g:projectionist_heuristics = {}
 Plugin 'junegunn/seoul256.vim'
 let g:seoul256_background = 233
 
+Plugin 'wincent/terminus'
+let g:TerminusNormalCursorShape = 2
+
 " Language specific
 
 Plugin 'cespare/vim-toml'
