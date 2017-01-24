@@ -11,18 +11,6 @@ ZSH_THEME_GIT_PROMPT_STAGED="%{$fg_bold[green]%}●%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg_bold[yellow]%}●%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}●%{$reset_color%}"
 
-set_retval () {
-        local RETVAL=$?
-}
-
-jobs_prompt () {
-        local symbols=$(set_retval)
-        [[ $RETVAL -ne 0 ]] && symbols+="%{$fg[red]%}✘"
-        [[ $UID -eq 0 ]] && symbols+="%{$fg[yellow]%}✔"
-        [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{$fg[cyan]%}⚙"
-        [[ -n "$symbols" ]] && echo -n "$symbols "
-}
-
 bureau_git_branch () {
   ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
@@ -48,7 +36,8 @@ bureau_git_status () {
       _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNMERGED"
     fi
   else
-    _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_CLEAN"
+    # _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_CLEAN"
+    _STATUS="$_STATUS"
   fi
 
   # check status of local repository
@@ -129,6 +118,15 @@ _go_theme_prompt() {
   fi
 }
 
+_jobs_theme_prompt () {
+  local running_jobs="$(jobs -l | wc -l | sed 's/ //g')"
+
+  if [[ $running_jobs -gt 0 ]]; then
+    echo "‹%{$fg_bold[blue]%}jobs:$running_jobs%{$reset_color%}› "
+  fi
+}
+
+
 _PATH="%{$fg_bold[white]%}%2c%{$reset_color%}"
 
 if [[ $EUID -eq 0 ]]; then
@@ -159,14 +157,14 @@ get_space () {
 
 bureau_precmd () {
         _1LEFT="┌‹$_USERNAME› ‹$_PATH›"
-        _1RIGHT="$(_docker_theme_prompt)$(_go_theme_prompt)$(_python_theme_prompt)$(_node_theme_prompt)$(_rvm_theme_prompt)‹%{$fg_bold[white]%}%*%{$reset_color%}›┐ "
+        _1RIGHT="$(_jobs_theme_prompt)$(_docker_theme_prompt)$(_go_theme_prompt)$(_python_theme_prompt)$(_node_theme_prompt)$(_rvm_theme_prompt)‹%{$fg_bold[white]%}%*%{$reset_color%}›┐ "
         _1SPACES=`get_space $_1LEFT $_1RIGHT`
         print
         print -rP "$_1LEFT$_1SPACES$_1RIGHT"
 }
 
 setopt prompt_subst
-PROMPT='└‹$(jobs_prompt)$_LIBERTY› '
+PROMPT='└‹$_LIBERTY› '
 RPROMPT='‹$(bureau_git_prompt)┘'
 
 autoload -U add-zsh-hook
