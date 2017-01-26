@@ -16,5 +16,3 @@
         sslVerify = false
 [push]
         default = simple
-[core]
-	pager = cat
