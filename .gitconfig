@@ -4,7 +4,6 @@
 [alias]
         co = checkout
         st = status -sb
-        g = grep --break --heading --line-number
         b = branch
         forget = rm --cached
         lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
@@ -17,3 +16,5 @@
         sslVerify = false
 [push]
         default = simple
+[core]
+	pager = cat
