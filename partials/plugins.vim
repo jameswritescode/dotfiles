@@ -124,9 +124,6 @@ endif
 if has('lua')
   Plugin 'Shougo/neocomplete.vim'
   let g:neocomplete#enable_at_startup = 1
-  " let g:neocomplete#sources#omni#functions = {
-  "       \ 'go': 'gocomplete#Complete'
-  "       \ }
 else
   Plugin 'ervandew/supertab'
 endif
