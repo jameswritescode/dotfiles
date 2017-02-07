@@ -40,11 +40,7 @@ alias rs="bundle exec rails s"
 alias vu="vim +PluginInstall! +qa"
 
 __cd_nvm () {
-  local check_dir="$PWD"
-  while [ "$check_dir" != "/" ]; do
-    [ -f "$check_dir/.nvmrc" ] && nvm use . 2>/dev/null
-    check_dir="$(dirname $check_dir)"
-  done
+  [ -f "$PWD/.nvmrc" ] && nvm use . 2>/dev/null
 }
 
 chpwd_functions=(${chpwd_functions[@]} "__cd_nvm")
