@@ -27,6 +27,7 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'hlissner/vim-forrestgump'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'honza/vim-snippets'
+Plugin 'skywind3000/asyncrun.vim'
 
 Plugin 'janko-m/vim-test'
 let test#strategy = "dispatch"
