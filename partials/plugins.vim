@@ -28,9 +28,6 @@ Plugin 'hlissner/vim-forrestgump'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'honza/vim-snippets'
 
-Plugin 'Shougo/echodoc.vim'
-let g:echodoc_enable_at_startup = 1
-
 Plugin 'janko-m/vim-test'
 let test#strategy = "dispatch"
 
