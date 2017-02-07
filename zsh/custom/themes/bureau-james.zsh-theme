@@ -84,7 +84,7 @@ _file_exists () {
 }
 
 _node_theme_prompt () {
-  if _file_exists 'package.json'
+  if _file_exists 'package.json' || _file_exists '.nvmrc'
   then
           echo "‹%{$fg_bold[green]%}node-`node -v`%{$reset_color%}› "
   fi
