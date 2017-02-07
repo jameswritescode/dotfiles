@@ -74,12 +74,7 @@ bureau_git_prompt () {
 }
 
 _file_exists () {
-  local check_dir="$PWD"
-  while [ "$check_dir" != "/" ]
-  do
-          [ -f "$check_dir/$1" ] && return
-          check_dir="$(dirname $check_dir)"
-  done
+  [ -f "$PWD/$1" ] && return
   false
 }
 
