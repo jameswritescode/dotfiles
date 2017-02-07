@@ -39,4 +39,14 @@ alias m="rake db:migrate && rake db:migrate RAILS_ENV=test"
 alias rs="bundle exec rails s"
 alias vu="vim +PluginInstall! +qa"
 
+__cd_nvm () {
+  local check_dir="$PWD"
+  while [ "$check_dir" != "/" ]; do
+    [ -f "$check_dir/.nvmrc" ] && nvm use . 2>/dev/null
+    check_dir="$(dirname $check_dir)"
+  done
+}
+
+chpwd_functions=(${chpwd_functions[@]} "__cd_nvm")
+
 source ~/.zsh_custom 2>/dev/null
