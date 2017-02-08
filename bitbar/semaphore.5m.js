@@ -24,7 +24,7 @@ function branchesOutput(branches) {
         return new Date(b.started_at) - new Date(a.started_at);
     });
 
-    return branches.map(branch => {
+    return branches.slice(0, 10).map(branch => {
         return `${branch.branch_name} | size=12 color=${color(branch.result)} href=${branch.build_url}`;
     }).join('\n');
 }
