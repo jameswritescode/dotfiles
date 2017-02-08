@@ -22,6 +22,8 @@ function color(result) {
 function branchesOutput(branches) {
     branches = branches.filter(branch => {
         return branch.commit && branch.commit.author_name === AUTHOR_NAME;
+    }).sort((a, b) => {
+        return new Date(b.started_at) - new Date(a.started_at);
     });
 
     return branches.map(branch => {
