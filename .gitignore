@@ -1,1 +1,4 @@
 zsh/custom/plugins
+.DS_Store
+bitbar/enabled/*
+!bitbar/enabled/.keep
