@@ -7,8 +7,6 @@ const AUTHOR_NAME = 'James Newton';
 const url = 'https://semaphoreci.com/api/v1/projects?auth_token=' + AUTH_TOKEN;
 const https = require('https');
 
-var icon = '✔';
-
 function color(result) {
     if (result == 'passed') {
         return 'green';
@@ -27,10 +25,6 @@ function branchesOutput(branches) {
     });
 
     return branches.map(branch => {
-        if (branch.result === 'failed') {
-            icon = '✖';
-        }
-
         return `${branch.branch_name} | size=12 color=${color(branch.result)} href=${branch.build_url}`;
     }).join('\n');
 }
@@ -40,7 +34,7 @@ function handleResponse(body) {
         return `${project.owner}/${project.name} | size=16 href=${project.html_url}\n${branchesOutput(project.branches)}`;
     }).join('\n---\n');
 
-    console.log(`${icon} Semaphore CI\n---\n${output}`);
+    console.log(`Semaphore CI\n---\n${output}`);
 }
 
 https.get(url, res => {
