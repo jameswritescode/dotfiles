@@ -1,19 +1,19 @@
-source ~/.vim/partials/settings.vim
+source ~/dotfiles/vim/partials/settings.vim
 
 let mapleader="\<Space>"
 
-source ~/.vim/partials/mappings.vim
+source ~/dotfiles/vim/partials/mappings.vim
 
 autocmd filetype crontab setlocal nobackup nowritebackup
 autocmd VimEnter * :redraw!
 
 filetype off
 
-source ~/.vim/partials/plugins.vim
+source ~/dotfiles/vim/partials/plugins.vim
 
 filetype plugin indent on
 syntax on
 
-source ~/.vim/partials/functions.vim
+source ~/dotfiles/vim/partials/functions.vim
 
 colors seoul256
