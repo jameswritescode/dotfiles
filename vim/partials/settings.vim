@@ -15,8 +15,8 @@ set autoindent
 set expandtab
 set hlsearch
 set backspace=2
-set backupdir=~/.vim/tmp
-set directory=~/.vim/tmp
+set backupdir=~/dotfiles/vim/tmp
+set directory=~/dotfiles/vim/tmp
 set incsearch
 set mouse=a
 set splitbelow
