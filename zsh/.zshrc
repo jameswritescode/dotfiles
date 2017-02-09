@@ -13,6 +13,12 @@ export HISTCONTROL=ignoreboth:erasedups
 export NVM_DIR="$HOME/.nvm"
 export VIRTUAL_ENV_DISABLE_PROMPT="true"
 
+source $(brew --prefix chruby)/share/chruby/chruby.sh
+
+eval "$(fasd --init auto)"
+
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
 alias be="bundle exec"
 alias ber="bundle exec rake"
 alias bm="bundle && m"
@@ -39,10 +45,14 @@ alias m="rake db:migrate && rake db:migrate RAILS_ENV=test"
 alias rs="bundle exec rails s"
 alias vu="vim +PluginInstall! +qa"
 
-__cd_nvm () {
+__cd_nvm() {
   [ -f "$PWD/.nvmrc" ] && nvm use . &>/dev/null
 }
 
-chpwd_functions=(${chpwd_functions[@]} "__cd_nvm")
+__cd_chruby() {
+  [ -f "$PWD/.ruby-version" ] && chruby `cat .ruby-version` &>/dev/null
+}
+
+chpwd_functions=(${chpwd_functions[@]} "__cd_nvm" "__cd_chruby")
 
 source ~/.zsh_custom 2>/dev/null

@@ -85,10 +85,10 @@ _node_theme_prompt () {
   fi
 }
 
-_rvm_theme_prompt () {
+_ruby_theme_prompt () {
   if _file_exists 'Gemfile'
   then
-    echo "‹%{$fg_bold[red]%}`rvm-prompt`%{$reset_color%}› "
+    echo "‹%{$fg_bold[red]%}`chruby | grep \* | tr -d '* '`%{$reset_color%}› "
   fi
 }
 
@@ -152,7 +152,7 @@ get_space () {
 
 bureau_precmd () {
         _1LEFT="┌‹$_USERNAME› ‹$_PATH›"
-        _1RIGHT="$(_jobs_theme_prompt)$(_docker_theme_prompt)$(_go_theme_prompt)$(_python_theme_prompt)$(_node_theme_prompt)$(_rvm_theme_prompt)‹%{$fg_bold[white]%}%*%{$reset_color%}›┐ "
+        _1RIGHT="$(_jobs_theme_prompt)$(_docker_theme_prompt)$(_go_theme_prompt)$(_python_theme_prompt)$(_node_theme_prompt)$(_ruby_theme_prompt)‹%{$fg_bold[white]%}%*%{$reset_color%}›┐ "
         _1SPACES=`get_space $_1LEFT $_1RIGHT`
         print
         print -rP "$_1LEFT$_1SPACES$_1RIGHT"
