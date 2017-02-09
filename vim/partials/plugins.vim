@@ -201,6 +201,7 @@ endif
 if executable('tmux')
   Plugin 'tpope/vim-tbone'
   Plugin 'christoomey/vim-tmux-navigator'
+  Plugin 'tmux-plugins/vim-tmux'
 endif
 
 if executable('tsc')
