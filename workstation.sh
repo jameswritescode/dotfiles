@@ -2,11 +2,15 @@ puts "Setting up Workstation"
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew install vim --with-lua --with-luajit
 brew install fasd
 
 brew install git
 ln -s .gitconfig $HOME/.gitconfig
+
+brew install vim --with-lua --with-luajit
+ln -s vim/.vimrc $HOME/.vimrc
+git clone http://github.com/VundleVim/Vundle.vim vim/bundle/Vundle.vim
+vim +PluginInstall +qa
 
 brew install zsh
 chsh -s /bin/zsh
