@@ -2,3 +2,8 @@ zsh/custom/plugins
 .DS_Store
 bitbar/enabled/*
 !bitbar/enabled/.keep
+
+vim/bundle/
+!vim/tmp/.gitkeep
+vim/tmp/*
+vim/.netrwhist
