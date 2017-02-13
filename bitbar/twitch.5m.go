@@ -56,7 +56,7 @@ func main() {
 
 	for _, stream := range following.Streams {
 		channelUrl := strings.Replace(stream.Channel.Url, "https://www.", "", -1)
-		fmt.Printf("%s is playing %s with %d viewing | color=white size=12 terminal=false bash=/usr/local/bin/livestreamer param1=--twitch-oauth-token param2=%s param3=%s param4=best\n",
+		fmt.Printf("%s is playing %s with %d viewing | color=white terminal=false bash=/usr/local/bin/livestreamer param1=--twitch-oauth-token param2=%s param3=%s param4=best\n",
 			stream.Channel.DisplayName, stream.Game, stream.Viewers, twitchKey, channelUrl)
 	}
 }
