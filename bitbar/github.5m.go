@@ -60,14 +60,14 @@ func main() {
 
 	fmt.Println("GitHub")
 	fmt.Println("---")
-	fmt.Println("Pull Requests | size=16 href=https://github.com/pulls")
+	fmt.Println("Pull Requests | href=https://github.com/pulls")
 
 	for _, issue := range *issues {
 		if issue.PullRequest.URL != "" && issue.State == "open" {
 			getData(&issue.PullRequest, issue.PullRequest.URL)
 			getData(&issue.Status, issue.RepositoryURL+"/commits/"+issue.PullRequest.Head.Sha+"/status")
 
-			fmt.Printf("(%d) %s | color=%s href=%s size=12\n", issue.Comments, issue.Title, color(issue.Status.State), issue.HTMLURL)
+			fmt.Printf("(%d) %s | color=%s href=%s\n", issue.Comments, issue.Title, color(issue.Status.State), issue.HTMLURL)
 		}
 	}
 }
