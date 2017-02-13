@@ -3,6 +3,7 @@ puts "Setting up Workstation"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew install fasd
+brew install go
 
 brew install git
 ln -s $PWD/.gitconfig $HOME/.gitconfig
