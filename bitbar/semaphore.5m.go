@@ -111,14 +111,14 @@ func main() {
 	fmt.Println("---")
 
 	for _, project := range *projects {
-		fmt.Printf("%s/%s | size=16 href=%s\n", project.Owner, project.Name, project.HTMLURL)
+		fmt.Printf("%s/%s | href=%s\n", project.Owner, project.Name, project.HTMLURL)
 
 		myBranches := authoredBranches(project.Branches)
 
 		sort.Sort(BranchesByStartedAt(myBranches))
 
 		for _, branch := range slicedBranches(myBranches) {
-			fmt.Printf("%s | size=12 color=%s href=%s\n", branch.BranchName, status(branch.Result), branch.BuildURL)
+			fmt.Printf("%s | color=%s href=%s\n", branch.BranchName, status(branch.Result), branch.BuildURL)
 		}
 
 		fmt.Println("---")
