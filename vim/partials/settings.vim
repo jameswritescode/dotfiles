@@ -29,6 +29,9 @@ set secure
 set noshowmode
 set cursorline
 
+set conceallevel=2
+set concealcursor=niv
+
 set completefunc=syntaxcomplete#Complete
 set omnifunc=syntaxcomplete#Complete
 set completeopt+=menuone
