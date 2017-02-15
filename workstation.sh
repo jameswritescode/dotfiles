@@ -1,5 +1,9 @@
 puts "Setting up Workstation"
 
+defaults write com.apple.dock autohide -bool true
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew install fasd
