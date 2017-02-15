@@ -6,8 +6,16 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+brew cask install google-chrome
+brew cask install bitbar
+brew cask install bartender
+brew cask install docker
+brew cask install spotify
+brew cask install iterm2-nightly
+
 brew install fasd
 brew install go
+brew install rust
 
 brew install git
 ln -s $PWD/.gitconfig $HOME/.gitconfig
