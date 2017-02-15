@@ -192,6 +192,7 @@ endif
 
 if executable('rustc')
   Plugin 'rust-lang/rust.vim'
+  let g:rustfmt_autosave = 1
 endif
 
 if executable('swift')
