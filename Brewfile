@@ -9,6 +9,9 @@ brew 'chruby', args: ['HEAD']
 brew 'ruby-install', args: ['HEAD']
 brew 'tmux'
 brew 'fasd'
+brew 'postgresql'
+brew 'mysql'
+brew 'redis'
 
 cask 'iterm2-nightly'
 cask 'google-chrome'
