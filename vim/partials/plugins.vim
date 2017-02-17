@@ -24,13 +24,15 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'editorconfig/editorconfig-vim'
 " Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kana/vim-textobj-user'
-Plugin 'hlissner/vim-forrestgump'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'honza/vim-snippets'
 Plugin 'skywind3000/asyncrun.vim'
 
+Plugin 'hlissner/vim-forrestgump'
+let g:forrestgumps = {}
+
 Plugin 'janko-m/vim-test'
-let test#strategy = "dispatch"
+let test#strategy = 'dispatch'
 
 Plugin 'luochen1990/rainbow'
 let g:rainbow_active = 1
@@ -191,8 +193,13 @@ if executable('ruby')
 endif
 
 if executable('rustc')
+  Plugin 'racer-rust/vim-racer'
+  let g:racer_experimental_completer = 1
+
   Plugin 'rust-lang/rust.vim'
   let g:rustfmt_autosave = 1
+
+  let g:forrestgumps['rust'] = ['rustc']
 endif
 
 if executable('swift')
