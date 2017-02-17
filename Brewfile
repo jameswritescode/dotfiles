@@ -4,7 +4,6 @@ brew 'git'
 brew 'vim', args: ['with-lua', 'with-luajit']
 brew 'zsh'
 brew 'go'
-brew 'rust'
 brew 'chruby', args: ['HEAD']
 brew 'ruby-install', args: ['HEAD']
 brew 'tmux'
