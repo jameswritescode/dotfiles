@@ -25,3 +25,8 @@ ln -s $PWD/tmux/.tmux.conf $HOME/.tmux.conf
 
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 nvm install node
+
+curl https://sh.rustup.rs -sSf | sh
+rustup component add rust-src
+cargo install rustfmt
+cargo install racer
