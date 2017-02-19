@@ -39,5 +39,3 @@ nnoremap gp         `[v`]
 vnoremap J :m  '>+1<cr>gv=gv
 vnoremap K :m  '<-2<cr>gv=gv
 vnoremap <c-c> y:call system("pbcopy", getreg("\""))<cr>
-
-autocmd FileType gitcommit setlocal spell
