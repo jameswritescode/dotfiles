@@ -19,6 +19,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 rm $HOME/.zshrc && ln -s $PWD/zsh/.zshrc $HOME/.zshrc
 touch $HOME/.zsh_custom
 
+ln -s $PWD/hammerspoon $HOME/.hammerspoon
+
 ruby-install --latest ruby
 
 ln -s $PWD/tmux/.tmux.conf $HOME/.tmux.conf
