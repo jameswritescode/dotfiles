@@ -19,11 +19,17 @@ eval "$(fasd --init auto)"
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-alias be="bundle exec"
-alias ber="bundle exec rake"
-alias bm="bundle && m"
+# general
 alias c="clear"
+alias j="z"
+alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+alias ls="ls -G -a"
+alias vu="vim +PluginInstall! +qa"
+
+# docker
 alias dps="docker ps -a"
+
+# git
 alias ga="git add -A"
 alias gb="git branch"
 alias gco="git checkout"
@@ -38,12 +44,13 @@ alias gpr="git pull --rebase"
 alias gpu="git push"
 alias gs="git st"
 alias gu="git add -u"
-alias j="z"
-alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-alias ls="ls -G -a"
-alias m="rake db:migrate && rake db:migrate RAILS_ENV=test"
-alias rs="bundle exec rails s"
-alias vu="vim +PluginInstall! +qa"
+
+# ruby
+alias be="bundle exec"
+alias ber="be rake"
+alias bm="bundle && m"
+alias m="ber db:migrate && ber db:migrate RAILS_ENV=test"
+alias rs="be rails s"
 
 __cd_nvm() {
   [ -f "$PWD/.nvmrc" ] && nvm use . &>/dev/null
