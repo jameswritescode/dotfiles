@@ -54,3 +54,5 @@ set foldcolumn=1
 set textwidth=80
 set formatoptions-=t
 set colorcolumn=+1
+
+let g:netrw_localrmdir='rm -r'
