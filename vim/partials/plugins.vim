@@ -1,5 +1,5 @@
 set rtp+=~/dotfiles/vim/bundle/Vundle.vim
-call vundle#begin()
+call vundle#begin('~/dotfiles/vim/bundle')
 
 Plugin 'VundleVim/Vundle.vim'
 
@@ -42,7 +42,7 @@ let g:numbers_exclude = ['tagbar']
 
 Plugin 'Shougo/neosnippet'
 let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory = $HOME.'dotfiles/vim/bundle/vim-snippets/snippets'
+let g:neosnippet#snippets_directory = '~/dotfiles/vim/bundle/vim-snippets/snippets'
 
 Plugin 'neomake/neomake'
 autocmd! BufWritePost * Neomake
