@@ -1,5 +1,5 @@
 hyper = {'ctrl', 'shift', 'cmd'}
 
 require('watcher')
-require('arrows')
+require('general')
 require('windows')

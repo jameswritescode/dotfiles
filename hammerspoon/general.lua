@@ -1,3 +1,8 @@
+hs.hotkey.bind(hyper, '\\', function()
+  hs.caffeinate.lockScreen()
+end)
+
+-- Rebind hyper+hjkl to arrow keys
 local function keyCode(key)
   return function()
     hs.eventtap.event.newKeyEvent({}, string.lower(key), true):post()
