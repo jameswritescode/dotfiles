@@ -22,6 +22,9 @@ touch $HOME/.zsh_custom
 ln -s $PWD/hammerspoon $HOME/.hammerspoon
 
 ruby-install --latest ruby
+chruby ruby
+ruby -v | awk {'print "chruby " $2'} >> $HOME/.zsh_custom
+gem install tmuxinator
 
 ln -s $PWD/tmux/.tmux.conf $HOME/.tmux.conf
 
