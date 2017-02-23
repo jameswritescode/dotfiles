@@ -3,7 +3,10 @@ zsh/custom/plugins
 bitbar/enabled/*
 !bitbar/enabled/.keep
 
-vim/bundle/
-!vim/tmp/.gitkeep
+vim/bundle/*
+!vim/bundle/.gitkeep
+
 vim/tmp/*
+!vim/tmp/.gitkeep
+
 vim/.netrwhist
