@@ -128,6 +128,14 @@ else
   Plugin 'ervandew/supertab'
 endif
 
+if executable('lua')
+  Plugin 'tbastos/vim-lua'
+  Plugin 'xolox/vim-misc'
+
+  Plugin 'xolox/vim-lua-ftplugin'
+  let g:lua_complete_omni = 1
+endif
+
 if executable('php')
   Plugin 'spf13/PIV'
   let g:DisableAutoPHPFolding = 1
