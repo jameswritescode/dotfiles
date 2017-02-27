@@ -11,6 +11,7 @@ brew bundle
 ln -s $PWD/.gitconfig $HOME/.gitconfig
 
 ln -s $PWD/vim/.vimrc $HOME/.vimrc
+ln -s $PWD/vim $HOME/.vim
 git clone http://github.com/VundleVim/Vundle.vim vim/bundle/Vundle.vim
 vim +PluginInstall +qa
 
