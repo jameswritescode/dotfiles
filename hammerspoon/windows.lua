@@ -1,4 +1,4 @@
-hs.window.animationDuration = 0
+hs.window.animationDuration = 0.3
 
 hs.grid.setGrid('24x24')
 hs.grid.MARGINX = 0
@@ -23,6 +23,13 @@ end
 
 hs.hotkey.bind(hyper, 'w', function()
   pressed.up = true
+
+  setScreen(function(cell)
+    cell.x = 0
+    cell.y = 0
+    cell.w = 24
+    cell.h = 12
+  end)
 end, function()
   pressed.up = false
 end)
@@ -42,6 +49,13 @@ end)
 
 hs.hotkey.bind(hyper, 's', function()
   pressed.down = true
+
+  setScreen(function(cell)
+    cell.x = 0
+    cell.y = 12
+    cell.w = 24
+    cell.h = 12
+  end)
 end, function()
   pressed.down = false
 end)
