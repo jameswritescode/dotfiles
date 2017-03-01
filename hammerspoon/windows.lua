@@ -4,7 +4,7 @@ hs.grid.setGrid('24x24')
 hs.grid.MARGINX = 0
 hs.grid.MARGINY = 0
 
-function setScreen(cb)
+local function set_screen(cb)
   local win = hs.window.frontmostWindow()
   local screen = win:screen()
   local cell = hs.grid.get(win, screen)
@@ -18,21 +18,21 @@ function setScreen(cb)
 end
 
 hs.hotkey.bind(hyper, 'w', function()
-  setScreen(function(cell)
+  set_screen(function(cell)
     cell.w = 24
     cell.h = 12
   end)
 end)
 
 hs.hotkey.bind(hyper, 'a', function()
-  setScreen(function(cell)
+  set_screen(function(cell)
     cell.w = 12
     cell.h = 24
   end)
 end)
 
 hs.hotkey.bind(hyper, 's', function()
-  setScreen(function(cell)
+  set_screen(function(cell)
     cell.y = 12
     cell.w = 24
     cell.h = 12
@@ -40,7 +40,7 @@ hs.hotkey.bind(hyper, 's', function()
 end)
 
 hs.hotkey.bind(hyper, 'd', function()
-  setScreen(function(cell)
+  set_screen(function(cell)
     cell.x = 12
     cell.w = 12
     cell.h = 24
@@ -48,21 +48,21 @@ hs.hotkey.bind(hyper, 'd', function()
 end)
 
 hs.hotkey.bind(hyper, 'f', function()
-  setScreen(function(cell)
+  set_screen(function(cell)
     cell.w = 24
     cell.h = 24
   end)
 end)
 
 hs.hotkey.bind(hyper, 'q', function()
-  setScreen(function(cell)
+  set_screen(function(cell)
     cell.w = 12
     cell.h = 12
   end)
 end)
 
 hs.hotkey.bind(hyper, 'e', function()
-  setScreen(function(cell)
+  set_screen(function(cell)
     cell.x = 12
     cell.w = 12
     cell.h = 12
@@ -70,7 +70,7 @@ hs.hotkey.bind(hyper, 'e', function()
 end)
 
 hs.hotkey.bind(hyper, 'z', function()
-  setScreen(function(cell)
+  set_screen(function(cell)
     cell.y = 12
     cell.w = 12
     cell.h = 12
@@ -78,7 +78,7 @@ hs.hotkey.bind(hyper, 'z', function()
 end)
 
 hs.hotkey.bind(hyper, 'c', function()
-  setScreen(function(cell)
+  set_screen(function(cell)
     cell.y = 12
     cell.x = 12
     cell.w = 12
