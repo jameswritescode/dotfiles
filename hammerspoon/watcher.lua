@@ -1,5 +1,4 @@
--- From https://github.com/miromannino/miro-windows-management/
-function reload_config(files)
+local function reload_config(files)
   hs.reload()
 end
 

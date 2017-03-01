@@ -3,7 +3,7 @@ hs.hotkey.bind(hyper, '\\', function()
 end)
 
 -- Rebind hyper+hjkl to arrow keys
-local function keyCode(key)
+local function key_code(key)
   return function()
     hs.eventtap.event.newKeyEvent({}, string.lower(key), true):post()
     hs.timer.usleep(1000)
@@ -11,7 +11,7 @@ local function keyCode(key)
   end
 end
 
-hs.hotkey.bind(hyper, 'h', keyCode('left'), nil, keyCode('left'))
-hs.hotkey.bind(hyper, 'j', keyCode('down'), nil, keyCode('down'))
-hs.hotkey.bind(hyper, 'k', keyCode('up'), nil, keyCode('up'))
-hs.hotkey.bind(hyper, 'l', keyCode('right'), nil, keyCode('right'))
+hs.hotkey.bind(hyper, 'h', key_code('left'), nil, key_code('left'))
+hs.hotkey.bind(hyper, 'j', key_code('down'), nil, key_code('down'))
+hs.hotkey.bind(hyper, 'k', key_code('up'), nil, key_code('up'))
+hs.hotkey.bind(hyper, 'l', key_code('right'), nil, key_code('right'))
