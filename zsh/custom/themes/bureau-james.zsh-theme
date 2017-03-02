@@ -94,7 +94,8 @@ _ruby_theme_prompt () {
 
 _python_theme_prompt () {
   if [[ -n $VIRTUAL_ENV ]]; then
-    echo "‹%{$fg_bold[yellow]%}`python --version`%{$reset_color%}› "
+    local version=`python --version | awk {'print $2'}`
+    echo "‹%{$fg_bold[yellow]%}python-$version%{$reset_color%}› "
   fi
 }
 
