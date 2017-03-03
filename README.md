@@ -1,6 +1,6 @@
 # DOTFILES
 
-NEAT SCREENSHOT HERE!
+![](http://i.imgur.com/dOOkGj0.png)
 
 ## Setup
 
