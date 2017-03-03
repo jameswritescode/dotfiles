@@ -86,6 +86,15 @@ hs.hotkey.bind(hyper, 'c', function()
   end)
 end)
 
+hs.hotkey.bind(hyper, 'x', function()
+  set_screen(function(cell)
+    cell.y = 6
+    cell.x = 6
+    cell.w = 12
+    cell.h = 12
+  end)
+end)
+
 hs.hotkey.bind(hyper, 'i', function()
   local win = hs.window.frontmostWindow()
   local screen = win:screen()
