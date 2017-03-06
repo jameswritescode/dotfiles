@@ -41,20 +41,6 @@ type Commit struct {
 	AuthorName string `json:"author_name"`
 }
 
-type BranchesByStartedAt []Branch
-
-func (s BranchesByStartedAt) Len() int {
-	return len(s)
-}
-
-func (s BranchesByStartedAt) Swap(i, j int) {
-	s[i], s[j] = s[j], s[i]
-}
-
-func (s BranchesByStartedAt) Less(i, j int) bool {
-	return s[j].Date().Before(s[i].Date())
-}
-
 func getProjects(target interface{}) error {
 	apiKey := os.Getenv("SEMAPHORE_CI_AUTH_TOKEN")
 	resp, err := http.Get("https://semaphoreci.com/api/v1/projects?auth_token=" + apiKey)
@@ -115,7 +101,9 @@ func main() {
 
 		myBranches := authoredBranches(project.Branches)
 
-		sort.Sort(BranchesByStartedAt(myBranches))
+		sort.Slice(myBranches, func(i, j int) bool {
+			return myBranches[j].Date().Before(myBranches[i].Date())
+		})
 
 		for _, branch := range slicedBranches(myBranches) {
 			fmt.Printf("%s | color=%s href=%s\n", branch.BranchName, status(branch.Result), branch.BuildURL)
