@@ -55,4 +55,9 @@ set textwidth=80
 set formatoptions-=t
 set colorcolumn=+1
 
+set wildignore+=*.pyc
+set wildignore+=*.png,*.jpg,*.gif
+set wildignore+=*.pdf
+set wildignore+=.DS_Store
+
 let g:netrw_localrmdir='rm -r'
