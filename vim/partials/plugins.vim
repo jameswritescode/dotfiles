@@ -27,6 +27,7 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'honza/vim-snippets'
 Plugin 'skywind3000/asyncrun.vim'
+Plugin 'vim-airline/vim-airline'
 
 Plugin 'hlissner/vim-forrestgump'
 let g:forrestgumps = {}
@@ -144,19 +145,17 @@ if executable('php')
   let g:DisableAutoPHPFolding = 1
 endif
 
-if has('nvim')
-  Plugin 'vim-airline/vim-airline'
-elseif executable('python') || executable('python3')
-  Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-endif
-
 if executable('python') || executable('python3')
   Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-  Plugin 'klen/python-mode'
+  Plugin 'python-mode/python-mode'
   let g:pymode_lint = 0
   let g:pymode_rope = 0
   let g:pymode_folding = 0
+
+  if has('nvim')
+    Plugin 'zchee/deoplete-jedi'
+  endif
 endif
 
 if executable('rails')

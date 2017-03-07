@@ -48,4 +48,14 @@ echo "export RUST_SRC_PATH=\"\$HOME/.multirust/toolchains/$rust_toolchain/lib/ru
 cargo install rustfmt
 cargo install racer
 
+# neovim
+mkdir -p $HOME/.config
+ln -s $PWD/vim $HOME/.config/nvim
+gem install neovim
+pip2 install neovim
+pip3 install neovim
+
+nvim +PluginInstall +qa
+nvim +UpdateRemotePlugins +qa
+
 echo "Workstation setup complete."

@@ -21,7 +21,7 @@ set incsearch
 set mouse=a
 set splitbelow
 set splitright
-set shell=/bin/sh
+set shell=zsh
 set lazyredraw
 set ttyfast
 set exrc
