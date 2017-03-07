@@ -43,6 +43,7 @@ alias gpo="git push -u origin"
 alias gpr="git pull --rebase"
 alias gpu="git push"
 alias gs="git st"
+alias gsa="git stash apply"
 alias gu="git add -u"
 
 # ruby
