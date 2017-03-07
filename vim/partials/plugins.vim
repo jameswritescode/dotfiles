@@ -124,6 +124,9 @@ endif
 if has('lua')
   Plugin 'Shougo/neocomplete.vim'
   let g:neocomplete#enable_at_startup = 1
+elseif has('nvim')
+  Plugin 'Shougo/deoplete.nvim'
+  let g:deoplete#enable_at_startup = 1
 else
   Plugin 'ervandew/supertab'
 endif
@@ -141,9 +144,13 @@ if executable('php')
   let g:DisableAutoPHPFolding = 1
 endif
 
-if executable('python') || executable('python3')
-  Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+if has('nvim')
+  Plugin 'vim-airline/vim-airline'
+elseif executable('python') || executable('python3')
+  Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+endif
 
+if executable('python') || executable('python3')
   Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
   Plugin 'klen/python-mode'
