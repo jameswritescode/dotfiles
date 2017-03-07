@@ -27,7 +27,9 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'honza/vim-snippets'
 Plugin 'skywind3000/asyncrun.vim'
+
 Plugin 'vim-airline/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
 
 Plugin 'hlissner/vim-forrestgump'
 let g:forrestgumps = {}
@@ -39,7 +41,7 @@ Plugin 'luochen1990/rainbow'
 let g:rainbow_active = 1
 
 Plugin 'myusuf3/numbers.vim'
-let g:numbers_exclude = ['tagbar']
+let g:numbers_exclude = ['tagbar', '']
 
 Plugin 'Shougo/neosnippet'
 let g:neosnippet#enable_snipmate_compatibility = 1
