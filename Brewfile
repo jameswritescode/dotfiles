@@ -1,4 +1,5 @@
 tap 'caskroom/cask'
+tap 'neovim/neovim'
 
 brew 'git'
 brew 'vim', args: ['with-lua', 'with-luajit']
