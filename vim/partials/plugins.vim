@@ -30,6 +30,7 @@ Plugin 'skywind3000/asyncrun.vim'
 
 Plugin 'vim-airline/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 Plugin 'hlissner/vim-forrestgump'
 let g:forrestgumps = {}
