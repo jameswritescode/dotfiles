@@ -20,8 +20,6 @@ ln -s $PWD/.gitconfig $HOME/.gitconfig
 # vim
 ln -s $PWD/vim/.vimrc $HOME/.vimrc
 ln -s $PWD/vim $HOME/.vim
-git clone http://github.com/VundleVim/Vundle.vim vim/bundle/Vundle.vim
-vim +PluginInstall +qa
 
 # hammerspoon
 ln -s $PWD/hammerspoon $HOME/.hammerspoon
@@ -48,14 +46,15 @@ echo "export RUST_SRC_PATH=\"\$HOME/.multirust/toolchains/$rust_toolchain/lib/ru
 cargo install rustfmt
 cargo install racer
 
+# go
+go get -u github.com/nsf/gocode
+
 # neovim
+git clone https://github.com/Shougo/dein.vim vim/bundle/dein.vim
 mkdir -p $HOME/.config
 ln -s $PWD/vim $HOME/.config/nvim
 gem install neovim
 pip2 install neovim
 pip3 install neovim
-
-nvim +PluginInstall +qa
-nvim +UpdateRemotePlugins +qa
 
 echo "Workstation setup complete."
