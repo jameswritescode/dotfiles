@@ -1,34 +1,34 @@
-set rtp+=~/dotfiles/vim/bundle/Vundle.vim
-call vundle#begin('~/dotfiles/vim/bundle')
+set rtp+=~/dotfiles/vim/bundle/dein.vim
+call dein#begin('~/dotfiles/vim/bundle')
 
-Plugin 'VundleVim/Vundle.vim'
+call dein#add('Shougo/dein.vim')
 
 " Consider using https://github.com/sheerun/vim-polyglot in the future?
 
 " General
 
-Plugin 'easymotion/vim-easymotion'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-sleuth'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-vinegar'
-Plugin 'tpope/vim-speeddating'
-Plugin 'godlygeek/tabular'
-Plugin 'godlygeek/csapprox'
-Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'AndrewRadev/switch.vim'
-Plugin 'Raimondi/delimitMate'
-Plugin 'editorconfig/editorconfig-vim'
-" Plugin 'terryma/vim-multiple-cursors'
-Plugin 'kana/vim-textobj-user'
-Plugin 'Shougo/neosnippet-snippets'
-Plugin 'honza/vim-snippets'
-Plugin 'skywind3000/asyncrun.vim'
+call dein#add('easymotion/vim-easymotion')
+call dein#add('tpope/vim-commentary')
+call dein#add('tpope/vim-dispatch')
+call dein#add('tpope/vim-endwise')
+call dein#add('tpope/vim-repeat')
+call dein#add('tpope/vim-sleuth')
+call dein#add('tpope/vim-surround')
+call dein#add('tpope/vim-vinegar')
+call dein#add('tpope/vim-speeddating')
+call dein#add('godlygeek/tabular')
+call dein#add('godlygeek/csapprox')
+call dein#add('AndrewRadev/splitjoin.vim')
+call dein#add('AndrewRadev/switch.vim')
+call dein#add('Raimondi/delimitMate')
+call dein#add('editorconfig/editorconfig-vim')
+" call dein#add('terryma/vim-multiple-cursors')
+call dein#add('kana/vim-textobj-user')
+call dein#add('Shougo/neosnippet-snippets')
+call dein#add('honza/vim-snippets')
+call dein#add('skywind3000/asyncrun.vim')
 
-Plugin 'vim-airline/vim-airline'
+call dein#add('vim-airline/vim-airline')
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_splits = 0
@@ -38,72 +38,72 @@ let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline_powerline_fonts = 1
 
-Plugin 'hlissner/vim-forrestgump'
+call dein#add('hlissner/vim-forrestgump')
 let g:forrestgumps = {}
 
-Plugin 'janko-m/vim-test'
+call dein#add('janko-m/vim-test')
 let test#strategy = 'dispatch'
 
-Plugin 'luochen1990/rainbow'
+call dein#add('luochen1990/rainbow')
 let g:rainbow_active = 1
 
-Plugin 'myusuf3/numbers.vim'
+call dein#add('myusuf3/numbers.vim')
 let g:numbers_exclude = ['tagbar', '']
 
-Plugin 'Shougo/neosnippet'
+call dein#add('Shougo/neosnippet')
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory = '~/dotfiles/vim/bundle/vim-snippets/snippets'
 
-Plugin 'neomake/neomake'
+call dein#add('neomake/neomake')
 autocmd! BufWritePost * Neomake
 let g:neomake_ruby_enabled_makers = ['rubocop', 'mri']
 let g:neomake_javascript_enabled_makers = ['jscs', 'jshint']
 let g:neomake_go_enabled_makers = [] " Disabled in favor of vim-go functionality
 
-Plugin 'tpope/vim-projectionist'
+call dein#add('tpope/vim-projectionist')
 let g:projectionist_heuristics = {}
 
-Plugin 'junegunn/seoul256.vim'
+call dein#add('junegunn/seoul256.vim')
 let g:seoul256_background = 233
 
-Plugin 'wincent/terminus'
+call dein#add('wincent/terminus')
 let g:TerminusNormalCursorShape = 2
 
 " Language specific
 
-Plugin 'cespare/vim-toml'
-Plugin 'kylef/apiblueprint.vim'
-Plugin 'tpope/vim-markdown'
-Plugin 'othree/yajs.vim'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'nono/jquery.vim'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'mxw/vim-jsx'
-Plugin 'pangloss/vim-javascript'
-Plugin 'elzr/vim-json'
+call dein#add('cespare/vim-toml')
+call dein#add('kylef/apiblueprint.vim')
+call dein#add('tpope/vim-markdown')
+call dein#add('othree/yajs.vim')
+call dein#add('digitaltoad/vim-jade')
+call dein#add('nono/jquery.vim')
+call dein#add('mustache/vim-mustache-handlebars')
+call dein#add('mxw/vim-jsx')
+call dein#add('pangloss/vim-javascript')
+call dein#add('elzr/vim-json')
 
 " Executable required
 
 if executable('coffee')
-  Plugin 'kchmck/vim-coffee-script'
+  call dein#add('kchmck/vim-coffee-script')
 endif
 
 if executable('ctags')
-  Plugin 'majutsushi/tagbar'
+  call dein#add('majutsushi/tagbar')
   let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 endif
 
 if executable('git')
-  Plugin 'gregsexton/gitv'
-  Plugin 'tpope/vim-git'
-  Plugin 'tpope/vim-fugitive'
+  call dein#add('gregsexton/gitv')
+  call dein#add('tpope/vim-git')
+  call dein#add('tpope/vim-fugitive')
 
-  Plugin 'airblade/vim-gitgutter'
+  call dein#add('airblade/vim-gitgutter')
   highlight SignColumn term=underline ctermfg=101 ctermbg=232 guifg=#857b6f guibg=#121212
 endif
 
 if executable('go')
-  Plugin 'fatih/vim-go'
+  call dein#add('fatih/vim-go')
   let g:go_fmt_command = 'goimports'
   let g:go_highlight_types = 1
   let g:go_highlight_fields = 1
@@ -119,58 +119,60 @@ if executable('go')
         \ '*.go': { 'alternate': '{}_test.go', 'type': 'source' },
         \ '*_test.go': { 'alternate': '{}.go', 'type': 'test' }
         \}
+
+  if has('nvim')
+    call dein#add('zchee/deoplete-go', {'build': 'make'})
+  endif
 endif
 
 if executable('iex')
-  Plugin 'elixir-lang/vim-elixir'
+  call dein#add('elixir-lang/vim-elixir')
 endif
 
 if executable('lein')
-  Plugin 'tpope/vim-fireplace'
-  Plugin 'tpope/vim-classpath'
-  Plugin 'guns/vim-clojure-highlight'
+  call dein#add('tpope/vim-fireplace')
+  call dein#add('tpope/vim-classpath')
+  call dein#add('guns/vim-clojure-highlight')
 endif
 
 if has('lua')
-  Plugin 'Shougo/neocomplete.vim'
+  call dein#add('Shougo/neocomplete.vim')
   let g:neocomplete#enable_at_startup = 1
 elseif has('nvim')
-  Plugin 'Shougo/deoplete.nvim'
+  call dein#add('Shougo/deoplete.nvim')
   let g:deoplete#enable_at_startup = 1
 else
-  Plugin 'ervandew/supertab'
+  call dein#add('ervandew/supertab')
 endif
 
 if executable('lua')
-  Plugin 'tbastos/vim-lua'
-  Plugin 'xolox/vim-misc'
+  call dein#add('tbastos/vim-lua')
+  call dein#add('xolox/vim-misc')
 
-  Plugin 'xolox/vim-lua-ftplugin'
+  call dein#add('xolox/vim-lua-ftplugin')
   let g:lua_complete_omni = 1
 endif
 
 if executable('php')
-  Plugin 'spf13/PIV'
+  call dein#add('spf13/PIV')
   let g:DisableAutoPHPFolding = 1
 endif
 
 if executable('python') || executable('python3')
-  Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-
-  Plugin 'python-mode/python-mode'
+  call dein#add('python-mode/python-mode')
   let g:pymode_lint = 0
   let g:pymode_rope = 0
   let g:pymode_folding = 0
 
   if has('nvim')
-    Plugin 'zchee/deoplete-jedi'
+    call dein#add('zchee/deoplete-jedi')
   endif
 endif
 
 if executable('rails')
-  Plugin 'tpope/vim-rake'
+  call dein#add('tpope/vim-rake')
 
-  Plugin 'tpope/vim-rails'
+  call dein#add('tpope/vim-rails')
   let g:rails_gem_projections = {
         \ "pundit": {
         \   "app/policies/*_policy.rb": {
@@ -196,49 +198,50 @@ if executable('rails')
 endif
 
 if executable('ruby')
-  Plugin 'tpope/vim-bundler'
-  Plugin 'tpope/vim-haml'
-  Plugin 'tpope/vim-cucumber'
-  Plugin 'sunaku/vim-ruby-minitest'
-  Plugin 'junegunn/fzf'
+  call dein#add('tpope/vim-bundler')
+  call dein#add('tpope/vim-haml')
+  call dein#add('tpope/vim-cucumber')
+  call dein#add('sunaku/vim-ruby-minitest')
+  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
 
-  Plugin 'junegunn/fzf.vim'
+  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
   command! -bang -nargs=* GGrep
     \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
 
-  Plugin 'vim-ruby/vim-ruby'
+  call dein#add('vim-ruby/vim-ruby')
   let g:rubycomplete_buffer_loading = 1
   let g:rubycomplete_rails = 1
 
-  Plugin 'nelstrom/vim-textobj-rubyblock'
+  call dein#add('nelstrom/vim-textobj-rubyblock')
   runtime macros/matchit.vim
 endif
 
 if executable('rustc')
-  Plugin 'racer-rust/vim-racer'
+  call dein#add('racer-rust/vim-racer')
   let g:racer_experimental_completer = 1
 
-  Plugin 'rust-lang/rust.vim'
+  call dein#add('rust-lang/rust.vim')
   let g:rustfmt_autosave = 1
 
   let g:forrestgumps['rust'] = ['rustc']
 endif
 
 if executable('swift')
-  Plugin 'keith/swift.vim'
+  call dein#add('keith/swift.vim')
 endif
 
 if executable('tmux')
-  Plugin 'tpope/vim-tbone'
-  Plugin 'christoomey/vim-tmux-navigator'
-  Plugin 'tmux-plugins/vim-tmux'
+  call dein#add('tpope/vim-tbone')
+  call dein#add('christoomey/vim-tmux-navigator')
+  call dein#add('tmux-plugins/vim-tmux')
 endif
 
 if executable('tsc')
-  Plugin 'Quramy/tsuquyomi'
-  Plugin 'leafgarland/typescript-vim'
-  Plugin 'HerringtonDarkholme/yats.vim'
+  call dein#add('Quramy/tsuquyomi')
+  call dein#add('leafgarland/typescript-vim')
+  call dein#add('HerringtonDarkholme/yats.vim')
 endif
 
-call vundle#end()
+call dein#end()
+call dein#save_state()
