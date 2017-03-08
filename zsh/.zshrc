@@ -16,6 +16,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT="true"
 source $(brew --prefix chruby)/share/chruby/chruby.sh
 
 eval "$(fasd --init auto)"
+eval "$(hub alias -s)"
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
@@ -24,6 +25,7 @@ alias c="clear"
 alias j="z"
 alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 alias ls="ls -G -a"
+alias vim="nvim"
 alias vu="nvim +PluginInstall! +UpdateRemotePlugins +qa"
 
 # docker
