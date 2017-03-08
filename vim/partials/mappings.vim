@@ -15,6 +15,15 @@ if has('nvim')
       let col = col('.') - 1
       return !col || getline('.')[col - 1]  =~ '\s'
     endfunction
+
+    inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+    inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
+
+    inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+
+    function! s:my_cr_function() abort
+      return deoplete#cancel_popup() . "\<CR>"
+    endfunction
 else
     inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
     inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
