@@ -1,4 +1,4 @@
-set rtp+=~/dotfiles/vim/bundle/dein.vim
+set rtp+=~/dotfiles/vim/bundle/repos/github.com/Shougo/dein.vim
 call dein#begin('~/dotfiles/vim/bundle')
 
 call dein#add('Shougo/dein.vim')
@@ -22,7 +22,6 @@ call dein#add('AndrewRadev/splitjoin.vim')
 call dein#add('AndrewRadev/switch.vim')
 call dein#add('Raimondi/delimitMate')
 call dein#add('editorconfig/editorconfig-vim')
-" call dein#add('terryma/vim-multiple-cursors')
 call dein#add('kana/vim-textobj-user')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('honza/vim-snippets')
