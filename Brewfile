@@ -15,6 +15,7 @@ brew 'redis'
 brew 'neovim'
 brew 'python'
 brew 'python3'
+brew 'hub'
 
 cask 'iterm2-nightly'
 cask 'google-chrome'
