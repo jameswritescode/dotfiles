@@ -50,7 +50,8 @@ cargo install racer
 go get -u github.com/nsf/gocode
 
 # neovim
-git clone https://github.com/Shougo/dein.vim vim/bundle/dein.vim
+mkdir -p $HOME/dotfiles/vim/bundle/repos/github.com/Shougo/dein.vim
+git clone https://github.com/Shougo/dein.vim vim/bundle/repos/github.com/Shougo/dein.vim
 mkdir -p $HOME/.config
 ln -s $PWD/vim $HOME/.config/nvim
 gem install neovim
