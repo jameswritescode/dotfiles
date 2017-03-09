@@ -1,3 +1,7 @@
+hs.hotkey.bind(hyper, 'r', function()
+  hs.reload()
+end)
+
 hs.hotkey.bind(hyper, '\\', function()
   hs.caffeinate.lockScreen()
 end)
