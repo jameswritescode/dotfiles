@@ -16,6 +16,7 @@ brew 'neovim'
 brew 'python'
 brew 'python3'
 brew 'hub'
+brew 'coreutils'
 
 cask 'iterm2-nightly'
 cask 'google-chrome'
