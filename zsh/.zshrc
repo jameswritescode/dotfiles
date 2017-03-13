@@ -6,8 +6,8 @@ plugins=(zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-export BUNDLE_EDITOR="vim"
-export EDITOR="vim"
+export BUNDLE_EDITOR="nvim"
+export EDITOR="nvim"
 export GOPATH="$HOME/go"
 export HISTCONTROL=ignoreboth:erasedups
 export NVM_DIR="$HOME/.nvm"
