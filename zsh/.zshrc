@@ -63,6 +63,6 @@ __cd_chruby() {
   [ -f "$PWD/.ruby-version" ] && chruby `cat .ruby-version` &>/dev/null
 }
 
-chpwd_functions=(${chpwd_functions[@]} "__cd_nvm" "__cd_chruby")
+chpwd_functions=("__cd_nvm" "__cd_chruby")
 
 source ~/.zsh_custom 2>/dev/null
