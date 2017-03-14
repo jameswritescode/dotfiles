@@ -1,4 +1,4 @@
-hs.window.animationDuration = 0.3
+hs.window.animationDuration = 0
 
 hs.grid.setGrid('24x24')
 hs.grid.MARGINX = 0
