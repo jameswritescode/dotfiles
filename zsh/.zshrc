@@ -26,7 +26,6 @@ alias j="z"
 alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 alias ls="ls -G -a"
 alias vim="nvim"
-alias vu="nvim +PluginInstall! +UpdateRemotePlugins +qa"
 
 # docker
 alias dps="docker ps -a"
