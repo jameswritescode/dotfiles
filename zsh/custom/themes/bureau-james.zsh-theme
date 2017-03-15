@@ -88,7 +88,7 @@ _node_theme_prompt () {
 _ruby_theme_prompt () {
   if _file_exists 'Gemfile'
   then
-    echo "‹%{$fg_bold[red]%}`chruby | grep \* | tr -d '* '`%{$reset_color%}› "
+    echo "‹%{$fg_bold[red]%}ruby-$RUBY_VERSION%{$reset_color%}› "
   fi
 }
 
