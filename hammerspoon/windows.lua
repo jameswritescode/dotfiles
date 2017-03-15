@@ -17,6 +17,11 @@ local function set_screen(cb)
   hs.grid.set(win, cell, win:screen())
 end
 
+-- +-----------------+
+-- |      HERE       |
+-- +-----------------+
+-- |                 |
+-- +-----------------+
 hs.hotkey.bind(hyper, 'w', function()
   set_screen(function(cell)
     cell.w = 24
@@ -24,6 +29,11 @@ hs.hotkey.bind(hyper, 'w', function()
   end)
 end)
 
+-- +--------+--------+
+-- |        |        |
+-- |  HERE  |        |
+-- |        |        |
+-- +--------+--------+
 hs.hotkey.bind(hyper, 'a', function()
   set_screen(function(cell)
     cell.w = 12
@@ -31,7 +41,12 @@ hs.hotkey.bind(hyper, 'a', function()
   end)
 end)
 
-hs.hotkey.bind(hyper, 's', function()
+-- +-----------------+
+-- |                 |
+-- +-----------------+
+-- |      HERE       |
+-- +-----------------+
+hs.hotkey.bind(hyper, 'x', function()
   set_screen(function(cell)
     cell.y = 12
     cell.w = 24
@@ -39,6 +54,11 @@ hs.hotkey.bind(hyper, 's', function()
   end)
 end)
 
+-- +--------+--------+
+-- |        |        |
+-- |        |  HERE  |
+-- |        |        |
+-- +--------+--------+
 hs.hotkey.bind(hyper, 'd', function()
   set_screen(function(cell)
     cell.x = 12
@@ -47,6 +67,11 @@ hs.hotkey.bind(hyper, 'd', function()
   end)
 end)
 
+-- +--------+--------+
+-- |                 |
+-- |      HERE       |
+-- |                 |
+-- +--------+--------+
 hs.hotkey.bind(hyper, 'f', function()
   set_screen(function(cell)
     cell.w = 24
@@ -86,7 +111,7 @@ hs.hotkey.bind(hyper, 'c', function()
   end)
 end)
 
-hs.hotkey.bind(hyper, 'x', function()
+hs.hotkey.bind(hyper, 's', function()
   set_screen(function(cell)
     cell.y = 6
     cell.x = 6
