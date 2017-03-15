@@ -51,7 +51,7 @@ let g:numbers_exclude = ['tagbar', '']
 
 call dein#add('Shougo/neosnippet')
 let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory = '~/dotfiles/vim/bundle/vim-snippets/snippets'
+let g:neosnippet#snippets_directory = '~/dotfiles/vim/bundle/repos/vim-snippets/snippets'
 
 call dein#add('neomake/neomake')
 autocmd! BufWritePost * Neomake
@@ -214,6 +214,11 @@ if executable('ruby')
 
   call dein#add('nelstrom/vim-textobj-rubyblock')
   runtime macros/matchit.vim
+
+  if executable('rubocop')
+    call dein#add('mattn/vim-rubyfmt')
+    let g:rubyfmt_autoopen = 0
+  endif
 endif
 
 if executable('rustc')
