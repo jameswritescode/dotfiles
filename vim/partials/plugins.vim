@@ -46,8 +46,8 @@ let test#strategy = 'dispatch'
 call dein#add('luochen1990/rainbow')
 let g:rainbow_active = 1
 
-call dein#add('myusuf3/numbers.vim')
-let g:numbers_exclude = ['tagbar', '']
+" call dein#add('myusuf3/numbers.vim')
+" let g:numbers_exclude = ['tagbar', '']
 
 call dein#add('Shougo/neosnippet')
 let g:neosnippet#enable_snipmate_compatibility = 1
@@ -102,7 +102,7 @@ if executable('git')
 endif
 
 if executable('go')
-  call dein#add('fatih/vim-go')
+  call dein#add('fatih/vim-go', {'on_ft': 'go'})
   let g:go_fmt_command = 'goimports'
   let g:go_highlight_types = 1
   let g:go_highlight_fields = 1
@@ -120,7 +120,7 @@ if executable('go')
         \}
 
   if has('nvim')
-    call dein#add('zchee/deoplete-go', {'build': 'make'})
+    call dein#add('zchee/deoplete-go', {'build': 'make', 'on_ft': 'go'})
   endif
 endif
 
@@ -145,26 +145,26 @@ else
 endif
 
 if executable('lua')
-  call dein#add('tbastos/vim-lua')
-  call dein#add('xolox/vim-misc')
+  call dein#add('tbastos/vim-lua', {'on_ft': 'lua'})
+  call dein#add('xolox/vim-misc', {'on_ft': 'lua'})
 
-  call dein#add('xolox/vim-lua-ftplugin')
+  call dein#add('xolox/vim-lua-ftplugin', {'on_ft': 'lua'})
   let g:lua_complete_omni = 1
 endif
 
 if executable('php')
-  call dein#add('spf13/PIV')
+  call dein#add('spf13/PIV', {'on_ft': 'php'})
   let g:DisableAutoPHPFolding = 1
 endif
 
 if executable('python') || executable('python3')
-  call dein#add('python-mode/python-mode')
+  call dein#add('python-mode/python-mode', {'on_ft': 'python'})
   let g:pymode_lint = 0
   let g:pymode_rope = 0
   let g:pymode_folding = 0
 
   if has('nvim')
-    call dein#add('zchee/deoplete-jedi')
+    call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'})
   endif
 endif
 
@@ -216,16 +216,16 @@ if executable('ruby')
   runtime macros/matchit.vim
 
   if executable('rubocop')
-    call dein#add('mattn/vim-rubyfmt')
+    call dein#add('jameswritescode/vim-rubyfmt')
     let g:rubyfmt_autoopen = 0
   endif
 endif
 
 if executable('rustc')
-  call dein#add('racer-rust/vim-racer')
+  call dein#add('racer-rust/vim-racer', {'on_ft': 'rust'})
   let g:racer_experimental_completer = 1
 
-  call dein#add('rust-lang/rust.vim')
+  call dein#add('rust-lang/rust.vim', {'on_ft': 'rust'})
   let g:rustfmt_autosave = 1
 
   let g:forrestgumps['rust'] = ['rustc']
