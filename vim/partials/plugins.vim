@@ -211,6 +211,9 @@ if executable('ruby')
   call dein#add('vim-ruby/vim-ruby')
   let g:rubycomplete_buffer_loading = 1
   let g:rubycomplete_rails = 1
+  let g:ruby_indent_access_modifier_style = 'outdent'
+  let g:ruby_indent_block_style = 'do'
+  let g:ruby_indent_assignment_style = 'variable'
 
   call dein#add('nelstrom/vim-textobj-rubyblock')
   runtime macros/matchit.vim
