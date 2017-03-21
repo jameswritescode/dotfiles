@@ -25,7 +25,7 @@ alias c="clear"
 alias j="z"
 alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 alias ls="ls -G -a"
-alias vim="nvim"
+alias mux="tmuxinator"
 
 # docker
 alias dps="docker ps -a"
@@ -53,6 +53,18 @@ alias ber="be rake"
 alias bm="bundle && m"
 alias m="ber db:migrate && ber db:migrate RAILS_ENV=test"
 alias rs="be rails s"
+
+# functions
+
+vim() {
+  if [ -z ${VIM+x} ]; then
+    nvim $*
+  else
+    echo "Already in vim"
+  fi
+}
+
+# chpwd functions
 
 __cd_nvm() {
   [ -f "$PWD/.nvmrc" ] && nvm use . &>/dev/null
