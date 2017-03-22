@@ -248,5 +248,9 @@ if executable('tsc')
   call dein#add('HerringtonDarkholme/yats.vim')
 endif
 
+if executable('clang')
+  call dein#add('tweekmonster/deoplete-clang2')
+endif
+
 call dein#end()
 call dein#save_state()
