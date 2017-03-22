@@ -9,7 +9,6 @@ call dein#add('Shougo/dein.vim')
 
 call dein#add('easymotion/vim-easymotion')
 call dein#add('tpope/vim-commentary')
-call dein#add('tpope/vim-dispatch')
 call dein#add('tpope/vim-endwise')
 call dein#add('tpope/vim-repeat')
 call dein#add('tpope/vim-sleuth')
@@ -25,7 +24,6 @@ call dein#add('editorconfig/editorconfig-vim')
 call dein#add('kana/vim-textobj-user')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('honza/vim-snippets')
-call dein#add('skywind3000/asyncrun.vim')
 
 call dein#add('vim-airline/vim-airline')
 let g:airline#extensions#tabline#enabled = 1
@@ -41,7 +39,7 @@ call dein#add('hlissner/vim-forrestgump')
 let g:forrestgumps = {}
 
 call dein#add('janko-m/vim-test')
-let test#strategy = 'dispatch'
+let test#strategy = 'neovim'
 
 call dein#add('luochen1990/rainbow')
 let g:rainbow_active = 1
