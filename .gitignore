@@ -8,4 +8,7 @@ vim/bundle/*
 vim/tmp/*
 !vim/tmp/.gitkeep
 
+vim/virtual/*
+!vim/virtual/.gitkeep
+
 vim/.netrwhist
