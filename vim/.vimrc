@@ -4,7 +4,6 @@ let mapleader="\<Space>"
 
 source ~/dotfiles/vim/partials/mappings.vim
 
-autocmd filetype crontab setlocal nobackup nowritebackup
 autocmd VimEnter * :redraw!
 
 filetype off
