@@ -26,7 +26,8 @@ type pullRequest struct {
 }
 
 type status struct {
-	State string
+	State      string
+	TotalCount int `json:"total_count"`
 }
 
 func getData(target interface{}, url string) error {
@@ -41,10 +42,10 @@ func getData(target interface{}, url string) error {
 	return json.NewDecoder(resp.Body).Decode(target)
 }
 
-func color(result string) string {
-	if result == "success" {
+func color(status status) string {
+	if status.State == "success" || status.TotalCount == 0 {
 		return "green"
-	} else if result == "pending" {
+	} else if status.State == "pending" {
 		return "orange"
 	} else {
 		return "red"
@@ -67,7 +68,7 @@ func main() {
 			getData(&issue.PullRequest, issue.PullRequest.URL)
 			getData(&issue.Status, issue.RepositoryURL+"/commits/"+issue.PullRequest.Head.Sha+"/status")
 
-			fmt.Printf("(%d) %s | color=%s href=%s\n", issue.Comments, issue.Title, color(issue.Status.State), issue.HTMLURL)
+			fmt.Printf("(%d) %s | color=%s href=%s\n", issue.Comments, issue.Title, color(issue.Status), issue.HTMLURL)
 		}
 	}
 }
