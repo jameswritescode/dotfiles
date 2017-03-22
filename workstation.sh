@@ -55,7 +55,10 @@ git clone https://github.com/Shougo/dein.vim vim/bundle/repos/github.com/Shougo/
 mkdir -p $HOME/.config
 ln -s $PWD/vim $HOME/.config/nvim
 gem install neovim
-pip2 install neovim
-pip3 install neovim
+pip3 install virtualenv
+virtualenv -p python2 $PWD/vim/virtual/python2
+$PWD/vim/virtual/python2/bin/pip install neovim
+virtualenv -p python3 $PWD/vim/virtual/python3
+$PWD/vim/virtual/python3/bin/pip install neovim
 
 echo "Workstation setup complete."
