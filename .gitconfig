@@ -16,3 +16,5 @@
         sslVerify = false
 [push]
         default = simple
+[core]
+	editor = nvim
