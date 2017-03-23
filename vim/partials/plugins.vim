@@ -138,6 +138,7 @@ if has('lua')
 elseif has('nvim')
   call dein#add('Shougo/deoplete.nvim')
   let g:deoplete#enable_at_startup = 1
+  let g:deoplete#omni#functions = {}
 else
   call dein#add('ervandew/supertab')
 endif
@@ -148,6 +149,10 @@ if executable('lua')
 
   call dein#add('xolox/vim-lua-ftplugin', {'on_ft': 'lua'})
   let g:lua_complete_omni = 1
+  let g:lua_check_syntax = 0
+  let g:lua_complete_dynamic = 0
+  let g:lua_define_completion_mappings = 0
+  let g:deoplete#omni#functions.lua = 'xolox#lua#omnifunc'
 endif
 
 if executable('php')
