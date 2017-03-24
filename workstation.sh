@@ -30,6 +30,7 @@ chruby ruby
 ruby -v | awk {'print "chruby " $2'} >> $HOME/.zsh_custom
 gem install bundler
 gem install tmuxinator
+gem install rubocop
 
 # tmux
 ln -s $PWD/tmux/.tmux.conf $HOME/.tmux.conf
