@@ -1,20 +1,24 @@
 [user]
-        name = James Newton
-        email = hello@jamesnewton.com
+	name = James Newton
+	email = hello@jamesnewton.com
 [alias]
-        co = checkout
-        st = status -sb
-        b = branch
-        forget = rm --cached
-        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	co = checkout
+	st = status -sb
+	g = grep --break --heading --line-number
+	b = branch
+	forget = rm --cached
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	stash-all = stash save --include-untracked
 [color]
-        ui = auto
+	ui = auto
 [grep]
-        extendRegexp = true
-        lineNumber = true
-[http]
-        sslVerify = false
+	extendRegexp = true
+	lineNumber = true
 [push]
-        default = simple
-[core]
-	editor = nvim
+	default = simple
+[log]
+	decorate = full
+[rebase]
+	autostash = true
+[stash]
+	showPatch = true
