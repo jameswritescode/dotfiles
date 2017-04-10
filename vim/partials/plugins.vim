@@ -22,6 +22,7 @@ call dein#add('AndrewRadev/switch.vim')
 call dein#add('Raimondi/delimitMate')
 call dein#add('editorconfig/editorconfig-vim')
 call dein#add('kana/vim-textobj-user')
+call dein#add('diepm/vim-rest-console')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('honza/vim-snippets')
 
