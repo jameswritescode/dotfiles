@@ -53,6 +53,7 @@ alias be="bundle exec"
 alias ber="be rake"
 alias bm="bundle && m"
 alias m="ber db:migrate && ber db:migrate RAILS_ENV=test"
+alias rc="be rails c"
 alias rs="be rails s"
 
 # functions
