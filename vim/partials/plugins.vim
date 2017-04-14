@@ -58,6 +58,10 @@ let g:neomake_ruby_enabled_makers = ['rubocop', 'mri']
 let g:neomake_javascript_enabled_makers = ['jscs', 'jshint']
 let g:neomake_go_enabled_makers = [] " Disabled in favor of vim-go functionality
 
+call dein#add('sbdchd/neoformat')
+autocmd BufWritePre * Neoformat
+let g:neoformat_enabled_go = [] " Disabled in favor of vim-go functionality
+
 call dein#add('tpope/vim-projectionist')
 let g:projectionist_heuristics = {}
 
@@ -215,17 +219,9 @@ if executable('ruby')
   call dein#add('vim-ruby/vim-ruby')
   let g:rubycomplete_buffer_loading = 1
   let g:rubycomplete_rails = 1
-  let g:ruby_indent_access_modifier_style = 'outdent'
-  let g:ruby_indent_block_style = 'do'
-  let g:ruby_indent_assignment_style = 'variable'
 
   call dein#add('nelstrom/vim-textobj-rubyblock')
   runtime macros/matchit.vim
-
-  if executable('rubocop')
-    call dein#add('jameswritescode/vim-rubyfmt')
-    let g:rubyfmt_autoopen = 0
-  endif
 endif
 
 if executable('rustc')
