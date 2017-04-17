@@ -201,6 +201,11 @@ if executable('rails')
         \     "affinity": "model",
         \     "alternate": "app/models/{}.rb"
         \   }
+        \ },
+        \ "services": {
+        \   "app/services/*.rb": {
+        \     "command": "service"
+        \   }
         \ }}
 endif
 
