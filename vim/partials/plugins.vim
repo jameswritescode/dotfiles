@@ -201,11 +201,11 @@ if executable('rails')
         \     "affinity": "model",
         \     "alternate": "app/models/{}.rb"
         \   }
-        \ },
-        \ "services": {
-        \   "app/services/*.rb": {
+        \ }}
+
+  let g:rails_projections = {
+        \ "app/services/*.rb": {
         \     "command": "service"
-        \   }
         \ }}
 endif
 
