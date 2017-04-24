@@ -201,6 +201,11 @@ if executable('rails')
         \     "affinity": "model",
         \     "alternate": "app/models/{}.rb"
         \   }
+        \ },
+        \ "statesman": {
+        \   "app/state_machines/*.rb": {
+        \     "command": "state"
+        \   }
         \ }}
 
   let g:rails_projections = {
