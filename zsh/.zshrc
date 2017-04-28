@@ -33,8 +33,8 @@ alias dps="docker ps -a"
 # git
 alias ga="git add -A"
 alias gb="git branch"
-alias gco="git checkout"
 alias gcm="git commit -m"
+alias gco="git checkout"
 alias gd="git diff"
 alias gf="git ls-files | grep"
 alias gg="git grep"
@@ -47,6 +47,8 @@ alias gpu="git push"
 alias gs="git st"
 alias gsa="git stash apply"
 alias gsl="git stash list"
+alias gss="git stash show"
+alias gst="git status"
 alias gu="git add -u"
 
 # ruby
