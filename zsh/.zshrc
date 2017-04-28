@@ -46,6 +46,7 @@ alias gpr="git pull --rebase"
 alias gpu="git push"
 alias gs="git st"
 alias gsa="git stash apply"
+alias gsl="git stash list"
 alias gu="git add -u"
 
 # ruby
