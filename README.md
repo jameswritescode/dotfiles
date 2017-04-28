@@ -15,3 +15,4 @@ $ ./workstation.sh
 * Ruby: https://github.com/bbatsov/ruby-style-guide
 * Lua: https://github.com/Olivine-Labs/lua-style-guide
 * Python: https://github.com/amontalenti/elements-of-python-style
+* CSS: http://mvcss.io/
