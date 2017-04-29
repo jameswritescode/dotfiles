@@ -22,3 +22,5 @@
 	autostash = true
 [stash]
 	showPatch = true
+[init]
+	templatedir = ~/dotfiles/git/templates

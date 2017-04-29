@@ -15,7 +15,7 @@ rm $HOME/.zshrc && ln -s $PWD/zsh/.zshrc $HOME/.zshrc
 touch $HOME/.zsh_custom
 
 # git
-ln -s $PWD/.gitconfig $HOME/.gitconfig
+ln -s $PWD/git/.gitconfig $HOME/.gitconfig
 
 # vim
 ln -s $PWD/vim/.vimrc $HOME/.vimrc
