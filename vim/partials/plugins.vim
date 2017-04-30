@@ -56,6 +56,7 @@ call dein#add('neomake/neomake')
 autocmd! BufWritePost * Neomake
 let g:neomake_ruby_enabled_makers = ['rubocop', 'mri']
 let g:neomake_javascript_enabled_makers = ['jscs', 'jshint']
+let g:neomake_javascript_jsx_enabled_makers = ['eslint']
 let g:neomake_go_enabled_makers = [] " Disabled in favor of vim-go functionality
 
 call dein#add('sbdchd/neoformat')
@@ -80,9 +81,11 @@ call dein#add('othree/yajs.vim')
 call dein#add('digitaltoad/vim-jade')
 call dein#add('nono/jquery.vim')
 call dein#add('mustache/vim-mustache-handlebars')
-call dein#add('mxw/vim-jsx')
 call dein#add('pangloss/vim-javascript')
 call dein#add('elzr/vim-json')
+
+call dein#add('mxw/vim-jsx')
+let g:jsx_ext_required = 0
 
 " Executable required
 
