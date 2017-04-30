@@ -65,6 +65,10 @@ let g:neoformat_enabled_go = [] " Disabled in favor of vim-go functionality
 
 call dein#add('tpope/vim-projectionist')
 let g:projectionist_heuristics = {}
+let g:projectionist_heuristics['*.js'] = {
+      \ '*.js': { 'alternate': '{}.test.js', 'type': 'source' },
+      \ '*.test.js': { 'alternate': '{}.js', 'type': 'test' }
+      \}
 
 call dein#add('junegunn/seoul256.vim')
 let g:seoul256_background = 233
@@ -83,6 +87,7 @@ call dein#add('nono/jquery.vim')
 call dein#add('mustache/vim-mustache-handlebars')
 call dein#add('pangloss/vim-javascript')
 call dein#add('elzr/vim-json')
+call dein#add('mattn/emmet-vim')
 
 call dein#add('mxw/vim-jsx')
 let g:jsx_ext_required = 0
