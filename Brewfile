@@ -19,6 +19,7 @@ brew 'hub'
 brew 'coreutils'
 brew 'tree'
 brew 'wget'
+brew 'ctags'
 
 cask 'google-chrome'
 cask 'bitbar'
