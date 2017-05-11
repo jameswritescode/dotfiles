@@ -99,6 +99,10 @@ let g:jsx_ext_required = 0
 
 " Executable required
 
+if executable('clang')
+  call dein#add('tweekmonster/deoplete-clang2')
+endif
+
 if executable('coffee')
   call dein#add('kchmck/vim-coffee-script')
 endif
@@ -158,6 +162,15 @@ if executable('lua')
   let g:lua_complete_dynamic = 0
   let g:lua_define_completion_mappings = 0
   let g:deoplete#omni#functions.lua = 'xolox#lua#omnifunc'
+endif
+
+if executable('node')
+  call dein#add('othree/jspc.vim')
+
+  call dein#add('ternjs/tern_for_vim', {'on_ft': 'javascript', 'build': 'npm install'})
+  let g:tern_show_signature_in_pum = 1
+
+  let g:deoplete#omni#functions.javascript = ['tern#Complete', 'jspc#omni']
 endif
 
 if executable('php')
@@ -256,10 +269,6 @@ if executable('tsc')
   call dein#add('Quramy/tsuquyomi')
   call dein#add('leafgarland/typescript-vim')
   call dein#add('HerringtonDarkholme/yats.vim')
-endif
-
-if executable('clang')
-  call dein#add('tweekmonster/deoplete-clang2')
 endif
 
 call dein#end()
