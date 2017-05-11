@@ -27,6 +27,10 @@ call dein#add('kassio/neoterm')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('honza/vim-snippets')
 
+call dein#add('Shougo/deoplete.nvim')
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#omni#functions = {}
+
 call dein#add('vim-airline/vim-airline')
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
@@ -131,9 +135,7 @@ if executable('go')
         \ '*_test.go': { 'alternate': '{}.go', 'type': 'test' }
         \}
 
-  if has('nvim')
-    call dein#add('zchee/deoplete-go', {'build': 'make', 'on_ft': 'go'})
-  endif
+  call dein#add('zchee/deoplete-go', {'build': 'make', 'on_ft': 'go'})
 endif
 
 if executable('iex')
@@ -144,17 +146,6 @@ if executable('lein')
   call dein#add('tpope/vim-fireplace')
   call dein#add('tpope/vim-classpath')
   call dein#add('guns/vim-clojure-highlight')
-endif
-
-if has('lua')
-  call dein#add('Shougo/neocomplete.vim')
-  let g:neocomplete#enable_at_startup = 1
-elseif has('nvim')
-  call dein#add('Shougo/deoplete.nvim')
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#omni#functions = {}
-else
-  call dein#add('ervandew/supertab')
 endif
 
 if executable('lua')
@@ -180,9 +171,7 @@ if executable('python') || executable('python3')
   let g:pymode_rope = 0
   let g:pymode_folding = 0
 
-  if has('nvim')
-    call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'})
-  endif
+  call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'})
 endif
 
 if executable('rails')
