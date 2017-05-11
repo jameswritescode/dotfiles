@@ -24,9 +24,15 @@ ln -s $PWD/hammerspoon $HOME/.hammerspoon
 ruby-install --latest ruby
 chruby ruby
 ruby -v | awk {'print "! [ -f \"$PWD/.ruby-version\" ] && chruby " $2'} >> $HOME/.zsh_custom
-gem install bundler
-gem install tmuxinator
-gem install rubocop
+gem install bundler tmuxinator rubocop
+
+if  [[ "$OSTYPE" == "darwin"* ]]; then
+  BUNDLE_JOBS=`expr $(sysctl -n hw.ncpu) - 1`
+else
+  BUNDLE_JOBS=`expr $(nproc) - 1`
+fi
+
+bundle config --global jobs $BUNDLE_JOBS
 
 # tmux
 ln -s $PWD/tmux/.tmux.conf $HOME/.tmux.conf
