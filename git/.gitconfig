@@ -1,13 +1,14 @@
 [user]
-	name = James Newton
 	email = hello@jamesnewton.com
+	name = James Newton
 [alias]
-	co = checkout
-	st = status -sb
-	g = grep --break --heading --line-number
 	b = branch
+	co = checkout
+	find = log --source --all -S
 	forget = rm --cached
+	g = grep --break --heading --line-number
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	st = status -sb
 	stash-all = stash save --include-untracked
 [color]
 	ui = auto
