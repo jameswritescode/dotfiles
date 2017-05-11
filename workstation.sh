@@ -17,10 +17,6 @@ touch $HOME/.zsh_custom
 # git
 ln -s $PWD/git/.gitconfig $HOME/.gitconfig
 
-# vim
-ln -s $PWD/vim/.vimrc $HOME/.vimrc
-ln -s $PWD/vim $HOME/.vim
-
 # hammerspoon
 ln -s $PWD/hammerspoon $HOME/.hammerspoon
 
