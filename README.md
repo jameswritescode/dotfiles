@@ -1,6 +1,6 @@
 # DOTFILES
 
-![](http://i.imgur.com/dOOkGj0.png)
+![](http://i.imgur.com/K3uZZV5.png)
 
 ## Setup
 
@@ -12,7 +12,7 @@ $ ./workstation.sh
 
 ## Styleguides
 
-* Ruby: https://github.com/bbatsov/ruby-style-guide
+* CSS: http://mvcss.io/
 * Lua: https://github.com/Olivine-Labs/lua-style-guide
 * Python: https://github.com/amontalenti/elements-of-python-style
-* CSS: http://mvcss.io/
+* Ruby: https://github.com/bbatsov/ruby-style-guide
