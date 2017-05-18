@@ -12,6 +12,7 @@ $ launchctl setenv NAME VALUE
 
 Relevant environment names:
 
-* `SEMAPHORE_CI_AUTH_TOKEN`
 * `GITHUB_ACCESS_TOKEN`
+* `GITLAB_ACCESS_TOKEN`
+* `SEMAPHORE_CI_AUTH_TOKEN`
 * `TWITCH_API_KEY`
