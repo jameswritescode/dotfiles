@@ -17,6 +17,9 @@ touch $HOME/.zsh_custom
 # git
 ln -s $PWD/git/.gitconfig $HOME/.gitconfig
 
+# ctags
+ln -s $PWD/.ctags $HOME/.ctags
+
 # hammerspoon
 ln -s $PWD/hammerspoon $HOME/.hammerspoon
 
