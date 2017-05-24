@@ -7,6 +7,7 @@
 	find = log --source --all -S
 	forget = rm --cached
 	g = grep --break --heading --line-number
+	graph = log --graph --all --decorate --stat --date=iso
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	st = status -sb
 	stash-all = stash save --include-untracked
