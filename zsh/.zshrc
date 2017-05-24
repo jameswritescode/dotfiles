@@ -12,6 +12,7 @@ export GOPATH="$HOME/go"
 export HISTCONTROL=ignoreboth:erasedups
 export NVM_DIR="$HOME/.nvm"
 export VIRTUAL_ENV_DISABLE_PROMPT="true"
+export FZF_DEFAULT_COMMAND='ag -g ""'
 
 source $(brew --prefix chruby)/share/chruby/chruby.sh
 
