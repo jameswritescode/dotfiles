@@ -234,7 +234,6 @@ if executable('ruby')
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
 
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
   command! -bang -nargs=* GGrep
     \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
 
