@@ -19,6 +19,7 @@ eval "$(fasd --init auto)"
 eval "$(hub alias -s)"
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # general
 alias c="clear"
