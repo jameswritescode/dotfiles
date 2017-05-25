@@ -25,6 +25,7 @@ call dein#add('kana/vim-textobj-user')
 call dein#add('diepm/vim-rest-console')
 call dein#add('bogado/file-line')
 call dein#add('kassio/neoterm')
+call dein#add('sjl/gundo.vim')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('honza/vim-snippets')
 
