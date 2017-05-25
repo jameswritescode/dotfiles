@@ -60,6 +60,9 @@ set wildignore+=*.png,*.jpg,*.gif
 set wildignore+=*.pdf
 set wildignore+=.DS_Store
 
+set undofile
+set undodir=~/dotfiles/vim/tmp
+
 let g:netrw_localrmdir='rm -r'
 let g:python_host_prog=$HOME.'/dotfiles/vim/virtual/python2/bin/python'
 let g:python3_host_prog=$HOME.'/dotfiles/vim/virtual/python3/bin/python'
