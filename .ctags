@@ -17,3 +17,14 @@
 --regex-Rust=/^[ \t]*macro_rules![ \t]+([a-zA-Z0-9_]+)/\1/d,macros,macro definitions/
 
 --langmap=Lisp:+.clj
+
+--langdef=CSS
+--langmap=CSS:.css
+--langmap=CSS:+.scss
+--langmap=CSS:+.sass
+--langmap=CSS:+.styl
+--langmap=CSS:+.less
+--regex-CSS=/^[ \t]*\.([A-Za-z0-9_]+-[A-Za-z0-9_-]+)( |$)/.\1/c,class,classes/
+--regex-CSS=/^([\$@][A-Za-z0-9_-]+): /\1/v,variable,variables/
+--regex-CSS=/^([A-Za-z0-9_-]+) = /\1/v,variable,variables/
+--regex-CSS=/^[ \t]*(@mixin |= ?)([A-Za-z0-9_-]+)/\2/m,mixin,mixins/
