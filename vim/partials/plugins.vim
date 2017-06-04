@@ -47,13 +47,10 @@ call dein#add('hlissner/vim-forrestgump')
 let g:forrestgumps = {}
 
 call dein#add('janko-m/vim-test')
-let test#strategy = 'neovim'
+let g:test#strategy = 'neovim'
 
 call dein#add('luochen1990/rainbow')
 let g:rainbow_active = 1
-
-" call dein#add('myusuf3/numbers.vim')
-" let g:numbers_exclude = ['tagbar', '']
 
 call dein#add('Shougo/neosnippet')
 let g:neosnippet#enable_snipmate_compatibility = 1
@@ -79,9 +76,6 @@ let g:projectionist_heuristics['*.js'] = {
 
 call dein#add('junegunn/seoul256.vim')
 let g:seoul256_background = 233
-
-call dein#add('wincent/terminus')
-let g:TerminusNormalCursorShape = 2
 
 " Language specific
 
