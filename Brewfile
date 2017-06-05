@@ -2,7 +2,6 @@ tap 'caskroom/cask'
 tap 'neovim/neovim'
 
 brew 'git'
-brew 'vim', args: ['with-lua', 'with-luajit']
 brew 'zsh'
 brew 'go'
 brew 'chruby', args: ['HEAD']
