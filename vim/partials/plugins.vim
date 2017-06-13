@@ -64,7 +64,6 @@ let g:neomake_javascript_jsx_enabled_makers = ['eslint']
 let g:neomake_go_enabled_makers = [] " Disabled in favor of vim-go functionality
 
 call dein#add('sbdchd/neoformat')
-autocmd BufWritePre * Neoformat
 let g:neoformat_enabled_go = [] " Disabled in favor of vim-go functionality
 
 call dein#add('tpope/vim-projectionist')
