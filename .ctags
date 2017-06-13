@@ -28,3 +28,5 @@
 --regex-CSS=/^([\$@][A-Za-z0-9_-]+): /\1/v,variable,variables/
 --regex-CSS=/^([A-Za-z0-9_-]+) = /\1/v,variable,variables/
 --regex-CSS=/^[ \t]*(@mixin |= ?)([A-Za-z0-9_-]+)/\2/m,mixin,mixins/
+
+--exclude=*.min.*
