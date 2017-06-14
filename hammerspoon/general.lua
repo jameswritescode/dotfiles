@@ -6,6 +6,10 @@ hs.hotkey.bind(hyper, '\\', function()
   hs.caffeinate.lockScreen()
 end)
 
+hs.hotkey.bind(hyper, 'i', function()
+  hs.application.find('iterm'):activate()
+end)
+
 -- Rebind hyper+hjkl to arrow keys
 local function key_code(key)
   return function()
