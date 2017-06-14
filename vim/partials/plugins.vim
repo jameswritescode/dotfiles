@@ -111,6 +111,10 @@ if executable('git')
   call dein#add('gregsexton/gitv')
   call dein#add('tpope/vim-git')
   call dein#add('tpope/vim-fugitive')
+  call dein#add('tpope/vim-rhubarb')
+
+  call dein#add('shumphrey/fugitive-gitlab.vim')
+  let g:fugitive_gitlab_domains = ['https://git.zaphyous.com', 'https://dev.whatpul.se']
 
   call dein#add('airblade/vim-gitgutter')
   highlight SignColumn term=underline ctermfg=101 ctermbg=232 guifg=#857b6f guibg=#121212
