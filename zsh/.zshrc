@@ -30,6 +30,7 @@ alias j="z"
 alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 alias ls="ls -G -a"
 alias mux="tmuxinator"
+alias psa="ps aux"
 
 # docker
 alias dps="docker ps -a"
@@ -51,13 +52,13 @@ alias gp="git pull"
 alias gpo="git push -u origin"
 alias gpr="git pull --rebase"
 alias gpu="git push"
+alias grh="git reset HEAD"
 alias gs="git st"
 alias gsa="git stash apply"
 alias gsl="git stash list"
 alias gss="git stash show"
 alias gst="git status"
 alias gu="git add -u"
-alias grh="git reset HEAD"
 
 # ruby
 alias be="bundle exec"
