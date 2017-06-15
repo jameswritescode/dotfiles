@@ -44,7 +44,7 @@ nnoremap <up>       <c-w>+
 nnoremap H          gT
 nnoremap L          gt
 nnoremap gp         `[v`]
-nnoremap <leader>w  :noautocmd w<cr>
+nnoremap <leader>w  :w<cr>
 
 vnoremap J :m  '>+1<cr>gv=gv
 vnoremap K :m  '<-2<cr>gv=gv
