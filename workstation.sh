@@ -27,6 +27,8 @@ ln -s $PWD/hammerspoon $HOME/.hammerspoon
 ruby-install --latest ruby
 chruby ruby
 ruby -v | awk {'print "! [ -f \"$PWD/.ruby-version\" ] && chruby " $2'} >> $HOME/.zsh_custom
+gem install gem-ctags
+gem ctags
 gem install bundler tmuxinator rubocop
 
 if  [[ "$OSTYPE" == "darwin"* ]]; then
