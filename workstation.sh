@@ -8,14 +8,19 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 brew tap homebrew/bundle
 brew bundle
 
+# git
+ln -s $PWD/git/.gitconfig $HOME/.gitconfig
+
 # zsh
 chsh -s /bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 rm $HOME/.zshrc && ln -s $PWD/zsh/.zshrc $HOME/.zshrc
 touch $HOME/.zsh_custom
 
-# git
-ln -s $PWD/git/.gitconfig $HOME/.gitconfig
+pushd $HOME/dotfiles/zsh/custom/plugins
+  git clone https://github.com/zsh-users/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting
+popd
 
 # ctags
 ln -s $PWD/.ctags $HOME/.ctags
