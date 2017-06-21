@@ -31,6 +31,7 @@ alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resourc
 alias ls="ls -G -a"
 alias mux="tmuxinator"
 alias psa="ps aux"
+alias v='vim $(fzf)'
 
 # docker
 alias dps="docker ps -a"
