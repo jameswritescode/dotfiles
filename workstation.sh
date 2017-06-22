@@ -46,6 +46,7 @@ bundle config --global jobs $BUNDLE_JOBS
 
 # tmux
 ln -s $PWD/tmux/.tmux.conf $HOME/.tmux.conf
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # node
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
