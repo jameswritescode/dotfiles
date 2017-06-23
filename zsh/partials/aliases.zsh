@@ -34,6 +34,7 @@ alias gsa="git stash apply"
 alias gsl="git stash list"
 alias gss="git stash show"
 alias gst="git status"
+alias gt="git tag"
 alias gu="git add -u"
 
 # ruby
