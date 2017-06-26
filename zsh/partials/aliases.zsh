@@ -46,3 +46,7 @@ alias rc="be rails c"
 alias rr="be rake routes"
 alias rs="be rails s"
 alias rjw="ber jobs:work"
+
+# music
+alias mp="osascript -e 'tell application \"Spotify\" to pause';"
+alias ms="osascript -e 'tell application \"Spotify\" to play';"
