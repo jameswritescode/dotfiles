@@ -6,7 +6,6 @@ imap <c-k> <plug>(neosnippet_expand_or_jump)
 inoremap jk            <esc>
 inoremap <expr><C-h>   deoplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS>    deoplete#smart_close_popup()."\<C-h>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function() abort
