@@ -58,7 +58,7 @@ let g:neosnippet#snippets_directory = '~/dotfiles/vim/bundle/repos/vim-snippets/
 
 call dein#add('neomake/neomake')
 autocmd! BufWritePost * Neomake
-let g:neomake_ruby_enabled_makers = ['rubocop', 'mri']
+let g:neomake_ruby_enabled_makers = ['rubocop', 'reek', 'mri']
 let g:neomake_javascript_enabled_makers = ['jscs', 'jshint']
 let g:neomake_javascript_jsx_enabled_makers = ['eslint']
 let g:neomake_go_enabled_makers = [] " Disabled in favor of vim-go functionality

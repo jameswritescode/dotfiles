@@ -34,7 +34,7 @@ chruby ruby
 ruby -v | awk {'print "! [ -f \"$PWD/.ruby-version\" ] && chruby " $2'} >> $HOME/.zsh_custom
 gem install gem-ctags
 gem ctags
-gem install bundler tmuxinator rubocop
+gem install bundler tmuxinator rubocop reek
 
 if  [[ "$OSTYPE" == "darwin"* ]]; then
   local BUNDLE_JOBS=`expr $(sysctl -n hw.ncpu) - 1`
