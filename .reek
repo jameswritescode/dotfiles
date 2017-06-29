@@ -1,0 +1,8 @@
+UtilityFunction:
+  public_methods_only: true
+
+UnusedPrivateMethod:
+  enabled: true
+
+IrresponsibleModule:
+  enabled: false
