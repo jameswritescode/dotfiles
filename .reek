@@ -4,5 +4,9 @@ UtilityFunction:
 UnusedPrivateMethod:
   enabled: true
 
+# rubocop already yells at me about this stuff
 IrresponsibleModule:
+  enabled: false
+
+TooManyStatements:
   enabled: false
