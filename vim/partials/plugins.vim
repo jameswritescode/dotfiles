@@ -1,4 +1,4 @@
-set rtp+=~/dotfiles/vim/bundle/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/dotfiles/vim/bundle/repos/github.com/Shougo/dein.vim
 call dein#begin('~/dotfiles/vim/bundle')
 
 call dein#add('Shougo/dein.vim')
@@ -191,36 +191,36 @@ if executable('rails')
 
   call dein#add('tpope/vim-rails')
   let g:rails_gem_projections = {
-        \ "pundit": {
-        \   "app/policies/*_policy.rb": {
-        \     "command": "policy",
-        \     "affinity": "model",
-        \     "alternate": "app/models/{}.rb"
+        \ 'pundit': {
+        \   'app/policies/*_policy.rb': {
+        \     'command': 'policy',
+        \     'affinity': 'model',
+        \     'alternate': 'app/models/{}.rb'
         \   }
         \ },
-        \ "draper": {
-        \   "app/decorators/*_decorator.rb": {
-        \     "command": "decorator",
-        \     "affinity": "model",
-        \     "alternate": "app/models/{}.rb"
+        \ 'draper': {
+        \   'app/decorators/*_decorator.rb': {
+        \     'command': 'decorator',
+        \     'affinity': 'model',
+        \     'alternate': 'app/models/{}.rb'
         \   }
         \ },
-        \ "factory_girl": {
-        \   "test/factories/*_factories.rb": {
-        \     "command": "factory",
-        \     "affinity": "model",
-        \     "alternate": "app/models/{}.rb"
+        \ 'factory_girl': {
+        \   'test/factories/*_factories.rb': {
+        \     'command': 'factory',
+        \     'affinity': 'model',
+        \     'alternate': 'app/models/{}.rb'
         \   }
         \ },
-        \ "statesman": {
-        \   "app/state_machines/*.rb": {
-        \     "command": "state"
+        \ 'statesman': {
+        \   'app/state_machines/*.rb': {
+        \     'command': 'state'
         \   }
         \ }}
 
   let g:rails_projections = {
-        \ "app/services/*.rb": {
-        \     "command": "service"
+        \ 'app/services/*.rb': {
+        \     'command': 'service'
         \ }}
 endif
 
