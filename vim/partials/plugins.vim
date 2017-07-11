@@ -121,6 +121,12 @@ if executable('git')
 endif
 
 if executable('go')
+  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
+
+  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+  command! -bang -nargs=* GGrep
+    \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
+
   call dein#add('fatih/vim-go', {'on_ft': 'go'})
   let g:go_fmt_command = 'goimports'
   let g:go_highlight_types = 1
@@ -229,11 +235,6 @@ if executable('ruby')
   call dein#add('tpope/vim-haml')
   call dein#add('tpope/vim-cucumber')
   call dein#add('sunaku/vim-ruby-minitest')
-  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
-
-  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
-  command! -bang -nargs=* GGrep
-    \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
 
   call dein#add('vim-ruby/vim-ruby')
   let g:rubycomplete_buffer_loading = 1
