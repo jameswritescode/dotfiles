@@ -88,6 +88,8 @@ call dein#add('mustache/vim-mustache-handlebars')
 call dein#add('pangloss/vim-javascript')
 call dein#add('elzr/vim-json')
 call dein#add('mattn/emmet-vim')
+call dein#add('tpope/vim-haml')
+call dein#add('slime-lang/vim-slime-syntax')
 
 call dein#add('mxw/vim-jsx')
 let g:jsx_ext_required = 0
@@ -234,7 +236,6 @@ endif
 
 if executable('ruby')
   call dein#add('tpope/vim-bundler')
-  call dein#add('tpope/vim-haml')
   call dein#add('tpope/vim-cucumber')
   call dein#add('sunaku/vim-ruby-minitest')
 
