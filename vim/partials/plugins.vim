@@ -150,6 +150,7 @@ endif
 if executable('iex')
   call dein#add('elixir-lang/vim-elixir')
   call dein#add('slashmili/alchemist.vim')
+  call dein#add('c-brenn/phoenix.vim')
 endif
 
 if executable('lein')
