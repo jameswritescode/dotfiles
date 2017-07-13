@@ -13,6 +13,7 @@ $ ./workstation.sh
 ## Styleguides
 
 * CSS: http://mvcss.io/
+* Elixir: https://github.com/christopheradams/elixir_style_guide
 * JavaScript: https://github.com/ryanmcdermott/clean-code-javascript
 * Lua: https://github.com/Olivine-Labs/lua-style-guide
 * Python: https://github.com/amontalenti/elements-of-python-style
