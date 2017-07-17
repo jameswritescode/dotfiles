@@ -1,5 +1,3 @@
-export DOTFILES="$HOME/dotfiles"
-
 export GOPATH="$HOME/go"
 
 export RAILS_ENV="development"
