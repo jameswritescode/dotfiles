@@ -23,8 +23,6 @@ function! s:check_back_space() abort
 endfunction
 
 nnoremap ;          :
-nnoremap <c-m>      :lprevious<cr>
-nnoremap <c-n>      :lnext<cr>
 nnoremap <c-p>      <esc>:Files<cr>
 nnoremap <c-t>      <esc>:tabnew<cr>
 nnoremap <down>     <c-w>-
