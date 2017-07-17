@@ -8,6 +8,8 @@ plugins=(zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # dotfiles
+export DOTFILES="$HOME/dotfiles"
+
 source $DOTFILES/zsh/partials/exports.zsh
 source $DOTFILES/zsh/partials/tools.zsh
 source $DOTFILES/zsh/partials/aliases.zsh
