@@ -20,6 +20,7 @@ brew 'tree'
 brew 'wget'
 brew 'ctags'
 brew 'fzf'
+brew 'fpp'
 
 cask 'google-chrome'
 cask 'bitbar'
