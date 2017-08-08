@@ -1,8 +1,17 @@
 # functions
 
 vim() {
+  local params="$*"
+
   if [ -z ${VIM+x} ]; then
-    nvim $*
+    if [[ $params =~ ':' ]]; then
+      local file=$params[(ws.:.)1]
+      local lineno=$params[(ws.:.)2]
+
+      nvim $file "+$lineno"
+    else
+      nvim $params
+    fi
   else
     echo "Already in vim"
   fi
