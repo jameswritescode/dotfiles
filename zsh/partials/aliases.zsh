@@ -51,3 +51,7 @@ alias rs="be rails s"
 # music
 alias mp="osascript -e 'tell application \"Spotify\" to pause';"
 alias ms="osascript -e 'tell application \"Spotify\" to play';"
+
+# suffix aliases
+alias -s txt='less'
+alias -s log='less +F'
