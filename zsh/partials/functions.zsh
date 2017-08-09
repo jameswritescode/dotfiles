@@ -17,6 +17,10 @@ vim() {
   fi
 }
 
+gls() {
+  git log -S $* --source --all
+}
+
 # chpwd functions
 
 __cd_nvm() {
