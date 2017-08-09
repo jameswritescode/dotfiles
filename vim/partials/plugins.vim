@@ -174,6 +174,7 @@ if executable('lua')
 endif
 
 if executable('node')
+  call dein#add('moll/vim-node')
   call dein#add('othree/jspc.vim')
 
   call dein#add('ternjs/tern_for_vim', {'on_ft': 'javascript', 'build': 'npm install'})
