@@ -21,6 +21,7 @@ brew 'wget'
 brew 'ctags'
 brew 'fzf'
 brew 'fpp'
+brew 'zplug'
 
 cask 'google-chrome'
 cask 'bitbar'
