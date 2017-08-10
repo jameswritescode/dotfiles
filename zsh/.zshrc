@@ -3,7 +3,7 @@ export ZSH=/Users/$USER/.oh-my-zsh
 
 ZSH_THEME="bureau-james"
 DISABLE_AUTO_UPDATE="true"
-plugins=(zsh-syntax-highlighting zsh-autosuggestions)
+plugins=()
 
 source $ZSH/oh-my-zsh.sh
 
