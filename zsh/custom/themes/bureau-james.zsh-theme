@@ -122,12 +122,14 @@ _jobs_theme_prompt () {
   fi
 }
 
-
 _PATH="%{$fg_bold[white]%}%2c%{$reset_color%}"
 
 if [[ $EUID -eq 0 ]]; then
   _USERNAME="%{$fg_bold[red]%}%n"
   _LIBERTY="%{$fg[red]%}#"
+elif ! [ -z ${VIM+x} ]; then
+  _USERNAME="%{$fg_bold[white]%}%n"
+  _LIBERTY="%{$fg[green]%}vim"
 else
   _USERNAME="%{$fg_bold[white]%}%n"
   _LIBERTY="%{$fg[green]%}$"
