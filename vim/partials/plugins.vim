@@ -33,7 +33,7 @@ call dein#add('Shougo/deoplete.nvim')
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#omni#functions = {}
 
-call dein#add('vim-airline/vim-airline', {'rev': '470e9870f13830580d1938a2dae1be5b6e43d92a'})
+call dein#add('vim-airline/vim-airline')
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_splits = 0
