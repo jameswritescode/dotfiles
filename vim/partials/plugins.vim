@@ -148,10 +148,12 @@ if executable('go')
   call dein#add('zchee/deoplete-go', {'build': 'make', 'on_ft': 'go'})
 endif
 
-if executable('iex')
+if executable('elixir')
   call dein#add('elixir-lang/vim-elixir')
   call dein#add('slashmili/alchemist.vim')
   call dein#add('c-brenn/phoenix.vim')
+
+  let g:forrestgumps['elixir'] = ['elixir']
 endif
 
 if executable('lein')
