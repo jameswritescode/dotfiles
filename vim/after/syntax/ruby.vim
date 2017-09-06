@@ -7,7 +7,7 @@ let b:current_syntax = s:bcs
 
 let s:bcs = b:current_syntax
 unlet b:current_syntax
-syntax include @JSON syntax/JSON.vim
+syntax include @JSON syntax/json.vim
 let b:current_syntax = s:bcs
 
 syntax region rubyHereDocSQL matchgroup=Statement start=+<<\z(SQL\)+ end=+^\z1$+ contains=@SQL
