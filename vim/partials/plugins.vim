@@ -1,92 +1,11 @@
 set runtimepath+=~/dotfiles/vim/bundle/repos/github.com/Shougo/dein.vim
 call dein#begin('~/dotfiles/vim/bundle')
 
-call dein#add('Shougo/dein.vim')
-
-" Consider using https://github.com/sheerun/vim-polyglot in the future?
-
-" General
-
-call dein#add('easymotion/vim-easymotion')
-call dein#add('tpope/vim-commentary')
-call dein#add('tpope/vim-endwise')
-call dein#add('tpope/vim-repeat')
-call dein#add('tpope/vim-sleuth')
-call dein#add('tpope/vim-speeddating')
-call dein#add('tpope/vim-surround')
-call dein#add('tpope/vim-unimpaired')
-call dein#add('tpope/vim-vinegar')
-call dein#add('godlygeek/tabular')
-call dein#add('godlygeek/csapprox')
-call dein#add('AndrewRadev/splitjoin.vim')
-call dein#add('AndrewRadev/switch.vim')
-call dein#add('Raimondi/delimitMate')
-call dein#add('editorconfig/editorconfig-vim')
-call dein#add('kana/vim-textobj-user')
-call dein#add('kassio/neoterm')
-call dein#add('sjl/gundo.vim')
-call dein#add('machakann/vim-highlightedyank')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('honza/vim-snippets')
+call dein#load_toml('$DOTFILES/vim/partials/plugins.toml')
 
 call dein#add('Shougo/deoplete.nvim')
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#omni#functions = {}
-
-call dein#add('vim-airline/vim-airline')
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#tabline#show_tabs = 1
-let g:airline#extensions#tabline#show_tab_nr = 0
-let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline_powerline_fonts = 1
-
-call dein#add('hlissner/vim-forrestgump')
-let g:forrestgumps = {}
-
-call dein#add('janko-m/vim-test')
-let g:test#strategy = 'neovim'
-
-call dein#add('luochen1990/rainbow')
-let g:rainbow_active = 1
-
-call dein#add('Shougo/neosnippet')
-let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory = '~/dotfiles/vim/bundle/repos/vim-snippets/snippets'
-
-call dein#add('neomake/neomake')
-augroup neomake
-  autocmd!
-  autocmd! BufWritePost * Neomake
-augroup END
-let g:neomake_ruby_enabled_makers = ['rubocop', 'reek', 'mri']
-let g:neomake_javascript_enabled_makers = ['jscs', 'jshint']
-let g:neomake_javascript_jsx_enabled_makers = ['eslint']
-let g:neomake_go_enabled_makers = [] " Disabled in favor of vim-go functionality
-
-call dein#add('sbdchd/neoformat')
-let g:neoformat_enabled_go = [] " Disabled in favor of vim-go functionality
-
-call dein#add('tpope/vim-projectionist')
-let g:projectionist_heuristics = {
-      \ '*.ex|*.exs': {
-      \   'lib/*.ex': { 'alternate': 'test/{}_test.exs', 'type': 'source' },
-      \   'test/*_test.exs': { 'alternate': 'lib/{}.ex', 'type': 'test' }
-      \ },
-      \ '*.js': {
-      \   '*.js': { 'alternate': '{}.test.js', 'type': 'source' },
-      \   '*.test.js': { 'alternate': '{}.js', 'type': 'test' }
-      \ },
-      \ '*.go': {
-      \   '*.go': { 'alternate': '{}_test.go', 'type': 'source' },
-      \   '*_test.go': { 'alternate': '{}.go', 'type': 'test' }
-      \ }
-      \}
-
-call dein#add('junegunn/seoul256.vim')
-let g:seoul256_background = 233
 
 " Language specific
 
@@ -160,8 +79,6 @@ if executable('elixir')
   call dein#add('elixir-lang/vim-elixir')
   call dein#add('slashmili/alchemist.vim')
   call dein#add('c-brenn/phoenix.vim')
-
-  let g:forrestgumps['elixir'] = ['elixir']
 endif
 
 if executable('lein')
@@ -263,8 +180,6 @@ if executable('rustc')
 
   call dein#add('rust-lang/rust.vim', {'on_ft': 'rust'})
   let g:rustfmt_autosave = 1
-
-  let g:forrestgumps['rust'] = ['rustc']
 endif
 
 if executable('swift')
