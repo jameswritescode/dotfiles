@@ -57,7 +57,10 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory = '~/dotfiles/vim/bundle/repos/vim-snippets/snippets'
 
 call dein#add('neomake/neomake')
-autocmd! BufWritePost * Neomake
+augroup neomake
+  autocmd!
+  autocmd! BufWritePost * Neomake
+augroup END
 let g:neomake_ruby_enabled_makers = ['rubocop', 'reek', 'mri']
 let g:neomake_javascript_enabled_makers = ['jscs', 'jshint']
 let g:neomake_javascript_jsx_enabled_makers = ['eslint']
@@ -67,10 +70,19 @@ call dein#add('sbdchd/neoformat')
 let g:neoformat_enabled_go = [] " Disabled in favor of vim-go functionality
 
 call dein#add('tpope/vim-projectionist')
-let g:projectionist_heuristics = {}
-let g:projectionist_heuristics['*.js'] = {
-      \ '*.js': { 'alternate': '{}.test.js', 'type': 'source' },
-      \ '*.test.js': { 'alternate': '{}.js', 'type': 'test' }
+let g:projectionist_heuristics = {
+      \ '*.ex|*.exs': {
+      \   'lib/*.ex': { 'alternate': 'test/{}_test.exs', 'type': 'source' },
+      \   'test/*_test.exs': { 'alternate': 'lib/{}.ex', 'type': 'test' }
+      \ },
+      \ '*.js': {
+      \   '*.js': { 'alternate': '{}.test.js', 'type': 'source' },
+      \   '*.test.js': { 'alternate': '{}.js', 'type': 'test' }
+      \ },
+      \ '*.go': {
+      \   '*.go': { 'alternate': '{}_test.go', 'type': 'source' },
+      \   '*_test.go': { 'alternate': '{}.go', 'type': 'test' }
+      \ }
       \}
 
 call dein#add('junegunn/seoul256.vim')
@@ -140,11 +152,6 @@ if executable('go')
   let g:go_highlight_structs = 1
   let g:go_highlight_interfaces = 1
   let g:go_highlight_build_constraints = 1
-
-  let g:projectionist_heuristics['*.go'] = {
-        \ '*.go': { 'alternate': '{}_test.go', 'type': 'source' },
-        \ '*_test.go': { 'alternate': '{}.go', 'type': 'test' }
-        \}
 
   call dein#add('zchee/deoplete-go', {'build': 'make', 'on_ft': 'go'})
 endif
