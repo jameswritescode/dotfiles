@@ -1,0 +1,151 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+
+[[plugins]]
+repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+
+[[plugins]]
+repo = 'tpope/vim-repeat'
+
+[[plugins]]
+repo = 'tpope/vim-sleuth'
+
+[[plugins]]
+repo = 'tpope/vim-speeddating'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'tpope/vim-unimpaired'
+
+[[plugins]]
+repo = 'tpope/vim-vinegar'
+
+[[plugins]]
+repo = 'godlygeek/tabular'
+
+[[plugins]]
+repo = 'godlygeek/csapprox'
+
+[[plugins]]
+repo = 'AndrewRadev/splitjoin.vim'
+
+[[plugins]]
+repo = 'AndrewRadev/switch.vim'
+
+[[plugins]]
+repo = 'Raimondi/delimitMate'
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+
+[[plugins]]
+repo = 'kassio/neoterm'
+
+[[plugins]]
+repo = 'sjl/gundo.vim'
+
+[[plugins]]
+repo = 'machakann/vim-highlightedyank'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'honza/vim-snippets'
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+hook_add = '''"vim
+  let g:neosnippet#enable_snipmate_compatibility = 1
+  let g:neosnippet#snippets_directory = '~/dotfiles/vim/bundle/repos/github.com/honza/vim-snippets/snippets'
+'''
+
+[[plugins]]
+repo = 'junegunn/seoul256.vim'
+hook_add = '''"vim
+  let g:seoul256_background = 233
+'''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = '''"vim
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#show_buffers = 0
+  let g:airline#extensions#tabline#show_splits = 0
+  let g:airline#extensions#tabline#show_tabs = 1
+  let g:airline#extensions#tabline#show_tab_nr = 0
+  let g:airline#extensions#tabline#show_tab_type = 0
+  let g:airline#extensions#tabline#show_close_button = 0
+  let g:airline_powerline_fonts = 1
+'''
+
+[[plugins]]
+repo = 'hlissner/vim-forrestgump'
+hook_add = '''"vim
+  let g:forrestgumps = {
+  \ 'elixir': ['elixir'],
+  \ 'rust': ['rustc']
+  \ }
+'''
+
+[[plugins]]
+repo = 'janko-m/vim-test')
+hook_add = '''"vim
+  let g:test#strategy = 'neovim'
+'''
+
+[[plugins]]
+repo = 'luochen1990/rainbow'
+hook_add = '''"vim
+  let g:rainbow_active = 1
+'''
+
+[[plugins]]
+repo = 'neomake/neomake'
+hook_add = '''"vim
+  augroup neomake
+    autocmd!
+    autocmd! BufWritePost * Neomake
+  augroup END
+
+  let g:neomake_ruby_enabled_makers = ['rubocop', 'reek', 'mri']
+  let g:neomake_javascript_enabled_makers = ['jscs', 'jshint']
+  let g:neomake_javascript_jsx_enabled_makers = ['eslint']
+  let g:neomake_go_enabled_makers = [] " Disabled in favor of vim-go functionality
+'''
+
+[[plugins]]
+repo = 'sbdchd/neoformat'
+hook_add = '''"vim
+  let g:neoformat_enabled_go = [] " Disabled in favor of vim-go functionality
+'''
+
+[[plugins]]
+repo = 'tpope/vim-projectionist'
+hook_add = '''"vim
+  let g:projectionist_heuristics = {
+  \ '*.ex|*.exs': {
+  \   'lib/*.ex': { 'alternate': 'test/{}_test.exs', 'type': 'source' },
+  \   'test/*_test.exs': { 'alternate': 'lib/{}.ex', 'type': 'test' }
+  \ },
+  \ '*.js': {
+  \   '*.js': { 'alternate': '{}.test.js', 'type': 'source' },
+  \   '*.test.js': { 'alternate': '{}.js', 'type': 'test' }
+  \ },
+  \ '*.go': {
+  \   '*.go': { 'alternate': '{}_test.go', 'type': 'source' },
+  \   '*_test.go': { 'alternate': '{}.go', 'type': 'test' }
+  \ }
+  \}
+'''
