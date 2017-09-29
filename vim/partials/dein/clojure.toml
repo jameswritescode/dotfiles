@@ -1,8 +1,11 @@
 [[plugins]]
 repo = 'tpope/vim-fireplace'
+on_ft = 'clojure'
 
 [[plugins]]
 repo = 'tpope/vim-classpath'
+on_ft = 'clojure'
 
 [[plugins]]
 repo = 'guns/vim-clojure-highlight'
+on_ft = 'clojure'
