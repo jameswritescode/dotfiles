@@ -172,7 +172,7 @@ on_ft = 'apib'
 
 [[plugins]]
 repo = 'tpope/vim-markdown'
-on_ft = 'md'
+on_ft = 'markdown'
 
 [[plugins]]
 repo = 'tpope/vim-haml'
