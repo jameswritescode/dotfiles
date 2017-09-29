@@ -128,11 +128,8 @@ hook_add = '''"vim
 
 [[plugins]]
 repo = 'neomake/neomake'
-hook_source = '''"vim
-  augroup neomake
-    autocmd!
-    autocmd! BufWritePost * Neomake
-  augroup END
+hook_add = '''"vim
+  call neomake#configure#automake('w')
 
   let g:neomake_ruby_enabled_makers = ['rubocop', 'reek', 'mri']
   let g:neomake_javascript_enabled_makers = ['jscs', 'jshint']
