@@ -1,0 +1,23 @@
+[[plugins]]
+repo = 'gregsexton/gitv'
+
+[[plugins]]
+repo = 'tpope/vim-git'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'tpope/vim-rhubarb'
+
+[[plugins]]
+repo = 'shumphrey/fugitive-gitlab.vim'
+hook_add = '''"vim
+  let g:fugitive_gitlab_domains = ['https://git.zaphyous.com', 'https://dev.whatpul.se']
+'''
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''"vim
+  highlight SignColumn term=underline ctermfg=101 ctermbg=232 guifg=#857b6f guibg=#121212
+'''
