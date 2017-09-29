@@ -1,11 +1,11 @@
-[[projects]]
+[[plugins]]
 repo = 'racer-rust/vim-racer'
 on_ft = 'rust'
 hook_add = '''"vim
   let g:racer_experimental_completer = 1
 '''
 
-[[projects]]
+[[plugins]]
 repo = 'rust-lang/rust.vim'
 on_ft = 'rust'
 hook_add = '''"vim

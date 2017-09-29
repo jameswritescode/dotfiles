@@ -1,8 +1,11 @@
-[[projects]]
-repo = 'Quramy/tsuquyomi'
+[[plugins]]
+repo = 'mhartington/nvim-typescript'
+on_ft = 'typescript'
 
-[[projects]]
+[[plugins]]
 repo = 'leafgarland/typescript-vim'
+on_ft = 'typescript'
 
-[[projects]]
+[[plugins]]
 repo = 'HerringtonDarkholme/yats.vim'
+on_ft = 'typescript'

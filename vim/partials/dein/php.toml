@@ -1,4 +1,4 @@
-[[projects]]
+[[plugins]]
 repo = 'spf13/PIV'
 on_ft = 'php'
 hook_add = '''"vim
