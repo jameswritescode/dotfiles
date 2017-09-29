@@ -1,4 +1,4 @@
-[[projects]]
+[[plugins]]
 repo = 'python-mode/python-mode'
 on_ft = 'python'
 hook_add = '''"vim
@@ -7,6 +7,6 @@ hook_add = '''"vim
   let g:pymode_folding = 0
 '''
 
-[[projects]]
+[[plugins]]
 repo = 'zchee/deoplete-jedi'
 on_ft = 'python'

@@ -1,7 +1,7 @@
-[[projects]]
+[[plugins]]
 repo = 'tpope/vim-rake'
 
-[[projects]]
+[[plugins]]
 repo = 'tpope/vim-rails'
 hook_add = '''"vim
   let g:rails_gem_projections = {

@@ -1,2 +1,2 @@
-[[projects]]
+[[plugins]]
 repo = 'keith/swift.vim'
