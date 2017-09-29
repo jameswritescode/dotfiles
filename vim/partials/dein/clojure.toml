@@ -1,0 +1,8 @@
+[[plugins]]
+repo = 'tpope/vim-fireplace'
+
+[[plugins]]
+repo = 'tpope/vim-classpath'
+
+[[plugins]]
+repo = 'guns/vim-clojure-highlight'

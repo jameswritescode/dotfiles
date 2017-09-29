@@ -1,0 +1,39 @@
+[[projects]]
+repo = 'tpope/vim-rake'
+
+[[projects]]
+repo = 'tpope/vim-rails'
+hook_add = '''"vim
+  let g:rails_gem_projections = {
+        \ 'pundit': {
+        \   'app/policies/*_policy.rb': {
+        \     'command': 'policy',
+        \     'affinity': 'model',
+        \     'alternate': 'app/models/{}.rb'
+        \   }
+        \ },
+        \ 'draper': {
+        \   'app/decorators/*_decorator.rb': {
+        \     'command': 'decorator',
+        \     'affinity': 'model',
+        \     'alternate': 'app/models/{}.rb'
+        \   }
+        \ },
+        \ 'factory_girl': {
+        \   'test/factories/*_factories.rb': {
+        \     'command': 'factory',
+        \     'affinity': 'model',
+        \     'alternate': 'app/models/{}.rb'
+        \   }
+        \ },
+        \ 'statesman': {
+        \   'app/state_machines/*.rb': {
+        \     'command': 'state'
+        \   }
+        \ }}
+
+  let g:rails_projections = {
+        \ 'app/services/*.rb': {
+        \     'command': 'service'
+        \ }}
+'''

@@ -1,0 +1,8 @@
+[[plugins]]
+repo = 'elixir-lang/vim-elixir'
+
+[[plugins]]
+repo = 'slashmili/alchemist.vim'
+
+[[plugins]]
+repo = 'c-brenn/phoenix.vim'

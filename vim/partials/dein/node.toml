@@ -1,0 +1,13 @@
+[[plugins]]
+repo = 'moll/vim-node'
+
+[[plugins]]
+repo = 'othree/jspc.vim'
+
+[[plugins]]
+repo = 'ternjs/tern_for_vim'
+hook_add = '''"vim
+  let g:tern_show_signature_in_pum = 1
+
+  let g:deoplete#omni#functions.javascript = ['tern#Complete', 'jspc#omni']
+'''

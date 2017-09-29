@@ -1,0 +1,3 @@
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+on_ft = 'coffee'
