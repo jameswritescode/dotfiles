@@ -1,0 +1,21 @@
+[[projects]]
+repo = 'tpope/vim-bundler'
+
+[[projects]]
+repo = 'tpope/vim-cucumber'
+
+[[projects]]
+repo = 'sunaku/vim-ruby-minitest'
+
+[[projects]]
+repo = 'vim-ruby/vim-ruby'
+hook_add = '''"vim
+  let g:rubycomplete_buffer_loading = 1
+  let g:rubycomplete_rails = 1
+'''
+
+[[projects]]
+repo = 'nelstrom/vim-textobj-rubyblock'
+hook_add = '''"vim
+  runtime macros/matchit.vim
+'''

@@ -1,0 +1,12 @@
+[[projects]]
+repo = 'python-mode/python-mode'
+on_ft = 'python'
+hook_add = '''"vim
+  let g:pymode_lint = 0
+  let g:pymode_rope = 0
+  let g:pymode_folding = 0
+'''
+
+[[projects]]
+repo = 'zchee/deoplete-jedi'
+on_ft = 'python'

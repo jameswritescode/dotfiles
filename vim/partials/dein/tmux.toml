@@ -1,0 +1,8 @@
+[[projects]]
+repo = 'tpope/vim-tbone'
+
+[[projects]]
+repo = 'christoomey/vim-tmux-navigator'
+
+[[projects]]
+repo = 'tmux-plugins/vim-tmux'

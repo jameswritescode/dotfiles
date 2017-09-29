@@ -65,6 +65,21 @@ repo = 'Shougo/neosnippet-snippets'
 repo = 'honza/vim-snippets'
 
 [[plugins]]
+repo = 'othree/yajs.vim'
+
+[[plugins]]
+repo = 'nono/jquery.vim'
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+
+[[plugins]]
+repo = 'elzr/vim-json'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+
+[[plugins]]
 repo = 'Shougo/neosnippet'
 hook_add = '''"vim
   let g:neosnippet#enable_snipmate_compatibility = 1
@@ -96,7 +111,7 @@ hook_add = '''"vim
   let g:forrestgumps = {
   \ 'elixir': ['elixir'],
   \ 'rust': ['rustc']
-  \ }
+  \}
 '''
 
 [[plugins]]
@@ -113,7 +128,7 @@ hook_add = '''"vim
 
 [[plugins]]
 repo = 'neomake/neomake'
-hook_add = '''"vim
+hook_source = '''"vim
   augroup neomake
     autocmd!
     autocmd! BufWritePost * Neomake
@@ -148,4 +163,37 @@ hook_add = '''"vim
   \   '*_test.go': { 'alternate': '{}.go', 'type': 'test' }
   \ }
   \}
+'''
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
+repo = 'kylef/apiblueprint.vim'
+on_ft = 'apib'
+
+[[plugins]]
+repo = 'tpope/vim-markdown'
+on_ft = 'md'
+
+[[plugins]]
+repo = 'tpope/vim-haml'
+on_ft = 'haml'
+
+[[plugins]]
+repo = 'slime-lang/vim-slime-syntax'
+on_ft = 'slime'
+
+[[plugins]]
+repo = 'mxw/vim-jsx'
+hook_add = '''"vim
+  let g:jsx_ext_required = 0
+'''
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = '''"vim
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#omni#functions = {}
 '''
