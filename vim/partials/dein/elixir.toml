@@ -1,8 +1,11 @@
 [[plugins]]
 repo = 'elixir-lang/vim-elixir'
+on_ft = 'elixir'
 
 [[plugins]]
 repo = 'slashmili/alchemist.vim'
+on_ft = 'elixir'
 
 [[plugins]]
 repo = 'c-brenn/phoenix.vim'
+on_ft = 'elixir'
