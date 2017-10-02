@@ -1,6 +1,6 @@
 [[plugins]]
 repo = 'elixir-lang/vim-elixir'
-on_ft = 'elixir'
+on_ft = ['elixir', 'eelixir']
 
 [[plugins]]
 repo = 'slashmili/alchemist.vim'
