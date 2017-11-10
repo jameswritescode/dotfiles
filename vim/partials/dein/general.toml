@@ -26,7 +26,8 @@ repo = 'tpope/vim-surround'
 repo = 'tpope/vim-unimpaired'
 
 [[plugins]]
-repo = 'tpope/vim-vinegar'
+# repo = 'tpope/vim-vinegar'
+repo = 'jameswritescode/vim-vinegar'
 
 [[plugins]]
 repo = 'tpope/vim-abolish'
