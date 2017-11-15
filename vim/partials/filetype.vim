@@ -5,3 +5,5 @@ autocmd filetype slime setlocal commentstring=/\ %s
 autocmd filetype diff nnoremap <buffer> <leader>w :noautocmd w<cr>
 
 autocmd bufreadpost *.god set ft=ruby
+
+autocmd TermOpen * setlocal nonumber
