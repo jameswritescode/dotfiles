@@ -10,7 +10,7 @@ vim() {
 
       nvim $file "+$lineno"
     else
-      nvim $params
+      nvim $*
     fi
   else
     echo "Already in vim"
