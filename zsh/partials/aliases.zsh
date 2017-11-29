@@ -44,6 +44,7 @@ alias gt="git tag"
 alias gu="git add -u"
 
 # ruby
+alias bdbrb="ber db:rollback"
 alias be="bundle exec"
 alias ber="be rake"
 alias berg="be rails g"
