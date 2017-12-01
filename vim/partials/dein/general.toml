@@ -137,6 +137,7 @@ hook_add = '''"vim
   let g:neomake_ruby_enabled_makers = ['rubocop', 'reek', 'mri']
   let g:neomake_javascript_enabled_makers = ['jscs', 'jshint']
   let g:neomake_javascript_jsx_enabled_makers = ['eslint']
+  let g:neomake_elixir_enabled_makers = ['mix', 'dogma']
   let g:neomake_go_enabled_makers = [] " Disabled in favor of vim-go functionality
 
   let g:neomake_javascript_eslint_exe = $PWD . '/node_modules/.bin/eslint'
