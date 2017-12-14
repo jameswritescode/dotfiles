@@ -173,6 +173,9 @@ repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
 [[plugins]]
+repo = 'jparise/vim-graphql'
+
+[[plugins]]
 repo = 'kylef/apiblueprint.vim'
 on_ft = 'apib'
 
