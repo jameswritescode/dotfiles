@@ -30,7 +30,7 @@ __cd_nvm() {
 __cd_nvm
 
 __cd_chruby() {
-  [ -f "$PWD/.ruby-version" ] && chruby . &>/dev/null
+  [ -f "$PWD/.ruby-version" ] && chruby `cat $PWD/.ruby-version` &>/dev/null
 }
 
 __cd_chruby
