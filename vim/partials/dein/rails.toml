@@ -30,6 +30,11 @@ hook_add = '''"vim
         \   'app/state_machines/*.rb': {
         \     'command': 'state'
         \   }
+        \ },
+        \ 'graphql': {
+        \   'app/graphql/*.rb': {
+        \     'command': 'api'
+        \   },
         \ }}
 
   let g:rails_projections = {
