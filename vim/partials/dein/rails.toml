@@ -39,6 +39,9 @@ hook_add = '''"vim
 
   let g:rails_projections = {
         \ 'app/services/*.rb': {
-        \     'command': 'service'
+        \   'command': 'service'
+        \ },
+        \ 'javascript/apps/*': {
+        \   'command': 'js'
         \ }}
 '''
