@@ -15,6 +15,7 @@ alias dps="docker ps -a"
 # git
 alias ga="git add -A"
 alias gb="git branch"
+alias gc="git commit"
 alias gca="git commit --amend"
 alias gcb="git checkout -b"
 alias gcm="git commit -m"
