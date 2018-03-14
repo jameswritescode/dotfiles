@@ -21,6 +21,10 @@ gls() {
   git log -S $* --source --all
 }
 
+fk() {
+  ps aux | grep $* | grep -v grep | awk '{print $2}' | xargs kill -9
+}
+
 # chpwd functions
 
 __cd_nvm() {
