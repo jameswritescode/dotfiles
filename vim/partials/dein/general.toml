@@ -77,6 +77,9 @@ repo = 'pangloss/vim-javascript'
 repo = 'elzr/vim-json'
 
 [[plugins]]
+repo = 'jparise/vim-graphql'
+
+[[plugins]]
 repo = 'mattn/emmet-vim'
 
 [[plugins]]
