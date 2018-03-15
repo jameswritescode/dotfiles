@@ -68,9 +68,6 @@ repo = 'Shougo/neosnippet-snippets'
 repo = 'honza/vim-snippets'
 
 [[plugins]]
-repo = 'othree/yajs.vim'
-
-[[plugins]]
 repo = 'nono/jquery.vim'
 
 [[plugins]]
