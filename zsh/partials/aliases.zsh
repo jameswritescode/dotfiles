@@ -11,6 +11,8 @@ alias v='vim $(fzf)'
 
 # docker
 alias dps="docker ps -a"
+alias drm="docker rm"
+alias drmi="docker rmi"
 
 # git
 alias ga="git add -A"
