@@ -118,10 +118,7 @@ hook_add = '''"vim
 '''
 
 [[plugins]]
-repo = 'janko-m/vim-test')
-hook_add = '''"vim
-  let g:test#strategy = 'neovim'
-'''
+repo = 'janko-m/vim-test'
 
 [[plugins]]
 repo = 'luochen1990/rainbow'
