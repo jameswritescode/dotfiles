@@ -5,13 +5,6 @@ if = 'expand("%:e") == "js"'
 [[plugins]]
 repo = 'othree/jspc.vim'
 if = 'expand("%:e") == "js"'
-
-[[plugins]]
-repo = 'ternjs/tern_for_vim'
-if = 'expand("%:e") == "js"'
-build = 'npm install'
 hook_source = '''"vim
-  let g:tern_show_signature_in_pum = 1
-
-  let g:deoplete#omni#functions.javascript = ['tern#Complete', 'jspc#omni']
+  let g:deoplete#omni#functions.javascript = ['jspc#omni']
 '''
