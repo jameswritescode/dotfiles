@@ -188,6 +188,10 @@ repo = 'slime-lang/vim-slime-syntax'
 on_ft = 'slime'
 
 [[plugins]]
+repo = 'styled-components/vim-styled-components'
+on_ft = ['js', 'jsx']
+
+[[plugins]]
 repo = 'mxw/vim-jsx'
 hook_add = '''"vim
   let g:jsx_ext_required = 0
