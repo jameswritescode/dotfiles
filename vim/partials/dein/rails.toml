@@ -20,7 +20,7 @@ hook_add = '''"vim
         \   }
         \ },
         \ 'factory_girl': {
-        \   'test/factories/*_factories.rb': {
+        \   'spec/factories/*_factory.rb': {
         \     'command': 'factory',
         \     'affinity': 'model',
         \     'alternate': 'app/models/{}.rb'
@@ -28,13 +28,19 @@ hook_add = '''"vim
         \ },
         \ 'statesman': {
         \   'app/state_machines/*.rb': {
-        \     'command': 'state'
+        \     'command': 'machine'
         \   }
         \ },
         \ 'graphql': {
-        \   'app/graphql/*.rb': {
-        \     'command': 'api'
+        \   'app/graphql/resolvers/*.rb': {
+        \     'command': 'resolver'
         \   },
+        \   'app/graphql/input_types/*_input_type.rb': {
+        \     'command': 'input'
+        \   },
+        \   'app/graphql/types/*_type.rb': {
+        \     'command': 'type'
+        \   }
         \ }}
 
   let g:rails_projections = {
