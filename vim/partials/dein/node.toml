@@ -6,7 +6,7 @@ if = 'expand("%:e") == "js"'
 repo = 'othree/jspc.vim'
 if = 'expand("%:e") == "js"'
 hook_source = '''"vim
-  let g:deoplete#custom#source('omni', 'functions', {
+  call deoplete#custom#source('omni', 'functions', {
   \ 'javascript': 'jspc#omni'
   \ })
 '''
