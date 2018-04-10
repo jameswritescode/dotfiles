@@ -6,5 +6,3 @@ autocmd filetype diff nnoremap <buffer> <leader>w :noautocmd w<cr>
 autocmd filetype html :call rainbow#toggle()
 
 autocmd bufreadpost *.god set ft=ruby
-
-autocmd TermOpen * setlocal nonumber

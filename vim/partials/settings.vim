@@ -1,4 +1,3 @@
-set nocompatible
 set statusline=[%02.2n]\ %f\ %y\ %m%r%h%=Line\:\ %00004.4l/%00004.4L\ (%003.3p%%)\ \ Col\:\ %0003.3c
 set t_Co=256
 set background=dark
@@ -23,11 +22,13 @@ set splitbelow
 set splitright
 set shell=zsh
 set lazyredraw
-set ttyfast
 set exrc
 set secure
 set noshowmode
 set cursorline
+set relativenumber
+set gdefault
+set autoread
 
 set conceallevel=2
 set concealcursor=niv
@@ -66,3 +67,5 @@ set undodir=~/dotfiles/vim/tmp
 let g:netrw_localrmdir='rm -r'
 let g:python_host_prog=$HOME.'/dotfiles/vim/virtual/python2/bin/python'
 let g:python3_host_prog=$HOME.'/dotfiles/vim/virtual/python3/bin/python'
+
+scriptencoding utf-8

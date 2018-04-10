@@ -4,7 +4,11 @@ let g:mapleader="\<Space>"
 
 source ~/dotfiles/vim/partials/mappings.vim
 
-autocmd VimEnter * :redraw!
+augroup betterment
+  autocmd TermOpen * setlocal nonumber norelativenumber
+  autocmd VimEnter * :redraw!
+  autocmd VimResized * wincmd =
+augroup END
 
 filetype off
 
