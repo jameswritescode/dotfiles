@@ -1,6 +1,6 @@
 source ~/dotfiles/vim/partials/settings.vim
 
-let mapleader="\<Space>"
+let g:mapleader="\<Space>"
 
 source ~/dotfiles/vim/partials/mappings.vim
 
