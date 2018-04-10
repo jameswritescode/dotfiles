@@ -111,6 +111,7 @@ hook_add = '''"vim
   let g:airline#extensions#tabline#show_tab_nr = 0
   let g:airline#extensions#tabline#show_tab_type = 0
   let g:airline#extensions#tabline#show_close_button = 0
+  let g:airline#extensions#ale#enabled = 1
   let g:airline_powerline_fonts = 1
 '''
 
@@ -132,26 +133,11 @@ hook_add = '''"vim
   let g:rainbow_active = 1
 '''
 
-# [[plugins]]
-# repo = 'neomake/neomake'
-# hook_add = '''"vim
-#   call neomake#configure#automake('w')
-
-#   let g:neomake_ruby_enabled_makers = ['rubocop', 'reek', 'mri']
-#   let g:neomake_javascript_enabled_makers = ['jscs', 'jshint']
-#   let g:neomake_javascript_jsx_enabled_makers = ['eslint']
-#   let g:neomake_elixir_enabled_makers = ['mix', 'dogma']
-#   let g:neomake_go_enabled_makers = [] " Disabled in favor of vim-go functionality
-#   let g:neomake_html_enabled_makers = []
-
-#   let g:neomake_ruby_rubocop_exe = $GEM_HOME . '/bin/rubocop'
-#   let g:neomake_javascript_eslint_exe = $PWD . '/node_modules/.bin/eslint'
-# '''
 [[plugins]]
 repo = 'w0rp/ale'
 hook_add = '''"vim
-let g:airline#extensions#ale#enabled = 1
-
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '✖'
 
@@ -165,9 +151,6 @@ let g:ale_linters = {
 
 let g:ale_ruby_rubocop_executable = $GEM_HOME . '/bin/rubocop'
 let g:ale_javascript_eslint_executable = $PWD . '/node_modules/.bin/eslint'
-
-highlight ALEErrorSign ctermbg=23 ctermfg=161
-highlight ALEWarningSign ctermbg=23 ctermfg=174
 '''
 
 [[plugins]]
