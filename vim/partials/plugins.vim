@@ -28,6 +28,5 @@ if dein#load_state('~/dotfiles/vim/bundle')
 endif
 
 call dein#call_hook('source')
-call dein#call_hook('post_source')
 
 runtime! marcos/matchit.vim
