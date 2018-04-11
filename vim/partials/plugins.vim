@@ -5,7 +5,6 @@ if dein#load_state('~/dotfiles/vim/bundle')
 
   call dein#load_toml('$DOTFILES/vim/partials/dein/general.toml')
 
-  call dein#load_toml('$DOTFILES/vim/partials/dein/clang.toml', {'if': 'executable("clang")'})
   call dein#load_toml('$DOTFILES/vim/partials/dein/clojure.toml', {'if': 'executable("lein")'})
   call dein#load_toml('$DOTFILES/vim/partials/dein/coffee.toml', {'if': 'executable("coffee")'})
   call dein#load_toml('$DOTFILES/vim/partials/dein/ctags.toml', {'if': 'executable("ctags")'})
