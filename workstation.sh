@@ -55,6 +55,7 @@ nvm install node
 # rust
 curl https://sh.rustup.rs -sSf | sh
 rustup component add rust-src
+rustup component add rust-docs
 rust_toolchain=`rustup toolchain list | awk {'print $1'}`
 echo "export RUST_SRC_PATH=\"\$HOME/.multirust/toolchains/$rust_toolchain/lib/rustlib/src/rust/src\"" >> $HOME/.zsh_custom
 cargo install rustfmt
@@ -69,6 +70,7 @@ git clone https://github.com/Shougo/dein.vim vim/bundle/repos/github.com/Shougo/
 mkdir -p $HOME/.config
 ln -s $PWD/vim $HOME/.config/nvim
 gem install neovim
+npm install -g neovim
 pip3 install virtualenv
 virtualenv -p python2 $PWD/vim/virtual/python2
 $PWD/vim/virtual/python2/bin/pip install neovim
