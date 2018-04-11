@@ -10,3 +10,5 @@ export EDITOR="nvim"
 export HISTCONTROL="ignoreboth:erasedups"
 export HISTSIZE=500000
 export SAVEHIST=500000
+
+export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
