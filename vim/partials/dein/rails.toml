@@ -35,11 +35,14 @@ hook_add = '''"vim
         \   'app/graphql/resolvers/*.rb': {
         \     'command': 'resolver'
         \   },
-        \   'app/graphql/input_types/*_input_type.rb': {
+        \   'app/graphql/input_types/*_type.rb': {
         \     'command': 'input'
         \   },
         \   'app/graphql/types/*_type.rb': {
         \     'command': 'type'
+        \   },
+        \   'app/graphql/union_types/*_type.rb': {
+        \     'command': 'union'
         \   }
         \ }}
 
