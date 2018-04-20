@@ -146,7 +146,7 @@ let g:ale_linters = {
 \ 'go': [],
 \ 'html': [],
 \ 'javascript': ['jscs', 'eslint'],
-\ 'ruby': ['rubocop', 'reek', 'mri']
+\ 'ruby': ['rubocop', 'ruby', 'reek']
 \}
 
 let g:ale_ruby_rubocop_executable = $GEM_HOME . '/bin/rubocop'
