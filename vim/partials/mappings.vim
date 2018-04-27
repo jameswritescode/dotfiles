@@ -4,8 +4,8 @@ nmap <leader>k <plug>(easymotion-bd-f)
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 
 inoremap jk            <esc>
-inoremap <expr><C-h>   deoplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS>    deoplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
 
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function() abort
@@ -13,9 +13,9 @@ function! s:my_cr_function() abort
 endfunction
 
 inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ deoplete#mappings#manual_complete()
+\ pumvisible() ? "\<C-n>" :
+\ <SID>check_back_space() ? "\<TAB>" :
+\ deoplete#mappings#manual_complete()
 
 function! s:check_back_space() abort
   let col = col('.') - 1
