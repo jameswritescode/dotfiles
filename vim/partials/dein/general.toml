@@ -199,6 +199,10 @@ repo = 'slime-lang/vim-slime-syntax'
 on_ft = 'slime'
 
 [[plugins]]
+repo = 'vim-scripts/applescript.vim'
+on_ft = 'applescript'
+
+[[plugins]]
 repo = 'styled-components/vim-styled-components'
 on_ft = ['js', 'jsx']
 
