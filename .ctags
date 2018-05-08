@@ -49,4 +49,13 @@
 --regex-ES6=/['"]*([A-Za-z$][A-Za-z0-9_$]+)['"]*:[ \t]*function[ \t]*\(/\1/m,method/
 --regex-ES6=/([A-Za-z0-9_$]+)\[["']([A-Za-z0-9_$]+)["']\][ \t]*=[ \t]*function[ \t]*\(/\2/m,method/
 
+--langdef=GraphQL
+--langmap=GraphQL:.graphql
+--regex-graphql=/^[ \t]*enum[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/e,enum/
+--regex-graphql=/^[ \t]*query[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/q,query/
+--regex-graphql=/^[ \t]*fragment[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/f,fragment/
+--regex-graphql=/^[ \t]*type[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/t,type/
+--regex-graphql=/^[ \t]*input[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/i,input/
+--regex-graphql=/^[ \t]*mutation[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/m,mutation/
+
 --exclude=*.min.*
