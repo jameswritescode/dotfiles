@@ -12,3 +12,5 @@ autocmd bufreadpost Brewfile set ft=ruby
 autocmd bufnewfile *.jsx 0r $DOTFILES/vim/templates/react/component.jsx
 autocmd bufnewfile *app/controllers/*.rb 0r $DOTFILES/vim/templates/rails/controller.rb
 autocmd bufnewfile *app/models/*.rb 0r $DOTFILES/vim/templates/rails/model.rb
+autocmd bufnewfile *app/policies/*.rb 0r $DOTFILES/vim/templates/rails/policy.rb
+autocmd bufnewfile *app/services/*.rb 0r $DOTFILES/vim/templates/rails/service.rb

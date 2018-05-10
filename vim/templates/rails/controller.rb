@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class ControllerName < ApplicationController
+class NameController < ApplicationController
   
 end
