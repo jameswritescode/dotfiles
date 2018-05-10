@@ -7,6 +7,7 @@ alias ls="ls -G -a"
 alias mux="tmuxinator"
 alias psa="ps aux"
 alias rl="source ~/.zshrc"
+alias ss='open -a ScreenSaverEngine'
 alias v='vim $(fzf)'
 
 # docker
