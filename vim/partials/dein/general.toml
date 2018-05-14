@@ -203,6 +203,9 @@ repo = 'vim-scripts/applescript.vim'
 on_ft = 'applescript'
 
 [[plugins]]
+repo = 'othree/html5.vim'
+
+[[plugins]]
 repo = 'styled-components/vim-styled-components'
 on_ft = ['js', 'jsx']
 
