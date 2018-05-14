@@ -16,6 +16,7 @@ repo = 'nelstrom/vim-textobj-rubyblock'
 [[plugins]]
 repo = 'vim-ruby/vim-ruby'
 hook_add = '''"vim
+  let g:ruby_indent_assignment_style = 'variable'
   let g:rubycomplete_buffer_loading = 1
   let g:rubycomplete_rails = 1
 '''
