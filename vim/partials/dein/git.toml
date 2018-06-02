@@ -20,4 +20,10 @@ hook_add = '''"vim
 repo = 'airblade/vim-gitgutter'
 hook_add = '''"vim
   highlight SignColumn term=underline ctermfg=101 ctermbg=232 guifg=#857b6f guibg=#121212
+
+  let g:gitgutter_sign_added='┃'
+  let g:gitgutter_sign_modified='┃'
+  let g:gitgutter_sign_removed='◢'
+  let g:gitgutter_sign_removed_first_line='◥'
+  let g:gitgutter_sign_modified_removed='◢'
 '''
