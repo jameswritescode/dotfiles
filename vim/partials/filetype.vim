@@ -3,6 +3,7 @@ autocmd filetype diff nnoremap <buffer> <leader>w :noautocmd w<cr>
 autocmd filetype gitcommit setlocal spell
 autocmd filetype go setlocal textwidth=0
 autocmd filetype html call rainbow#toggle()
+autocmd filetype sh call rainbow#toggle()
 autocmd filetype slime setlocal commentstring=/\ %s
 
 autocmd bufreadpost *.applescript set ft=applescript
