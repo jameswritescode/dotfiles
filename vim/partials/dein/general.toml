@@ -220,3 +220,8 @@ repo = 'Shougo/deoplete.nvim'
 hook_add = '''"vim
   let g:deoplete#enable_at_startup = 1
 '''
+
+# I would like to use this but it requires font changes I don't want to make
+# right now.
+# [[plugins]]
+# repo = 'ryanoasis/vim-devicons'
