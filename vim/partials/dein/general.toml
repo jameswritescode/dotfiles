@@ -206,6 +206,13 @@ on_ft = 'applescript'
 repo = 'othree/html5.vim'
 
 [[plugins]]
+repo = 'othree/javascript-libraries-syntax.vim'
+on_ft = ['js', 'jsx']
+hook_add = '''"vim
+let g:used_javascript_libs = 'react'
+'''
+
+[[plugins]]
 repo = 'styled-components/vim-styled-components'
 on_ft = ['js', 'jsx']
 
