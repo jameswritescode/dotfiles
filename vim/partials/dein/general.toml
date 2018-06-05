@@ -127,11 +127,11 @@ hook_add = '''"vim
 [[plugins]]
 repo = 'janko-m/vim-test'
 
-[[plugins]]
-repo = 'luochen1990/rainbow'
-hook_add = '''"vim
-  let g:rainbow_active = 1
-'''
+# [[plugins]]
+# repo = 'luochen1990/rainbow'
+# hook_add = '''"vim
+#   let g:rainbow_active = 1
+# '''
 
 [[plugins]]
 repo = 'w0rp/ale'
@@ -226,6 +226,13 @@ hook_add = '''"vim
 repo = 'Shougo/deoplete.nvim'
 hook_add = '''"vim
   let g:deoplete#enable_at_startup = 1
+'''
+
+[[plugins]]
+repo = 'aperezdc/vim-template'
+hook_add = '''"vim
+let g:templates_directory = $DOTFILES . '/vim/templates'
+let g:templates_no_builtin_templates = 1
 '''
 
 # I would like to use this but it requires font changes I don't want to make
