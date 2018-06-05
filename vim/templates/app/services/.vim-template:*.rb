@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class NameService
+class %CAMELCLASS%
   def initialize
-    
+    %HERE%
   end
 end
