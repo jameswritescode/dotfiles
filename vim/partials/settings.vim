@@ -29,6 +29,7 @@ set cursorline
 set relativenumber
 set gdefault
 set autoread
+set updatetime=100
 
 set conceallevel=2
 set concealcursor=niv
