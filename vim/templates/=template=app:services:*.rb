@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class %CAMELCLASS%
-  def initialize
-    %HERE%
+  def initialize(%HERE)
   end
 end
