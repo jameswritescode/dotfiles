@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-class ComponentName extends React.Component {
+class %CAMELCLASS% extends React.Component {
   static propTypes = {};
+  static defaultProps = {};
 
   constructor(props) {
     super(props);
@@ -12,9 +13,9 @@ class ComponentName extends React.Component {
 
   render() {
     return (
-      <h1>Hello world</h1>
+      <h1>%HERE%</h1>
     );
   }
 }
 
-export default ComponentName;
+export default %CAMELCLASS%;
