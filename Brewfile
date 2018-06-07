@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 tap 'caskroom/cask'
 tap 'neovim/neovim'
 
@@ -22,6 +24,7 @@ brew 'ctags'
 brew 'fzf'
 brew 'fpp'
 brew 'zplug'
+brew 'shellcheck'
 
 cask 'google-chrome'
 cask 'bitbar'
