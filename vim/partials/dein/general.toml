@@ -233,8 +233,8 @@ repo = 'jameswritescode/vim-template'
 hook_add = '''"vim
 let g:templates_directory = $DOTFILES . '/vim/templates'
 let g:templates_no_builtin_templates = 1
-let g:templates_tr_in =  ['.',  '*',  ':',  '@',     '^',     '+',  '|']
-let g:templates_tr_out = ['\.', '.*', '\/', '[a-z]', '[A-Z]', '\+', '[a-zA-Z]']
+let g:templates_tr_in =  ['.',  '*',  ':',  '@',     '^',     '+',  '&',        '(',  ')',  '|']
+let g:templates_tr_out = ['\.', '.*', '\/', '[a-z]', '[A-Z]', '\+', '[a-zA-Z]', '\(', '\)', '\|']
 '''
 
 # I would like to use this but it requires font changes I don't want to make
