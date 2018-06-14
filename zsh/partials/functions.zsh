@@ -1,7 +1,7 @@
 # functions
 
 vim() {
-  if [ -z ${VIM+x} ]; then
+  if [[ -z $VIM ]]; then
     local params="$*"
 
     if [[ $params =~ ':' ]]; then
