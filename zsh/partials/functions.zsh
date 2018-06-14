@@ -28,7 +28,7 @@ fk() {
 gcm() {
   if [[ -z $1 ]]; then
     echo "Error: No commit message provided."
-    exit 1
+    return 1
   fi
 
   local ticket=$(git rev-parse --abbrev-ref HEAD | egrep -o "ENG-\d+")
