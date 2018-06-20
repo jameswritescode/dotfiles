@@ -43,13 +43,17 @@ gcm() {
 # chpwd functions
 
 __cd_nvm() {
-  [ -f "$PWD/.nvmrc" ] && nvm use . &>/dev/null
+  local file="$PWD/.nvmrc"
+
+  [ -f $file ] && nvm use $(cat $file) &>/dev/null
 }
 
 __cd_nvm
 
 __cd_chruby() {
-  [ -f "$PWD/.ruby-version" ] && chruby `cat $PWD/.ruby-version` &>/dev/null
+  local file="$PWD/.ruby-version"
+
+  [ -f $file ] && chruby $(cat $file) &>/dev/null
 }
 
 __cd_chruby
