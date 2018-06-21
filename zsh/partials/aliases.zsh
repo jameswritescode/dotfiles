@@ -46,6 +46,9 @@ alias gst="git status"
 alias gt="git tag"
 alias gu="git add -u"
 
+# k8s
+alias k="kubectl"
+
 # ruby
 alias bdbrb="ber db:rollback"
 alias be="bundle exec"
@@ -55,6 +58,10 @@ alias berm="ber db:migrate"
 alias rc="be rails c"
 alias rr="be rake routes"
 alias rs="be rails s"
+
+# minikube
+alias mku="eval $(minikube docker-env)"
+alias mkd="eval $(minikube docker-env -u)"
 
 # music
 alias mp="osascript -e 'tell application \"Spotify\" to pause';"
