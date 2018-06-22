@@ -1,5 +1,4 @@
 set statusline=[%02.2n]\ %f\ %y\ %m%r%h%=Line\:\ %00004.4l/%00004.4L\ (%003.3p%%)\ \ Col\:\ %0003.3c
-set t_Co=256
 set background=dark
 set visualbell
 set laststatus=2
