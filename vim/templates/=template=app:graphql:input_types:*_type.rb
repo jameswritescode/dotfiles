@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-InputTypes::%CAMELCLASS% = GraphQL::InputObjectType.define do
-  name '%HERE%'
+class InputTypes::%CAMELCLASS% < Types::BaseInputObject
+  graphql_name '%CAMELCLASS%'
 
-  input_field :id, types.Int
+  input_field :id, ID, required: true
 end
