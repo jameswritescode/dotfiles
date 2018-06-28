@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class Resolvers::%CAMELCLASS% < BaseResolver
+class Resolvers::%CAMELCLASS% < Resolvers::Base
   type Types::%CAMELCLASS%Type
 
-  argument :id, types.ID
+  argument :id, ID, required: true
 
-  def resolve
+  def resolve(id:)
     %HERE%
   end
 end
