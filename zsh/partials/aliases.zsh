@@ -11,6 +11,7 @@ alias ss='open -a ScreenSaverEngine'
 alias v='vim $(fzf)'
 
 # docker
+alias di="docker images"
 alias dps="docker ps -a"
 alias drm="docker rm"
 alias drmi="docker rmi"
@@ -55,6 +56,7 @@ alias be="bundle exec"
 alias ber="be rake"
 alias berg="be rails g"
 alias berm="ber db:migrate"
+alias bes="RAILS_ENV=test be rspec"
 alias rc="be rails c"
 alias rr="be rake routes"
 alias rs="be rails s"
