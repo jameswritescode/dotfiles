@@ -13,6 +13,7 @@ alias v='vim $(fzf)'
 # docker
 alias di="docker images"
 alias dps="docker ps -a"
+alias dr="docker run"
 alias dri="docker rmi"
 alias drm="docker rm"
 
