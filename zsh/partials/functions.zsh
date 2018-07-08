@@ -48,6 +48,10 @@ mkd() {
   eval $(minikube docker-env -u)
 }
 
+dsa() {
+  docker stop $(docker ps -a -q)
+}
+
 # chpwd functions
 
 __cd_nvm() {
