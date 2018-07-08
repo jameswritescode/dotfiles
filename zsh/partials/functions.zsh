@@ -40,6 +40,14 @@ gcm() {
   fi
 }
 
+mku() {
+  eval $(minikube docker-env)
+}
+
+mkd() {
+  eval $(minikube docker-env -u)
+}
+
 # chpwd functions
 
 __cd_nvm() {
