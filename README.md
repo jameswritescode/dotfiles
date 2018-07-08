@@ -14,7 +14,6 @@ $ ./workstation.sh
 
 | Language   | Guide                                                   |
 |------------|:--------------------------------------------------------|
-| CSS        | http://mvcss.io/                                        |
 | Elixir     | https://github.com/christopheradams/elixir_style_guide  |
 | JavaScript | https://github.com/airbnb/javascript                    |
 | Lua        | https://github.com/Olivine-Labs/lua-style-guide         |
