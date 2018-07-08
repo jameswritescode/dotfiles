@@ -17,6 +17,7 @@ alias dps="docker ps -a"
 alias dr="docker run"
 alias dri="docker rmi"
 alias drm="docker rm"
+alias ds="docker stop"
 
 # git
 alias ga="git add -A"
