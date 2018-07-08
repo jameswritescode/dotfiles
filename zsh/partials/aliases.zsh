@@ -11,6 +11,7 @@ alias ss='open -a ScreenSaverEngine'
 alias v='vim $(fzf)'
 
 # docker
+alias db="docker build"
 alias di="docker images"
 alias dps="docker ps -a"
 alias dr="docker run"
