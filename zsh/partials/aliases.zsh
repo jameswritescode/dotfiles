@@ -21,6 +21,7 @@ alias ds="docker stop"
 
 # git
 alias ga="git add -A"
+alias gap="git add -p"
 alias gb="git branch"
 alias gc="git commit"
 alias gca="git commit --amend"
