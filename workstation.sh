@@ -1,28 +1,30 @@
+DOTFILES=$HOME/dotfiles
+
 puts "Setting up Workstation..."
 
-defaults write com.apple.dock autohide -bool true
-defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
+sudo defaults write com.apple.dock autohide -bool true
+sudo defaults write NSGlobalDomain KeyRepeat -int 1
+sudo defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew tap homebrew/bundle
 brew bundle
 
 # git
-ln -s $PWD/git/.gitconfig $HOME/.gitconfig
+ln -s $DOTFILES/git/.gitconfig $HOME/.gitconfig
 
 # zsh
 chsh -s /bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-rm $HOME/.zshrc && ln -s $PWD/zsh/.zshrc $HOME/.zshrc
+rm $HOME/.zshrc && ln -s $DOTFILES/zsh/.zshrc $HOME/.zshrc
 touch $HOME/.zsh_custom
 zplug install
 
 # ctags
-ln -s $PWD/.ctags $HOME/.ctags
+ln -s $DOTFILES/.ctags $HOME/.ctags
 
 # hammerspoon
-ln -s $PWD/hammerspoon $HOME/.hammerspoon
+ln -s $DOTFILES/hammerspoon $HOME/.hammerspoon
 
 # ruby
 ruby-install --latest ruby
@@ -41,7 +43,7 @@ fi
 bundle config --global jobs $BUNDLE_JOBS
 
 # tmux
-ln -s $PWD/tmux/.tmux.conf $HOME/.tmux.conf
+ln -s $DOTFILES/tmux/.tmux.conf $HOME/.tmux.conf
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # node
@@ -64,13 +66,7 @@ go get -u github.com/nsf/gocode
 mkdir -p $HOME/dotfiles/vim/bundle/repos/github.com/Shougo/dein.vim
 git clone https://github.com/Shougo/dein.vim vim/bundle/repos/github.com/Shougo/dein.vim
 mkdir -p $HOME/.config
-ln -s $PWD/vim $HOME/.config/nvim
-gem install neovim
-npm install -g neovim
-pip3 install virtualenv
-virtualenv -p python2 $PWD/vim/virtual/python2
-$PWD/vim/virtual/python2/bin/pip install neovim
-virtualenv -p python3 $PWD/vim/virtual/python3
-$PWD/vim/virtual/python3/bin/pip install neovim
+ln -s $DOTFILES/vim $HOME/.config/nvim
+./vim/hosts.sh install
 
 echo "Workstation setup complete."
