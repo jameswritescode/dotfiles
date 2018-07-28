@@ -1,12 +1,8 @@
 [[plugins]]
+repo = 'HerringtonDarkholme/yats.vim'
+on_ft = 'typescript'
+
+[[plugins]]
 repo = 'mhartington/nvim-typescript'
 on_ft = 'typescript'
 build = './install.sh'
-
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-on_ft = 'typescript'
-
-[[plugins]]
-repo = 'HerringtonDarkholme/yats.vim'
-on_ft = 'typescript'
