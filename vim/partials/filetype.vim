@@ -8,6 +8,7 @@ autocmd filetype slime setlocal commentstring=/\ %s
 
 autocmd bufreadpost *.applescript set ft=applescript
 autocmd bufreadpost *.god set ft=ruby
+autocmd bufreadpost *.tsx set ft=typescript
 autocmd bufreadpost *.zsh-theme set ft=zsh
 autocmd bufreadpost .babelrc set ft=json
 autocmd bufreadpost .sequelizerc set ft=javascript
