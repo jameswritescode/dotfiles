@@ -4,5 +4,4 @@ on_ft = 'typescript'
 
 [[plugins]]
 repo = 'mhartington/nvim-typescript'
-on_ft = 'typescript'
 build = './install.sh'
