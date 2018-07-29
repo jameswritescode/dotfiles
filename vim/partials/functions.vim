@@ -1,12 +1,13 @@
 function! <SID>StripTrailingWhitespaces()
   " Preparation: save last search, and cursor position.
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
+  let l:_s=@/
+  let l:l = line('.')
+  let l:c = col('.')
   %s/\s\+$//e
-  let @/=_s
-  call cursor(l, c)
+  let @/=l:_s
+  call cursor(l:l, l:c)
 endfunction
 augroup strip_whitespace
+  autocmd!
   autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 augroup END
