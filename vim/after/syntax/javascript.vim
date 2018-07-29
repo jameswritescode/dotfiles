@@ -8,3 +8,5 @@ syntax region jsGraphqlTemplateString start=+`\n\s\+\(mutation\|query\)+ end=+`;
 hi def link jsGraphqlTemplateString jsTemplateString
 
 syn cluster jsExpression add=jsGraphqlTemplateString
+
+hi xmlAttrib cterm=italic ctermfg=179
