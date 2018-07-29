@@ -20,7 +20,7 @@ if !exists('g:syntax_on')
   syntax enable
 endif
 
-source ~/dotfiles/vim/partials/filetype.vim
+source ~/dotfiles/vim/partials/highlights.vim
 source ~/dotfiles/vim/partials/functions.vim
 
 colors seoul256
