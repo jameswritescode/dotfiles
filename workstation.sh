@@ -6,6 +6,10 @@ sudo defaults write com.apple.dock autohide -bool true
 sudo defaults write NSGlobalDomain KeyRepeat -int 1
 sudo defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+mkdir -p $HOME/.config
+ln -s $DOTFILES/kitty.conf $HOME/.config/kitty.conf
+
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew tap homebrew/bundle
 brew bundle
@@ -65,7 +69,6 @@ go get -u github.com/nsf/gocode
 # neovim
 mkdir -p $HOME/dotfiles/vim/bundle/repos/github.com/Shougo/dein.vim
 git clone https://github.com/Shougo/dein.vim vim/bundle/repos/github.com/Shougo/dein.vim
-mkdir -p $HOME/.config
 ln -s $DOTFILES/vim $HOME/.config/nvim
 ./vim/hosts.sh install
 

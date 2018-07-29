@@ -54,6 +54,11 @@ alias gu="git add -u"
 # k8s
 alias k="kubectl"
 
+# kitty
+if ! [[ -z $KITTY_WINDOW_ID ]]; then
+  alias ssh="kitty +kitten ssh"
+fi
+
 # ruby
 alias bdbrb="ber db:rollback"
 alias be="bundle exec"
