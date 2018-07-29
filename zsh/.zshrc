@@ -1,6 +1,8 @@
 export DOTFILES="$HOME/dotfiles"
 export ZSH=/Users/$USER/.oh-my-zsh
 
+hash -d dotfiles=$DOTFILES
+
 DISABLE_AUTO_TITLE="true"
 DISABLE_AUTO_UPDATE="true"
 ZSH_THEME="bureau-james"
