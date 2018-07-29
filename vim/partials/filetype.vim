@@ -13,3 +13,8 @@ autocmd bufreadpost *.zsh-theme set ft=zsh
 autocmd bufreadpost .babelrc set ft=json
 autocmd bufreadpost .sequelizerc set ft=javascript
 autocmd bufreadpost Brewfile set ft=ruby
+
+augroup Highlights
+  autocmd!
+  autocmd colorscheme * hi Comment cterm=italic
+augroup END
