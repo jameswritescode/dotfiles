@@ -1,8 +1,9 @@
 export DOTFILES="$HOME/dotfiles"
 export ZSH=/Users/$USER/.oh-my-zsh
 
-ZSH_THEME="bureau-james"
+DISABLE_AUTO_TITLE="true"
 DISABLE_AUTO_UPDATE="true"
+ZSH_THEME="bureau-james"
 plugins=()
 
 source $ZSH/oh-my-zsh.sh
