@@ -71,3 +71,18 @@ __cd_chruby() {
 __cd_chruby
 
 chpwd_functions=("__cd_nvm" "__cd_chruby")
+
+# update title when changes are made
+
+__set_title() {
+  if [[ -z $1 ]]; then
+    title "%2c"
+  else
+    setopt extended_glob
+
+    title ${1[(wr)^(*=*|sudo|ssh|mosh|rake|-*)]:gs/%/%%}
+  fi
+}
+
+precmd_functions+=(__set_title)
+preexec_functions+=(__set_title)
