@@ -5,6 +5,7 @@ hash -d dotfiles=$DOTFILES
 
 DISABLE_AUTO_TITLE="true"
 DISABLE_AUTO_UPDATE="true"
+ZSH_CUSTOM="$DOTFILES/zsh/custom"
 ZSH_THEME="bureau-james"
 plugins=()
 
