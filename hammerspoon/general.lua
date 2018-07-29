@@ -7,7 +7,7 @@ hs.hotkey.bind(hyper, '\\', function()
 end)
 
 hs.hotkey.bind(hyper, 'i', function()
-  hs.application.find('iterm'):activate()
+  hs.application.find('kitty'):activate()
 end)
 
 -- Rebind hyper+hjkl to arrow keys
