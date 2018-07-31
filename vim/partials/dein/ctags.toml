@@ -1,5 +1,0 @@
-[[plugins]]
-repo = 'majutsushi/tagbar'
-hook_add = '''"vim
-  let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
-'''
