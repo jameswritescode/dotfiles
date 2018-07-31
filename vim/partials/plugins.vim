@@ -7,7 +7,6 @@ if dein#load_state('~/dotfiles/vim/bundle')
 
   call dein#load_toml('$DOTFILES/vim/partials/dein/clojure.toml', {'if': 'executable("lein")'})
   call dein#load_toml('$DOTFILES/vim/partials/dein/coffee.toml', {'if': 'executable("coffee")'})
-  call dein#load_toml('$DOTFILES/vim/partials/dein/ctags.toml', {'if': 'executable("ctags")'})
   call dein#load_toml('$DOTFILES/vim/partials/dein/elixir.toml', {'if': 'executable("elixir")'})
   call dein#load_toml('$DOTFILES/vim/partials/dein/git.toml', {'if': 'executable("git")'})
   call dein#load_toml('$DOTFILES/vim/partials/dein/go.toml', {'if': 'executable("go")'})
