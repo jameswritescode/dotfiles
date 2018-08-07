@@ -1,24 +1,7 @@
 # functions
 
-vim() {
-  if [[ -z $VIM ]]; then
-    local params="$*"
-
-    if [[ $params =~ ':' ]]; then
-      local file=$params[(ws.:.)1]
-      local lineno=$params[(ws.:.)2]
-
-      nvim $file "+$lineno"
-    else
-      nvim $*
-    fi
-  else
-    echo "Already in vim"
-  fi
-}
-
-gls() {
-  git log -S $* --source --all
+dsa() {
+  docker stop $(docker ps -a -q)
 }
 
 fk() {
@@ -40,27 +23,40 @@ gcm() {
   fi
 }
 
-mku() {
-  eval $(minikube docker-env)
+gls() {
+  git log -S $* --source --all
 }
 
 mkd() {
   eval $(minikube docker-env -u)
 }
 
-dsa() {
-  docker stop $(docker ps -a -q)
+mku() {
+  eval $(minikube docker-env)
+}
+
+vc() {
+  vim $(pbpaste)
+}
+
+vim() {
+  if [[ -z $VIM ]]; then
+    local params="$*"
+
+    if [[ $params =~ ':' ]]; then
+      local file=$params[(ws.:.)1]
+      local lineno=$params[(ws.:.)2]
+
+      nvim $file "+$lineno"
+    else
+      nvim $*
+    fi
+  else
+    echo "Already in vim"
+  fi
 }
 
 # chpwd functions
-
-__cd_nvm() {
-  local file="$PWD/.nvmrc"
-
-  [ -f $file ] && nvm use $(cat $file) &>/dev/null
-}
-
-__cd_nvm
 
 __cd_chruby() {
   local file="$PWD/.ruby-version"
@@ -70,7 +66,15 @@ __cd_chruby() {
 
 __cd_chruby
 
-chpwd_functions=("__cd_nvm" "__cd_chruby")
+__cd_nvm() {
+  local file="$PWD/.nvmrc"
+
+  [ -f $file ] && nvm use $(cat $file) &>/dev/null
+}
+
+__cd_nvm
+
+chpwd_functions=("__cd_chruby" "__cd_nvm")
 
 # update title when changes are made
 
