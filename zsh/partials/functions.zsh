@@ -36,7 +36,11 @@ mku() {
 }
 
 vc() {
-  vim $(pbpaste)
+  if [[ $(pbpaste | wc -l) -gt 1 ]]; then
+    pbpaste | vim -
+  else
+    vim "$(pbpaste)"
+  fi
 }
 
 vim() {
