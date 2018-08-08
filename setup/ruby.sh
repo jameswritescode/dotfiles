@@ -4,6 +4,7 @@ brew install chruby ruby-install --HEAD
 ruby-install --latest ruby
 chruby ruby
 ruby -v | awk '{print "! [ -f \"$PWD/.ruby-version\" ] && chruby " $2}' >> "$HOME/.zsh_custom"
+cp "$DOTFILES/.gemrc" "$HOME/.gemrc"
 gem install gem-ctags
 gem ctags
 gem install bundler tmuxinator rubocop reek
