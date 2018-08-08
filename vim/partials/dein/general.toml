@@ -239,7 +239,5 @@ let g:templates_tr_in =  ['.',  '*',  ':',  '(',  ')',  '|',  '%',              
 let g:templates_tr_out = ['\.', '.*', '\/', '\(', '\)', '\|', '\/[A-Z]\w\+\.jsx', '\/[a-z]\w\+\.jsx']
 '''
 
-# I would like to use this but it requires font changes I don't want to make
-# right now.
-# [[plugins]]
-# repo = 'ryanoasis/vim-devicons'
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'

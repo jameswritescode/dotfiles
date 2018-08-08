@@ -1,1 +1,1 @@
-osascript $DOTFILES/tmux/spotify.applescript | tr -d '\n'
+osascript "$DOTFILES/tmux/spotify.applescript" | tr -d '\n'
