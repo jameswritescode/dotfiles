@@ -16,6 +16,7 @@ brew bundle
 
 # gpg
 cp "$DOTFILES/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
+killall gpg-agent
 
 # git
 ln -s "$DOTFILES/git/.gitconfig" "$HOME/.gitconfig"
