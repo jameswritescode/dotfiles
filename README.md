@@ -7,7 +7,7 @@
 `workstation.sh` is meant to be used on new computers to get all of these files and packages they depend on installed and distributed on the system.
 
 ```
-$ ./workstation.sh
+$ ./install.sh
 ```
 
 ## Styleguides
