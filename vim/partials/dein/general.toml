@@ -244,3 +244,6 @@ repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
 repo = 'mhinz/vim-startify'
+hook_add = '''"vim
+let g:startify_custom_header = ['   ' . $PWD]
+'''
