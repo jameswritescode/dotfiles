@@ -27,3 +27,5 @@
 	showPatch = true
 [init]
 	templatedir = ~/dotfiles/git/templates
+[commit]
+	gpgsign = true
