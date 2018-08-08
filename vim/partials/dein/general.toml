@@ -241,3 +241,6 @@ let g:templates_tr_out = ['\.', '.*', '\/', '\(', '\)', '\|', '\/[A-Z]\w\+\.jsx'
 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'mhinz/vim-startify'
