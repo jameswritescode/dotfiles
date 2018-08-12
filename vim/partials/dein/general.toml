@@ -157,9 +157,6 @@ let g:ale_ruby_rubocop_executable = $GEM_HOME . '/bin/rubocop'
 
 [[plugins]]
 repo = 'sbdchd/neoformat'
-hook_add = '''"vim
-  let g:neoformat_enabled_go = [] " Disabled in favor of vim-go functionality
-'''
 
 [[plugins]]
 repo = 'tpope/vim-projectionist'
