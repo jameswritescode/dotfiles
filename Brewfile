@@ -2,6 +2,8 @@
 
 tap 'caskroom/cask'
 
+brew 'awscli'
+brew 'awsebcli'
 brew 'coreutils'
 brew 'fasd'
 brew 'fzf'
