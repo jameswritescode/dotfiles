@@ -3,12 +3,13 @@
 brew cask install font-fira-code
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  git clone git@github.com:ryanoasis/nerd-fonts.git
+  git clone git@github.com:ryanoasis/nerd-fonts.git /tmp/nerd-fonts
 
-  pushd ./nerd-fonts || exit
+  pushd /tmp/nerd-fonts || exit
     find /Users/james/Library/Fonts -name 'Fira*.ttf' | awk '{print $1}' | xargs -n 1 ./font-patcher
-    open ./*.ttf
+    mv ./*.ttf "$HOME/Desktop"
+    rm -r nerd-fonts
   popd || exit
 
-  rm -r nerd-fonts
+  open "$HOME"/Desktop/*.ttf
 fi
