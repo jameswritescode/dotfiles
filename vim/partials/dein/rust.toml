@@ -17,7 +17,8 @@ repo = 'autozimu/LanguageClient-neovim'
 build = './install.sh'
 rev = 'next'
 hook_add = '''"vim
+  let g:LanguageClient_diagnosticsEnable = 0
   let g:LanguageClient_serverCommands = {
-  \ 'haskell': ['hie-wrapper'],
+  \ 'haskell': ['hie-wrapper', '-r', '$PWD'],
   \}
 '''
