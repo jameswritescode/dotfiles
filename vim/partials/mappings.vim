@@ -26,7 +26,7 @@ nnoremap ;          :
 nnoremap <c-p>      <esc>:Files<cr>
 nnoremap <c-t>      <esc>:tabnew<cr>
 nnoremap <down>     <c-w>-
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ev :vsplit $DOTFILES/vim<cr>
 nnoremap <leader>ez :vsplit $HOME/.zshrc<cr>
 nnoremap <leader>p  :set paste!<cr>
 nnoremap <leader>q  :noh<cr>
