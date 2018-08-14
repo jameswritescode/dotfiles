@@ -10,6 +10,10 @@ alias rl="source ~/.zshrc"
 alias ss='open -a ScreenSaverEngine'
 alias v='vim $(fzf)'
 
+# aws
+alias ec="eb console"
+alias eo="eb ssh"
+
 # docker
 alias db="docker build"
 alias di="docker images"
