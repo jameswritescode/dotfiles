@@ -12,7 +12,7 @@ alias v='vim $(fzf)'
 
 # aws
 alias ec="eb console"
-alias eo="eb ssh"
+alias eo="eb ssh -n 1"
 alias es="eb status"
 
 # docker
