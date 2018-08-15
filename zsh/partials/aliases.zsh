@@ -13,6 +13,7 @@ alias v='vim $(fzf)'
 # aws
 alias ec="eb console"
 alias eo="eb ssh"
+alias es="eb status"
 
 # docker
 alias db="docker build"
