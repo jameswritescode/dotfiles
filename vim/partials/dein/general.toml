@@ -119,6 +119,15 @@ repo = 'ryanoasis/vim-devicons'
 repo = 'neovimhaskell/haskell-vim'
 
 [[plugins]]
+repo = 'jacquesbh/vim-showmarks'
+hook_add = '''"vim
+augroup showmarks_on
+  autocmd!
+  autocmd bufenter * :DoShowMarks
+augroup END
+'''
+
+[[plugins]]
 repo = 'styled-components/vim-styled-components'
 on_ft = ['js', 'jsx']
 
