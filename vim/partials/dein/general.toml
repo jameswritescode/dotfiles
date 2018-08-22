@@ -119,7 +119,7 @@ repo = 'ryanoasis/vim-devicons'
 repo = 'neovimhaskell/haskell-vim'
 
 [[plugins]]
-repo = 'jacquesbh/vim-showmarks'
+repo = 'jameswritescode/vim-showmarks'
 hook_add = '''"vim
 augroup showmarks_on
   autocmd!
