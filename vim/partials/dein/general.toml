@@ -80,9 +80,6 @@ repo = 'elzr/vim-json'
 repo = 'jparise/vim-graphql'
 
 [[plugins]]
-repo = 'janko-m/vim-test'
-
-[[plugins]]
 repo = 'sbdchd/neoformat'
 
 [[plugins]]
@@ -117,6 +114,12 @@ repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
 repo = 'neovimhaskell/haskell-vim'
+
+[[plugins]]
+repo = 'janko-m/vim-test'
+hook_add = '''"vim
+  let test#strategy = 'neovim'
+'''
 
 [[plugins]]
 repo = 'jameswritescode/vim-showmarks'
