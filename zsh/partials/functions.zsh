@@ -24,7 +24,11 @@ gcm() {
 }
 
 ls() {
-  $(command -v exa || echo '/bin/ls' -G) -a $*
+  if [ $(command -v exa) ]; then
+    command exa -a $*
+  else
+    /bin/ls -G -a $*
+  fi
 }
 
 mkd() {
