@@ -33,16 +33,18 @@ nnoremap <leader>q  :noh<cr>
 nnoremap <leader>sb <c-^><cr>
 nnoremap <leader>sc :CoffeeWatch vert<cr>
 nnoremap <leader>tb :Tagbar<cr>
+nnoremap <leader>tf :TestFile<cr>
+nnoremap <leader>tn :TestNearest<cr>
+nnoremap <leader>w  :w<cr>
 nnoremap <leader>z  <c-z>
 nnoremap <left>     1<c-w>>
 nnoremap <right>    1<c-w><
-nnoremap <leader>tf :TestFile<cr>
-nnoremap <leader>tn :TestNearest<cr>
 nnoremap <up>       <c-w>+
 nnoremap H          gT
 nnoremap L          gt
 nnoremap gp         `[v`]
-nnoremap <leader>w  :w<cr>
+nnoremap j          gj
+nnoremap k          gk
 
 vnoremap J :m  '>+1<cr>gv=gv
 vnoremap K :m  '<-2<cr>gv=gv
