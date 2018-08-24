@@ -24,7 +24,7 @@ gcm() {
 }
 
 ls() {
-  $(command -v exa || echo '/bin/ls') -G -a $*
+  $(command -v exa || echo '/bin/ls' -G) -a $*
 }
 
 mkd() {
