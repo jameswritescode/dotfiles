@@ -137,6 +137,8 @@ on_ft = ['js', 'jsx']
 [[plugins]]
 repo = 'mattn/emmet-vim'
 hook_add = '''"vim
+  let g:user_emmet_leader_key = ','
+
   let g:user_emmet_settings = {
   \ 'javascript.jsx' : {
   \   'extends' : 'jsx'
