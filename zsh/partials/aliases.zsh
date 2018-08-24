@@ -5,6 +5,7 @@ alias j="z"
 alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 alias mux="tmuxinator"
 alias psa="ps aux"
+alias r="ranger"
 alias rl="source ~/.zshrc"
 alias ss='open -a ScreenSaverEngine'
 alias v='vim $(fzf)'

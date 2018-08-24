@@ -1,3 +1,5 @@
+disable r
+
 export DOTFILES="$HOME/dotfiles"
 export ZSH=/Users/$USER/.oh-my-zsh
 
