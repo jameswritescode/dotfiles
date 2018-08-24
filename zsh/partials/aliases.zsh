@@ -3,12 +3,13 @@ alias c="clear"
 alias cv="rm ~/.config/nvim/tmp/*"
 alias j="z"
 alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-alias ls="ls -G -a"
 alias mux="tmuxinator"
 alias psa="ps aux"
 alias rl="source ~/.zshrc"
 alias ss='open -a ScreenSaverEngine'
 alias v='vim $(fzf)'
+
+unalias ls
 
 # aws
 alias ec="eb console"

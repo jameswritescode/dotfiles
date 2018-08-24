@@ -23,8 +23,8 @@ gcm() {
   fi
 }
 
-gls() {
-  git log -S $* --source --all
+ls() {
+  $(command -v exa || echo '/bin/ls') -G -a $*
 }
 
 mkd() {
