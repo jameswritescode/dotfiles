@@ -169,6 +169,7 @@ FILE_NODE_MATCHES = {
     'LICENSE.txt': LICENSE,
     'Rakefile': RUBY,
     'config.ru': RUBY,
+    'license': LICENSE,
     'package.json': NPM,
     'yarn.lock': JAVASCRIPT,
 }
