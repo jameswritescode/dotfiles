@@ -15,14 +15,4 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   rm -r $nf_tmp
 
   open "$HOME"/Desktop/*.ttf
-
-  rd_tmp="/tmp/ranger_devicons"
-
-  git clone https://github.com/alexanderjeurissen/ranger_devicons $rd_tmp
-
-  pushd $rd_tmp || exit
-    make install
-  popd || exit
-
-  rm -r $rd_tmp
 fi
