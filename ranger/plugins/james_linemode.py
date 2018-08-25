@@ -26,6 +26,7 @@ DIR_NODE_MATCHES = {
     '.multirust': '',
     '.node-gyp': '',
     '.npm': '',
+    '.nuget': '',
     '.nvm': '',
     '.rubies': '',
     '.rustup': '',
@@ -35,6 +36,7 @@ DIR_NODE_MATCHES = {
     '.tmuxinator': '',
     '.vim': '',
     'node_modules': '',
+    'nvim': '',
 }
 
 FILE_EXT_MATCHES = {
