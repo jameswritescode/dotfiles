@@ -11,3 +11,8 @@ vim/virtual/*
 !vim/virtual/.gitkeep
 
 vim/.netrwhist
+
+ranger/plugins/__init__.*
+ranger/plugins/*.pyo
+
+__pycache__
