@@ -72,6 +72,7 @@ DIR_NODE_MATCHES = {
     'Movies': '',
     'Music': '',
     'Pictures': '',
+    'dotfiles': '',
     'node_modules': NPM,
     'nvim': VIM,
 }
