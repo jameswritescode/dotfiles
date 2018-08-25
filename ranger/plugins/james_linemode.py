@@ -123,6 +123,8 @@ FILE_EXT_MATCHES = {
     'pl': '',
     'png': IMAGE,
     'py': PYTHON,
+    'pyc': PYTHON,
+    'pyo': PYTHON,
     'rar': ARCHIVE,
     'rb': RUBY,
     'rpm': '',
