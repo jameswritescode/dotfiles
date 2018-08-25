@@ -43,5 +43,3 @@ case "$1" in
   *)
     install
 esac
-
-./vim/hosts.sh install
