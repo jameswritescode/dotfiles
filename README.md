@@ -4,11 +4,7 @@
 
 ## Setup
 
-`workstation.sh` is meant to be used on new computers to get all of these files and packages they depend on installed and distributed on the system.
-
-```
-$ ./install.sh
-```
+Run `setup.sh` or run scripts in `setup` individually
 
 ## Styleguides
 
