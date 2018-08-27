@@ -117,9 +117,6 @@ repo = 'neovimhaskell/haskell-vim'
 
 [[plugins]]
 repo = 'janko-m/vim-test'
-hook_add = '''"vim
-  let test#strategy = 'neovim'
-'''
 
 [[plugins]]
 repo = 'jameswritescode/vim-showmarks'
