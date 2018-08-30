@@ -1,5 +1,13 @@
 # functions
 
+cat() {
+  if [ $(command -v bat) ]; then
+    bat $*
+  else
+    /bin/cat $*
+  fi
+}
+
 dsa() {
   docker stop $(docker ps -a -q)
 }
@@ -25,7 +33,7 @@ gcm() {
 
 ls() {
   if [ $(command -v exa) ]; then
-    command exa -a $*
+    exa -a $*
   else
     /bin/ls -G -a $*
   fi
