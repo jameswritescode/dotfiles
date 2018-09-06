@@ -14,7 +14,7 @@ hook_add = '''"vim
 
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
-build = './install.sh'
+build = 'bash install.sh'
 rev = 'next'
 hook_add = '''"vim
   let g:LanguageClient_diagnosticsEnable = 0
