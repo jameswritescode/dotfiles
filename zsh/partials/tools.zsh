@@ -6,7 +6,7 @@ eval "$(hub alias -s)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_COMMAND='fd -t f -H -E .git'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # zplug
