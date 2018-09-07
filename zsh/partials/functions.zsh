@@ -31,6 +31,8 @@ gcm() {
   fi
 }
 
+# TODO: When using the `rl` alias, this breaks chruby - may need to add a check
+# for `ls -A` and use the standard command when that happens.
 ls() {
   if [ $(command -v exa) ]; then
     exa -a $*
