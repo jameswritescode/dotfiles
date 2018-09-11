@@ -240,6 +240,13 @@ hook_add = '''"vim
   call deoplete#custom#option({
   \ 'auto_complete': v:false,
   \})
+
+
+  if executable('solargraph')
+    call deoplete#custom#source('omni', 'functions', {
+    \ 'ruby': 'LanguageClient#complete',
+    \ })
+  endif
 '''
 
 [[plugins]]
