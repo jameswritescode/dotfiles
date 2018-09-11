@@ -156,6 +156,7 @@ FILE_NODE_MATCHES = {
     '.ghci': HASKELL,
     '.gitconfig': GIT,
     '.gitignore': GIT,
+    '.node-version': NODE,
     '.nvmrc': NODE,
     '.profile': CONSOLE,
     '.rspec': RUBY,
