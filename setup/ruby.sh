@@ -7,7 +7,7 @@ ruby -v | awk '{print "! [ -f \"$PWD/.ruby-version\" ] && chruby " $2}' >> "$HOM
 ln -s "$DOTFILES/.gemrc" "$HOME/.gemrc"
 gem install gem-ctags
 gem ctags
-gem install bundler tmuxinator rubocop reek
+gem install bundler tmuxinator rubocop reek solargraph
 
 if  [[ "$OSTYPE" == "darwin"* ]]; then
   BUNDLE_JOBS=$(($(sysctl -n hw.ncpu) - 1))
