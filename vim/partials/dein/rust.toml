@@ -20,6 +20,7 @@ hook_add = '''"vim
   let g:LanguageClient_diagnosticsEnable = 0
   let g:LanguageClient_serverCommands = {
   \ 'haskell': ['hie-wrapper', '-r', '$PWD'],
+  \ 'ruby': ['solargraph', 'stdio'],
   \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
   \}
 '''
