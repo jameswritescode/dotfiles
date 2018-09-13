@@ -1,13 +1,12 @@
 #!/bin/bash
 
-brew install chruby ruby-install --HEAD
-ruby-install --latest ruby
-chruby ruby
-ruby -v | awk '{print "! [ -f \"$PWD/.ruby-version\" ] && chruby " $2}' >> "$HOME/.zsh_custom"
 ln -s "$DOTFILES/.gemrc" "$HOME/.gemrc"
-gem install gem-ctags
+
+LATEST_STABLE_RUBY=$(asdf list-all ruby | grep -E '^(\d\.?){3}$' | tail -n 1)
+asdf install ruby "$LATEST_STABLE_RUBY"
+asdf global ruby "$LATEST_STABLE_RUBY"
+
 gem ctags
-gem install bundler tmuxinator rubocop reek solargraph
 
 if  [[ "$OSTYPE" == "darwin"* ]]; then
   BUNDLE_JOBS=$(($(sysctl -n hw.ncpu) - 1))

@@ -1,0 +1,7 @@
+bundler
+gem-ctags
+pry
+reek
+rubocop
+solargraph
+tmuxinator

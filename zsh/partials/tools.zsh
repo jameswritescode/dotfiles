@@ -1,10 +1,10 @@
-source $(brew --prefix chruby)/share/chruby/chruby.sh
+export NODEJS_CHECK_SIGNATURES="no"
+ASDF_BREW_PATH=$(brew --prefix asdf)
+source $ASDF_BREW_PATH/asdf.sh
+source $ASDF_BREW_PATH/etc/bash_completion.d/asdf.bash
 
 eval "$(fasd --init auto)"
 eval "$(hub alias -s)"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 export FZF_DEFAULT_COMMAND='fd -t f -H -E .git'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
