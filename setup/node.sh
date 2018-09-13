@@ -1,4 +1,5 @@
 #!/bin/bash
 
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-nvm install node
+LATEST_STABLE_NODE=$(asdf list-all nodejs | tail -n 1)
+asdf install nodejs "$LATEST_STABLE_NODE"
+asdf global nodejs "$LATEST_STABLE_NODE"
