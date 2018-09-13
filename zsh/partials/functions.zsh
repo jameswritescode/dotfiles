@@ -72,26 +72,6 @@ vim() {
   fi
 }
 
-# chpwd functions
-
-__cd_chruby() {
-  local file="$PWD/.ruby-version"
-
-  [ -f $file ] && chruby $(cat $file) &>/dev/null
-}
-
-__cd_chruby
-
-__cd_nvm() {
-  local file="$PWD/.nvmrc"
-
-  [ -f $file ] && nvm use $(cat $file) &>/dev/null
-}
-
-__cd_nvm
-
-chpwd_functions=("__cd_chruby" "__cd_nvm")
-
 # update title when changes are made
 
 __set_title() {
