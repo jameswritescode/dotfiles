@@ -81,20 +81,20 @@ _file_exists () {
 _node_theme_prompt () {
   if _file_exists 'package.json' || _file_exists '.nvmrc'
   then
-          echo "‹%{$fg_bold[green]%}node-`node -v`%{$reset_color%}› "
+    echo "‹%{$fg_bold[green]%}node-$(node -v)%{$reset_color%}› "
   fi
 }
 
 _ruby_theme_prompt () {
-  if _file_exists 'Gemfile'
+  if _file_exists 'Gemfile' && _file_exists '.ruby-version'
   then
-    echo "‹%{$fg_bold[red]%}ruby-$RUBY_VERSION%{$reset_color%}› "
+    echo "‹%{$fg_bold[red]%}ruby-$(cat .ruby-version)%{$reset_color%}› "
   fi
 }
 
 _python_theme_prompt () {
   if [[ -n $VIRTUAL_ENV ]]; then
-    local version=`python --version | awk {'print $2'}`
+    local version=$(python --version | awk {'print $2'})
     echo "‹%{$fg_bold[yellow]%}python-$version%{$reset_color%}› "
   fi
 }
@@ -109,7 +109,7 @@ _docker_theme_prompt () {
 
 _go_theme_prompt() {
   if [[ $PWD/ = $GOPATH/* ]]; then
-    local version=`go version | awk {'print $3'}`
+    local version=$(go version | awk {'print $3'})
     echo "‹%{$fg_bold[green]%}$version%{$reset_color%}› "
   fi
 }
@@ -156,7 +156,7 @@ get_space () {
 bureau_precmd () {
         _1LEFT="┌‹$_USERNAME› ‹$_PATH›"
         _1RIGHT="$(_jobs_theme_prompt)$(_docker_theme_prompt)$(_go_theme_prompt)$(_python_theme_prompt)$(_node_theme_prompt)$(_ruby_theme_prompt)‹%{$fg_bold[white]%}%*%{$reset_color%}›┐ "
-        _1SPACES=`get_space $_1LEFT $_1RIGHT`
+        _1SPACES=$(get_space $_1LEFT $_1RIGHT)
         print
         print -rP "$_1LEFT$_1SPACES$_1RIGHT"
 }
