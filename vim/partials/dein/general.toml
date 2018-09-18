@@ -188,7 +188,6 @@ hook_add = '''"vim
 
   let g:ale_graphql_gqlint_executable = $PWD . '/node_modules/.bin/gqlint'
   let g:ale_javascript_eslint_executable = $PWD . '/node_modules/.bin/eslint'
-  let g:ale_ruby_rubocop_executable = $GEM_HOME . '/bin/rubocop'
 '''
 
 [[plugins]]

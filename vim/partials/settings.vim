@@ -66,9 +66,7 @@ set undofile
 set undodir=~/dotfiles/vim/tmp
 
 let g:netrw_localrmdir='rm -r'
-let g:node_host_prog=$NVM_BIN.'/neovim-node-host'
 let g:python3_host_prog=$HOME.'/dotfiles/vim/virtual/python3/bin/python'
 let g:python_host_prog=$HOME.'/dotfiles/vim/virtual/python2/bin/python'
-let g:ruby_host_prog=$GEM_HOME.'/bin/neovim-ruby-host'
 
 scriptencoding utf-8
