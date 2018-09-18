@@ -11,16 +11,3 @@ on_ft = 'rust'
 hook_add = '''"vim
   let g:rustfmt_autosave = 1
 '''
-
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-build = 'bash install.sh'
-rev = 'next'
-hook_add = '''"vim
-  let g:LanguageClient_diagnosticsEnable = 0
-  let g:LanguageClient_serverCommands = {
-  \ 'haskell': ['hie-wrapper', '-r', '$PWD'],
-  \ 'ruby': ['solargraph', 'stdio'],
-  \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-  \}
-'''
