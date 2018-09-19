@@ -2,4 +2,4 @@
 
 brew install python python3
 
-pip3 install python-language-server
+pip3 install 'python-language-server[all]'
