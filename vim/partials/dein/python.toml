@@ -6,7 +6,3 @@ hook_add = '''"vim
   let g:pymode_rope = 0
   let g:pymode_folding = 0
 '''
-
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-on_ft = 'python'
