@@ -19,15 +19,44 @@ type issue struct {
 }
 
 type pullRequest struct {
+	URL  string
 	Head struct {
 		Sha string
 	}
-	URL string
+	Labels []struct {
+		Name string
+	}
+}
+
+func (pr pullRequest) ShowLabel() string {
+	var hasLabel bool = false
+
+	for _, label := range pr.Labels {
+		if label.Name == "wip" {
+			hasLabel = true
+		}
+	}
+
+	if hasLabel {
+		return "WIP: "
+	} else {
+		return ""
+	}
 }
 
 type status struct {
 	State      string
 	TotalCount int `json:"total_count"`
+}
+
+func (s status) Color() string {
+	if s.State == "success" || s.TotalCount == 0 {
+		return "green"
+	} else if s.State == "pending" {
+		return "orange"
+	} else {
+		return "red"
+	}
 }
 
 func getData(target interface{}, url string) error {
@@ -40,16 +69,6 @@ func getData(target interface{}, url string) error {
 	defer resp.Body.Close()
 
 	return json.NewDecoder(resp.Body).Decode(target)
-}
-
-func color(status status) string {
-	if status.State == "success" || status.TotalCount == 0 {
-		return "green"
-	} else if status.State == "pending" {
-		return "orange"
-	} else {
-		return "red"
-	}
 }
 
 var githubKey = os.Getenv("GITHUB_ACCESS_TOKEN")
@@ -68,7 +87,7 @@ func main() {
 			getData(&issue.PullRequest, issue.PullRequest.URL)
 			getData(&issue.Status, issue.RepositoryURL+"/commits/"+issue.PullRequest.Head.Sha+"/status")
 
-			fmt.Printf("(%d) %s | color=%s href=%s\n", issue.Comments, issue.Title, color(issue.Status), issue.HTMLURL)
+			fmt.Printf("(%d) %s%s | color=%s href=%s\n", issue.Comments, issue.PullRequest.ShowLabel(), issue.Title, issue.Status.Color(), issue.HTMLURL)
 		}
 	}
 }
