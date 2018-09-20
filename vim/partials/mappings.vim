@@ -29,7 +29,6 @@ nnoremap <leader>ez :vsplit $HOME/.zshrc<cr>
 nnoremap <leader>p  :set paste!<cr>
 nnoremap <leader>q  :noh<cr>
 nnoremap <leader>sb <c-^><cr>
-nnoremap <leader>sc :CoffeeWatch vert<cr>
 nnoremap <leader>tb :Tagbar<cr>
 nnoremap <leader>tf :TestFile<cr>
 nnoremap <leader>tn :TestNearest<cr>
