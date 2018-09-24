@@ -22,7 +22,7 @@ gcm() {
     return 1
   fi
 
-  local ticket=$(git rev-parse --abbrev-ref HEAD | egrep -o "ENG-\d+")
+  local ticket=$(git rev-parse --abbrev-ref HEAD | egrep -o "(ENG|MAINT)-\d+")
 
   if [[ -n "$ticket" ]]; then
     git commit -m "[$ticket] $1" ${@:2}
