@@ -32,6 +32,9 @@ hook_add = '''"vim
         \   }
         \ },
         \ 'graphql': {
+        \   'app/graphql/*.rb': {
+        \     'command': 'gql'
+        \   },
         \   'app/graphql/resolvers/*.rb': {
         \     'command': 'resolver'
         \   },
@@ -43,7 +46,10 @@ hook_add = '''"vim
         \   },
         \   'app/graphql/union_types/*_type.rb': {
         \     'command': 'union'
-        \   }
+        \   },
+        \   'app/graphql/mutations/*.rb': {
+        \     'command': 'mutation'
+        \   },
         \ }}
 
   let g:rails_projections = {
