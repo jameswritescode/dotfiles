@@ -28,7 +28,7 @@ nnoremap <up>             <c-w>+
 nnoremap ;                :
 nnoremap <c-p>            <esc>:Files<cr>
 nnoremap <c-t>            <esc>:tabnew<cr>
-nnoremap <expr><leader>fw ":GGrep " . expand("<cWORD>") . "<cr>"
+nnoremap <expr><leader>fw ":GGrep " . expand("<cword>") . "<cr>"
 nnoremap <leader>ev       :vsplit $DOTFILES/vim<cr>
 nnoremap <leader>ez       :vsplit $HOME/.zshrc<cr>
 nnoremap <leader>p        :set paste!<cr>
