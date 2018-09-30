@@ -170,7 +170,8 @@ hook_add = '''"vim
   \ 'go': [],
   \ 'html': [],
   \ 'javascript': ['jscs', 'eslint'],
-  \ 'ruby': ['rubocop', 'ruby', 'reek']
+  \ 'ruby': ['rubocop', 'ruby', 'reek'],
+  \ 'typescript': ['tslint', 'tsserver', 'typecheck'],
   \}
 
   let g:ale_graphql_gqlint_executable = $PWD . '/node_modules/.bin/gqlint'
