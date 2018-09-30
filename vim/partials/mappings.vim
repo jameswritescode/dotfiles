@@ -31,6 +31,8 @@ nnoremap <c-t>            <esc>:tabnew<cr>
 nnoremap <expr><leader>fw ":GGrep " . expand("<cword>") . "<cr>"
 nnoremap <leader>ev       :vsplit $DOTFILES/vim<cr>
 nnoremap <leader>ez       :vsplit $HOME/.zshrc<cr>
+nnoremap <leader>ld       :call LanguageClient#textDocument_definition()<cr>
+nnoremap <leader>lr       :call LanguageClient#textDocument_rename()<cr>
 nnoremap <leader>p        :set paste!<cr>
 nnoremap <leader>q        :noh<cr>
 nnoremap <leader>sb       <c-^><cr>
