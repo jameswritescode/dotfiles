@@ -1,4 +1,6 @@
+eslint
 neovim
+tslint
 typescript
 typescript-language-server
 yarn
