@@ -53,6 +53,9 @@ hook_add = '''"vim
         \ }}
 
   let g:rails_projections = {
+        \ 'app/models/interfaces/*_interface.rb': {
+        \   'command': 'interface'
+        \ },
         \ 'app/services/*.rb': {
         \   'command': 'service'
         \ },
