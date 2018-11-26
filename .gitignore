@@ -10,6 +10,9 @@ vim/tmp/*
 vim/virtual/*
 !vim/virtual/.gitkeep
 
+vim/langserver/*
+!vim/langserver/.gitkeep
+
 vim/.netrwhist
 
 ranger/plugins/__init__.*
