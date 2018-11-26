@@ -1,6 +1,7 @@
 eslint
 javascript-typescript-langserver
 neovim
+prisma
 tslint
 typescript
 yarn
