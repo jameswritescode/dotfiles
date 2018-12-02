@@ -1,3 +1,6 @@
+# Remove aliases
+unalias ls
+
 # general
 alias c="clear"
 alias cv="rm ~/.config/nvim/tmp/*"
@@ -9,8 +12,6 @@ alias r="ranger"
 alias rl="source ~/.zshrc"
 alias ss='open -a ScreenSaverEngine'
 alias v='vim $(fzf)'
-
-unalias ls
 
 # aws
 alias ec="eb console"
@@ -64,6 +65,7 @@ alias k="kubectl"
 
 # kitty
 if ! [[ -z $KITTY_WINDOW_ID ]]; then
+  alias icat="kitty +kitten icat"
   alias ssh="kitty +kitten ssh"
 fi
 
