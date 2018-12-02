@@ -1,0 +1,25 @@
+#!/bin/bash
+# https://github.com/Netflix-Skunkworks/go-jira#dynamic-configuration
+
+cat <<YAML
+endpoint: $JIRA_ENDPOINT
+login: $JIRA_LOGIN
+
+custom-commands:
+  - name: mine
+    help: Unresolved issues assigned to me
+    script: |
+      {{jira}} list --query "resolution = unresolved AND assignee = currentUser() ORDER BY created"
+
+  - name: ready
+    help: Tickets in Ready to Release
+    script: |
+      {{jira}} list --query "status = \"Ready for Release\" AND resolution = unresolved"
+
+  - name: ready-copy
+    help: Copy ready output to clipboard
+    script: |
+      {{jira}} ready | pbcopy
+YAML
+
+# vim:ft=sh
