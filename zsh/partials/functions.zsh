@@ -31,6 +31,12 @@ gcm() {
   fi
 }
 
+gpo() {
+  local branch=$(git rev-parse --abbrev-ref HEAD)
+
+  git push -u origin "$branch"
+}
+
 ls() {
   if [[ -n $(command -v exa) && ! $* =~ -A ]]; then
     exa -a $*
