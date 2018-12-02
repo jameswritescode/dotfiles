@@ -33,8 +33,8 @@ handle_mime() {
       exiftool "$FILE_PATH" && exit 5
       ;;
     text/* | */xml)
-      highlight --out-format=xterm256 --force --style=moria "$FILE_PATH" \
-        && exit 5
+      highlight --out-format=xterm256 --force --style=moria --replace-tabs=8 \
+        "$FILE_PATH" && exit 5
       exit 2
       ;;
   esac
