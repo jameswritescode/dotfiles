@@ -113,6 +113,9 @@ repo = 'neovimhaskell/haskell-vim'
 repo = 'janko-m/vim-test'
 
 [[plugins]]
+repo = 'chr4/nginx.vim'
+
+[[plugins]]
 repo = 'styled-components/vim-styled-components'
 on_ft = ['js', 'jsx']
 
