@@ -1,6 +1,6 @@
 #!/bin/bash
 
-brew zsh zplug
+brew install zsh zplug
 chsh -s /bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 rm "$HOME/.zshrc" && ln -s "$DOTFILES/zsh/.zshrc" "$HOME/.zshrc"
