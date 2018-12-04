@@ -20,6 +20,15 @@ custom-commands:
     help: Copy ready output to clipboard
     script: |
       {{jira}} ready | pbcopy
+
+  - name: release
+    help: Show issues from a Release
+    options:
+      - name: name
+        short: n
+        required: true
+    script: |
+      {{jira}} list -t release --query "fixVersion = \"{{options.name}}\" ORDER BY status ASC"
 YAML
 
 # vim:ft=sh
