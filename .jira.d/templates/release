@@ -1,0 +1,4 @@
+{{ printf "Status" | printf "%-30s" }} {{ printf "Assignee" | printf "%-30s" }}  Issue
+{{ printf "------" | printf "%-30s" }} {{ printf "--------" | printf "%-30s" }}  -----
+{{ range .issues }}[{{ .fields.status.name | append "]" | printf "%-30s" }}[{{ if .fields.assignee }}{{ .fields.assignee.name | append "]" | printf "%-30s" }}{{else}}{{ printf "nobody" | append "]" | printf "%-30s" }}{{ end }} [{{ .key }}] {{ .fields.summary }}
+{{ end }}
