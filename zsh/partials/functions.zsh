@@ -78,6 +78,16 @@ vim() {
   fi
 }
 
+ws() {
+  local branch=$(git rev-parse --abbrev-ref HEAD)
+
+  if [[ "$(watson status)" == "No project started" ]]; then
+    watson start "$branch"
+  else
+    watson stop
+  fi
+}
+
 # update title when changes are made
 
 __set_title() {
