@@ -22,6 +22,7 @@ brew 'python3'
 brew 'redis'
 brew 'shellcheck'
 brew 'tree'
+brew 'watson'
 brew 'wget'
 
 cask '1password'
