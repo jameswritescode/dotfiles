@@ -12,6 +12,7 @@ alias r="ranger"
 alias rl="source ~/.zshrc"
 alias ss='open -a ScreenSaverEngine'
 alias v='vim $(fzf)'
+alias wr="watson report"
 
 # aws
 alias ec="eb console"
