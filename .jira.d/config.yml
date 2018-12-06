@@ -28,7 +28,7 @@ custom-commands:
         short: n
         required: true
     script: |
-      {{jira}} list -t release --query "fixVersion = \"{{options.name}}\" ORDER BY status ASC"
+      {{jira}} list -t release --query "fixVersion = \"{{options.name}}\" ORDER BY status ASC, rank ASC"
 YAML
 
 # vim:ft=sh
