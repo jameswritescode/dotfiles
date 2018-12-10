@@ -120,6 +120,15 @@ repo = 'styled-components/vim-styled-components'
 on_ft = ['js', 'jsx']
 
 [[plugins]]
+repo = 'SirVer/ultisnips'
+hook_add = '''"vim
+  let g:UltiSnipsExpandTrigger= "<C-j>"
+  let g:UltiSnipsEnableSnipMate= 0
+
+  call deoplete#custom#source('ultisnips', 'rank', 1000)
+'''
+
+[[plugins]]
 repo = 'mattn/emmet-vim'
 hook_add = '''"vim
   let g:user_emmet_leader_key = ','
