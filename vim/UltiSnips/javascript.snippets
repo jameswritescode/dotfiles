@@ -1,0 +1,22 @@
+global !p
+def to_camel(name):
+    return re.sub('^[a-z]', lambda x: x.group(0).upper(), name)
+endglobal
+
+snippet hoc
+import React from 'react';
+
+export default function `!p snip.rv = snip.basename`(WrappedComponent) {
+  function `!p snip.rv = to_camel(snip.basename)`(props) {$0
+    return <WrappedComponent {...props} />;
+  }
+
+  const wrappedComponentName = WrappedComponent.displayName
+    || WrappedComponent.name
+    || 'Component';
+
+  `!p snip.rv = to_camel(snip.basename)`.displayName = \``!p snip.rv = snip.basename`(${wrappedComponentName})\`
+
+  return `!p snip.rv = to_camel(snip.basename)`;
+}
+endsnippet
