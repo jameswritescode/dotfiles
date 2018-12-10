@@ -20,3 +20,40 @@ export default function `!p snip.rv = snip.basename`(WrappedComponent) {
   return `!p snip.rv = to_camel(snip.basename)`;
 }
 endsnippet
+
+snippet rc "React Component"
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+
+class `!p snip.rv = snip.basename` extends Component {
+  static propTypes = {
+  }
+
+  static defaultProps = {
+  }
+
+  state = {
+  }
+
+  render() {
+    return (
+      $0
+    );
+  }
+}
+
+export default `!p snip.rv = snip.basename`;
+endsnippet
+
+snippet rf "React Function"
+import PropTypes from 'prop-types';
+import React from 'react';
+
+function `!p snip.rv = snip.basename`(${1:props}) {
+  return (
+    $0
+  );
+}
+
+export default `!p snip.rv = snip.basename`;
+endsnippet
