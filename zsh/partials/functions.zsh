@@ -37,6 +37,17 @@ gpo() {
   git push -u origin "$branch"
 }
 
+# Slightly modified fasd_cd
+j() {
+  if [ $# -eq 0 ]; then
+    fasd "$@"
+  else
+    local _fasd_ret="$(fasd -e echo "$@")"
+    [ -z "$_fasd_ret" ] && return
+    [ -d "$_fasd_ret" ] && cd "$_fasd_ret" || echo "$_fasd_ret"
+  fi
+}
+
 ls() {
   if [[ -n $(command -v exa) && ! $* =~ -A ]]; then
     exa -a $*

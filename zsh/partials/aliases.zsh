@@ -4,7 +4,6 @@ unalias ls
 # general
 alias c="clear"
 alias cv="rm ~/.config/nvim/tmp/*"
-alias j="z"
 alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 alias mux="tmuxinator"
 alias psa="ps aux"
