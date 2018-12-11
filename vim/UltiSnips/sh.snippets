@@ -19,3 +19,17 @@ else
   # statements
 fi
 endsnippet
+
+snippet fun
+${1:name}() {
+  ${0:# statements}
+}
+endsnippet
+
+snippet gitb
+branch=$(git rev-parse --abbrev-ref HEAD)
+endsnippet
+
+snippet eval
+eval "$(${0:cmd})"
+endsnippet
