@@ -1,4 +1,5 @@
 .DS_Store
+
 bitbar/enabled/*
 !bitbar/enabled/.keep
 
@@ -18,5 +19,7 @@ vim/.netrwhist
 
 ranger/plugins/__init__.*
 ranger/plugins/*.pyo
+
+z/z
 
 __pycache__
