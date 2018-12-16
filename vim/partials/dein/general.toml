@@ -32,6 +32,9 @@ repo = 'tpope/vim-vinegar'
 repo = 'tpope/vim-abolish'
 
 [[plugins]]
+repo = 'tpope/vim-apathy'
+
+[[plugins]]
 repo = 'godlygeek/tabular'
 
 [[plugins]]
