@@ -1,3 +1,13 @@
+# helper functions
+
+__git_branch() {
+  git rev-parse --abbrev-ref HEAD
+}
+
+__ticket_number() {
+  __git_branch | grep -E -o '^[A-Z]+-\d+'
+}
+
 # functions
 
 cat() {
@@ -13,7 +23,7 @@ dsa() {
 }
 
 fk() {
-  ps aux | grep $* | grep -v grep | awk '{print $2}' | xargs kill -9
+  pgrep $* | xargs kill -9
 }
 
 gcm() {
@@ -22,7 +32,7 @@ gcm() {
     return 1
   fi
 
-  local ticket=$(git rev-parse --abbrev-ref HEAD | egrep -o "^[A-Z]+-\d+")
+  local ticket=$(__ticket_number)
 
   if [[ -n "$ticket" ]]; then
     git commit -m "[$ticket] $1" ${@:2}
@@ -32,13 +42,10 @@ gcm() {
 }
 
 gpo() {
-  local branch=$(git rev-parse --abbrev-ref HEAD)
-
-  git push -u origin "$branch"
+  git push -u origin "$(__git_branch)"
 }
 
-# Slightly modified fasd_cd
-j() {
+j() { # Slightly modified fasd_cd
   if [ $# -eq 0 ]; then
     fasd "$@"
   else
@@ -46,6 +53,10 @@ j() {
     [ -z "$_fasd_ret" ] && return
     [ -d "$_fasd_ret" ] && cd "$_fasd_ret" || echo "$_fasd_ret"
   fi
+}
+
+jo() {
+  jira browse "$1"
 }
 
 ls() {
@@ -90,10 +101,8 @@ vim() {
 }
 
 ws() {
-  local branch=$(git rev-parse --abbrev-ref HEAD)
-
   if [[ "$(watson status)" == "No project started" ]]; then
-    watson start "$branch"
+    watson start "$(__git_branch)"
   else
     watson stop
   fi
