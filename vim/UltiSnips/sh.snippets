@@ -33,3 +33,9 @@ endsnippet
 snippet eval
 eval "$(${0:cmd})"
 endsnippet
+
+snippet for
+for ${2:name} in ${1:names}; do
+  ${0:# statements}
+done
+endsnippet
