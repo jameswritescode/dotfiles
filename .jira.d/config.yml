@@ -29,6 +29,11 @@ custom-commands:
         required: true
     script: |
       {{jira}} list -t release --query "fixVersion = \"{{options.name}}\" ORDER BY status ASC, rank ASC"
+
+  - name: epics
+    help: Display Epics
+    script: |
+      {{jira}} list --query "issuetype = Epic"
 YAML
 
 # vim:ft=sh
