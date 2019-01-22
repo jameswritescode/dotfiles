@@ -33,7 +33,7 @@ custom-commands:
   - name: epics
     help: Display Epics
     script: |
-      {{jira}} list --query "issuetype = Epic"
+      {{jira}} list -t release --query "issuetype = Epic ORDER BY status ASC"
 YAML
 
 # vim:ft=sh
