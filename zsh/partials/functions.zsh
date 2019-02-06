@@ -23,7 +23,7 @@ dsa() {
 }
 
 fk() {
-  pgrep $* | xargs kill -9
+  ps aux | grep $* | grep -v grep | awk '{print $2}' | xargs kill -9
 }
 
 gcm() {
