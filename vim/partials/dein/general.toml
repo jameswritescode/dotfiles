@@ -114,6 +114,9 @@ repo = 'neovimhaskell/haskell-vim'
 
 [[plugins]]
 repo = 'janko-m/vim-test'
+hook_add = '''"vim
+  let test#ruby#rspec#executable = 'RAILS_ENV=test bundle exec rspec'
+'''
 
 [[plugins]]
 repo = 'chr4/nginx.vim'
