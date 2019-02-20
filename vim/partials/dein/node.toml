@@ -1,12 +1,3 @@
 [[plugins]]
 repo = 'moll/vim-node'
 if = 'expand("%:e") == "js"'
-
-[[plugins]]
-repo = 'othree/jspc.vim'
-if = 'expand("%:e") == "js"'
-hook_source = '''"vim
-  call deoplete#custom#source('omni', 'functions', {
-  \ 'javascript': 'jspc#omni'
-  \ })
-'''

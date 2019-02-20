@@ -130,8 +130,6 @@ repo = 'SirVer/ultisnips'
 hook_add = '''"vim
   let g:UltiSnipsExpandTrigger= "<C-j>"
   let g:UltiSnipsEnableSnipMate= 0
-
-  call deoplete#custom#source('ultisnips', 'rank', 1000)
 '''
 
 [[plugins]]
@@ -229,16 +227,6 @@ hook_add = '''"vim
 '''
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_add = '''"vim
-  let g:deoplete#enable_at_startup = 1
-
-  call deoplete#custom#option({
-  \ 'auto_complete': v:false,
-  \})
-'''
-
-[[plugins]]
 repo = 'jameswritescode/vim-template'
 hook_add = '''"vim
   let g:templates_directory = $DOTFILES . '/vim/templates'
@@ -251,18 +239,4 @@ hook_add = '''"vim
 repo = 'mhinz/vim-startify'
 hook_add = '''"vim
   let g:startify_custom_header = ['   ' . $PWD]
-'''
-
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-build = 'bash install.sh'
-rev = 'next'
-hook_add = '''"vim
-  let g:LanguageClient_diagnosticsEnable = 0
-  let g:LanguageClient_serverCommands = {
-  \ 'haskell': ['hie-wrapper', '-r', '$PWD'],
-  \ 'python': ['pyls'],
-  \ 'ruby': ['solargraph', 'stdio'],
-  \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-  \}
 '''
