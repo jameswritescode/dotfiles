@@ -37,6 +37,7 @@ set concealcursor=niv
 set completefunc=syntaxcomplete#Complete
 set omnifunc=syntaxcomplete#Complete
 set completeopt+=menuone
+set completeopt+=noinsert
 set completeopt-=preview
 
 set list
