@@ -2,9 +2,6 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'easymotion/vim-easymotion'
-
-[[plugins]]
 repo = 'tpope/vim-commentary'
 
 [[plugins]]
@@ -35,12 +32,6 @@ repo = 'tpope/vim-abolish'
 repo = 'tpope/vim-apathy'
 
 [[plugins]]
-repo = 'godlygeek/tabular'
-
-[[plugins]]
-repo = 'godlygeek/csapprox'
-
-[[plugins]]
 repo = 'AndrewRadev/splitjoin.vim'
 
 [[plugins]]
@@ -54,12 +45,6 @@ repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
 repo = 'kana/vim-textobj-user'
-
-[[plugins]]
-repo = 'kassio/neoterm'
-
-[[plugins]]
-repo = 'sjl/gundo.vim'
 
 [[plugins]]
 repo = 'machakann/vim-highlightedyank'
@@ -81,27 +66,18 @@ repo = 'sbdchd/neoformat'
 
 [[plugins]]
 repo = 'cespare/vim-toml'
-on_ft = 'toml'
 
 [[plugins]]
 repo = 'kylef/apiblueprint.vim'
-on_ft = 'apib'
 
 [[plugins]]
 repo = 'tpope/vim-markdown'
-on_ft = 'markdown'
 
 [[plugins]]
 repo = 'tpope/vim-haml'
-on_ft = 'haml'
-
-[[plugins]]
-repo = 'slime-lang/vim-slime-syntax'
-on_ft = 'slime'
 
 [[plugins]]
 repo = 'vim-scripts/applescript.vim'
-on_ft = 'applescript'
 
 [[plugins]]
 repo = 'othree/html5.vim'
@@ -123,7 +99,6 @@ repo = 'chr4/nginx.vim'
 
 [[plugins]]
 repo = 'styled-components/vim-styled-components'
-on_ft = ['js', 'jsx']
 
 [[plugins]]
 repo = 'SirVer/ultisnips'
@@ -219,7 +194,6 @@ hook_add = '''"vim
 
 [[plugins]]
 repo = 'othree/javascript-libraries-syntax.vim'
-on_ft = ['js', 'jsx']
 hook_add = '''"vim
   let g:used_javascript_libs = 'react'
 '''

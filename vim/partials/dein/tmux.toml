@@ -1,7 +1,4 @@
 [[plugins]]
-repo = 'tpope/vim-tbone'
-
-[[plugins]]
 repo = 'christoomey/vim-tmux-navigator'
 
 [[plugins]]

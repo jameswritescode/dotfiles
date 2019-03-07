@@ -2,13 +2,7 @@
 repo = 'tpope/vim-bundler'
 
 [[plugins]]
-repo = 'tpope/vim-cucumber'
-
-[[plugins]]
 repo = 'sunaku/vim-ruby-minitest'
-
-[[plugins]]
-repo = 'ecomba/vim-ruby-refactoring'
 
 [[plugins]]
 repo = 'nelstrom/vim-textobj-rubyblock'

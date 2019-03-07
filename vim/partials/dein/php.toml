@@ -1,6 +1,6 @@
-[[plugins]]
-repo = 'spf13/PIV'
-on_ft = 'php'
-hook_add = '''"vim
-  let g:DisableAutoPHPFolding = 1
-'''
+# [[plugins]]
+# repo = 'spf13/PIV'
+# on_ft = 'php'
+# hook_add = '''"vim
+#   let g:DisableAutoPHPFolding = 1
+# '''

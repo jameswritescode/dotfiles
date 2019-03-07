@@ -1,3 +1,2 @@
 [[plugins]]
 repo = 'HerringtonDarkholme/yats.vim'
-on_ft = 'typescript'
