@@ -30,15 +30,10 @@ set gdefault
 set autoread
 set updatetime=100
 set inccommand=split
+set shortmess+=c
 
 set conceallevel=2
 set concealcursor=niv
-
-set completefunc=syntaxcomplete#Complete
-set omnifunc=syntaxcomplete#Complete
-set completeopt+=menuone
-set completeopt+=noinsert
-set completeopt-=preview
 
 set list
 set listchars=""
