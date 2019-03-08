@@ -156,22 +156,44 @@ hook_add = '''"vim
   let g:ale_sign_error = '✖'
   let g:ale_sign_warning = '⚠'
 
-  let g:ale_completion_enabled = 1
-
   let g:ale_linters = {
   \ 'elixir': ['mix', 'dogma'],
-  \ 'go': [],
-  \ 'html': [],
-  \ 'javascript': ['tsserver', 'eslint'],
-  \ 'python': ['pyls'],
-  \ 'ruby': ['solargraph', 'rubocop', 'reek'],
-  \ 'rust': ['rls'],
-  \ 'typescript': ['tsserver', 'tslint', 'typecheck'],
+  \ 'javascript': ['eslint'],
+  \ 'ruby': ['rubocop', 'reek'],
+  \ 'typescript': ['tslint', 'typecheck'],
   \}
 
   let g:ale_graphql_gqlint_executable = $PWD . '/node_modules/.bin/gqlint'
   let g:ale_javascript_eslint_executable = $PWD . '/node_modules/.bin/eslint'
 '''
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+build = './install.sh'
+
+[[plugins]]
+repo = 'neoclide/coc-json'
+
+[[plugins]]
+repo = 'neoclide/coc-tsserver'
+
+[[plugins]]
+repo = 'neoclide/coc-html'
+
+[[plugins]]
+repo = 'neoclide/coc-css'
+
+[[plugins]]
+repo = 'neoclide/coc-solargraph'
+
+[[plugins]]
+repo = 'neoclide/coc-rls'
+
+[[plugins]]
+repo = 'neoclide/coc-yaml'
+
+[[plugins]]
+repo = 'neoclide/coc-pyls'
 
 [[plugins]]
 repo = 'tpope/vim-projectionist'
