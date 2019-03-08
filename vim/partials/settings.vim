@@ -28,7 +28,7 @@ set cursorline
 set relativenumber
 set gdefault
 set autoread
-set updatetime=100
+set updatetime=300
 set inccommand=split
 set shortmess+=c
 
