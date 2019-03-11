@@ -1,12 +1,9 @@
-nmap <leader>j <plug>(easymotion-bd-w)
-nmap <leader>k <plug>(easymotion-bd-f)
-
-inoremap jk            <esc>
+inoremap jk <esc>
 
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
@@ -14,10 +11,10 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-nnoremap <down>           <c-w>-
-nnoremap <left>           1<c-w>>
-nnoremap <right>          1<c-w><
-nnoremap <up>             <c-w>+
+nnoremap <down>  <c-w>-
+nnoremap <left>  1<c-w>>
+nnoremap <right> 1<c-w><
+nnoremap <up>    <c-w>+
 
 nnoremap ;                :
 nnoremap <c-p>            <esc>:Files<cr>
