@@ -22,6 +22,7 @@ brew 'python3'
 brew 'redis'
 brew 'shellcheck'
 brew 'tree'
+brew 'watchman'
 brew 'watson'
 brew 'wget'
 
