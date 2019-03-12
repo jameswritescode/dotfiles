@@ -1,4 +1,13 @@
 {
   "diagnostic.enable": false,
-  "suggest.maxCompleteItemCount": 12
+  "suggest.maxCompleteItemCount": 12,
+
+  "languageserver": {
+    "haskell": {
+      "command": "hie-wrapper",
+      "filetypes": ["hs", "haskell"],
+      "initializationOptions": {},
+      "rootPatterns": [".stack.yaml", "cabel.config", "package.yaml"]
+    }
+  }
 }
