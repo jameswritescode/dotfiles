@@ -1,17 +1,7 @@
 #!/bin/bash
 
-VIMPATH="$DOTFILES/vim"
-
-LANGSERVERPATH="$VIMPATH/langserver"
-HASKELL_SERVER="haskell-ide-engine"
 PYTHON_SERVER="python-language-server[all]"
-
-langserver_haskell_cmds() {
-  pushd "$LANGSERVERPATH/haskell-ide-engine" || exit
-    stack install cabal-install
-    make build-all
-  popd || exit
-}
+VIMPATH="$DOTFILES/vim"
 
 install() {
   # Neovim Setup
@@ -22,7 +12,14 @@ install() {
 
   ln -s "$VIMPATH" "$HOME/.config/nvim"
 
-  # Neovim Python Host Setup
+  install_python
+
+  gem install neovim
+  npm install -g neovim
+}
+
+# Neovim Python Host Setup
+install_python() {
   pip3 install virtualenv
 
   virtualenv -p python2 "$VIMPATH/virtual/python2"
@@ -31,36 +28,25 @@ install() {
   virtualenv -p python3 "$VIMPATH/virtual/python3"
   "$VIMPATH"/virtual/python3/bin/pip install neovim
 
-  # Language Servers
-  mkdir -p "$LANGSERVERPATH"
-
   pip3 install "$PYTHON_SERVER"
-
-  git clone "https://github.com/haskell/$HASKELL_SERVER" "$LANGSERVERPATH/$HASKELL_SERVER" --recursive
-  langserver_haskell_cmds
 }
 
-update() {
-  # Hosts
+update_python() {
   for dir in "$VIMPATH"/virtual/python*/; do
     pushd "$dir" || exit
-      # shellcheck disable=SC1091
-      source bin/activate
-      pip install --upgrade neovim
-      deactivate
+      "$VIMPATH"/virtual/python2/bin/pip install --upgrade neovim
+      "$VIMPATH"/virtual/python3/bin/pip install --upgrade neovim
     popd || exit
   done
 
+  pip3 install --upgrade "$PYTHON_SERVER"
+}
+
+update() {
+  update_python
+
   gem update neovim
   npm install -g neovim
-
-  # Language Servers
-  pip3 install --upgrade "$PYTHON_SERVER"
-
-  pushd "$LANGSERVERPATH/$HASKELL_SERVER" || exit
-    git pull
-    langserver_haskell_cmds
-  popd || exit
 }
 
 case "$1" in
@@ -68,8 +54,16 @@ case "$1" in
     install
   ;;
 
+  install_python)
+    install_python
+  ;;
+
   update)
     update
+  ;;
+
+  update_python)
+    update_python
   ;;
 
   *)
