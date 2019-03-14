@@ -173,30 +173,15 @@ hook_add = '''"vim
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 build = './install.sh'
-
-[[plugins]]
-repo = 'neoclide/coc-json'
-
-[[plugins]]
-repo = 'neoclide/coc-tsserver'
-
-[[plugins]]
-repo = 'neoclide/coc-html'
-
-[[plugins]]
-repo = 'neoclide/coc-css'
-
-[[plugins]]
-repo = 'neoclide/coc-solargraph'
-
-[[plugins]]
-repo = 'neoclide/coc-rls'
-
-[[plugins]]
-repo = 'neoclide/coc-yaml'
-
-[[plugins]]
-repo = 'neoclide/coc-pyls'
+# Extensions:
+# coc-css
+# coc-json
+# coc-pyls
+# coc-rls
+# coc-solargraph
+# coc-tsserver
+# coc-ultisnips
+# coc-yaml
 
 [[plugins]]
 repo = 'tpope/vim-projectionist'
