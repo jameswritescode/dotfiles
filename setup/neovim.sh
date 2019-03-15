@@ -1,34 +1,36 @@
 #!/bin/bash
 
-PYTHON_SERVER="python-language-server[all]"
 VIMPATH="$DOTFILES/vim"
 
 install() {
   # Neovim Setup
   brew tap neovim/neovim
   brew install neovim
-  curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/installer.sh
-  sh /tmp/installer.sh "$VIMPATH/bundle"
 
   ln -s "$VIMPATH" "$HOME/.config/nvim"
 
+  install_dein
   install_python
 
   gem install neovim
   npm install -g neovim
 }
 
+install_dein() {
+  TMP_LOC=/tmp/installer.sh
+
+  curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > $TMP_LOC
+  sh $TMP_LOC "$VIMPATH/bundle"
+  rm $TMP_LOC
+}
+
 # Neovim Python Host Setup
 install_python() {
-  pip3 install virtualenv
-
   virtualenv -p python2 "$VIMPATH/virtual/python2"
   "$VIMPATH"/virtual/python2/bin/pip install neovim
 
   virtualenv -p python3 "$VIMPATH/virtual/python3"
   "$VIMPATH"/virtual/python3/bin/pip install neovim
-
-  pip3 install "$PYTHON_SERVER"
 }
 
 update_python() {
@@ -38,8 +40,6 @@ update_python() {
       "$VIMPATH"/virtual/python3/bin/pip install --upgrade neovim
     popd || exit
   done
-
-  pip3 install --upgrade "$PYTHON_SERVER"
 }
 
 update() {
@@ -52,6 +52,10 @@ update() {
 case "$1" in
   install)
     install
+  ;;
+
+  install_dein)
+    install_dein
   ;;
 
   install_python)
