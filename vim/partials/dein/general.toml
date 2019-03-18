@@ -173,7 +173,7 @@ hook_add = '''"vim
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 build = './install.sh'
-rev = 'v0.0.59'
+rev = '*'
 # Extensions:
 # coc-css
 # coc-json
