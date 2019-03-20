@@ -20,6 +20,7 @@ vim/.netrwhist
 ranger/plugins/__init__.*
 ranger/plugins/*.pyo
 
-z/z
+z
+setup/z.sh
 
 __pycache__
