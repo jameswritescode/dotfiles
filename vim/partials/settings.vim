@@ -48,8 +48,7 @@ set foldnestmax=20
 set foldlevel=20
 set foldmethod=indent
 set foldcolumn=1
-
-set textwidth=80
+set textwidth=79
 set formatoptions-=t
 set colorcolumn=+1
 
