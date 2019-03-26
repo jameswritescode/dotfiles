@@ -31,6 +31,7 @@ set autoread
 set updatetime=300
 set inccommand=split
 set shortmess+=c
+set hidden
 
 set conceallevel=2
 set concealcursor=niv
