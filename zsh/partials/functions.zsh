@@ -55,10 +55,6 @@ j() { # Slightly modified fasd_cd
   fi
 }
 
-jo() {
-  jira browse "$1"
-}
-
 ls() {
   if [[ -n $(command -v exa) && ! $* =~ -A ]]; then
     exa -a $*

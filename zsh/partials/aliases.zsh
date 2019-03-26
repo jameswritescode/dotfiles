@@ -59,6 +59,10 @@ alias gst="git status"
 alias gt="git tag"
 alias gu="git add -u"
 
+# jira
+alias jo="jira browse"
+alias jv="jira view"
+
 # k8s
 alias k="kubectl"
 
