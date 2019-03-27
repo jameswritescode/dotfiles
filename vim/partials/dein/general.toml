@@ -92,16 +92,23 @@ repo = 'ryanoasis/vim-devicons'
 repo = 'neovimhaskell/haskell-vim'
 
 [[plugins]]
-repo = 'janko-m/vim-test'
-hook_add = '''"vim
-  let test#ruby#rspec#executable = 'RAILS_ENV=test bundle exec rspec'
-'''
-
-[[plugins]]
 repo = 'chr4/nginx.vim'
 
 [[plugins]]
 repo = 'styled-components/vim-styled-components'
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+hook_add = '''"vim
+  let g:terraform_commentstring = '//%s'
+  let g:terraform_fmt_on_save = 1
+'''
+
+[[plugins]]
+repo = 'janko-m/vim-test'
+hook_add = '''"vim
+  let test#ruby#rspec#executable = 'RAILS_ENV=test bundle exec rspec'
+'''
 
 [[plugins]]
 repo = 'SirVer/ultisnips'
