@@ -184,7 +184,7 @@ rev = '*'
 # Extensions:
 # coc-css
 # coc-json
-# coc-pyls
+# coc-python
 # coc-rls
 # coc-solargraph
 # coc-tsserver
