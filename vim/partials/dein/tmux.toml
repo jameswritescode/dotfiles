@@ -1,5 +1,0 @@
-[[plugins]]
-repo = 'christoomey/vim-tmux-navigator'
-
-[[plugins]]
-repo = 'tmux-plugins/vim-tmux'
