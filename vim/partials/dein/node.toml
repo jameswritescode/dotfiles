@@ -1,3 +1,0 @@
-[[plugins]]
-repo = 'moll/vim-node'
-if = 'expand("%:e") == "js"'
