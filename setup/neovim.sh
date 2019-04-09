@@ -16,12 +16,9 @@ install() {
   npm install -g neovim
 }
 
-install_dein() {
-  TMP_LOC=/tmp/installer.sh
-
-  curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > $TMP_LOC
-  sh $TMP_LOC "$VIMPATH/bundle"
-  rm $TMP_LOC
+install_plug() {
+  curl -fLo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
 # Neovim Python Host Setup
@@ -54,8 +51,8 @@ case "$1" in
     install
   ;;
 
-  install_dein)
-    install_dein
+  install_plug)
+    install_plug
   ;;
 
   install_python)

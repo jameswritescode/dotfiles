@@ -2,8 +2,9 @@
 
 bitbar/enabled/*
 !bitbar/enabled/.keep
-vim/bundle/*
-!vim/bundle/.gitkeep
+
+vim/plugged/*
+!vim/plugged/.gitkeep
 
 vim/tmp/*
 !vim/tmp/.gitkeep
