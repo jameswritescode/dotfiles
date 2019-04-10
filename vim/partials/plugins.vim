@@ -1,6 +1,6 @@
 call plug#begin('$DOTFILES/vim/plugged')
 
-" General
+" General {{{
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim'
 Plug 'Raimondi/delimitMate'
@@ -139,8 +139,9 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 command! -bang -nargs=* GGrep
   \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
+" }}}
 
-if executable('ruby')
+if executable('ruby') " Ruby {{{
   Plug 'tpope/vim-bundler'
   Plug 'sunaku/vim-ruby-minitest'
   Plug 'nelstrom/vim-textobj-rubyblock'
@@ -148,9 +149,9 @@ if executable('ruby')
   Plug 'vim-ruby/vim-ruby'
   let g:ruby_indent_assignment_style = 'variable'
   let g:ruby_indent_block_style = 'do'
-endif
+endif " }}}
 
-if executable('rails')
+if executable('rails') " Rails {{{
   Plug 'tpope/vim-rake'
 
   Plug 'tpope/vim-rails'
@@ -212,9 +213,9 @@ if executable('rails')
         \ 'javascript/apps/*': {
         \   'command': 'js'
         \ }}
-endif
+endif " }}}
 
-if executable('go')
+if executable('go') " Go {{{
   Plug 'fatih/vim-go'
   let g:go_fmt_command = 'goimports'
   let g:go_highlight_types = 1
@@ -226,14 +227,14 @@ if executable('go')
   let g:go_highlight_structs = 1
   let g:go_highlight_interfaces = 1
   let g:go_highlight_build_constraints = 1
-endif
+endif " }}}
 
-if executable('tmux')
+if executable('tmux') " Tmux {{{
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'tmux-plugins/vim-tmux'
-endif
+endif " }}}
 
-if executable('git')
+if executable('git') " Git {{{
   Plug 'tpope/vim-git'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-rhubarb'
@@ -246,40 +247,40 @@ if executable('git')
   let g:gitgutter_sign_removed='◢'
   let g:gitgutter_sign_removed_first_line='◥'
   let g:gitgutter_sign_modified_removed='◢'
-endif
+endif " }}}
 
-if executable('tsserver')
+if executable('tsserver') " TypeScript {{{
   Plug 'HerringtonDarkholme/yats.vim'
-endif
+endif " }}}
 
-if executable('swift')
+if executable('swift') " Swift {{{
   Plug 'keith/swift.vim'
-endif
+endif " }}}
 
-if executable('elixir')
+if executable('elixir') " Elixir {{{
   Plug 'elixir-editors/vim-elixir'
   Plug 'slashmili/alchemist.vim'
   Plug 'c-brenn/phoenix.vim'
 
   Plug 'mhinz/vim-mix-format'
   let g:mix_format_on_save = 1
-endif
+endif " }}}
 
-if executable('rustc')
+if executable('rustc') " Rust {{{
   Plug 'racer-rust/vim-racer'
   let g:racer_experimental_completer = 1
 
   Plug 'rust-lang/rust.vim'
   let g:rustfmt_autosave = 1
-endif
+endif " }}}
 
-if executable('lein')
+if executable('lein') " Clojure {{{
   Plug 'guns/vim-clojure-highlight'
   Plug 'tpope/vim-classpath', {'for': 'clojure'}
   Plug 'tpope/vim-fireplace', {'for': 'clojure'}
-endif
+endif " }}}
 
-if executable('lua')
+if executable('lua') " Lua {{{
   Plug 'tbastos/vim-lua'
   Plug 'xolox/vim-misc'
 
@@ -288,7 +289,7 @@ if executable('lua')
   let g:lua_check_syntax = 0
   let g:lua_complete_dynamic = 0
   let g:lua_define_completion_mappings = 0
-endif
+endif " }}}
 
 call plug#end()
 

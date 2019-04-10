@@ -12,4 +12,5 @@ augroup filetypedetect
   autocmd bufread,bufnewfile .babelrc setf json
   autocmd bufread,bufnewfile .sequelizerc setf javascript
   autocmd bufread,bufnewfile Brewfile,*.god setf ruby
+  autocmd bufread,bufnewfile *.vim setlocal foldmethod=marker
 augroup END
