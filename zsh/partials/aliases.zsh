@@ -10,7 +10,7 @@ alias psa="ps aux"
 alias r="ranger"
 alias rl="source ~/.zshrc"
 alias ss='open -a ScreenSaverEngine'
-alias v='vim $(fzf)'
+alias v='vim $(fzf --height=25)'
 alias wr="watson report"
 
 # aws
