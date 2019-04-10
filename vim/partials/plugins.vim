@@ -71,7 +71,9 @@ let g:airline_powerline_fonts = 1
 Plug 'hlissner/vim-forrestgump'
 let g:forrestgumps = {
 \ 'elixir': ['elixir'],
-\ 'rust': ['rustc']
+\ 'haskell': ['runhaskell'],
+\ 'io': ['io'],
+\ 'rust': ['rustc'],
 \}
 
 Plug 'w0rp/ale'
