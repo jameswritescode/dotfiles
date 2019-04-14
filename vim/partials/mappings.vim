@@ -37,6 +37,16 @@ nnoremap gp               `[v`]
 nnoremap j                gj
 nnoremap k                gk
 
+nnoremap <silent> K :call <sid>show_documentation()<cr>
+
+function! s:show_documentation()
+  if &filetype ==# 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
 vnoremap <c-c> y:call system("pbcopy", getreg("\""))<cr>
 vnoremap J :m  '>+1<cr>gv=gv
 vnoremap K :m  '<-2<cr>gv=gv
