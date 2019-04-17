@@ -1,4 +1,5 @@
 {
+    "extensions.showRecommendationsOnlyOnDemand": true,
+    "workbench.colorTheme": "Visual Studio Dark",
     "workbench.statusBar.feedback.visible": false,
-    "workbench.colorTheme": "Visual Studio Dark"
 }
