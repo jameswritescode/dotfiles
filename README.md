@@ -15,3 +15,7 @@ Run `setup.sh` or run scripts in `setup` individually
 | Lua        | https://github.com/Olivine-Labs/lua-style-guide         |
 | Python     | https://github.com/amontalenti/elements-of-python-style |
 | Ruby       | https://github.com/bbatsov/ruby-style-guide             |
+
+## Help
+
+So, I used `git subtree` to merge this dotfiles repo with my old vimfiles repo, including some botched action I made years ago in that vimfiles folder that gave it Vundle.Vim history. I'd really like to cut out that history, but after several attempts at rebasing to remove the Vundle history, I can't figure it out. If any git wizards could help me out, I'd appreciate it.
