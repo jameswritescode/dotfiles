@@ -37,12 +37,7 @@ set conceallevel=2
 set concealcursor=niv
 
 set list
-set listchars=""
-set listchars=tab:›·
-set listchars+=trail:·
-set listchars+=nbsp:·
-set listchars+=extends:>
-set listchars+=precedes:<
+set listchars=tab:›\ ,trail:·,nbsp:·,extends:>,precedes:<
 
 set nofoldenable
 set foldnestmax=20
