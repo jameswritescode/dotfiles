@@ -17,7 +17,6 @@ nnoremap <right> 1<c-w><
 nnoremap <up>    <c-w>+
 
 nnoremap ;                :
-nnoremap <Space>          za
 nnoremap <c-p>            <esc>:Files<cr>
 nnoremap <c-t>            <esc>:tabnew<cr>
 nnoremap <expr><leader>fw ":GGrep " . expand("<cword>") . "<cr>"
