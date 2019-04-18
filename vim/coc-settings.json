@@ -1,15 +1,18 @@
 {
   "diagnostic.enable": false,
-
+  "solargraph.useBundler": true,
   "suggest.maxCompleteItemCount": 12,
 
-  "solargraph.useBundler": true,
-
   "languageserver": {
+    "cquery": {
+      "command": "cquery",
+      "filetypes": ["c", "cpp"],
+      "rootPatterns": [".git/"]
+    },
+
     "haskell": {
       "command": "hie-wrapper",
       "filetypes": ["hs", "haskell"],
-      "initializationOptions": {},
       "rootPatterns": [".stack.yaml", "cabel.config", "package.yaml"]
     }
   }
