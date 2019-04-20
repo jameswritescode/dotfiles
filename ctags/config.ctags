@@ -1,0 +1,8 @@
+--langdef=GraphQL
+--langmap=GraphQL:.graphql
+--regex-GraphQL=/^[ \t]*enum[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/e,enum/
+--regex-GraphQL=/^[ \t]*query[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/q,query/
+--regex-GraphQL=/^[ \t]*fragment[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/f,fragment/
+--regex-GraphQL=/^[ \t]*type[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/t,type/
+--regex-GraphQL=/^[ \t]*input[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/i,input/
+--regex-GraphQL=/^[ \t]*mutation[ \t]+([_A-Za-z][_0-9A-Za-z]*)/\1/m,mutation/
