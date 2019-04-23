@@ -14,7 +14,6 @@ Plug 'kana/vim-textobj-user'
 Plug 'kylef/apiblueprint.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'moll/vim-node'
-Plug 'neovimhaskell/haskell-vim'
 Plug 'nono/jquery.vim'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
@@ -35,6 +34,10 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/Io-programming-language-syntax'
 Plug 'vim-scripts/applescript.vim'
+
+Plug 'joshdick/onedark.vim'
+let g:onedark_hide_endofbuffer = 1
+let g:onedark_terminal_italics = 1
 
 Plug 'junegunn/seoul256.vim'
 let g:seoul256_background = 233
@@ -59,15 +62,16 @@ let g:user_emmet_settings = {
 \ }}
 
 Plug 'vim-airline/vim-airline'
+let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#tabline#show_tabs = 1
 let g:airline#extensions#tabline#show_tab_nr = 0
 let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#show_tabs = 1
 let g:airline_powerline_fonts = 1
+let g:airline_theme = 'onedark'
 
 Plug 'hlissner/vim-forrestgump'
 let g:forrestgumps = {
@@ -140,6 +144,15 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 command! -bang -nargs=* GGrep
   \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
+
+Plug 'neovimhaskell/haskell-vim'
+let g:haskell_backpack = 1
+let g:haskell_enable_arrowsyntax = 1
+let g:haskell_enable_pattern_synonyms = 1
+let g:haskell_enable_quantification = 1
+let g:haskell_enable_recursivedo = 1
+let g:haskell_enable_static_pointers = 1
+let g:haskell_enable_typeroles = 1
 " }}}
 
 if executable('ruby') " Ruby {{{
