@@ -100,6 +100,7 @@ let g:ale_javascript_eslint_executable = $PWD . '/node_modules/.bin/eslint'
 
 " CoC Extensions:
 " coc-css
+" coc-html
 " coc-json
 " coc-python
 " coc-rls
