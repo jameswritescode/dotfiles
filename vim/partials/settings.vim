@@ -32,6 +32,7 @@ set updatetime=300
 set inccommand=split
 set shortmess+=c
 set hidden
+set termguicolors
 
 set conceallevel=2
 set concealcursor=niv
