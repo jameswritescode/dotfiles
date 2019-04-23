@@ -23,4 +23,4 @@ endif
 source ~/dotfiles/vim/partials/highlights.vim
 source ~/dotfiles/vim/partials/functions.vim
 
-colors seoul256
+colors onedark
