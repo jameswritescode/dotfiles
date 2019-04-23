@@ -14,7 +14,7 @@ type issue struct {
 	PullRequest   pullRequest `json:"pull_request"`
 	RepositoryURL string      `json:"repository_url"`
 	State         string
-	Status        status
+	Status        buildStatus
 	Title         string
 }
 
@@ -29,7 +29,7 @@ type pullRequest struct {
 }
 
 func (pr pullRequest) ShowLabel() string {
-	var hasLabel bool = false
+	var hasLabel = false
 
 	for _, label := range pr.Labels {
 		if label.Name == "wip" {
@@ -39,17 +39,17 @@ func (pr pullRequest) ShowLabel() string {
 
 	if hasLabel {
 		return "WIP: "
-	} else {
-		return ""
 	}
+
+	return ""
 }
 
-type status struct {
+type buildStatus struct {
 	State      string
 	TotalCount int `json:"total_count"`
 }
 
-func (s status) Color() string {
+func (s buildStatus) Color() string {
 	if s.State == "success" || s.TotalCount == 0 {
 		return "green"
 	} else if s.State == "pending" {

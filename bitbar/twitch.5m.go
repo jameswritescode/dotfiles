@@ -9,22 +9,22 @@ import (
 	"strings"
 )
 
-type Following struct {
-	Streams []Stream
+type following struct {
+	Streams []stream
 }
 
-type Stream struct {
-	Channel Channel
+type stream struct {
+	Channel channel
 	Game    string
 	Viewers int
 }
 
-type Channel struct {
+type channel struct {
 	DisplayName string `json:"display_name"`
-	Url         string `json:"url"`
+	URL         string `json:"url"`
 }
 
-func GetStreaming(target interface{}, twitchKey string) error {
+func getStreaming(target interface{}, twitchKey string) error {
 	client := new(http.Client)
 
 	req, err := http.NewRequest("GET", "https://api.twitch.tv/kraken/streams/followed?stream_type=live", nil)
@@ -47,16 +47,16 @@ func GetStreaming(target interface{}, twitchKey string) error {
 }
 
 func main() {
-	following := new(Following)
+	following := new(following)
 	twitchKey := os.Getenv("TWITCH_API_KEY")
-	GetStreaming(following, twitchKey)
+	getStreaming(following, twitchKey)
 
 	fmt.Println("Twitch:", len(following.Streams))
 	fmt.Println("---")
 
 	for _, stream := range following.Streams {
-		channelUrl := strings.Replace(stream.Channel.Url, "https://www.", "", -1)
+		channelURL := strings.Replace(stream.Channel.URL, "https://www.", "", -1)
 		fmt.Printf("%s is playing %s with %d viewing | color=white terminal=false bash=/usr/local/bin/livestreamer param1=--twitch-oauth-token param2=%s param3=%s param4=best\n",
-			stream.Channel.DisplayName, stream.Game, stream.Viewers, twitchKey, channelUrl)
+			stream.Channel.DisplayName, stream.Game, stream.Viewers, twitchKey, channelURL)
 	}
 }

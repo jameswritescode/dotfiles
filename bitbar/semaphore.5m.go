@@ -10,22 +10,22 @@ import (
 	"time"
 )
 
-type Project struct {
-	Branches []Branch
+type project struct {
+	Branches []branch
 	HTMLURL  string `json:"html_url"`
 	Name     string
 	Owner    string
 }
 
-type Branch struct {
+type branch struct {
 	BranchName string `json:"branch_name"`
 	BuildURL   string `json:"build_url"`
-	Commit     Commit
+	Commit     commit
 	Result     string
 	StartedAt  string `json:"started_at"`
 }
 
-func (b Branch) Date() time.Time {
+func (b branch) Date() time.Time {
 	ts, err := time.Parse(time.RFC3339, b.StartedAt)
 
 	if err != nil {
@@ -37,7 +37,7 @@ func (b Branch) Date() time.Time {
 	return ts
 }
 
-type Commit struct {
+type commit struct {
 	AuthorName string `json:"author_name"`
 }
 
@@ -54,8 +54,8 @@ func getProjects(target interface{}) error {
 	return json.NewDecoder(resp.Body).Decode(target)
 }
 
-func authoredBranches(branches []Branch) []Branch {
-	ret := []Branch{}
+func authoredBranches(branches []branch) []branch {
+	ret := []branch{}
 
 	for _, branch := range branches {
 		if branch.Commit.AuthorName == "James Newton" {
@@ -66,7 +66,7 @@ func authoredBranches(branches []Branch) []Branch {
 	return ret
 }
 
-func slicedBranches(branches []Branch) []Branch {
+func slicedBranches(branches []branch) []branch {
 	if len(branches) > 10 {
 		return branches[:10]
 	}
@@ -85,7 +85,7 @@ func status(result string) string {
 }
 
 func main() {
-	projects := new([]Project)
+	projects := new([]project)
 
 	err := getProjects(projects)
 
