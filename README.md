@@ -1,6 +1,6 @@
 # DOTFILES
 
-![](https://i.imgur.com/2PAlV4J.png)
+![](https://i.imgur.com/BGUKyjz.png)
 
 ## Setup
 
