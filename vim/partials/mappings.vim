@@ -1,9 +1,9 @@
 inoremap jk <esc>
 
 inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
@@ -60,21 +60,21 @@ let g:which_key_map.q =    'no-highlight'
 " +buffer
 let g:which_key_map.b = {
       \ 'name' : '+buffer' ,
-      \ '1': ['b1',        'buffer 1'],
-      \ '2': ['b2',        'buffer 2'],
-      \ '?': ['Buffers',   'fzf-buffer'],
-      \ 'd': ['bd',        'delete-buffer'],
-      \ 'f': ['bfirst',    'first-buffer'],
-      \ 'h': ['Startify',  'home-buffer'],
-      \ 'l': ['blast',     'last-buffer'],
-      \ 'n': ['bnext',     'next-buffer'],
-      \ 'p': ['bprevious', 'previous-buffer'],
+      \ '1':     ['b1',        'buffer 1'],
+      \ '2':     ['b2',        'buffer 2'],
+      \ '?':     ['Buffers',   'fzf-buffer'],
+      \ 'd':     ['bd',        'delete-buffer'],
+      \ 'f':     ['bfirst',    'first-buffer'],
+      \ 'h':     ['Startify',  'home-buffer'],
+      \ 'l':     ['blast',     'last-buffer'],
+      \ 'n':     ['bnext',     'next-buffer'],
+      \ 'p':     ['bprevious', 'previous-buffer'],
       \ }
 
 " +file
 let g:which_key_map.f = {
       \ 'name': '+file',
-      \ 's': ['update', 'save-file']
+      \ 's':    ['update', 'save-file'],
       \ }
 
 nnoremap <expr><silent><leader>fw ':GGrep '.expand('<cword>').'<cr>'
@@ -84,11 +84,26 @@ let g:which_key_map.f.v =         'edit-vim'
 nnoremap <silent><leader>fz       :vsplit $DOTFILES/zsh<cr>
 let g:which_key_map.f.z =         'edit-zsh'
 
+" +lsp
+let g:which_key_map.l = {
+      \ 'name': '+lsp',
+      \ 'f':    ['<Plug>(coc-format-selected)', 'formatting'],
+      \ 'r':    ['<Plug>(coc-rename)',          'rename'],
+      \ }
+
+let g:which_key_map.l.g = {
+      \ 'name': '+goto',
+      \ 'd':    ['<Plug>(coc-definition)',      'definition'],
+      \ 'i':    ['<Plug>(coc-implementation)',  'implementation'],
+      \ 'r':    ['<Plug>(coc-references)',      'references'],
+      \ 'y':    ['<Plug>(coc-type-definition)', 'type-definition'],
+      \ }
+
 " +test
 let g:which_key_map.t = {
       \ 'name': '+test',
-      \ 'f': ['TestFile',    'test-file'],
-      \ 'n': ['TestNearest', 'test-near'],
+      \ 'f':    ['TestFile',    'test-file'],
+      \ 'n':    ['TestNearest', 'test-near'],
       \ }
 
 vnoremap <silent><leader>s :sort<cr>
