@@ -1,7 +1,3 @@
-let g:which_key_map = {
-      \ 'r': 'forrest-run'
-      \ }
-
 inoremap jk <esc>
 
 inoremap <silent><expr> <TAB>
@@ -21,54 +17,14 @@ nnoremap <right> 1<c-w><
 nnoremap <up>    <c-w>+
 
 nnoremap ;                :
-nnoremap <c-p>            <esc>:Files<cr>
-nnoremap <c-t>            <esc>:tabnew<cr>
+nnoremap <silent><c-p>    <esc>:Files<cr>
+nnoremap <silent><c-t>    <esc>:tabnew<cr>
 nnoremap <silent><leader> :<c-u>WhichKey '<Space>'<CR>
 nnoremap H                gT
 nnoremap L                gt
 nnoremap gp               `[v`]
 nnoremap j                gj
 nnoremap k                gk
-
-nnoremap <leader>p      :set paste!<cr>
-let g:which_key_map.p = 'toggle-paste'
-nnoremap <leader>q      :noh<cr>
-let g:which_key_map.q = 'no-highlight'
-nnoremap <leader>w      :w<cr>
-let g:which_key_map.w = 'save'
-
-" +buffer
-let g:which_key_map.b = {
-      \ 'name' : '+buffer' ,
-      \ '1': ['b1', 'buffer 1'],
-      \ '2': ['b2', 'buffer 2'],
-      \ '?': ['Buffers', 'fzf-buffer'],
-      \ 'd': ['bd', 'delete-buffer'],
-      \ 'f': ['bfirst', 'first-buffer'],
-      \ 'h': ['Startify', 'home-buffer'],
-      \ 'l': ['blast', 'last-buffer'],
-      \ 'n': ['bnext', 'next-buffer'],
-      \ 'p': ['bprevious', 'previous-buffer'],
-      \ }
-
-" +edit
-let g:which_key_map.e =   {'name': '+edit'}
-nnoremap <leader>ev       :vsplit $DOTFILES/vim<cr>
-let g:which_key_map.e.v = 'edit-vim'
-nnoremap <leader>ez       :vsplit $DOTFILES/zsh<cr>
-let g:which_key_map.e.z = 'edit-zsh'
-
-" +find
-let g:which_key_map.f =   {'name': '+find'}
-nnoremap <expr><leader>fw ':GGrep '.expand('<cword>').'<cr>'
-let g:which_key_map.f.w = '[BUG] grep-cword'
-
-" +test
-let g:which_key_map.t =   {'name': '+test'}
-nnoremap <leader>tf       :TestFile<cr>
-let g:which_key_map.t.f = 'test-file'
-nnoremap <leader>tn       :TestNearest<cr>
-let g:which_key_map.t.n = 'test-near'
 
 nnoremap <silent> K :call <sid>show_documentation()<cr>
 
@@ -85,7 +41,55 @@ vnoremap <silent><leader>  :<c-u>WhichKeyVisual '<Space>'<CR>
 vnoremap J                 :m '>+1<cr>gv=gv
 vnoremap K                 :m '<-2<cr>gv=gv
 
+tnoremap <Esc> <c-\><c-n>
+
+""""""""""""""""""""""""""""""""""
+" vim-which-key related mappings "
+""""""""""""""""""""""""""""""""""
+
+let g:which_key_map = {
+      \ 'r': 'forrest-run',
+      \ 'w': ['w', 'write-file'],
+      \ }
+
+nnoremap <silent><leader>p :set paste!<cr>
+let g:which_key_map.p =    'toggle-paste'
+nnoremap <silent><leader>q :noh<cr>
+let g:which_key_map.q =    'no-highlight'
+
+" +buffer
+let g:which_key_map.b = {
+      \ 'name' : '+buffer' ,
+      \ '1': ['b1',        'buffer 1'],
+      \ '2': ['b2',        'buffer 2'],
+      \ '?': ['Buffers',   'fzf-buffer'],
+      \ 'd': ['bd',        'delete-buffer'],
+      \ 'f': ['bfirst',    'first-buffer'],
+      \ 'h': ['Startify',  'home-buffer'],
+      \ 'l': ['blast',     'last-buffer'],
+      \ 'n': ['bnext',     'next-buffer'],
+      \ 'p': ['bprevious', 'previous-buffer'],
+      \ }
+
+" +file
+let g:which_key_map.f = {
+      \ 'name': '+file',
+      \ 's': ['update', 'save-file']
+      \ }
+
+nnoremap <expr><silent><leader>fw ':GGrep '.expand('<cword>').'<cr>'
+let g:which_key_map.f.w =         '[BUG] grep-cword'
+nnoremap <silent><leader>fv       :vsplit $DOTFILES/vim<cr>
+let g:which_key_map.f.v =         'edit-vim'
+nnoremap <silent><leader>fz       :vsplit $DOTFILES/zsh<cr>
+let g:which_key_map.f.z =         'edit-zsh'
+
+" +test
+let g:which_key_map.t = {
+      \ 'name': '+test',
+      \ 'f': ['TestFile',    'test-file'],
+      \ 'n': ['TestNearest', 'test-near'],
+      \ }
+
 vnoremap <silent><leader>s :sort<cr>
 let g:which_key_map.s =    'sort'
-
-tnoremap <Esc> <c-\><c-n>

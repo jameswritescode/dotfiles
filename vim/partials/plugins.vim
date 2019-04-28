@@ -12,7 +12,7 @@ Plug 'jparise/vim-graphql'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'kana/vim-textobj-user'
 Plug 'kylef/apiblueprint.vim'
-Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!']}
+Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!', 'WhichKeyVisual', 'WhichKeyVisual!']}
 Plug 'machakann/vim-highlightedyank'
 Plug 'moll/vim-node'
 Plug 'nono/jquery.vim'
