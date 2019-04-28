@@ -9,26 +9,18 @@ wtf:
     rows: [13, 13, 4]
   refreshInterval: 1
   mods:
-    clocks:
-      colors:
-        rows:
-          even: "lightblue"
-          odd: "white"
+    github:
+      enableStatus: true
       enabled: true
-      locations:
-        Seattle: "America/Los_Angeles"
+      refreshInterval: 300
+      username: jameswritescode
+
       position:
-        top: 0
-        left: 0
-        height: 1
-        width: 1
-      refreshInterval: 15
-      sort: "alphabetical"
-    security:
-      enabled: true
-      position:
-        top: 1
-        left: 0
-        height: 1
-        width: 1
-      refreshInterval: 3600
+        top: 2
+        left: 3
+        height: 2
+        width: 2
+
+      repositories:
+        sharegrid: sharegrid
+        jameswritescode: dotfiles
