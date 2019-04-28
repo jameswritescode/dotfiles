@@ -1,6 +1,6 @@
 let g:which_key_map = {
-\ 'r': 'forrest-run'
-\ }
+      \ 'r': 'forrest-run'
+      \ }
 
 inoremap jk <esc>
 
@@ -21,7 +21,6 @@ nnoremap <right> 1<c-w><
 nnoremap <up>    <c-w>+
 
 nnoremap ;                :
-nnoremap <c-b>            <esc>:Buffers<cr>
 nnoremap <c-p>            <esc>:Files<cr>
 nnoremap <c-t>            <esc>:tabnew<cr>
 nnoremap <silent><leader> :<c-u>WhichKey '<Space>'<CR>
@@ -37,6 +36,20 @@ nnoremap <leader>q      :noh<cr>
 let g:which_key_map.q = 'no-highlight'
 nnoremap <leader>w      :w<cr>
 let g:which_key_map.w = 'save'
+
+" +buffer
+let g:which_key_map.b = {
+      \ 'name' : '+buffer' ,
+      \ '1': ['b1', 'buffer 1'],
+      \ '2': ['b2', 'buffer 2'],
+      \ '?': ['Buffers', 'fzf-buffer'],
+      \ 'd': ['bd', 'delete-buffer'],
+      \ 'f': ['bfirst', 'first-buffer'],
+      \ 'h': ['Startify', 'home-buffer'],
+      \ 'l': ['blast', 'last-buffer'],
+      \ 'n': ['bnext', 'next-buffer'],
+      \ 'p': ['bprevious', 'previous-buffer'],
+      \ }
 
 " +edit
 let g:which_key_map.e =   {'name': '+edit'}
