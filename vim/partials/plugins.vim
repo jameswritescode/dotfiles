@@ -12,7 +12,6 @@ Plug 'jparise/vim-graphql'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'kana/vim-textobj-user'
 Plug 'kylef/apiblueprint.vim'
-Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!', 'WhichKeyVisual', 'WhichKeyVisual!']}
 Plug 'machakann/vim-highlightedyank'
 Plug 'moll/vim-node'
 Plug 'nono/jquery.vim'
@@ -35,6 +34,9 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/Io-programming-language-syntax'
 Plug 'vim-scripts/applescript.vim'
+
+Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!', 'WhichKeyVisual', 'WhichKeyVisual!']}
+let g:which_key_hspace = 40
 
 Plug 'joshdick/onedark.vim'
 let g:onedark_hide_endofbuffer = 1
