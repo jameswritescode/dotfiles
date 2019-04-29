@@ -1,7 +1,8 @@
 function! CustomHighlights() abort
-  hi ALEErrorSign ctermfg=red
-  hi ALEWarningSign ctermfg=yellow
-  hi Comment cterm=italic
+  hi ALEError guifg=red gui=bold
+  hi ALEErrorSign guifg=red
+  hi ALEWarning guifg=yellow gui=bold
+  hi ALEWarningSign guifg=yellow
 endfunction
 
 augroup custom_highlights
