@@ -1,8 +1,8 @@
 " General
 Abolish boostrap bootstrap
 Abolish recieve receive
-Abolish converastion conversation
 Abolish precense presence
+Abolish converastion{,_id} conversation{}
 
 " Rails
 Abolish destory{,_all} destroy{}
