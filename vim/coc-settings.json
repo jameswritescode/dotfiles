@@ -10,6 +10,11 @@
       "rootPatterns": [".git/"]
     },
 
+    "elixirLS": {
+      "command": "~/dotfiles/vim/langserver/elixir-ls/release/language_server.sh",
+      "filetypes": ["elixir", "eelixir"]
+    },
+
     "haskell": {
       "command": "hie-wrapper",
       "filetypes": ["hs", "haskell"],

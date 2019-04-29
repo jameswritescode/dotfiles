@@ -277,7 +277,6 @@ endif " }}}
 
 if executable('elixir') " Elixir {{{
   Plug 'elixir-editors/vim-elixir'
-  Plug 'slashmili/alchemist.vim'
   Plug 'c-brenn/phoenix.vim'
 
   Plug 'mhinz/vim-mix-format'
