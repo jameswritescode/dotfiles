@@ -9,10 +9,10 @@ eval "$(hub alias -s)"
 export FZF_DEFAULT_COMMAND='fd -t f -H -E .git'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# zplug
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
+# antigen
+source /usr/local/share/antigen/antigen.zsh
 
-zplug 'zsh-users/zsh-autosuggestions', defer:2
-zplug 'zsh-users/zsh-syntax-highlighting', defer:2
-zplug load
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen apply
