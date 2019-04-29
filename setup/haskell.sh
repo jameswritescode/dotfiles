@@ -5,11 +5,11 @@ ln -s "$DOTFILES/.ghci" "$HOME/.ghci"
 
 stack install hlint
 
-HIE_PATH="/tmp/haskell-ide-engine"
+HIE_PATH="$DOTFILES/vim/langserver/haskell-ide-engine"
 
-git clone git@github.com:haskell/haskell-ide-engine.git $HIE_PATH
+git clone git@github.com:haskell/haskell-ide-engine.git "$HIE_PATH"
 
-pushd $HIE_PATH || exit
+pushd "$HIE_PATH" || exit
   GHC_VERSION=$(ghc -V | grep -Eo '(?:\d\.?){3}')
 
   stack ./install.hs "cabal-hie-$GHC_VERSION"
