@@ -19,6 +19,11 @@
       "command": "hie-wrapper",
       "filetypes": ["hs", "haskell"],
       "rootPatterns": [".stack.yaml", "cabel.config", "package.yaml"]
+    },
+
+    "lua": {
+      "command": "lua-lsp",
+      "filetypes": ["lua"]
     }
   }
 }

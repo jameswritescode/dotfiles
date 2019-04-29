@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 call plug#begin('$DOTFILES/vim/plugged')
 
 " General {{{
@@ -18,8 +20,9 @@ Plug 'nono/jquery.vim'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'ryanoasis/vim-devicons'
-Plug 'sbdchd/neoformat'
+Plug 'sbdchd/neoformat', {'on': 'Neoformat'}
 Plug 'styled-components/vim-styled-components', {'branch': 'main'}
+Plug 'tbastos/vim-lua'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-commentary'
@@ -49,7 +52,7 @@ Plug 'hashivim/vim-terraform'
 let g:terraform_commentstring = '//%s'
 let g:terraform_fmt_on_save = 1
 
-Plug 'janko-m/vim-test'
+Plug 'janko-m/vim-test', {'on': ['TestNearest', 'TestFile']}
 let test#ruby#rspec#executable = 'RAILS_ENV=test bundle exec rspec'
 
 Plug 'SirVer/ultisnips'
@@ -284,7 +287,7 @@ if executable('elixir') " Elixir {{{
 endif " }}}
 
 if executable('rustc') " Rust {{{
-  Plug 'racer-rust/vim-racer'
+  Plug 'racer-rust/vim-racer', {'for': 'rust'}
   let g:racer_experimental_completer = 1
 
   Plug 'rust-lang/rust.vim'
@@ -295,17 +298,6 @@ if executable('lein') " Clojure {{{
   Plug 'guns/vim-clojure-highlight'
   Plug 'tpope/vim-classpath', {'for': 'clojure'}
   Plug 'tpope/vim-fireplace', {'for': 'clojure'}
-endif " }}}
-
-if executable('lua') " Lua {{{
-  Plug 'tbastos/vim-lua'
-  Plug 'xolox/vim-misc'
-
-  Plug 'xolox/vim-lua-ftplugin'
-  let g:lua_complete_omni = 1
-  let g:lua_check_syntax = 0
-  let g:lua_complete_dynamic = 0
-  let g:lua_define_completion_mappings = 0
 endif " }}}
 
 call plug#end()
