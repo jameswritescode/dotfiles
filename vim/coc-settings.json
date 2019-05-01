@@ -10,6 +10,12 @@
       "rootPatterns": [".git/"]
     },
 
+    "docker": {
+      "args": ["--stdio"],
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"]
+    },
+
     "elixirLS": {
       "command": "~/dotfiles/vim/langserver/elixir-ls/release/language_server.sh",
       "filetypes": ["elixir", "eelixir"]
