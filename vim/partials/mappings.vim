@@ -47,13 +47,8 @@ tnoremap <Esc> <c-\><c-n>
 " vim-which-key related mappings "
 """"""""""""""""""""""""""""""""""
 
-let g:which_key_map = {
-      \ 'r': 'forrest-run',
-      \ 'w': ['w', 'write-file'],
-      \ }
+let g:which_key_map = {'r': 'forrest-run'}
 
-nnoremap <silent><leader>p :set paste!<cr>
-let g:which_key_map.p =    'toggle-paste'
 nnoremap <silent><leader>q :noh<cr>
 let g:which_key_map.q =    'no-highlight'
 
@@ -71,9 +66,9 @@ let g:which_key_map.b = {
       \ 'p':     ['bprevious', 'previous-buffer'],
       \ }
 
-" +file
+" +file/find
 let g:which_key_map.f = {
-      \ 'name': '+file',
+      \ 'name': '+file/find',
       \ 's':    ['update', 'save-file'],
       \ }
 
@@ -84,9 +79,10 @@ let g:which_key_map.f.v =         'edit-vim'
 nnoremap <silent><leader>fz       :vsplit $DOTFILES/zsh<cr>
 let g:which_key_map.f.z =         'edit-zsh'
 
-" +lsp
+" +lint/lsp
 let g:which_key_map.l = {
-      \ 'name': '+lsp',
+      \ 'name': '+lint/lsp',
+      \ 'd':    ['ALEDetail',                   'ale-detail'],
       \ 'f':    ['<Plug>(coc-format-selected)', 'formatting'],
       \ 'r':    ['<Plug>(coc-rename)',          'rename'],
       \ }
@@ -99,12 +95,14 @@ let g:which_key_map.l.g = {
       \ 'y':    ['<Plug>(coc-type-definition)', 'type-definition'],
       \ }
 
-" +test
+" +test/toggle
 let g:which_key_map.t = {
-      \ 'name': '+test',
-      \ 'f':    ['TestFile',    'test-file'],
-      \ 'n':    ['TestNearest', 'test-near'],
+      \ 'name': '+test/toggle',
+      \ 'f':    ['TestFile',        'test-file'],
+      \ 'n':    ['TestNearest',     'test-near'],
+      \ 'p':    [':setlocal paste!', 'paste-mode'],
       \ }
 
+nnoremap <silent><leader>s :sort<cr>
 vnoremap <silent><leader>s :sort<cr>
 let g:which_key_map.s =    'sort'
