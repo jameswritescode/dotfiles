@@ -22,6 +22,10 @@ dsa() {
   docker stop $(docker ps -a -q)
 }
 
+dra() {
+  docker rm $(docker ps -a -q)
+}
+
 fk() {
   ps aux | grep $* | grep -v grep | awk '{print $2}' | xargs kill -9
 }
