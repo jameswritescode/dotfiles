@@ -5,11 +5,11 @@ call plug#begin('$DOTFILES/vim/plugged')
 " General {{{
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim'
-Plug 'Raimondi/delimitMate'
-Plug 'cespare/vim-toml'
+Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'chr4/nginx.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'elzr/vim-json'
+Plug 'jiangmiao/auto-pairs'
 Plug 'jparise/vim-graphql'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'kana/vim-textobj-user'
@@ -165,7 +165,7 @@ let g:haskell_enable_typeroles = 1
 if executable('ruby') " Ruby {{{
   Plug 'tpope/vim-bundler'
   Plug 'sunaku/vim-ruby-minitest'
-  Plug 'nelstrom/vim-textobj-rubyblock'
+  Plug 'nelstrom/vim-textobj-rubyblock', {'for': 'ruby'}
 
   Plug 'vim-ruby/vim-ruby'
   let g:ruby_indent_assignment_style = 'variable'
