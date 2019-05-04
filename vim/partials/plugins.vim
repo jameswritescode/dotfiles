@@ -98,7 +98,7 @@ let g:ale_linters = {
 \ 'elixir': ['mix', 'dogma'],
 \ 'javascript': ['eslint'],
 \ 'ruby': ['rubocop', 'reek'],
-\ 'typescript': ['tslint', 'typecheck'],
+\ 'typescript': ['eslint'],
 \}
 
 let g:ale_graphql_gqlint_executable = $PWD . '/node_modules/.bin/gqlint'
