@@ -47,10 +47,40 @@ tnoremap <Esc> <c-\><c-n>
 " vim-which-key related mappings "
 """"""""""""""""""""""""""""""""""
 
-let g:which_key_map = {'r': 'forrest-run'}
+let g:which_key_map = {}
 
 nnoremap <silent><leader>q :noh<cr>
 let g:which_key_map.q =    'no-highlight'
+
+nnoremap <silent><leader>r :call <sid>run_file()<cr>
+let g:which_key_map.r =    'run'
+
+let s:runners = {
+      \ 'elixir': 'elixir',
+      \ 'haskell': 'runhaskell',
+      \ 'io': 'io',
+      \ 'javascript': 'node',
+      \ 'lua': 'lua',
+      \ 'perl': 'perl',
+      \ 'php': 'php',
+      \ 'python': 'python',
+      \ 'ruby': 'ruby',
+      \ 'rust': 'rustc',
+      \ 'sh': 'sh',
+      \ 'zsh': 'zsh',
+      \ }
+
+function! s:run_file()
+  let l:filetype = split(&filetype, '\\.')[0]
+
+  if has_key(s:runners, l:filetype)
+    let l:runner = s:runners[l:filetype]
+
+    execute 'wincmd v | terminal ' . l:runner . ' ' . expand('%:p')
+  else
+    echo 'no runner'
+  endif
+endfunction
 
 " +buffer
 let g:which_key_map.b = {

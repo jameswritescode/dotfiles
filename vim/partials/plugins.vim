@@ -80,14 +80,6 @@ let g:airline#extensions#tabline#show_tabs = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'onedark'
 
-Plug 'hlissner/vim-forrestgump'
-let g:forrestgumps = {
-\ 'elixir': ['elixir'],
-\ 'haskell': ['runhaskell'],
-\ 'io': ['io'],
-\ 'rust': ['rustc'],
-\}
-
 Plug 'w0rp/ale'
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
