@@ -14,6 +14,8 @@ filetype off
 
 source ~/dotfiles/vim/partials/plugins.vim
 
+runtime! marcos/matchit.vim
+
 filetype plugin indent on
 
 if !exists('g:syntax_on')
