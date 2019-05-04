@@ -254,8 +254,6 @@ if executable('git') " Git {{{
   Plug 'tpope/vim-rhubarb'
 
   Plug 'airblade/vim-gitgutter'
-  highlight SignColumn term=underline ctermfg=101 ctermbg=232 guifg=#857b6f guibg=#121212
-
   let g:gitgutter_sign_added='┃'
   let g:gitgutter_sign_modified='┃'
   let g:gitgutter_sign_removed='◢'
@@ -294,5 +292,3 @@ if executable('lein') " Clojure {{{
 endif " }}}
 
 call plug#end()
-
-runtime! marcos/matchit.vim
