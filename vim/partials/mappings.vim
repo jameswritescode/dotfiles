@@ -85,8 +85,16 @@ endfunction
 " +buffer
 let g:which_key_map.b = {
       \ 'name' : '+buffer' ,
-      \ '1':     ['b1',        'buffer 1'],
-      \ '2':     ['b2',        'buffer 2'],
+      \ '-':     [':%bd|e#|bd#', 'delete-inactive-buffers'],
+      \ '1':     [':b1',        'buffer 1'],
+      \ '2':     [':b2',        'buffer 2'],
+      \ '3':     [':b3',        'buffer 3'],
+      \ '4':     [':b4',        'buffer 4'],
+      \ '5':     [':b5',        'buffer 5'],
+      \ '6':     [':b6',        'buffer 6'],
+      \ '7':     [':b7',        'buffer 7'],
+      \ '8':     [':b8',        'buffer 8'],
+      \ '9':     [':b9',        'buffer 9'],
       \ '?':     ['Buffers',   'fzf-buffer'],
       \ 'd':     ['bd',        'delete-buffer'],
       \ 'f':     ['bfirst',    'first-buffer'],
