@@ -9,7 +9,6 @@ Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'chr4/nginx.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'elzr/vim-json'
-Plug 'jameswritescode/vim-vinegar'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jparise/vim-graphql'
 Plug 'justinmk/vim-syntax-extra'
@@ -37,6 +36,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/Io-programming-language-syntax'
 Plug 'vim-scripts/applescript.vim'
+
+Plug 'justinmk/vim-dirvish'
+let g:dirvish_mode = ':sort ,^.*[\/],'
 
 Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!', 'WhichKeyVisual', 'WhichKeyVisual!']}
 let g:which_key_hspace = 40
@@ -69,10 +71,8 @@ let g:user_emmet_settings = {
 
 Plug 'vim-airline/vim-airline'
 let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_format = '%s> '
-let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':p:t'
+let g:airline#extensions#tabline#formatter = 'james'
 let g:airline#extensions#tabline#ignore_bufadd_pat = 'startify|term://'
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#show_close_button = 0
