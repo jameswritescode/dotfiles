@@ -69,7 +69,10 @@ let g:user_emmet_settings = {
 
 Plug 'vim-airline/vim-airline'
 let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_format = '%s> '
+let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':p:t'
 let g:airline#extensions#tabline#ignore_bufadd_pat = 'startify|term://'
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#show_close_button = 0
