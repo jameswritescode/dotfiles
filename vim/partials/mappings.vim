@@ -20,8 +20,6 @@ nnoremap ;                :
 nnoremap <silent><c-p>    <esc>:Files<cr>
 nnoremap <silent><c-t>    <esc>:tabnew<cr>
 nnoremap <silent><leader> :<c-u>WhichKey '<Space>'<CR>
-nnoremap H                gT
-nnoremap L                gt
 nnoremap gp               `[v`]
 nnoremap j                gj
 nnoremap k                gk
@@ -34,6 +32,15 @@ function! s:show_documentation()
   else
     call CocAction('doHover')
   endif
+endfunction
+
+nnoremap <silent> H :call <sid>tabline_control('tabp', 'bp')<cr>
+nnoremap <silent> L :call <sid>tabline_control('tabn', 'bn')<cr>
+
+function! s:tabline_control(tab_cmd, buf_cmd) abort
+  let a:tabnrs = []
+
+  exec tabpagenr('$') > 1 ? a:tab_cmd : a:buf_cmd
 endfunction
 
 vnoremap <c-c>             y:call system("pbcopy", getreg("\""))<cr>
@@ -86,22 +93,10 @@ endfunction
 let g:which_key_map.b = {
       \ 'name' : '+buffer' ,
       \ '-':     [':%bd|e#|bd#', 'delete-inactive-buffers'],
-      \ '1':     [':b1',        'buffer 1'],
-      \ '2':     [':b2',        'buffer 2'],
-      \ '3':     [':b3',        'buffer 3'],
-      \ '4':     [':b4',        'buffer 4'],
-      \ '5':     [':b5',        'buffer 5'],
-      \ '6':     [':b6',        'buffer 6'],
-      \ '7':     [':b7',        'buffer 7'],
-      \ '8':     [':b8',        'buffer 8'],
-      \ '9':     [':b9',        'buffer 9'],
       \ '?':     ['Buffers',   'fzf-buffer'],
-      \ 'd':     ['bd',        'delete-buffer'],
       \ 'f':     ['bfirst',    'first-buffer'],
       \ 'h':     ['Startify',  'home-buffer'],
       \ 'l':     ['blast',     'last-buffer'],
-      \ 'n':     ['bnext',     'next-buffer'],
-      \ 'p':     ['bprevious', 'previous-buffer'],
       \ }
 
 " +file/find
