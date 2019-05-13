@@ -47,9 +47,6 @@ Plug 'joshdick/onedark.vim'
 let g:onedark_hide_endofbuffer = 1
 let g:onedark_terminal_italics = 1
 
-" Plug 'junegunn/seoul256.vim'
-" let g:seoul256_background = 233
-
 Plug 'hashivim/vim-terraform'
 let g:terraform_commentstring = '//%s'
 let g:terraform_fmt_on_save = 1
