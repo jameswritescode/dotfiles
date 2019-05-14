@@ -107,7 +107,7 @@ let g:ale_javascript_eslint_executable = $PWD . '/node_modules/.bin/eslint'
 " coc-tsserver
 " coc-ultisnips
 " coc-yaml
-Plug 'neoclide/coc.nvim', {'do': {-> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
 Plug 'tpope/vim-projectionist'
 let g:projectionist_heuristics = {
