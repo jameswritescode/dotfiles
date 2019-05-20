@@ -1,6 +1,19 @@
 {
   "diagnostic.enable": false,
+
+  "git.addedSign.hlGroup": "JamesDiffAdd",
+  "git.addedSign.text": "┃",
+  "git.changeRemovedSign.hlGroup": "JamesDiffChange",
+  "git.changeRemovedSign.text": "◢",
+  "git.changedSign.hlGroup": "JamesDiffChange",
+  "git.changedSign.text": "┃",
+  "git.removedSign.hlGroup": "JamesDiffDelete",
+  "git.removedSign.text": "◢",
+  "git.topRemovedSign.hlGroup": "JamesDiffDelete",
+  "git.topRemovedSign.text": "◥",
+
   "solargraph.useBundler": true,
+
   "suggest.maxCompleteItemCount": 12,
 
   "languageserver": {

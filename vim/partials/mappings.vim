@@ -16,13 +16,16 @@ nnoremap <left>  1<c-w>>
 nnoremap <right> 1<c-w><
 nnoremap <up>    <c-w>+
 
-nnoremap ;                :
-nnoremap <silent><c-p>    <esc>:Files<cr>
-nnoremap <silent><c-t>    <esc>:tabnew<cr>
-nnoremap <silent><leader> :<c-u>WhichKey '<Space>'<CR>
-nnoremap gp               `[v`]
-nnoremap j                gj
-nnoremap k                gk
+nmap <buffer> [c <Plug>(coc-git-prevchunk)
+nmap <buffer> ]c <Plug>(coc-git-nextchunk)
+
+nnoremap ;                 :
+nnoremap <silent> <c-p>    <esc>:Files<cr>
+nnoremap <silent> <c-t>    <esc>:tabnew<cr>
+nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+nnoremap gp                `[v`]
+nnoremap j                 gj
+nnoremap k                 gk
 
 nnoremap <silent> K :call <sid>show_documentation()<cr>
 
