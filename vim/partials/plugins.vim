@@ -99,6 +99,7 @@ let g:ale_javascript_eslint_executable = $PWD . '/node_modules/.bin/eslint'
 
 " CoC Extensions:
 " coc-css
+" coc-git
 " coc-html
 " coc-json
 " coc-python
@@ -252,13 +253,6 @@ if executable('git') " Git {{{
   Plug 'tpope/vim-git'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-rhubarb'
-
-  Plug 'airblade/vim-gitgutter'
-  let g:gitgutter_sign_added='┃'
-  let g:gitgutter_sign_modified='┃'
-  let g:gitgutter_sign_removed='◢'
-  let g:gitgutter_sign_removed_first_line='◥'
-  let g:gitgutter_sign_modified_removed='◢'
 endif " }}}
 
 if executable('tsserver') " TypeScript {{{
