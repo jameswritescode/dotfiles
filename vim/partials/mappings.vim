@@ -11,13 +11,13 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+nmap [c <Plug>(coc-git-prevchunk)
+nmap ]c <Plug>(coc-git-nextchunk)
+
 nnoremap <down>  <c-w>-
 nnoremap <left>  1<c-w>>
 nnoremap <right> 1<c-w><
 nnoremap <up>    <c-w>+
-
-nmap [c <Plug>(coc-git-prevchunk)
-nmap ]c <Plug>(coc-git-nextchunk)
 
 nnoremap ;                 :
 nnoremap <silent> <c-p>    <esc>:Files<cr>
@@ -115,7 +115,14 @@ let g:which_key_map.f.v =         'edit-vim'
 nnoremap <silent><leader>fz       :vsplit $DOTFILES/zsh<cr>
 let g:which_key_map.f.z =         'edit-zsh'
 
-" +lint/lsp
+" +git
+let g:which_key_map.g = {
+      \ 'name': '+git',
+      \ 'b':    ['Gblame',  'blame'],
+      \ 's':    [':GFiles?', 'status'],
+      \ }
+
+"+lint/lsp
 let g:which_key_map.l = {
       \ 'name': '+lint/lsp',
       \ 'd':    ['ALEDetail',                   'ale-detail'],
