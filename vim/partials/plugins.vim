@@ -145,7 +145,7 @@ let g:startify_custom_header = ['   ' . $PWD]
 
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-let g:fzf_layout = { 'window': 'call FZFFloatingWin()' }
+let g:fzf_layout = { 'window': 'call FloatingWin()' }
 let g:fzf_colors = {
       \ 'fg':      ['fg', 'Normal'],
       \ 'bg':      ['bg', 'Normal'],
