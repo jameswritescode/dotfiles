@@ -16,8 +16,8 @@ nnoremap <left>  1<c-w>>
 nnoremap <right> 1<c-w><
 nnoremap <up>    <c-w>+
 
-nmap <buffer> [c <Plug>(coc-git-prevchunk)
-nmap <buffer> ]c <Plug>(coc-git-nextchunk)
+nmap [c <Plug>(coc-git-prevchunk)
+nmap ]c <Plug>(coc-git-nextchunk)
 
 nnoremap ;                 :
 nnoremap <silent> <c-p>    <esc>:Files<cr>
