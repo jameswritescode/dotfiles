@@ -96,10 +96,10 @@ endfunction
 let g:which_key_map.b = {
       \ 'name' : '+buffer' ,
       \ '-':     [':%bd|e#|bd#', 'delete-inactive-buffers'],
-      \ '?':     ['Buffers',   'fzf-buffer'],
-      \ 'f':     ['bfirst',    'first-buffer'],
-      \ 'h':     ['Startify',  'home-buffer'],
-      \ 'l':     ['blast',     'last-buffer'],
+      \ '?':     ['Buffers',     'fzf-buffer'],
+      \ 'f':     ['bfirst',      'first-buffer'],
+      \ 'h':     ['Startify',    'home-buffer'],
+      \ 'l':     ['blast',       'last-buffer'],
       \ }
 
 " +file/find
