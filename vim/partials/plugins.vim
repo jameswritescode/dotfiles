@@ -107,6 +107,7 @@ let g:ale_javascript_eslint_executable = $PWD . '/node_modules/.bin/eslint'
 " coc-solargraph
 " coc-tsserver
 " coc-ultisnips
+" coc-vimlsp
 " coc-yaml
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
@@ -143,6 +144,23 @@ let g:startify_custom_header = ['   ' . $PWD]
 
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+let g:fzf_layout = { 'window': 'call FZFFloatingWin()' }
+let g:fzf_colors = {
+      \ 'fg':      ['fg', 'Normal'],
+      \ 'bg':      ['bg', 'Normal'],
+      \ 'hl':      ['fg', 'Comment'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Statement'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment']
+      \ }
+
 command! -bang -nargs=* GGrep
   \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
 
