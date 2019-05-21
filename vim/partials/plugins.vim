@@ -42,6 +42,7 @@ let g:dirvish_mode = ':sort ,^.*[\/],'
 
 Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!', 'WhichKeyVisual', 'WhichKeyVisual!']}
 let g:which_key_hspace = 40
+let g:which_key_use_floating_win = 1
 
 Plug 'joshdick/onedark.vim'
 let g:onedark_hide_endofbuffer = 1
