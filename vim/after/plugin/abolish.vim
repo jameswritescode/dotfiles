@@ -1,6 +1,6 @@
 " General
 Abolish boostrap bootstrap
-Abolish recieve receive
+Abolish {,have_}recieve{,d} {}receive{}
 Abolish precense presence
 Abolish converastion{,_id} conversation{}
 
