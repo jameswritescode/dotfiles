@@ -118,8 +118,10 @@ let g:which_key_map.f.z =         'edit-zsh'
 " +git
 let g:which_key_map.g = {
       \ 'name': '+git',
-      \ 'b':    ['Gblame',  'blame'],
-      \ 's':    [':GFiles?', 'status'],
+      \ 'a':    [':CocCommand git.chunkStage', 'stage-chunk'],
+      \ 'b':    ['Gblame',                     'blame'],
+      \ 'c':    [':CocCommand git.chunkInfo',  'chunk-info'],
+      \ 's':    [':GFiles?',                   'status'],
       \ }
 
 "+lint/lsp
