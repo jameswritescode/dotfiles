@@ -82,9 +82,13 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'onedark'
 
 Plug 'w0rp/ale'
+let g:ale_graphql_gqlint_executable = $PWD . '/node_modules/.bin/gqlint'
+let g:ale_javascript_eslint_executable = $PWD . '/node_modules/.bin/eslint'
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_filetype_changed = 1
+let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 'never'
-
+let g:ale_lint_on_text_changed = 'normal'
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
 
@@ -94,9 +98,6 @@ let g:ale_linters = {
 \ 'ruby': ['rubocop', 'reek'],
 \ 'typescript': ['eslint', 'tsserver'],
 \}
-
-let g:ale_graphql_gqlint_executable = $PWD . '/node_modules/.bin/gqlint'
-let g:ale_javascript_eslint_executable = $PWD . '/node_modules/.bin/eslint'
 
 " CoC Extensions:
 " coc-css
