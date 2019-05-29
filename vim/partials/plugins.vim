@@ -18,7 +18,6 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'moll/vim-node'
 Plug 'nono/jquery.vim'
 Plug 'othree/html5.vim'
-Plug 'pangloss/vim-javascript'
 Plug 'ryanoasis/vim-devicons'
 Plug 'sbdchd/neoformat', {'on': 'Neoformat'}
 Plug 'styled-components/vim-styled-components', {'branch': 'main'}
@@ -36,6 +35,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/Io-programming-language-syntax'
 Plug 'vim-scripts/applescript.vim'
+
+Plug 'pangloss/vim-javascript'
+let g:javascript_plugin_flow = 1
 
 Plug 'justinmk/vim-dirvish'
 let g:dirvish_mode = ':sort ,^.*[\/],'
@@ -94,7 +96,7 @@ let g:ale_sign_warning = '⚠'
 
 let g:ale_linters = {
 \ 'elixir': ['mix', 'dogma'],
-\ 'javascript': ['eslint'],
+\ 'javascript': ['eslint', 'flow'],
 \ 'ruby': ['rubocop', 'reek'],
 \ 'typescript': ['eslint', 'tsserver'],
 \}
@@ -128,9 +130,6 @@ let g:projectionist_heuristics = {
 \   '*_test.go': { 'alternate': '{}.go', 'type': 'test' }
 \ }
 \}
-
-Plug 'othree/javascript-libraries-syntax.vim'
-let g:used_javascript_libs = 'react'
 
 Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
