@@ -8,6 +8,9 @@ function! CustomHighlights() abort
   hi JamesDiffChange guifg=#E5C07B
   hi JamesDiffDelete guifg=#E06C75
 
+  hi clear MatchParen
+  hi MatchParen gui=underline
+
   hi Pmenu guibg=#262931
 
   hi WhichKeyGroup guifg=#E06C75 gui=bold
