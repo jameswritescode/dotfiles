@@ -189,8 +189,8 @@ if executable('rails') " Rails {{{
         \     'alternate': 'app/models/{}.rb'
         \   }
         \ },
-        \ 'factory_girl': {
-        \   'spec/factories/*_factory.rb': {
+        \ 'factory_bot': {
+        \   'spec/factories/*.rb': {
         \     'command': 'factory',
         \     'affinity': 'model',
         \     'alternate': 'app/models/{}.rb'
@@ -223,9 +223,6 @@ if executable('rails') " Rails {{{
         \ }}
 
   let g:rails_projections = {
-        \ 'app/models/interfaces/*_interface.rb': {
-        \   'command': 'interface'
-        \ },
         \ 'app/services/*.rb': {
         \   'command': 'service'
         \ },
