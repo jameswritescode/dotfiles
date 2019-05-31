@@ -1,18 +1,16 @@
 function! CustomHighlights() abort
-  hi ALEError       guifg=red gui=bold
+  hi ALEError       guifg=red
   hi ALEErrorSign   guifg=red
-  hi ALEWarning     guifg=yellow gui=bold
+  hi ALEWarning     guifg=yellow
   hi ALEWarningSign guifg=yellow
 
   hi JamesDiffAdd    guifg=#98C379
   hi JamesDiffChange guifg=#E5C07B
   hi JamesDiffDelete guifg=#E06C75
 
-  " TODO: Undo this later? Floating window is hard-coded to Normal:Pmenu
-  " hi WhichKey guibg=#282c34 guifg=#61afef
-  " hi WhichKeyDesc guibg=#282c34 guifg=#E06C75
-  " hi WhichKeyGroup guibg=#282c34 gui=bold guifg=#E06C75
-  " hi WhichKeySeperator guibg=#282c34 guifg=#98C379
+  hi Pmenu guibg=#262931
+
+  hi WhichKeyGroup guifg=#E06C75 gui=bold
 endfunction
 
 augroup custom_highlights
