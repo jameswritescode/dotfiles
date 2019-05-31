@@ -36,6 +36,9 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/Io-programming-language-syntax'
 Plug 'vim-scripts/applescript.vim'
 
+Plug 'andymass/vim-matchup'
+let g:matchup_matchparen_deferred = 1
+
 Plug 'pangloss/vim-javascript'
 let g:javascript_plugin_flow = 1
 
