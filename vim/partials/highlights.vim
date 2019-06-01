@@ -9,11 +9,13 @@ function! CustomHighlights() abort
   hi JamesDiffDelete guifg=#E06C75
 
   hi clear MatchParen
-  hi MatchParen gui=underline
+  hi MatchParen gui=bold
 
   hi Pmenu guibg=#262931
 
   hi WhichKeyGroup guifg=#E06C75 gui=bold
+
+  hi xmlAttrib gui=italic
 endfunction
 
 augroup custom_highlights
