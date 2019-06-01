@@ -44,3 +44,9 @@ function! FloatingWin()
   let a:buf = nvim_create_buf(v:false, v:true)
   let a:win = nvim_open_win(a:buf, v:true, a:opts)
 endfunction
+
+function! <SID>SynStack()
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+command! -bang -nargs=0 SynStack call <SID>SynStack()
