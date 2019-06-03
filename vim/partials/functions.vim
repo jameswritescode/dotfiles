@@ -28,21 +28,22 @@ endfunction
 command! -bang -nargs=0 ProfileStop call <SID>ProfileStop()
 
 function! FloatingWin()
-  let a:col_offset = &columns / 6
-  let a:height = &lines - 3
-  let a:width = float2nr(&columns - (&columns * 2 / 10))
-  let a:col = float2nr((&columns - a:width) / 2)
+  let l:col_offset = &columns / 6
+  let l:height = &lines - 3
+  let l:width = float2nr(&columns - (&columns * 2 / 10))
+  let l:col = float2nr((&columns - l:width) / 2)
 
-  let a:opts = {
-        \ 'col': a:col + a:col_offset,
-        \ 'height': a:height / 2,
+  let l:opts = {
+        \ 'col': l:col + l:col_offset,
+        \ 'height': l:height / 2,
         \ 'relative': 'editor',
-        \ 'row': a:height * 0.3,
-        \ 'width': a:width * 2 / 3,
+        \ 'row': l:height * 0.3,
+        \ 'width': l:width * 2 / 3,
         \ }
 
-  let a:buf = nvim_create_buf(v:false, v:true)
-  let a:win = nvim_open_win(a:buf, v:true, a:opts)
+  let l:buf = nvim_create_buf(v:false, v:true)
+
+  return nvim_open_win(l:buf, v:true, l:opts)
 endfunction
 
 function! <SID>SynStack()
