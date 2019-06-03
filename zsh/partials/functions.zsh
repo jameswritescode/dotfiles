@@ -132,20 +132,25 @@ preexec_functions+=(__set_title)
 
 __set_versions() {
   if __file_exists 'package.json' || __file_exists '.nvmrc'; then
-    export PROMPT_NODE_VERSION=$(node -v)
+    local node_version=$(node -v)
   fi
 
   if __file_exists 'Gemfile' || __file_exists '.ruby-version'; then
-    export PROMPT_RUBY_VERSION=$(ruby --version | awk '{print $2}')
+    local ruby_version=$(ruby --version | awk '{print $2}')
   fi
 
   if [[ -n $VIRTUAL_ENV ]]; then
-    export PROMPT_PYTHON_VERSION=$(python --version | awk '{print $2}')
+    local python_version=$(python --version | awk '{print $2}')
   fi
 
   if [[ $PWD/ = $GOPATH/* ]]; then
-    export PROMPT_GO_VERSION=$(go version | awk '{print $3}')
+    local go_version=$(go version | awk '{print $3}')
   fi
+
+  export PROMPT_GO_VERSION=$go_version
+  export PROMPT_NODE_VERSION=$node_version
+  export PROMPT_PYTHON_VERSION=$python_version
+  export PROMPT_RUBY_VERSION=$ruby_version
 }
 
 chpwd_functions+=(__set_versions)
