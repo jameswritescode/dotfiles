@@ -1,5 +1,10 @@
 # helper functions
 
+__file_exists () {
+  [ -f "$PWD/$1" ] && return
+  false
+}
+
 __git_branch() {
   git rev-parse --abbrev-ref HEAD
 }
@@ -122,3 +127,25 @@ __set_title() {
 
 precmd_functions+=(__set_title)
 preexec_functions+=(__set_title)
+
+# Set language versions as ENV variables on chpwd
+
+__set_versions() {
+  if __file_exists 'package.json' || __file_exists '.nvmrc'; then
+    export PROMPT_NODE_VERSION=$(node -v)
+  fi
+
+  if __file_exists 'Gemfile' || __file_exists '.ruby-version'; then
+    export PROMPT_RUBY_VERSION=$(ruby --version | awk '{print $2}')
+  fi
+
+  if [[ -n $VIRTUAL_ENV ]]; then
+    export PROMPT_PYTHON_VERSION=$(python --version | awk '{print $2}')
+  fi
+
+  if [[ $PWD/ = $GOPATH/* ]]; then
+    export PROMPT_GO_VERSION=$(go version | awk '{print $3}')
+  fi
+}
+
+chpwd_functions+=(__set_versions)

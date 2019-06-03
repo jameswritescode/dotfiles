@@ -73,37 +73,24 @@ bureau_git_prompt () {
   echo $_result
 }
 
-_file_exists () {
-  [ -f "$PWD/$1" ] && return
-  false
-}
-
 _node_theme_prompt () {
-  if _file_exists 'package.json' || _file_exists '.nvmrc'
-  then
-    echo "‹%{$fg_bold[green]%}node-$(node -v)%{$reset_color%}› "
-  fi
+  [[ -n "$PROMPT_NODE_VERSION" ]] &&
+    echo "‹%{$fg_bold[green]%}node-$PROMPT_NODE_VERSION%{$reset_color%}› "
 }
 
 _ruby_theme_prompt () {
-  if _file_exists 'Gemfile' && _file_exists '.ruby-version'
-  then
-    echo "‹%{$fg_bold[red]%}ruby-$(cat .ruby-version)%{$reset_color%}› "
-  fi
+  [[ -n "$PROMPT_RUBY_VERSION" ]] &&
+    echo "‹%{$fg_bold[red]%}ruby-$PROMPT_RUBY_VERSION%{$reset_color%}› "
 }
 
 _python_theme_prompt () {
-  if [[ -n $VIRTUAL_ENV ]]; then
-    local version=$(python --version | awk {'print $2'})
-    echo "‹%{$fg_bold[yellow]%}python-$version%{$reset_color%}› "
-  fi
+  [[ -n "$PROMPT_PYTHON_VERSION" ]] &&
+    echo "‹%{$fg_bold[yellow]%}python-$PROMPT_PYTHON_VERSION%{$reset_color%}› "
 }
 
 _go_theme_prompt() {
-  if [[ $PWD/ = $GOPATH/* ]]; then
-    local version=$(go version | awk {'print $3'})
-    echo "‹%{$fg_bold[green]%}$version%{$reset_color%}› "
-  fi
+  [[ -n "$PROMPT_GO_VERSION" ]] &&
+    echo "‹%{$fg_bold[green]%}$PROMPT_GO_VERSION%{$reset_color%}› "
 }
 
 _jobs_theme_prompt () {
