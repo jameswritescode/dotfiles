@@ -99,7 +99,7 @@ let g:ale_sign_warning = '⚠'
 
 let g:ale_linters = {
 \ 'elixir': ['mix', 'dogma'],
-\ 'javascript': ['eslint', 'flow'],
+\ 'javascript': ['eslint'],
 \ 'ruby': ['rubocop', 'reek'],
 \ 'typescript': ['eslint', 'tsserver'],
 \}
