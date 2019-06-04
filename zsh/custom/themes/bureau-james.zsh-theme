@@ -93,6 +93,11 @@ _go_theme_prompt() {
     echo "‹%{$fg_bold[green]%}$PROMPT_GO_VERSION%{$reset_color%}› "
 }
 
+_haskell_theme_prompt() {
+  [[ -n "$PROMPT_HASKELL_VERSION" ]] &&
+    echo "‹%{$fg_bold[magenta]%}ghc-$PROMPT_HASKELL_VERSION%{$reset_color%}› "
+}
+
 _jobs_theme_prompt () {
   local running_jobs="$(jobs -l | wc -l | sed 's/ //g')"
 
@@ -134,7 +139,7 @@ get_space () {
 
 bureau_precmd () {
         _1LEFT="┌‹$_USERNAME› ‹$_PATH›"
-        _1RIGHT="$(_jobs_theme_prompt)$(_go_theme_prompt)$(_python_theme_prompt)$(_node_theme_prompt)$(_ruby_theme_prompt)‹%{$fg_bold[white]%}%*%{$reset_color%}›┐ "
+        _1RIGHT="$(_jobs_theme_prompt)$(_go_theme_prompt)$(_python_theme_prompt)$(_node_theme_prompt)$(_ruby_theme_prompt)$(_haskell_theme_prompt)‹%{$fg_bold[white]%}%*%{$reset_color%}›┐ "
         _1SPACES=$(get_space $_1LEFT $_1RIGHT)
         print
         print -rP "$_1LEFT$_1SPACES$_1RIGHT"
