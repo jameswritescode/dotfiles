@@ -1,28 +1,7 @@
 {
-  "diagnostic.enable": false,
-
-  "git.addedSign.hlGroup": "JamesDiffAdd",
-  "git.addedSign.text": "┃",
-  "git.changeRemovedSign.hlGroup": "JamesDiffChange",
-  "git.changeRemovedSign.text": "◢",
-  "git.changedSign.hlGroup": "JamesDiffChange",
-  "git.changedSign.text": "┃",
-  "git.removedSign.hlGroup": "JamesDiffDelete",
-  "git.removedSign.text": "◢",
-  "git.topRemovedSign.hlGroup": "JamesDiffDelete",
-  "git.topRemovedSign.text": "◥",
-
-  "solargraph.useBundler": true,
-
-  "suggest.maxCompleteItemCount": 12,
+  "diagnostic.displayByAle": true,
 
   "languageserver": {
-    "cquery": {
-      "command": "cquery",
-      "filetypes": ["c", "cpp"],
-      "rootPatterns": [".git/"]
-    },
-
     "docker": {
       "args": ["--stdio"],
       "command": "docker-langserver",
@@ -32,6 +11,14 @@
     "elixirLS": {
       "command": "~/dotfiles/vim/langserver/elixir-ls/release/language_server.sh",
       "filetypes": ["elixir", "eelixir"]
+    },
+
+    "flow": {
+      "args": ["lsp"],
+      "command": "flow",
+      "filetypes": ["javascript", "javascriptreact"],
+      "requireRootPattern": true,
+      "rootPatterns": [".flowconfig"]
     },
 
     "go": {
@@ -50,5 +37,20 @@
       "command": "lua-lsp",
       "filetypes": ["lua"]
     }
-  }
+  },
+
+  "git.addedSign.hlGroup": "JamesDiffAdd",
+  "git.addedSign.text": "┃",
+  "git.changeRemovedSign.hlGroup": "JamesDiffChange",
+  "git.changeRemovedSign.text": "◢",
+  "git.changedSign.hlGroup": "JamesDiffChange",
+  "git.changedSign.text": "┃",
+  "git.removedSign.hlGroup": "JamesDiffDelete",
+  "git.removedSign.text": "◢",
+  "git.topRemovedSign.hlGroup": "JamesDiffDelete",
+  "git.topRemovedSign.text": "◥",
+
+  "solargraph.useBundler": true,
+
+  "suggest.maxCompleteItemCount": 12
 }
