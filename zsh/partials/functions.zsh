@@ -147,7 +147,12 @@ __set_versions() {
     local go_version=$(go version | awk '{print $3}')
   fi
 
+  if __file_exists 'Setup.hs'; then
+    local haskell_version=$(ghc --version | awk '{print $NF}')
+  fi
+
   export PROMPT_GO_VERSION=$go_version
+  export PROMPT_HASKELL_VERSION=$haskell_version
   export PROMPT_NODE_VERSION=$node_version
   export PROMPT_PYTHON_VERSION=$python_version
   export PROMPT_RUBY_VERSION=$ruby_version
