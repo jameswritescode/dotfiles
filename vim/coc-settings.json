@@ -50,7 +50,11 @@
   "git.topRemovedSign.hlGroup": "JamesDiffDelete",
   "git.topRemovedSign.text": "◥",
 
+  "javascript.validate.enable": false,
+
   "solargraph.useBundler": true,
 
-  "suggest.maxCompleteItemCount": 12
+  "suggest.maxCompleteItemCount": 12,
+
+  "typescript.validate.enable": false
 }
