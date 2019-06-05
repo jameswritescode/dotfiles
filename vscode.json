@@ -3,7 +3,7 @@
     "editor.fontLigatures": true,
     "editor.minimap.enabled": true,
     "extensions.showRecommendationsOnlyOnDemand": true,
-    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.colorTheme": "One Dark Pro Vivid",
     "workbench.statusBar.feedback.visible": false,
 
     "editor.tokenColorCustomizations": {
