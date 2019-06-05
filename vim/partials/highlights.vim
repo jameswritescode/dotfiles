@@ -1,8 +1,9 @@
 function! CustomHighlights() abort
-  hi ALEError       guifg=red
-  hi ALEErrorSign   guifg=red
-  hi ALEWarning     guifg=yellow
-  hi ALEWarningSign guifg=yellow
+  hi ALEError   guifg=red
+  hi ALEWarning guifg=yellow
+
+  hi link ALEErrorSign   ALEError
+  hi link ALEWarningSign ALEWarning
 
   hi JamesDiffAdd    guifg=#98C379
   hi JamesDiffChange guifg=#E5C07B
