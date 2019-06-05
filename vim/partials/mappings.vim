@@ -127,9 +127,10 @@ let g:which_key_map.g = {
 "+lint/lsp
 let g:which_key_map.l = {
       \ 'name': '+lint/lsp',
-      \ 'd':    ['ALEDetail',                   'ale-detail'],
-      \ 'f':    ['<Plug>(coc-format-selected)', 'formatting'],
-      \ 'r':    ['<Plug>(coc-rename)',          'rename'],
+      \ 'c':    [':call CocAction("codeLensAction")', 'code-lens-action'],
+      \ 'd':    ['ALEDetail',                         'ale-detail'],
+      \ 'f':    ['<Plug>(coc-format-selected)',       'formatting'],
+      \ 'r':    ['<Plug>(coc-rename)',                'rename'],
       \ }
 
 let g:which_key_map.l.g = {
