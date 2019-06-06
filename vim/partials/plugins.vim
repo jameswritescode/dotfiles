@@ -109,6 +109,7 @@ let g:ale_linters = {
 " coc-git
 " coc-html
 " coc-json
+" coc-lists
 " coc-python
 " coc-rls
 " coc-solargraph
