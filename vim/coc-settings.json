@@ -52,6 +52,7 @@
   "git.topRemovedSign.hlGroup": "JamesDiffDelete",
   "git.topRemovedSign.text": "◥",
 
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
   "javascript.validate.enable": false,
 
   "solargraph.useBundler": true,
