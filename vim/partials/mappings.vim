@@ -30,7 +30,7 @@ nnoremap k                 gk
 nnoremap <silent> K :call <sid>show_documentation()<cr>
 
 function! s:show_documentation()
-  if &filetype ==# 'vim'
+  if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
     call CocAction('doHover')
@@ -122,6 +122,7 @@ let g:which_key_map.g = {
       \ 'b':    ['Gblame',                     'blame'],
       \ 'c':    [':CocCommand git.chunkInfo',  'chunk-info'],
       \ 's':    [':GFiles?',                   'status'],
+      \ 'u':    [':CocCommand git.chunkUndo',  'chunk-undo'],
       \ }
 
 "+lint/lsp
