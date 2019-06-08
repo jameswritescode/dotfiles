@@ -36,6 +36,16 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/Io-programming-language-syntax'
 Plug 'vim-scripts/applescript.vim'
 
+Plug 'thinca/vim-template'
+augroup vimTemplate
+  au!
+  autocmd User plugin-template-loaded
+        \   if search('<+CURSOR+>')
+        \ |   execute 'normal! "_da>'
+        \ |   execute 'startinsert'
+        \ | endif
+augroup END
+
 Plug 'andymass/vim-matchup'
 let g:matchup_matchparen_deferred = 1
 
