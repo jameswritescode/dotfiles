@@ -138,12 +138,6 @@ let g:projectionist_heuristics = {
 Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
 
-Plug 'jameswritescode/vim-template'
-let g:templates_directory = $DOTFILES . '/vim/templates'
-let g:templates_no_builtin_templates = 1
-let g:templates_tr_in =  ['.',  '*',  ':',  '(',  ')',  '|',  '%',                '&']
-let g:templates_tr_out = ['\.', '.*', '\/', '\(', '\)', '\|', '\/[A-Z]\w\+\.jsx', '\/[a-z]\w\+\.jsx']
-
 Plug 'mhinz/vim-startify'
 let g:startify_custom_header = ['   ' . $PWD]
 
