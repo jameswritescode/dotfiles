@@ -281,9 +281,6 @@ if executable('elixir') " Elixir {{{
 endif " }}}
 
 if executable('rustc') " Rust {{{
-  Plug 'racer-rust/vim-racer', {'for': 'rust'}
-  let g:racer_experimental_completer = 1
-
   Plug 'rust-lang/rust.vim'
   let g:rustfmt_autosave = 1
 endif " }}}
