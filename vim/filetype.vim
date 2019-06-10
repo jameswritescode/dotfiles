@@ -7,8 +7,9 @@ augroup filetypedetect
   autocmd bufread,bufnewfile *.applescript setf applescript
   autocmd bufread,bufnewfile *.config setf yaml
   autocmd bufread,bufnewfile *.io setf io
+  autocmd bufread,bufnewfile *.jsx setf javascript.jsx
   autocmd bufread,bufnewfile *.ts setf typescript
-  autocmd bufread,bufnewfile *.tsx setf typescript.jsx
+  autocmd bufread,bufnewfile *.tsx setf typescript.tsx
   autocmd bufread,bufnewfile *.vim setlocal foldmethod=marker
   autocmd bufread,bufnewfile *.zsh-theme setf zsh
   autocmd bufread,bufnewfile .babelrc setf json
