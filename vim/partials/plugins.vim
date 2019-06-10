@@ -5,6 +5,7 @@ call plug#begin('$DOTFILES/vim/plugged')
 " General {{{
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim'
+Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'chr4/nginx.vim'
 Plug 'editorconfig/editorconfig-vim'
@@ -144,9 +145,6 @@ let g:projectionist_heuristics = {
 \   '*_test.go': { 'alternate': '{}.go', 'type': 'test' }
 \ }
 \}
-
-Plug 'mxw/vim-jsx'
-let g:jsx_ext_required = 0
 
 Plug 'mhinz/vim-startify'
 let g:startify_custom_header = ['   ' . $PWD]

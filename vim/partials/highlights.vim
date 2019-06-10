@@ -16,7 +16,7 @@ function! CustomHighlights() abort
 
   hi WhichKeyGroup guifg=#E06C75 gui=bold
 
-  hi xmlAttrib gui=italic
+  hi jsxAttrib gui=italic guifg=#E5C07B
 endfunction
 
 augroup custom_highlights
