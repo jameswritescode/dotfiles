@@ -41,15 +41,15 @@
     }
   },
 
-  "git.addedSign.hlGroup": "JamesDiffAdd",
+  "git.addedSign.hlGroup": "CustomCocDiffAdd",
   "git.addedSign.text": "┃",
-  "git.changeRemovedSign.hlGroup": "JamesDiffChange",
+  "git.changeRemovedSign.hlGroup": "CustomCocDiffChange",
   "git.changeRemovedSign.text": "◢",
-  "git.changedSign.hlGroup": "JamesDiffChange",
+  "git.changedSign.hlGroup": "CustomCocDiffChange",
   "git.changedSign.text": "┃",
-  "git.removedSign.hlGroup": "JamesDiffDelete",
+  "git.removedSign.hlGroup": "CustomCocDiffDelete",
   "git.removedSign.text": "◢",
-  "git.topRemovedSign.hlGroup": "JamesDiffDelete",
+  "git.topRemovedSign.hlGroup": "CustomCocDiffDelete",
   "git.topRemovedSign.text": "◥",
 
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
