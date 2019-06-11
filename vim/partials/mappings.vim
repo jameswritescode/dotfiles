@@ -128,6 +128,7 @@ let g:which_key_map.g = {
 "+lint/lsp
 let g:which_key_map.l = {
       \ 'name': '+lint/lsp',
+      \ 'a':    ['<Plug>(coc-codeaction)',            'code-action'],
       \ 'c':    [':call CocAction("codeLensAction")', 'code-lens-action'],
       \ 'd':    ['ALEDetail',                         'ale-detail'],
       \ 'f':    ['<Plug>(coc-format-selected)',       'formatting'],

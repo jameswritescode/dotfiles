@@ -38,6 +38,7 @@ set shell=zsh
 set shortmess+=c
 set showcmd
 set showmatch
+set signcolumn=yes
 set splitbelow
 set splitright
 set termguicolors
