@@ -1,7 +1,7 @@
 {
     "editor.fontFamily": "FuraCode Nerd Font",
     "editor.fontLigatures": true,
-    "editor.minimap.enabled": true,
+    "editor.minimap.enabled": false,
     "extensions.showRecommendationsOnlyOnDemand": true,
     "workbench.colorTheme": "One Dark Pro Vivid",
     "workbench.statusBar.feedback.visible": false,
