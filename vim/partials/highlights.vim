@@ -5,9 +5,9 @@ function! CustomHighlights() abort
   hi link ALEErrorSign   ALEError
   hi link ALEWarningSign ALEWarning
 
-  hi JamesDiffAdd    guifg=#98C379
-  hi JamesDiffChange guifg=#E5C07B
-  hi JamesDiffDelete guifg=#E06C75
+  hi CustomCocDiffAdd    guifg=#98C379
+  hi CustomCocDiffChange guifg=#E5C07B
+  hi CustomCocDiffDelete guifg=#E06C75
 
   hi clear MatchParen
   hi MatchParen gui=bold

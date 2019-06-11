@@ -128,7 +128,7 @@ let g:ale_linters = {
 " coc-ultisnips
 " coc-vimlsp
 " coc-yaml
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'do': {-> coc#util#install()}}
 
 Plug 'tpope/vim-projectionist'
 let g:projectionist_heuristics = {
