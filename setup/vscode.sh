@@ -11,4 +11,6 @@ code () {
 }
 
 code --install-extension castwide.solargraph
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension rebornix.ruby
 code --install-extension vscodevim.vim

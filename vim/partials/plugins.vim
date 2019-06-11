@@ -79,7 +79,7 @@ Plug 'mattn/emmet-vim'
 let g:user_emmet_leader_key = ','
 
 let g:user_emmet_settings = {
-\ 'javascript.jsx' : {
+\ 'javascript' : {
 \   'extends' : 'jsx'
 \ }}
 
@@ -99,7 +99,6 @@ let g:airline_theme = 'onedark'
 
 Plug 'w0rp/ale'
 let g:ale_graphql_gqlint_executable = $PWD . '/node_modules/.bin/gqlint'
-let g:ale_javascript_eslint_executable = $PWD . '/node_modules/.bin/eslint'
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_filetype_changed = 1
 let g:ale_lint_on_insert_leave = 1
@@ -110,13 +109,14 @@ let g:ale_sign_warning = '⚠'
 
 let g:ale_linters = {
 \ 'elixir': ['mix', 'dogma'],
-\ 'javascript': ['eslint'],
+\ 'javascript': [],
 \ 'ruby': ['rubocop', 'reek'],
-\ 'typescript': ['eslint', 'tsserver'],
+\ 'typescript': ['tsserver'],
 \}
 
 " CoC Extensions:
 " coc-css
+" coc-eslint
 " coc-git
 " coc-html
 " coc-json
