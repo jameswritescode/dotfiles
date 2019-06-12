@@ -114,21 +114,22 @@ let g:ale_linters = {
 \ 'typescript': ['tsserver'],
 \}
 
-" CoC Extensions:
-" coc-css
-" coc-eslint
-" coc-git
-" coc-html
-" coc-json
-" coc-lists
-" coc-python
-" coc-rls
-" coc-solargraph
-" coc-tsserver
-" coc-ultisnips
-" coc-vimlsp
-" coc-yaml
 Plug 'neoclide/coc.nvim', {'do': {-> coc#util#install()}}
+let g:coc_global_extensions = [
+      \ 'coc-css',
+      \ 'coc-eslint',
+      \ 'coc-git',
+      \ 'coc-html',
+      \ 'coc-json',
+      \ 'coc-lists',
+      \ 'coc-python',
+      \ 'coc-rls',
+      \ 'coc-solargraph',
+      \ 'coc-tsserver',
+      \ 'coc-ultisnips',
+      \ 'coc-vimlsp',
+      \ 'coc-yaml',
+      \ ]
 
 Plug 'tpope/vim-projectionist'
 let g:projectionist_heuristics = {
