@@ -56,10 +56,9 @@
   "git.topRemovedSign.text": "◥",
 
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+  "javascript.validate.enable": false,
 
   "solargraph.useBundler": true,
 
-  "suggest.maxCompleteItemCount": 12,
-
-  "tsserver.enableJavascript": false
+  "suggest.maxCompleteItemCount": 12
 }
