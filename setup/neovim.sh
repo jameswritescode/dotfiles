@@ -16,6 +16,16 @@ install() {
   npm install -g neovim
 }
 
+install_nightly() {
+  pushd /tmp || exit
+    wget https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
+    tar zxf nvim-macos.tar.gz
+    rm -r nvim-macos.tar.gz
+    rm -rf "$HOME/nvim-osx64"
+    mv  "nvim-osx64" "$HOME/nvim-osx64"
+  popd || exit
+}
+
 install_plug() {
   curl -fLo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -49,6 +59,10 @@ update() {
 case "$1" in
   install)
     install
+  ;;
+
+  install_nightly)
+    install_nightly
   ;;
 
   install_plug)
