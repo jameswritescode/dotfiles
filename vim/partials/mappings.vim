@@ -125,14 +125,14 @@ let g:which_key_map.g = {
       \ 'u':    [':CocCommand git.chunkUndo',  'chunk-undo'],
       \ }
 
-"+lint/lsp
+"+ale/coc
 let g:which_key_map.l = {
-      \ 'name': '+lint/lsp',
-      \ 'a':    ['<Plug>(coc-codeaction)',            'code-action'],
-      \ 'c':    [':call CocAction("codeLensAction")', 'code-lens-action'],
-      \ 'd':    ['ALEDetail',                         'ale-detail'],
-      \ 'f':    ['<Plug>(coc-format-selected)',       'formatting'],
-      \ 'r':    ['<Plug>(coc-rename)',                'rename'],
+      \ 'name': '+ale/coc',
+      \ 'a':    ['<Plug>(coc-codeaction)',      'code-action'],
+      \ 'c':    ['<Plug>(coc-codelens-action)', 'code-lens-action'],
+      \ 'd':    ['ALEDetail',                   'ale-detail'],
+      \ 'f':    ['<Plug>(coc-format-selected)', 'formatting'],
+      \ 'r':    ['<Plug>(coc-rename)',          'rename'],
       \ }
 
 let g:which_key_map.l.g = {
