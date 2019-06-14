@@ -19,13 +19,14 @@ nnoremap <left>  1<c-w>>
 nnoremap <right> 1<c-w><
 nnoremap <up>    <c-w>+
 
-nnoremap ;                 :
-nnoremap <silent> <c-p>    <esc>:Files<cr>
-nnoremap <silent> <c-t>    <esc>:tabnew<cr>
-nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
-nnoremap gp                `[v`]
-nnoremap j                 gj
-nnoremap k                 gk
+nnoremap ;                :
+nnoremap <silent>\        <esc>:Buffers<cr>
+nnoremap <silent><c-p>    <esc>:Files<cr>
+nnoremap <silent><c-t>    <esc>:tabnew<cr>
+nnoremap <silent><leader> :<c-u>WhichKey '<Space>'<CR>
+nnoremap gp               `[v`]
+nnoremap j                gj
+nnoremap k                gk
 
 nnoremap <silent> K :call <sid>show_documentation()<cr>
 
@@ -97,9 +98,7 @@ let g:which_key_map.b = {
       \ 'name' : '+buffer' ,
       \ '-':     [':%bd|e#|bd#', 'delete-inactive-buffers'],
       \ '?':     ['Buffers',     'fzf-buffer'],
-      \ 'f':     ['bfirst',      'first-buffer'],
       \ 'h':     ['Startify',    'home-buffer'],
-      \ 'l':     ['blast',       'last-buffer'],
       \ }
 
 " +file/find
