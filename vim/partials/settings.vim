@@ -46,7 +46,6 @@ set textwidth=79
 set timeoutlen=500
 set undodir=~/dotfiles/vim/tmp
 set undofile
-set updatetime=300
 set visualbell
 set wildignore+=*.pdf
 set wildignore+=*.png,*.jpg,*.gif
