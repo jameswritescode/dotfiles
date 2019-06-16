@@ -7,7 +7,6 @@ source ~/dotfiles/vim/partials/mappings.vim
 augroup betterment
   au!
   autocmd TermOpen * setlocal nonumber norelativenumber
-  autocmd VimEnter * :redraw!
   autocmd VimResized * wincmd =
 augroup END
 
