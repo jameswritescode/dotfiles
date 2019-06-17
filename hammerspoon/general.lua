@@ -1,14 +1,21 @@
-hs.hotkey.bind(hyper, 'r', function()
-  hs.reload()
-end)
-
 hs.hotkey.bind(hyper, '\\', function()
   hs.caffeinate.lockScreen()
 end)
 
-hs.hotkey.bind(hyper, 'i', function()
-  hs.application.find('kitty'):activate()
+hs.hotkey.bind(hyper, 'r', function()
+  hs.reload()
 end)
+
+local appkeys = {
+  ['Firefox Developer Edition'] = 'b',
+  ['kitty'] = 'i',
+}
+
+for k, v in pairs(appkeys) do
+  hs.hotkey.bind(hyper, v, function()
+    hs.application.find(k):activate()
+  end)
+end
 
 -- Rebind hyper+hjkl to arrow keys
 local function key_code(key)
