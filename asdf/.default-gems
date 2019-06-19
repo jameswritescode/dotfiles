@@ -4,5 +4,8 @@ neovim
 pry
 reek
 rubocop
+rubocop-performance
+rubocop-rails
+rubocop-rspec
 solargraph
 tmuxinator
