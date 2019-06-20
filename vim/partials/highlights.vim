@@ -14,10 +14,18 @@ function! CustomHighlights() abort
   hi CustomCocDiffChange guifg=#E5C07B
   hi CustomCocDiffDelete guifg=#E06C75
 
+  hi link CocErrorFloat ALEError
   hi link CocErrorLine ALEError
+  hi link CocErrorSign ALEError
+
   hi link CocHintLine CustomCocDiffChange
+  hi link CocHintSign CocHintLine
   hi link CocInfoLine CocHintLine
+  hi link CocInfoSign CocHintLine
+
+  hi link CocWarningFloat ALEWarning
   hi link CocWarningLine ALEWarning
+  hi link CocWarningSign ALEWarning
 
   """""""""""
   " matchup "
