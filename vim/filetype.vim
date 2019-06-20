@@ -13,6 +13,6 @@ augroup filetypedetect
   autocmd bufread,bufnewfile .babelrc setf json
   autocmd bufread,bufnewfile .flowconfig setlocal commentstring=#\ %s
   autocmd bufread,bufnewfile .sequelizerc setf javascript
-  autocmd bufread,bufnewfile Brewfile,*.god,Guardfile setf ruby
+  autocmd bufread,bufnewfile Brewfile,*.god,Guardfile,*.rbi setf ruby
   autocmd bufread,bufnewfile kitty.conf setf kitty
 augroup END

@@ -41,6 +41,13 @@
     "lua": {
       "command": "lua-lsp",
       "filetypes": ["lua"]
+    },
+
+    "sorbet": {
+      "args": ["tc", "--lsp"],
+      "command": "srb",
+      "filetypes": ["ruby"],
+      "rootPatterns": ["Gemfile"]
     }
   },
 
