@@ -11,7 +11,8 @@ function! s:number_to_char(num) abort
 endfunction
 
 function! airline#extensions#tabline#formatters#james#format(bufnr, buffers)
-    return s:number_to_char(a:bufnr)
-                \ . '› '
-                \ . fnamemodify(bufname(a:bufnr), ':t')
+    " return s:number_to_char(a:bufnr)
+    "             \ . '› '
+    "             \ . fnamemodify(bufname(a:bufnr), ':t')
+    return fnamemodify(bufname(a:bufnr), ':t')
 endfunction
