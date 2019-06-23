@@ -34,6 +34,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/Io-programming-language-syntax'
 Plug 'vim-scripts/applescript.vim'
 
@@ -52,9 +53,6 @@ let g:matchup_matchparen_deferred = 1
 
 Plug 'pangloss/vim-javascript'
 let g:javascript_plugin_flow = 1
-
-Plug 'justinmk/vim-dirvish'
-let g:dirvish_mode = ':sort ,^.*[\/],'
 
 Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!', 'WhichKeyVisual', 'WhichKeyVisual!']}
 let g:which_key_hspace = 40
