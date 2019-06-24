@@ -88,49 +88,6 @@ export default function `!p snip.rv = snip.basename`(WrappedComponent) {
 }
 endsnippet
 
-snippet rc "React Component"
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-
-class `!p snip.rv = snip.basename` extends Component {
-  static propTypes = {
-  }
-
-  static defaultProps = {
-  }
-
-  state = {
-  }
-
-  render() {
-    return (
-      ${0:// statements}
-    );
-  }
-}
-
-export default `!p snip.rv = snip.basename`;
-endsnippet
-
-snippet rf "React Function"
-import PropTypes from 'prop-types';
-import React from 'react';
-
-function `!p snip.rv = snip.basename`(${1:props}) {
-  return (
-    ${0:// statements}
-  );
-}
-
-`!p snip.rv = snip.basename`.propTypes = {
-};
-
-`!p snip.rv = snip.basename`.defaultProps = {
-};
-
-export default `!p snip.rv = snip.basename`;
-endsnippet
-
 snippet dst "Destructuring State"
 ${1:const} { ${0:variables} } = this.state;
 endsnippet
@@ -175,14 +132,6 @@ snippet ptsh "PropType.shape"
 PropType.shape({
   ${2:key}: ${0:value},
 })${1:.isRequired}
-endsnippet
-
-snippet iintl "import intl from 'react-intl-universal'"
-import intl from 'react-intl-universal';
-endsnippet
-
-snippet styled "import styled from 'styled-components'"
-import styled from 'styled-components';
 endsnippet
 
 snippet me "module.exports"
