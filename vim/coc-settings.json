@@ -44,10 +44,10 @@
     },
 
     "sorbet": {
-      "args": ["tc", "--lsp"],
+      "args": ["tc", "--lsp", "--enable-all-experimental-lsp-features"],
       "command": "srb",
       "filetypes": ["ruby"],
-      "rootPatterns": ["Gemfile"]
+      "rootPatterns": ["sorbet/config"]
     }
   },
 
