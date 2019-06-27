@@ -29,13 +29,11 @@
     "go": {
       "command": "gopls",
       "filetypes": ["go"],
-      "rootPatterns": ["go.mod", ".git/"]
     },
 
     "haskell": {
       "command": "hie-wrapper",
       "filetypes": ["hs", "haskell"],
-      "rootPatterns": [".stack.yaml", "cabel.config", "package.yaml"]
     },
 
     "lua": {
@@ -64,8 +62,6 @@
 
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
   "javascript.validate.enable": false,
-
-  "solargraph.useBundler": true,
 
   "suggest.maxCompleteItemCount": 12
 }
