@@ -7,7 +7,7 @@ hs.hotkey.bind(hyper, 'r', function()
 end)
 
 local appkeys = {
-  ['Firefox Developer Edition'] = 'b',
+  ['Brave Browser'] = 'b',
   ['kitty'] = 'i',
 }
 
