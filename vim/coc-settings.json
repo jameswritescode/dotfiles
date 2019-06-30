@@ -13,11 +13,6 @@
       "filetypes": ["dockerfile"]
     },
 
-    "elixirLS": {
-      "command": "~/dotfiles/vim/langserver/elixir-ls/release/language_server.sh",
-      "filetypes": ["elixir", "eelixir"]
-    },
-
     "flow": {
       "args": ["lsp"],
       "command": "node_modules/.bin/flow",
