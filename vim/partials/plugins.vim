@@ -108,7 +108,7 @@ let g:ale_sign_warning = '⚠'
 " TODO: Disable sh and install coc-sh once tree-sitter supports node 12:
 " https://github.com/tree-sitter/node-tree-sitter/pull/45
 let g:ale_linters = {
-\ 'elixir': ['mix', 'dogma'],
+\ 'elixir': [],
 \ 'javascript': [],
 \ 'ruby': ['rubocop', 'reek'],
 \ 'typescript': ['tsserver'],
@@ -117,6 +117,7 @@ let g:ale_linters = {
 Plug 'neoclide/coc.nvim', {'do': {-> coc#util#install()}}
 let g:coc_global_extensions = [
       \ 'coc-css',
+      \ 'coc-elixir',
       \ 'coc-eslint',
       \ 'coc-git',
       \ 'coc-html',
