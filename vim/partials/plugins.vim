@@ -114,7 +114,7 @@ let g:ale_linters = {
 \ 'typescript': ['tsserver'],
 \}
 
-Plug 'neoclide/coc.nvim', {'do': {-> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
       \ 'coc-css',
       \ 'coc-elixir',
@@ -217,14 +217,11 @@ if executable('rails') " Rails {{{
         \   'app/graphql/resolvers/*.rb': {
         \     'command': 'resolver'
         \   },
-        \   'app/graphql/input_types/*_type.rb': {
+        \   'app/graphql/input_types/*_input.rb': {
         \     'command': 'input'
         \   },
-        \   'app/graphql/types/*_type.rb': {
+        \   'app/graphql/types/*.rb': {
         \     'command': 'type'
-        \   },
-        \   'app/graphql/union_types/*_type.rb': {
-        \     'command': 'union'
         \   },
         \   'app/graphql/mutations/*.rb': {
         \     'command': 'mutation'
