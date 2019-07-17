@@ -127,6 +127,7 @@ let g:which_key_map.g = {
 "+ale/coc
 let g:which_key_map.l = {
       \ 'name': '+ale/coc',
+      \ 'R':    ['CocRestart',                  'coc-restart'],
       \ 'a':    ['<Plug>(coc-codeaction)',      'code-action'],
       \ 'c':    ['<Plug>(coc-codelens-action)', 'code-lens-action'],
       \ 'd':    ['ALEDetail',                   'ale-detail'],
