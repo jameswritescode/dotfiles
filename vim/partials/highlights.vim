@@ -2,10 +2,10 @@ function! CustomHighlights() abort
   """""""
   " ale "
   """""""
-  hi ALEError   guifg=red
-  hi ALEWarning guifg=yellow
-  hi link ALEErrorSign ALEError
-  hi link ALEWarningSign ALEWarning
+  hi ALEError   guifg=red gui=underline
+  hi ALEErrorSign guifg=red
+  hi ALEWarning guifg=yellow gui=underline
+  hi ALEWarningSign guifg=yellow
 
   """"""""""""
   " coc.nvim "
@@ -14,18 +14,18 @@ function! CustomHighlights() abort
   hi CustomCocDiffChange guifg=#E5C07B
   hi CustomCocDiffDelete guifg=#E06C75
 
-  hi link CocErrorFloat ALEError
-  hi link CocErrorLine ALEError
-  hi link CocErrorSign ALEError
+  hi CocErrorHighlight guifg=red gui=underline
+  hi link CocErrorFloat ALEErrorSign
+  hi link CocErrorSign ALEErrorSign
 
   hi link CocHintLine CustomCocDiffChange
   hi link CocHintSign CocHintLine
   hi link CocInfoLine CocHintLine
   hi link CocInfoSign CocHintLine
 
-  hi link CocWarningFloat ALEWarning
-  hi link CocWarningLine ALEWarning
-  hi link CocWarningSign ALEWarning
+  hi CocWarningHighlight guifg=yellow gui=underline
+  hi link CocWarningFloat ALEWarningSign
+  hi link CocWarningSign ALEWarningSign
 
   """""""""""
   " matchup "
