@@ -85,7 +85,7 @@ Plug 'vim-airline/vim-airline'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'james'
-let g:airline#extensions#tabline#ignore_bufadd_pat = 'startify|term://'
+let g:airline#extensions#tabline#ignore_bufadd_pat = 'term://'
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tabline#show_splits = 0
@@ -148,9 +148,6 @@ let g:projectionist_heuristics = {
 \   '*_test.go': { 'alternate': '{}.go', 'type': 'test' }
 \ }
 \}
-
-Plug 'mhinz/vim-startify'
-let g:startify_custom_header = ['   ' . $PWD]
 
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
