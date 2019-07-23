@@ -102,8 +102,8 @@ let g:ale_lint_on_filetype_changed = 1
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'normal'
-let g:ale_sign_error = '✖'
-let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = g:ale_sign_error
 
 " TODO: Disable sh and install coc-sh once tree-sitter supports node 12:
 " https://github.com/tree-sitter/node-tree-sitter/pull/45

@@ -1,11 +1,11 @@
 {
   "codeLens.enable": true,
 
-  "diagnostic.errorSign": "✖",
+  "diagnostic.errorSign": "●",
   "diagnostic.hintSign": "☞",
   "diagnostic.infoSign": "ⓘ",
   "diagnostic.maxWindowHeight": 20,
-  "diagnostic.warningSign": "⚠",
+  "diagnostic.warningSign": "●",
 
   "languageserver": {
     "docker": {
