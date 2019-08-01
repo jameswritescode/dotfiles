@@ -95,7 +95,7 @@ let g:airline#extensions#tabline#show_tabs = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'onedark'
 
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 let g:ale_graphql_gqlint_executable = $PWD . '/node_modules/.bin/gqlint'
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_filetype_changed = 1
