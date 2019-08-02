@@ -42,8 +42,15 @@ function! FloatingWin()
         \ }
 
   let l:buf = nvim_create_buf(v:false, v:true)
+  let l:win = nvim_open_win(l:buf, v:true, l:opts)
 
-  return nvim_open_win(l:buf, v:true, l:opts)
+  setlocal
+        \ buftype=nofile
+        \ nobuflisted
+        \ bufhidden=hide
+        \ nonumber
+        \ norelativenumber
+        \ signcolumn=no
 endfunction
 
 function! <SID>SynStack()
