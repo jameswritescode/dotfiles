@@ -131,6 +131,7 @@ let g:which_key_map.l = {
       \ 'c':    ['<Plug>(coc-codelens-action)', 'code-lens-action'],
       \ 'd':    ['ALEDetail',                   'ale-detail'],
       \ 'f':    ['<Plug>(coc-format-selected)', 'formatting'],
+      \ 'o':    ['lopen',                       'lopen'],
       \ 'r':    ['<Plug>(coc-rename)',          'rename'],
       \ }
 
