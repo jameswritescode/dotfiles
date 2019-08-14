@@ -1,5 +1,3 @@
-" TODO: Squash squiggle/dash regions into one region.
-
 let s:bcs = b:current_syntax
 unlet b:current_syntax
 syntax include @SQL syntax/sql.vim

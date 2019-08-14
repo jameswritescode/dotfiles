@@ -28,7 +28,6 @@ Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-haml'
-Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-speeddating'
@@ -37,6 +36,12 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/Io-programming-language-syntax'
 Plug 'vim-scripts/applescript.vim'
+
+Plug 'tpope/vim-markdown'
+let g:markdown_fenced_languages = ['vim', 'typescript', 'help']
+
+Plug 'liuchengxu/graphviz.vim'
+let g:graphviz_shell_option = '-Kcirco'
 
 Plug 'thinca/vim-template'
 augroup vimTemplate
@@ -83,6 +88,7 @@ let g:user_emmet_settings = {
 
 Plug 'vim-airline/vim-airline'
 let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#coc#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'james'
 let g:airline#extensions#tabline#ignore_bufadd_pat = 'term://'
