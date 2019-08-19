@@ -53,6 +53,7 @@ syn keyword kittyFunction macos_hide_from_tasks
 syn keyword kittyFunction macos_quit_when_last_window_closed
 syn keyword kittyFunction macos_window_resizable macos_thicken_font
 syn keyword kittyFunction macos_traditional_fullscreen macos_custom_beam_cursor
+syn keyword kittyFunction macos_show_window_title_in
 
 syn keyword kittyFunction kitty_mod clear_all_shortcuts map include
 
@@ -80,7 +81,7 @@ syn keyword kittyStatement set_tab_title next_layout goto_layout
 syn keyword kittyStatement last_used_layout change_font_size kitten
 syn keyword kittyStatement toggle_fullscreen edit_config_file kitty_shell
 syn keyword kittyStatement set_background_opacity clear_terminal send_text
-syn keyword kittyStatement super
+syn keyword kittyStatement super all window menubar
 
 syn match kittyComment "^#.*$"
 
