@@ -20,9 +20,9 @@ nnoremap <right> 1<c-w><
 nnoremap <up>    <c-w>+
 
 nnoremap ;                :
-nnoremap <c-w>m           :wincmd _<bar>wincmd <bar><cr>
 nnoremap <silent><c-p>    <esc>:Files<cr>
 nnoremap <silent><c-t>    <esc>:tabnew<cr>
+nnoremap <silent><c-w>m   :wincmd _<bar>wincmd <bar><cr>
 nnoremap <silent><leader> :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent>\        <esc>:Buffers<cr>
 nnoremap gp               `[v`]
