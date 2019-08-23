@@ -1,5 +1,6 @@
 #!/bin/bash
 
-LATEST_STABLE_NODE=$(asdf list-all nodejs | tail -n 1)
-asdf install nodejs "$LATEST_STABLE_NODE"
-asdf global nodejs "$LATEST_STABLE_NODE"
+# shellcheck source=/dev/null
+source "${BASH_SOURCE%/*}/helpers/asdf.sh"
+
+asdf_install nodejs
