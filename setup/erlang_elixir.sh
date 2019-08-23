@@ -1,16 +1,10 @@
 #!/bin/bash
 
-latest_version() {
-  asdf list-all "$1" | grep -E '^(\d+\.?){3}$' | tail -n 1
-}
+# shellcheck source=/dev/null
+source "${BASH_SOURCE%/*}/helpers/asdf.sh"
 
-install_version() {
-  asdf install "$1" "$2"
-  asdf global "$1" "$2"
-}
-
-install_version erlang "$(latest_version erlang)"
-install_version elixir "$(latest_version elixir)"
+asdf_install erlang
+asdf_install elixir
 
 mix local.hex --force
 mix local.rebar --force
