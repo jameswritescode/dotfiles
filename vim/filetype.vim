@@ -15,4 +15,7 @@ augroup filetypedetect
   autocmd bufread,bufnewfile .sequelizerc setf javascript
   autocmd bufread,bufnewfile Brewfile,*.god,Guardfile,*.rbi setf ruby
   autocmd bufread,bufnewfile kitty.conf setf kitty
+
+  " TODO: Remove once vim/neovim/plugins have their ft's sorted out
+  autocmd bufread,bufnewfile *.jsx setf javascript.jsx
 augroup END
