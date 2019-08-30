@@ -24,7 +24,7 @@ read -r -d '' JSON <<-JSON
 JSON
 
   curl \
-    -H "Authorization: Bearer $GITHUB_TOKEN" \
+    -H "Authorization: token $GITHUB_TOKEN" \
     -X POST \
     -d "$JSON" \
     --silent \
