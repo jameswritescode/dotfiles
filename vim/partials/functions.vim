@@ -58,3 +58,49 @@ function! <SID>SynStack()
 endfunc
 
 command! -bang -nargs=0 SynStack call <SID>SynStack()
+
+let s:repls = {
+      \ 'elixir': 'iex -S mix',
+      \ 'ruby': 'rails console',
+      \ }
+
+function! Repl()
+  if has_key(s:repls, &filetype)
+    let l:repl = s:repls[&filetype]
+
+    execute 'wincmd s | terminal ' . l:repl
+  else
+    echo 'no repl'
+  endif
+endfunction
+
+let s:runners = {
+      \ 'elixir': 'elixir',
+      \ 'haskell': 'runhaskell',
+      \ 'io': 'io',
+      \ 'javascript': 'node',
+      \ 'lua': 'lua',
+      \ 'perl': 'perl',
+      \ 'php': 'php',
+      \ 'python': 'python',
+      \ 'ruby': 'ruby',
+      \ 'rust': 'rustc',
+      \ 'sh': 'sh',
+      \ 'zsh': 'zsh',
+      \ }
+
+function! RunFile()
+  let l:filetype = split(&filetype, '\\.')[0]
+
+  if has_key(s:runners, l:filetype)
+    let l:runner = s:runners[l:filetype]
+
+    execute 'wincmd v | terminal ' . l:runner . ' ' . expand('%:p')
+  else
+    echo 'no runner'
+  endif
+endfunction
+
+function! TabControl(tab_cmd, buf_cmd) abort
+  exec tabpagenr('$') > 1 ? a:tab_cmd : a:buf_cmd
+endfunction
