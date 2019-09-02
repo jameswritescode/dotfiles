@@ -1,4 +1,6 @@
 {
+  "coc.preferences.formatOnSaveFiletypes": ["elixir"],
+
   "codeLens.enable": true,
 
   "diagnostic.errorSign": "●",

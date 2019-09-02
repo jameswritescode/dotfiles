@@ -274,12 +274,9 @@ if executable('swift') " Swift {{{
 endif " }}}
 
 if executable('elixir') " Elixir {{{
-  Plug 'elixir-editors/vim-elixir'
+  Plug 'andyl/vim-textobj-elixir'
   Plug 'c-brenn/phoenix.vim'
-
-  Plug 'mhinz/vim-mix-format'
-  let g:mix_format_on_save = 1
-  let g:mix_format_silent_errors = 1
+  Plug 'elixir-editors/vim-elixir'
 endif " }}}
 
 if executable('rustc') " Rust {{{
