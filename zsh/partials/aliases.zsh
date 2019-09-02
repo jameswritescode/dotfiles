@@ -64,6 +64,9 @@ alias jv="jira view"
 
 # k8s
 alias k="kubectl"
+alias kg="kubectl get"
+alias kp="kubectl proxy"
+alias mk="minikube"
 
 # kitty
 if ! [[ -z $KITTY_WINDOW_ID ]]; then
