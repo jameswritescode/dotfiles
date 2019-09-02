@@ -39,14 +39,8 @@ function! s:show_documentation()
   endif
 endfunction
 
-nnoremap <silent> H :call <sid>tabline_control('tabp', 'bp')<cr>
-nnoremap <silent> L :call <sid>tabline_control('tabn', 'bn')<cr>
-
-function! s:tabline_control(tab_cmd, buf_cmd) abort
-  let a:tabnrs = []
-
-  exec tabpagenr('$') > 1 ? a:tab_cmd : a:buf_cmd
-endfunction
+nnoremap <silent> H :call TabControl('tabp', 'bp')<cr>
+nnoremap <silent> L :call TabControl('tabn', 'bn')<cr>
 
 vnoremap <c-c>             y:call system("pbcopy", getreg("\""))<cr>
 vnoremap <silent><leader>  :<c-u>WhichKeyVisual '<Space>'<CR>
@@ -63,36 +57,6 @@ let g:which_key_map = {}
 
 nnoremap <silent><leader>q :noh<cr>
 let g:which_key_map.q =    'no-highlight'
-
-nnoremap <silent><leader>r :call <sid>run_file()<cr>
-let g:which_key_map.r =    'run'
-
-let s:runners = {
-      \ 'elixir': 'elixir',
-      \ 'haskell': 'runhaskell',
-      \ 'io': 'io',
-      \ 'javascript': 'node',
-      \ 'lua': 'lua',
-      \ 'perl': 'perl',
-      \ 'php': 'php',
-      \ 'python': 'python',
-      \ 'ruby': 'ruby',
-      \ 'rust': 'rustc',
-      \ 'sh': 'sh',
-      \ 'zsh': 'zsh',
-      \ }
-
-function! s:run_file()
-  let l:filetype = split(&filetype, '\\.')[0]
-
-  if has_key(s:runners, l:filetype)
-    let l:runner = s:runners[l:filetype]
-
-    execute 'wincmd v | terminal ' . l:runner . ' ' . expand('%:p')
-  else
-    echo 'no runner'
-  endif
-endfunction
 
 " +buffer
 let g:which_key_map.b = {
@@ -145,10 +109,12 @@ let g:which_key_map.l.g = {
 
 " +test/toggle
 let g:which_key_map.t = {
-      \ 'name': '+test/toggle',
-      \ 'f':    ['TestFile',        'test-file'],
-      \ 'n':    ['TestNearest',     'test-near'],
+      \ 'name': '+terminal/toggle',
+      \ 'c':    [':call Repl()',     'repl'],
+      \ 'f':    ['TestFile',         'test-file'],
+      \ 'n':    ['TestNearest',      'test-near'],
       \ 'p':    [':setlocal paste!', 'paste-mode'],
+      \ 'r':    [':call RunFile()',  'run'],
       \ }
 
 nnoremap <silent><leader>s :sort<cr>
