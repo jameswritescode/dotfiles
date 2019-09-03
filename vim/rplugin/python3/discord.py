@@ -19,12 +19,12 @@ if os.environ.get('DISCORD_DEBUG'):
     fh.setFormatter(formatter)
     logger.addHandler(fh)
 
-class Opcodes(Enum):
-    HANDSHAKE = 0
-    FRAME = 1
-    CLOSE = 2
-
 class RPCClient:
+    class Opcodes(Enum):
+        HANDSHAKE = 0
+        FRAME = 1
+        CLOSE = 2
+
     def __init__(self):
         self.socket = None
         self.connected = False
@@ -52,23 +52,23 @@ class RPCClient:
         self.send({
             'client_id': os.environ['DISCORD_CLIENT_ID'],
             'v': 1,
-        }, Opcodes.HANDSHAKE)
+        }, self.Opcodes.HANDSHAKE)
 
         op, data = self.recv(8)
 
-        if op == Opcodes.FRAME.value and data['cmd'] == 'DISPATCH' and data['evt'] == 'READY':
+        if op == self.Opcodes.FRAME.value and data['evt'] == 'READY':
             return
         else:
-            if op == Opcodes.CLOSE.value:
+            if op == self.Opcodes.CLOSE.value:
                 self.close()
 
             raise RuntimeError(data)
 
     def close(self):
-        self.send({}, Opcodes.CLOSE)
+        self.send({}, self.Opcodes.CLOSE)
         self.socket.close()
 
-    def send(self, data, opcode: Opcodes):
+    def send(self, data, opcode):
         opcode_value = opcode.value
         payload = json.dumps(data).encode('utf-8')
         header = struct.pack('<II', opcode_value, len(payload))
@@ -107,7 +107,7 @@ class RPCClient:
             'cmd': 'SET_ACTIVITY',
             'args': { 'pid': os.getpid(), 'activity': activity },
             'nonce': str(uuid4())
-        }, Opcodes.FRAME)
+        }, self.Opcodes.FRAME)
 
 @pynvim.plugin
 class DiscordPlugin:
