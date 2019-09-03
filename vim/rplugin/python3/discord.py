@@ -80,7 +80,8 @@ class RPCClient:
             self.socket.sendall(payload)
         except:
             self.connect()
-            self.send(data, opcode)
+
+            if self.connected: self.send(data, opcode)
 
     def recv(self, size):
         op, length = struct.unpack('<II', self.get_from_buffer(size))
