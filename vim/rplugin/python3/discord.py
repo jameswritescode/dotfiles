@@ -109,12 +109,12 @@ class RPCClient:
             'nonce': str(uuid4())
         }, Opcodes.FRAME)
 
-FT_OVERRIDES = {
-    'javascriptreact': 'react',
-}
-
 @pynvim.plugin
 class DiscordPlugin:
+    FT_OVERRIDES = {
+        'javascriptreact': 'react',
+    }
+
     def __init__(self, nvim):
         self.client = RPCClient()
         self.nvim = nvim
@@ -124,7 +124,7 @@ class DiscordPlugin:
 
         current_buffer = self.nvim.current.buffer
         filetype = current_buffer.options['filetype']
-        ft_info = FT_OVERRIDES.get(filetype, filetype)
+        ft_info = self.FT_OVERRIDES.get(filetype, filetype)
 
         self.client.set_activity({
             'details': f'Editing {os.path.basename(current_buffer.name)}',
