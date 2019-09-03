@@ -61,6 +61,7 @@ command! -bang -nargs=0 SynStack call <SID>SynStack()
 
 let s:repls = {
       \ 'elixir': 'iex -S mix',
+      \ 'python': 'python3',
       \ 'ruby': 'rails console',
       \ }
 
