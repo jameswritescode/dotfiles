@@ -116,6 +116,7 @@ let g:ale_sign_warning = g:ale_sign_error
 let g:ale_linters = {
 \ 'elixir': [],
 \ 'javascript': [],
+\ 'python': [],
 \ 'ruby': ['reek'],
 \ 'typescript': ['tsserver'],
 \}
