@@ -58,7 +58,7 @@ update() {
   update_python
   gem update neovim
   npm install -g neovim
-  "$CLIENTPATH"/bin/nvim +PlugUpgrade +PlugUpdate +qall >/dev/null
+  "$CLIENTPATH"/bin/nvim +PlugUpgrade +PlugUpdate +UpdateRemotePlugins +qall >/dev/null
 }
 
 case "$1" in
