@@ -147,13 +147,13 @@ class DiscordPlugin:
         self.client.connected: self.client.socket.close()
 
     @pynvim.autocmd('BufEnter')
-    def on_buf_enter(self, _eval):
+    def on_buf_enter(self):
         self.update()
 
     @pynvim.autocmd('BufRead')
-    def on_buf_read(self, _eval):
+    def on_buf_read(self):
         self.update()
 
     @pynvim.autocmd('BufNewFile')
-    def on_buf_new_file(self, _eval):
+    def on_buf_new_file(self):
         self.update()
