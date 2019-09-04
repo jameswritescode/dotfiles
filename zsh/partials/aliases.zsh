@@ -60,6 +60,7 @@ alias gsl="git stash list"
 alias gss="git stash show"
 alias gst="git status"
 alias gt="git tag"
+alias gw="git worktree"
 
 # jira
 alias jo="jira browse"
