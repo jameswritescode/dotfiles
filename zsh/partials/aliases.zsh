@@ -28,6 +28,9 @@ alias dri="docker rmi"
 alias drm="docker rm"
 alias ds="docker stop"
 
+# docker-compose
+alias dcu="docker-compose up"
+
 # git
 alias ga="git add -A"
 alias gap="git add -p"
