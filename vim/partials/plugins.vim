@@ -126,6 +126,7 @@ let g:coc_global_extensions = [
       \ 'coc-css',
       \ 'coc-elixir',
       \ 'coc-eslint',
+      \ 'coc-flow',
       \ 'coc-git',
       \ 'coc-html',
       \ 'coc-import-cost',
