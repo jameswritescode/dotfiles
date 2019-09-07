@@ -16,14 +16,6 @@
       "filetypes": ["dockerfile"]
     },
 
-    "flow": {
-      "args": ["lsp"],
-      "command": "node_modules/.bin/flow",
-      "filetypes": ["javascript", "javascriptreact"],
-      "requireRootPattern": true,
-      "rootPatterns": [".flowconfig"]
-    },
-
     "go": {
       "command": "gopls",
       "filetypes": ["go"],
