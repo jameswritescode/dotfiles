@@ -4,11 +4,12 @@ import os
 import socket
 import struct
 from enum import Enum
+from re import match
 from socket import AF_UNIX, socket
 from time import time
 from uuid import uuid4
 
-import pynvim  # pylint: disable=E0401
+import pynvim # pylint: disable=E0401
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -35,16 +36,6 @@ class RPCClient:
             self.socket.connect(os.path.join(os.environ['TMPDIR'], 'discord-ipc-0'))
             self.handshake()
             self.connected = True
-
-            self.set_activity({
-                'details': 'Idling',
-                'state': 'Idling',
-
-                'assets': {
-                    'large_image': 'neovim-small',
-                    'large_text': 'Idling',
-                }
-            })
         except OSError:
             pass
 
@@ -101,8 +92,14 @@ class RPCClient:
 
         return content
 
-    def set_activity(self, activity):
-        activity['timestamps'] = { 'start': int(time()) }
+    def set_activity(self, details=None, state=None, assets={}):
+        activity = {
+            'assets': assets,
+            'timestamps': { 'start': int(time()) }
+        }
+
+        if details: activity['details'] = details
+        if state: activity['state'] = state
 
         self.send({
             'cmd': 'SET_ACTIVITY',
@@ -113,7 +110,13 @@ class RPCClient:
 @pynvim.plugin
 class DiscordPlugin:
     FT_OVERRIDES = {
+        'dockerfile': 'docker',
         'javascriptreact': 'react',
+    }
+
+    FT_REGEX = {
+        r'Procfile': 'heroku',
+        r'docker-compose\.yml': 'docker',
     }
 
     def __init__(self, nvim):
@@ -124,23 +127,42 @@ class DiscordPlugin:
         if not self.client.connected: return
 
         current_buffer = self.nvim.current.buffer
+        filename = os.path.basename(current_buffer.name)
         filetype = current_buffer.options['filetype']
-        ft_info = self.FT_OVERRIDES.get(filetype, filetype)
+        ft_info = self.FT_OVERRIDES.get(filetype)
 
-        self.client.set_activity({
-            'details': f'Editing {os.path.basename(current_buffer.name)}',
+        if not ft_info:
+            for regex, ft in self.FT_REGEX.items():
+                if match(regex, filename):
+                    ft_info = ft
+                    break
 
-            'assets': {
-                'large_image': ft_info or 'neovim-logo',
-                'large_text': f'Editing a {ft_info.upper()} file',
-                'small_image': 'neovim-small',
-                'small_text': 'Neovim'
-            }
-        })
+        ft_info = ft_info or filetype
+
+        if not ft_info:
+            self.client.set_activity(
+                details='Idling',
+                state='Idling',
+                assets={
+                    'large_image': 'neovim-logo',
+                    'large_text': 'Idling',
+                },
+            )
+        else:
+            self.client.set_activity(
+                details=f'Editing {filename}',
+                assets={
+                    'large_image': ft_info or 'neovim-logo',
+                    'large_text': f'Editing a {ft_info.upper()} file',
+                    'small_image': 'neovim-small',
+                    'small_text': 'Neovim'
+                },
+            )
 
     @pynvim.autocmd('VimEnter')
     def on_vim_enter(self):
         self.client.connect()
+        self.update()
 
     @pynvim.autocmd('VimLeave')
     def on_vim_leave(self):
