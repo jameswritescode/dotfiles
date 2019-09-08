@@ -111,6 +111,7 @@ class RPCClient:
 class DiscordPlugin:
     FT_OVERRIDES = {
         'dockerfile': 'docker',
+        'gitcommit': 'git',
         'javascriptreact': 'react',
     }
 

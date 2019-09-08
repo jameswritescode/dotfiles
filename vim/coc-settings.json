@@ -32,8 +32,8 @@
     },
 
     "sorbet": {
-      "args": ["tc", "--lsp", "--enable-all-experimental-lsp-features"],
-      "command": "srb",
+      "args": ["exec", "srb", "tc", "--lsp", "--enable-all-experimental-lsp-features"],
+      "command": "bundle",
       "filetypes": ["ruby"],
       "rootPatterns": ["sorbet/config"]
     }
