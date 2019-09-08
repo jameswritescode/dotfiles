@@ -27,3 +27,5 @@ setup/z.sh
 __pycache__
 
 profile.log
+
+.vim/
