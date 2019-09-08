@@ -10,6 +10,14 @@
   "diagnostic.warningSign": "●",
 
   "languageserver": {
+     "cquery": {
+      "command": "cquery",
+      "filetypes": ["c", "cpp"],
+      "initializationOptions": {
+        "cacheDirectory": "/tmp/cquery"
+      }
+    },
+
     "docker": {
       "args": ["--stdio"],
       "command": "docker-langserver",
