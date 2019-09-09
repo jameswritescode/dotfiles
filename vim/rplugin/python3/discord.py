@@ -4,7 +4,7 @@ import os
 import socket
 import struct
 from enum import Enum
-from re import match
+from re import search
 from socket import AF_UNIX, socket
 from time import time
 from uuid import uuid4
@@ -117,6 +117,7 @@ class DiscordPlugin:
 
     FT_REGEX = {
         r'Procfile': 'heroku',
+        r'\.s(c|a)ss': 'sass',
         r'docker-compose\.yml': 'docker',
     }
 
@@ -134,7 +135,7 @@ class DiscordPlugin:
 
         if not ft_info:
             for regex, ft in self.FT_REGEX.items():
-                if match(regex, filename):
+                if search(regex, filename):
                     ft_info = ft
                     break
 
