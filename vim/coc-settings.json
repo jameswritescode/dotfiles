@@ -10,12 +10,14 @@
   "diagnostic.warningSign": "●",
 
   "languageserver": {
-     "cquery": {
-      "command": "cquery",
+    "ccls": {
+      "command": "ccls",
       "filetypes": ["c", "cpp"],
       "initializationOptions": {
-        "cacheDirectory": "/tmp/cquery"
-      }
+         "cache": {
+           "directory": "/tmp/ccls"
+         }
+       }
     },
 
     "docker": {
