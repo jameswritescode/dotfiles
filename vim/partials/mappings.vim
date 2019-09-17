@@ -90,11 +90,12 @@ let g:which_key_map.g = {
 "+ale/coc
 let g:which_key_map.l = {
       \ 'name': '+ale/coc',
+      \ 'F':    ['<Plug>(coc-smartf-backward)',  'find-forward'],
       \ 'R':    ['CocRestart',                  'coc-restart'],
       \ 'a':    ['<Plug>(coc-codeaction)',      'code-action'],
       \ 'c':    ['<Plug>(coc-codelens-action)', 'code-lens-action'],
       \ 'd':    ['ALEDetail',                   'ale-detail'],
-      \ 'f':    ['<Plug>(coc-format-selected)', 'formatting'],
+      \ 'f':    ['<Plug>(coc-smartf-forward)',  'find-forward'],
       \ 'o':    ['lopen',                       'lopen'],
       \ 'r':    ['<Plug>(coc-rename)',          'rename'],
       \ }
