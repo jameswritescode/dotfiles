@@ -135,6 +135,7 @@ let g:coc_global_extensions = [
       \ 'coc-lists',
       \ 'coc-python',
       \ 'coc-rls',
+      \ 'coc-smartf',
       \ 'coc-solargraph',
       \ 'coc-tsserver',
       \ 'coc-ultisnips',
