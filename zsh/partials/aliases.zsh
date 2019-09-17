@@ -21,6 +21,7 @@ alias es="eb status"
 
 # docker
 alias db="docker build"
+alias dbt="docker build -t"
 alias di="docker images"
 alias dps="docker ps -a"
 alias dr="docker run"
@@ -29,6 +30,7 @@ alias drm="docker rm"
 alias ds="docker stop"
 
 # docker-compose
+alias dcs="docker-compose stop"
 alias dcu="docker-compose up"
 
 # git
