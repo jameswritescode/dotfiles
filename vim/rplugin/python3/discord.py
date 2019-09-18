@@ -118,6 +118,7 @@ class DiscordPlugin:
     FT_REGEX = {
         r'Procfile': 'heroku',
         r'\.s(c|a)ss': 'sass',
+        r'_spec\.rb$': 'rspec',
         r'docker-compose\.yml': 'docker',
     }
 
@@ -133,13 +134,12 @@ class DiscordPlugin:
         filetype = current_buffer.options['filetype']
         ft_info = self.FT_OVERRIDES.get(filetype)
 
-        if not ft_info:
-            for regex, ft in self.FT_REGEX.items():
-                if search(regex, filename):
-                    ft_info = ft
-                    break
+        for regex, ft in self.FT_REGEX.items():
+            if search(regex, filename):
+                ft_info = ft
+                break
 
-        ft_info = ft_info or filetype
+        ft_info = ft_info or self.FT_OVERRIDES.get(filetype) or filetype
 
         if not ft_info:
             self.client.set_activity(
