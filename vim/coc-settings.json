@@ -9,6 +9,8 @@
   "diagnostic.maxWindowHeight": 20,
   "diagnostic.warningSign": "●",
 
+  "eslint.filetypes": ["javascript", "javascriptreact", "graphql"],
+
   "languageserver": {
     "ccls": {
       "command": "ccls",
