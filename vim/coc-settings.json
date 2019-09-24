@@ -66,5 +66,9 @@
 
   "solargraph.diagnostics": true,
 
-  "suggest.maxCompleteItemCount": 12
+  "suggest.maxCompleteItemCount": 12,
+
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/docker/compose/master/compose/config/config_schema_v3.7.json": "docker-*.yml"
+  }
 }
