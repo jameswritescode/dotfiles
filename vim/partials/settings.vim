@@ -9,6 +9,7 @@ set colorcolumn=+1
 set concealcursor=niv
 set conceallevel=2
 set cursorline
+set diffopt+=vertical
 set directory=~/dotfiles/vim/tmp
 set encoding=utf-8
 set expandtab
