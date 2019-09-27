@@ -141,23 +141,36 @@ class DiscordPlugin:
 
         ft_info = ft_info or self.FT_OVERRIDES.get(filetype) or filetype
 
-        if not ft_info:
+        common_small = {
+            'small_image': 'neovim-small',
+            'small_text': 'Neovim'
+        }
+
+        if ft_info:
+            self.client.set_activity(
+                details=f'Editing {filename}',
+                assets={
+                    'large_image': ft_info or 'neovim-logo',
+                    'large_text': f'Editing a {ft_info.upper()} file',
+                    **common_small,
+                },
+            )
+        elif current_buffer.options['buftype'] == 'terminal':
+            self.client.set_activity(
+                details='Terminal',
+                assets={
+                    'large_image': 'zsh',
+                    'large_text': 'Terminal',
+                    **common_small,
+                }
+            )
+        else:
             self.client.set_activity(
                 details='Idling',
                 state='Idling',
                 assets={
                     'large_image': 'neovim-logo',
                     'large_text': 'Idling',
-                },
-            )
-        else:
-            self.client.set_activity(
-                details=f'Editing {filename}',
-                assets={
-                    'large_image': ft_info or 'neovim-logo',
-                    'large_text': f'Editing a {ft_info.upper()} file',
-                    'small_image': 'neovim-small',
-                    'small_text': 'Neovim'
                 },
             )
 
