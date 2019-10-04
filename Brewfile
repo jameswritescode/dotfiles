@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 tap 'caskroom/cask'
+tap 'heroku/brew'
 
 brew 'awscli'
 brew 'awsebcli'
@@ -13,6 +14,7 @@ brew 'fasd'
 brew 'fd'
 brew 'fpp'
 brew 'fzf'
+brew 'heroku'
 brew 'htop'
 brew 'imagemagick'
 brew 'jq'
