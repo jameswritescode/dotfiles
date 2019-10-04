@@ -5,6 +5,7 @@ call plug#begin('$DOTFILES/vim/plugged')
 " General {{{
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim'
+Plug 'HerringtonDarkholme/yats.vim', {'for': 'typescript'}
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'chr4/nginx.vim'
@@ -133,6 +134,7 @@ let g:coc_global_extensions = [
       \ 'coc-import-cost',
       \ 'coc-json',
       \ 'coc-lists',
+      \ 'coc-prettier',
       \ 'coc-python',
       \ 'coc-rls',
       \ 'coc-smartf',
