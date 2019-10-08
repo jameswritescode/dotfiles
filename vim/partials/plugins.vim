@@ -120,7 +120,8 @@ let g:ale_linters = {
       \ 'javascript': [],
       \ 'python': [],
       \ 'ruby': ['reek'],
-      \ 'typescript': ['tsserver'],
+      \ 'swift': [],
+      \ 'typescript': [],
       \ }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
