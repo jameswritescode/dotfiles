@@ -8,6 +8,7 @@ augroup filetypedetect
   autocmd bufread,bufnewfile *.config setf yaml
   autocmd bufread,bufnewfile *.io setf io
   autocmd bufread,bufnewfile *.mdx setf markdown
+  autocmd bufread,bufnewfile *.prisma setf graphql
   autocmd bufread,bufnewfile *.vim setlocal foldmethod=marker
   autocmd bufread,bufnewfile *.zsh-theme setf zsh
   autocmd bufread,bufnewfile .babelrc setf json
