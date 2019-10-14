@@ -9,7 +9,7 @@
   "diagnostic.maxWindowHeight": 20,
   "diagnostic.warningSign": "●",
 
-  "eslint.filetypes": ["javascript", "javascriptreact", "graphql", "typescript"],
+  "eslint.filetypes": ["javascript", "javascriptreact", "graphql", "typescript", "typescriptreact"],
 
   "languageserver": {
     "ccls": {
