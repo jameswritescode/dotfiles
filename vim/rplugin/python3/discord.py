@@ -113,6 +113,7 @@ class DiscordPlugin:
         'dockerfile': 'docker',
         'gitcommit': 'git',
         'javascriptreact': 'react',
+        'typescriptreact': 'react',
     }
 
     FT_REGEX = {
