@@ -43,6 +43,11 @@
       "filetypes": ["lua"]
     },
 
+    "reason": {
+      "command": "reason-language-server",
+      "filetypes": ["reason"]
+    },
+
     "sorbet": {
       "args": ["exec", "srb", "tc", "--lsp", "--enable-all-experimental-lsp-features"],
       "command": "bundle",
