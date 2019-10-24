@@ -20,6 +20,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'moll/vim-node'
 Plug 'nono/jquery.vim'
 Plug 'othree/html5.vim'
+Plug 'reasonml-editor/vim-reason-plus'
 Plug 'sbdchd/neoformat', {'on': 'Neoformat'}
 Plug 'styled-components/vim-styled-components', {'branch': 'main'}
 Plug 'tbastos/vim-lua'
