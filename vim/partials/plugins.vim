@@ -20,7 +20,6 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'moll/vim-node'
 Plug 'nono/jquery.vim'
 Plug 'othree/html5.vim'
-Plug 'ryanoasis/vim-devicons'
 Plug 'sbdchd/neoformat', {'on': 'Neoformat'}
 Plug 'styled-components/vim-styled-components', {'branch': 'main'}
 Plug 'tbastos/vim-lua'
@@ -86,21 +85,6 @@ let g:user_emmet_settings = {
 \ 'javascript' : {
 \   'extends' : 'jsx'
 \ }}
-
-Plug 'vim-airline/vim-airline'
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#coc#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'james'
-let g:airline#extensions#tabline#ignore_bufadd_pat = 'term://'
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#tabline#show_tab_nr = 0
-let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tabline#show_tabs = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'onedark'
 
 Plug 'dense-analysis/ale'
 let g:ale_graphql_gqlint_executable = $PWD . '/node_modules/.bin/gqlint'

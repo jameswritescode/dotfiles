@@ -22,5 +22,6 @@ endif
 
 source ~/dotfiles/vim/partials/highlights.vim
 source ~/dotfiles/vim/partials/functions.vim
+source ~/dotfiles/vim/partials/statusline.vim
 
 colors onedark
