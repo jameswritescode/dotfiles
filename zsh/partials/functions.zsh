@@ -1,6 +1,6 @@
 # helper functions
 
-__file_exists () {
+__file_exists() {
   [ -f "$PWD/$1" ] && return
   false
 }
