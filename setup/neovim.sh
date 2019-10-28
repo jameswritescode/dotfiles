@@ -1,12 +1,11 @@
 #!/bin/bash
 
 VIMPATH="$DOTFILES/vim"
-CLIENTPATH="$HOME/nvim-osx64"
 
 install() {
   # Neovim Setup
   brew tap neovim/neovim
-  brew install neovim
+  install_nightly
 
   ln -s "$VIMPATH" "$HOME/.config/nvim"
 
@@ -17,13 +16,7 @@ install() {
 }
 
 install_nightly() {
-  pushd /tmp || exit
-    wget https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
-    tar zxf nvim-macos.tar.gz
-    rm -r nvim-macos.tar.gz
-    rm -rf "$CLIENTPATH"
-    mv  "nvim-osx64" "$CLIENTPATH"
-  popd || exit
+  brew install neovim --HEAD
 }
 
 install_plug() {
@@ -49,7 +42,7 @@ update() {
   update_python
   gem update neovim
   npm install -g neovim
-  "$CLIENTPATH"/bin/nvim +PlugUpgrade +PlugUpdate +UpdateRemotePlugins +qall >/dev/null
+  nvim +PlugUpgrade +PlugUpdate +UpdateRemotePlugins +qall >/dev/null
 }
 
 case "$1" in
