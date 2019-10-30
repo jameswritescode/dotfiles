@@ -5,7 +5,7 @@ call plug#begin('$DOTFILES/vim/plugged')
 " General {{{
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim'
-Plug 'HerringtonDarkholme/yats.vim', {'for': 'typescript'}
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'chr4/nginx.vim'
