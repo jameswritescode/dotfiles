@@ -1,5 +1,7 @@
 scriptencoding utf-8
 
+set statusline=
+
 function! RedrawColors() abort
   let l:mode = mode()
 
@@ -15,6 +17,9 @@ function! RedrawColors() abort
     let l:bg = '#c678dd'
   elseif l:mode ==# 'c' " Command
     let l:bg = '#56b6c2'
+  else
+    echo 'statusline RedrawColors mode: ' . l:mode
+    let l:bg = '#ff0000'
   endif
 
   execute 'highlight StatusLineAccentBody guibg=' . l:bg
@@ -53,31 +58,6 @@ function! SetFiletype(filetype)
   return a:filetype ==# '' ? '-' : a:filetype
 endfunction
 
-" LHS
-set statusline=%{RedrawColors()}
-
-set statusline+=%#StatusLineAccentOpen#
-set statusline+=%#StatusLineAccentBody#
-set statusline+=%#StatusLineFilename#\ %t
-set statusline+=%#StatusLineAccentClose#
-
-set statusline+=\ %#StatusLineSurround#
-set statusline+=%#StatusLineBody#%{SetModified()}
-set statusline+=%#StatusLineSurround#
-
-" Spacer
-set statusline+=%=
-
-" RHS
-set statusline+=%#StatusLineSurround#
-set statusline+=%#StatusLineBody#L%l
-set statusline+=\/%#StatusLineBody#C%c
-set statusline+=%#StatusLineSurround#
-
-set statusline+=\ %#StatusLineSurround#
-set statusline+=%#StatusLineBody#%{SetFiletype(&filetype)}
-set statusline+=%#StatusLineEnd#0
-
 function StatusLineHighlights() abort
   hi StatusLine guibg=#282c34
   hi StatusLineNC guibg=#282c34
@@ -87,7 +67,40 @@ function StatusLineHighlights() abort
   hi StatusLineSurround guifg=#3d4450
 endfunction
 
-augroup statusline_highlights
+function ActiveStatusLine() abort
+  " LHS
+  setlocal statusline=%{RedrawColors()}
+
+  setlocal statusline+=%#StatusLineAccentOpen#
+  setlocal statusline+=%#StatusLineAccentBody#
+  setlocal statusline+=%#StatusLineFilename#\ %t
+  setlocal statusline+=%#StatusLineAccentClose#
+
+  setlocal statusline+=\ %#StatusLineSurround#
+  setlocal statusline+=%#StatusLineBody#%{SetModified()}
+  setlocal statusline+=%#StatusLineSurround#
+
+  " Spacer
+  setlocal statusline+=%=
+
+  " RHS
+  setlocal statusline+=%#StatusLineSurround#
+  setlocal statusline+=%#StatusLineBody#L%l
+  setlocal statusline+=\/%#StatusLineBody#C%c
+  setlocal statusline+=%#StatusLineSurround#
+
+  setlocal statusline+=\ %#StatusLineSurround#
+  setlocal statusline+=%#StatusLineBody#%{SetFiletype(&filetype)}
+  setlocal statusline+=%#StatusLineEnd#0
+endfunction
+
+function InactiveStatusLine() abort
+  setlocal statusline=%t
+endfunction
+
+augroup statusline
   autocmd!
+  autocmd WinEnter,BufEnter * call ActiveStatusLine()
+  autocmd WinLeave,BufLeave * call InactiveStatusLine()
   autocmd colorscheme * call StatusLineHighlights()
 augroup END
