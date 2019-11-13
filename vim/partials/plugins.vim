@@ -108,6 +108,7 @@ let g:ale_linters = {
       \ 'ruby': ['reek'],
       \ 'swift': [],
       \ 'typescript': [],
+      \ 'zsh': ['shell', 'shellcheck'],
       \ }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
