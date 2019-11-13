@@ -146,8 +146,14 @@ bureau_precmd () {
 }
 
 setopt prompt_subst
-PROMPT='└‹$_LIBERTY› '
-RPROMPT='‹$(bureau_git_prompt)┘'
+PROMPT='└‹$_LIBERTY› %F{green}'
+RPROMPT='%f‹$(bureau_git_prompt)┘'
+
+__color_escape() {
+  echo -ne "\e[0m"
+}
+
+preexec_functions+=(__color_escape)
 
 autoload -U add-zsh-hook
 add-zsh-hook precmd bureau_precmd
