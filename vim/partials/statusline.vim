@@ -67,14 +67,18 @@ function StatusLineHighlights() abort
   hi StatusLineSurround guifg=#3d4450
 endfunction
 
-function ActiveStatusLine() abort
+function DrawStatusLine(inactive) abort
   " LHS
-  setlocal statusline=%{RedrawColors()}
-
-  setlocal statusline+=%#StatusLineAccentOpen#
-  setlocal statusline+=%#StatusLineAccentBody#
-  setlocal statusline+=%#StatusLineFilename#\ %t
-  setlocal statusline+=%#StatusLineAccentClose#
+  if a:inactive == v:false
+    setlocal statusline=%{RedrawColors()}
+    setlocal statusline+=%#StatusLineAccentOpen#
+    setlocal statusline+=%#StatusLineAccentBody#
+    setlocal statusline+=%#StatusLineFilename#\ %t
+    setlocal statusline+=%#StatusLineAccentClose#
+  else
+    setlocal statusline=%#StatusLineBody#\ %t
+    setlocal statusline+=%#StatusLineSurround#
+  endif
 
   setlocal statusline+=\ %#StatusLineSurround#
   setlocal statusline+=%#StatusLineBody#%{SetModified()}
@@ -94,13 +98,9 @@ function ActiveStatusLine() abort
   setlocal statusline+=%#StatusLineEnd#0
 endfunction
 
-function InactiveStatusLine() abort
-  setlocal statusline=%t
-endfunction
-
 augroup statusline
   autocmd!
-  autocmd WinEnter,BufEnter * call ActiveStatusLine()
-  autocmd WinLeave,BufLeave * call InactiveStatusLine()
+  autocmd WinEnter,BufEnter * call DrawStatusLine(v:false)
+  autocmd WinLeave,BufLeave * call DrawStatusLine(v:true)
   autocmd colorscheme * call StatusLineHighlights()
 augroup END
