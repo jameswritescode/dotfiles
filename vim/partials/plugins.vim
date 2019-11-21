@@ -260,10 +260,6 @@ if executable('git') " Git {{{
   Plug 'tpope/vim-rhubarb'
 endif " }}}
 
-if executable('tsserver') " TypeScript {{{
-  Plug 'HerringtonDarkholme/yats.vim'
-endif " }}}
-
 if executable('swift') " Swift {{{
   Plug 'keith/swift.vim'
 endif " }}}
