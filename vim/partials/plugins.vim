@@ -104,6 +104,7 @@ let g:ale_linters = {
       \ 'c': [],
       \ 'elixir': [],
       \ 'javascript': [],
+      \ 'javascriptreact': [],
       \ 'python': [],
       \ 'ruby': ['reek'],
       \ 'swift': [],
