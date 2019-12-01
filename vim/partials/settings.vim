@@ -42,6 +42,7 @@ set showmatch
 set signcolumn=yes
 set splitbelow
 set splitright
+set tags^=./.git/tags;
 set termguicolors
 set textwidth=79
 set timeoutlen=500
