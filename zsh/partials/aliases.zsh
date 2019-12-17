@@ -14,11 +14,6 @@ alias ss='open -a ScreenSaverEngine'
 alias v='vim $(fzf --height=25)'
 alias wr="watson report"
 
-# aws
-alias ec="eb console"
-alias eo="eb ssh -n 1"
-alias es="eb status"
-
 # docker
 alias db="docker build"
 alias dbt="docker build -t"
@@ -43,7 +38,7 @@ alias gcb="git checkout -b"
 alias gco="git checkout"
 alias gcp="git cherry-pick"
 alias gcv="git commit -v"
-alias gd="git diff -w -- ':(exclude)*__generated__*'"
+alias gd="git diff -w"
 alias gdh="git diff -w HEAD"
 alias gf="git ls-files | grep"
 alias gg="git grep"
