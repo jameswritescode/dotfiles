@@ -4,7 +4,6 @@
     "editor.minimap.enabled": false,
     "extensions.showRecommendationsOnlyOnDemand": true,
     "workbench.colorTheme": "One Dark Pro Vivid",
-    "workbench.statusBar.feedback.visible": false,
 
     "editor.tokenColorCustomizations": {
         "textMateRules": [
@@ -22,5 +21,7 @@
                 }
             }
         ]
-    }
+    },
+
+    "solargraph.diagnostics": true
 }
