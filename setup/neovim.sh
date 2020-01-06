@@ -13,7 +13,7 @@ install() {
   install_python
 
   gem install neovim
-  npm install -g neovim
+  yarn global add neovim
 }
 
 install_plug() {
@@ -38,7 +38,7 @@ update() {
   # Dependencies
   update_python
   gem update neovim
-  npm install -g neovim
+  yarn global add neovim
   nvim +PlugUpgrade +PlugUpdate +UpdateRemotePlugins +qall >/dev/null
 }
 
