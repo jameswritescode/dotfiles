@@ -27,31 +27,6 @@ endfunction
 
 command! -bang -nargs=0 ProfileStop call <SID>ProfileStop()
 
-function! FloatingWin()
-  let l:height = &lines - 4
-  let l:width = float2nr(&columns - (&columns * 2 / 10))
-  let l:col = float2nr((&columns - l:width) / 2)
-
-  let l:opts = {
-        \ 'col': l:col,
-        \ 'height': l:height / 2,
-        \ 'relative': 'editor',
-        \ 'row': l:height * 0.3,
-        \ 'width': l:width,
-        \ }
-
-  let l:buf = nvim_create_buf(v:false, v:true)
-  let l:win = nvim_open_win(l:buf, v:true, l:opts)
-
-  setlocal
-        \ buftype=nofile
-        \ nobuflisted
-        \ bufhidden=hide
-        \ nonumber
-        \ norelativenumber
-        \ signcolumn=no
-endfunction
-
 function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
