@@ -152,7 +152,7 @@ let g:projectionist_heuristics = {
 
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-let g:fzf_layout = { 'window': 'call FloatingWin()' }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 command! -bang -nargs=* GGrep
   \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
