@@ -1,6 +1,6 @@
 #!/bin/bash
 
-brew cask install font-fira-code
+brew cask install font-fira-code font-jetbrains-mono
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   nf_tmp="/tmp/nerd-fonts"
