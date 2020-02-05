@@ -1,5 +1,5 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["elixir"],
+  "coc.preferences.formatOnSaveFiletypes": ["elixir", "rust"],
 
   "codeLens.enable": true,
 

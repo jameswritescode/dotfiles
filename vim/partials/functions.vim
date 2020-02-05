@@ -59,7 +59,7 @@ let s:runners = {
       \ 'php': 'php',
       \ 'python': 'python',
       \ 'ruby': 'ruby',
-      \ 'rust': 'rustc',
+      \ 'rust': 'cargo run',
       \ 'sh': 'sh',
       \ 'zsh': 'zsh',
       \ }
