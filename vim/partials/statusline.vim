@@ -52,7 +52,7 @@ endfunction
 
 function! SetFiletype(filetype)
   if &buftype ==# 'terminal'
-    return ' terminal'
+    return 'terminal'
   endif
 
   return a:filetype ==# '' ? '-' : a:filetype
