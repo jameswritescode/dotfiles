@@ -31,6 +31,9 @@
     "go": {
       "command": "gopls",
       "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
     },
 
     "haskell": {
