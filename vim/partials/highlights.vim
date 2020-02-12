@@ -46,7 +46,6 @@ function! CustomHighlights() abort
   """""""""
   hi Pmenu guibg=#262931
   hi jsxAttrib gui=italic guifg=#e5c07b
-  hi jsFlowGeneric gui=italic guifg=#e5c07b
 endfunction
 
 augroup custom_highlights
