@@ -25,7 +25,6 @@ Plug 'othree/html5.vim'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'sbdchd/neoformat', {'on': 'Neoformat'}
 Plug 'solarnz/thrift.vim'
-Plug 'styled-components/vim-styled-components', {'branch': 'main'}
 Plug 'tbastos/vim-lua'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-apathy'
