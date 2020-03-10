@@ -135,6 +135,10 @@ let g:coc_global_extensions = [
       \ 'coc-yaml',
       \ ]
 
+let g:coc_filetype_map = {
+      \ 'rspec.ruby': 'ruby',
+      \ }
+
 Plug 'tpope/vim-projectionist'
 let g:projectionist_heuristics = {
 \ '*.ex|*.exs': {
