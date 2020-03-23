@@ -127,6 +127,7 @@ let g:coc_global_extensions = [
       \ 'coc-prettier',
       \ 'coc-python',
       \ 'coc-rls',
+      \ 'coc-rust-analyzer',
       \ 'coc-smartf',
       \ 'coc-solargraph',
       \ 'coc-tsserver',
