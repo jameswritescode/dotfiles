@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-tap 'caskroom/cask'
 tap 'heroku/brew'
+tap 'homebrew/cask'
+tap 'homebrew/cask-fonts'
 
 brew 'awscli'
 brew 'bat'
@@ -13,6 +14,7 @@ brew 'exploitdb'
 brew 'fasd'
 brew 'fd'
 brew 'fpp'
+brew 'github/gh/gh'
 brew 'heroku'
 brew 'htop'
 brew 'imagemagick'
