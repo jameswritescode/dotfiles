@@ -30,6 +30,7 @@ brew 'watson'
 brew 'wget'
 
 cask '1password'
+cask 'amethyst'
 cask 'bartender'
 cask 'bitbar'
 cask 'brave-browser'
