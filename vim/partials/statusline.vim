@@ -18,7 +18,7 @@ function! RedrawColors() abort
   elseif l:mode ==# 'c' " Command
     let l:bg = '#56b6c2'
   else
-    echo 'statusline RedrawColors mode: ' . l:mode
+    echomsg 'statusline RedrawColors mode: ' . l:mode
     let l:bg = '#ff0000'
   endif
 
