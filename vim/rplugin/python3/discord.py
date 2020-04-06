@@ -111,6 +111,7 @@ class RPCClient:
 class DiscordPlugin:
     FT_OVERRIDES = {
         'dockerfile': 'docker',
+        'eruby': 'ruby',
         'eruby.yaml': 'yaml',
         'gitcommit': 'git',
         'javascriptreact': 'react',
