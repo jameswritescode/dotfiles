@@ -75,6 +75,7 @@
   "git.topRemovedSign.hlGroup": "CustomCocDiffDelete",
   "git.topRemovedSign.text": "◥",
 
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "javascript.validate.enable": false,
 
   "solargraph.diagnostics": true,
