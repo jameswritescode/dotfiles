@@ -61,7 +61,6 @@ alias gw="git worktree"
 
 # jira
 alias jo="jira browse"
-alias jv="jira view"
 
 # k8s
 alias k="kubectl"
