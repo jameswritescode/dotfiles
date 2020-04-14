@@ -72,6 +72,14 @@ j() { # Slightly modified fasd_cd
   fi
 }
 
+jv() {
+  if [ $# -eq 0 ]; then
+    jira view $(__ticket_number)
+  else
+    jira view $*
+  fi
+}
+
 ls() {
   if [[ -n $(command -v exa) && ! $* =~ -A ]]; then
     exa -a $*
