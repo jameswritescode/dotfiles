@@ -127,7 +127,6 @@ let g:coc_global_extensions = [
       \ 'coc-prettier',
       \ 'coc-python',
       \ 'coc-rls',
-      \ 'coc-rust-analyzer',
       \ 'coc-smartf',
       \ 'coc-solargraph',
       \ 'coc-tsserver',
@@ -278,7 +277,6 @@ endif " }}}
 
 if executable('rustc') " Rust {{{
   Plug 'rust-lang/rust.vim'
-  let g:rustfmt_autosave = 1
 endif " }}}
 
 if executable('lein') " Clojure {{{
