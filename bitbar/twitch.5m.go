@@ -6,7 +6,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"strings"
 )
 
 type following struct {
@@ -28,7 +27,7 @@ func getStreaming(target interface{}, twitchKey string) error {
 	client := new(http.Client)
 
 	req, err := http.NewRequest("GET", "https://api.twitch.tv/kraken/streams/followed?stream_type=live", nil)
-	req.Header.Add("Accept", "application/vnd.twitchtv.v3+json")
+	req.Header.Add("Accept", "application/vnd.twitchtv.v5+json")
 	req.Header.Add("Authorization", "OAuth "+twitchKey)
 
 	if err != nil {
@@ -55,8 +54,7 @@ func main() {
 	fmt.Println("---")
 
 	for _, stream := range following.Streams {
-		channelURL := strings.Replace(stream.Channel.URL, "https://www.", "", -1)
-		fmt.Printf("%s is playing %s with %d viewing | color=white terminal=false bash=/usr/local/bin/livestreamer param1=--twitch-oauth-token param2=%s param3=%s param4=best\n",
-			stream.Channel.DisplayName, stream.Game, stream.Viewers, twitchKey, channelURL)
+		fmt.Printf("%s is playing %s with %d viewing | color=white href=%s\n",
+			stream.Channel.DisplayName, stream.Game, stream.Viewers, stream.Channel.URL)
 	}
 }
