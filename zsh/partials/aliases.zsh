@@ -91,12 +91,6 @@ alias mp="osascript -e 'tell application \"Spotify\" to pause';"
 alias ms="osascript -e 'tell application \"Spotify\" to play';"
 
 # suffix aliases
-alias -s css='vim'
-alias -s haml='vim'
-alias -s js='vim'
-alias -s jsx='vim'
 alias -s log='less +F'
-alias -s md='vim'
-alias -s py='vim'
-alias -s rb='vim'
 alias -s txt='less'
+alias -s {css,haml,js,jsx,md,py,rb,zsh}=vim
