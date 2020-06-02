@@ -31,7 +31,8 @@
 [commit]
 	gpgsign = true
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	; pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta --theme TwoDark
 	excludesfile = ~/.gitignore_global
 [color "diff-highlight"]
 	oldNormal = red bold

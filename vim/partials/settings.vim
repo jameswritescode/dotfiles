@@ -33,6 +33,7 @@ set mouse=a
 set nofoldenable
 set noshowmode
 set number
+set re=0
 set relativenumber
 set secure
 set shell=zsh
