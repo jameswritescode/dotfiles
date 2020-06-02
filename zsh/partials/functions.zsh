@@ -17,7 +17,7 @@ __ticket_number() {
 
 cat() {
   if [ $(command -v bat) ]; then
-    bat $*
+    bat --theme TwoDark $*
   else
     /bin/cat $*
   fi
