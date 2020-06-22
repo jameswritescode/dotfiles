@@ -110,6 +110,7 @@ let g:ale_linters = {
       \ 'ruby': ['reek'],
       \ 'swift': [],
       \ 'typescript': [],
+      \ 'typescriptreact': [],
       \ 'zsh': ['shell', 'shellcheck'],
       \ }
 
