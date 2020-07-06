@@ -71,7 +71,7 @@ func getData(target interface{}, url string) error {
 	return json.NewDecoder(resp.Body).Decode(target)
 }
 
-var githubKey = os.Getenv("GITHUB_ACCESS_TOKEN")
+var githubKey = os.Getenv("GITHUB_TOKEN")
 
 func main() {
 	issues := new([]issue)
