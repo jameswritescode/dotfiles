@@ -26,3 +26,5 @@ __pycache__
 profile.log
 
 .vim/
+
+streamdeck/*.png
