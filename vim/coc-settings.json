@@ -51,13 +51,6 @@
       "filetypes": ["reason"]
     },
 
-    "sorbet": {
-      "args": ["exec", "srb", "tc", "--lsp", "--enable-all-experimental-lsp-features"],
-      "command": "bundle",
-      "filetypes": ["ruby"],
-      "rootPatterns": ["sorbet/config"]
-    },
-
     "sourcekit-lsp": {
       "command": "sourcekit-lsp",
       "filetypes": ["swift"]
