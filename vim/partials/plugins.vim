@@ -40,6 +40,8 @@ Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/Io-programming-language-syntax'
 Plug 'vim-scripts/applescript.vim'
 
+Plug 'nvim-treesitter/nvim-treesitter'
+
 Plug 'tpope/vim-markdown'
 let g:markdown_fenced_languages = ['vim', 'typescript', 'help']
 

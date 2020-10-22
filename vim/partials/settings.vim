@@ -58,5 +58,6 @@ set wildignore+=.DS_Store
 
 let g:netrw_localrmdir='rm -r'
 let g:python3_host_prog=$HOME.'/dotfiles/vim/virtual/python3/bin/python'
+let g:loaded_python_provider=0
 
 scriptencoding utf-8
