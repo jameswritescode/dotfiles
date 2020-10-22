@@ -10,9 +10,18 @@ augroup betterment
   autocmd VimResized * wincmd =
 augroup END
 
+
 filetype off
 
 source ~/dotfiles/vim/partials/plugins.vim
+
+lua <<EOF
+require('nvim-treesitter.configs').setup {
+  highlight = {
+    enable = true,
+  },
+}
+EOF
 
 filetype plugin indent on
 
