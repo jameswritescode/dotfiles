@@ -23,12 +23,14 @@ install_plug() {
 
 # Neovim Python Host Setup
 install_python() {
-  virtualenv -p python3 "$VIMPATH/virtual/python3"
-  "$VIMPATH"/virtual/python3/bin/pip install pynvim
+  # virtualenv -p python3 "$VIMPATH/virtual/python3"
+  # "$VIMPATH"/virtual/python3/bin/pip install pynvim
+  pip install pynvim
 }
 
 update_python() {
-  "$VIMPATH"/virtual/python3/bin/pip install --upgrade pynvim
+  # "$VIMPATH"/virtual/python3/bin/pip install --upgrade pynvim
+  pip install --upgrade pynvim
 }
 
 update() {
