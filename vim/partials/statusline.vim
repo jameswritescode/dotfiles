@@ -74,26 +74,26 @@ function DrawStatusLine(inactive) abort
     setlocal statusline+=%#StatusLineAccentOpen#
     setlocal statusline+=%#StatusLineAccentBody#
     setlocal statusline+=%#StatusLineFilename#\ %t
-    setlocal statusline+=%#StatusLineAccentClose#
+    setlocal statusline+=%#StatusLineAccentClose#
   else
     setlocal statusline=%#StatusLineBody#\ %t
-    setlocal statusline+=%#StatusLineSurround#
+    setlocal statusline+=%#StatusLineSurround#
   endif
 
-  setlocal statusline+=\ %#StatusLineSurround#
+  setlocal statusline+=\ %#StatusLineSurround#
   setlocal statusline+=%#StatusLineBody#%{SetModified()}
-  setlocal statusline+=%#StatusLineSurround#
+  setlocal statusline+=%#StatusLineSurround#
 
   " Spacer
   setlocal statusline+=%=
 
   " RHS
-  setlocal statusline+=%#StatusLineSurround#
+  setlocal statusline+=%#StatusLineSurround#
   setlocal statusline+=%#StatusLineBody#L%l
   setlocal statusline+=\/%#StatusLineBody#C%c
-  setlocal statusline+=%#StatusLineSurround#
+  setlocal statusline+=%#StatusLineSurround#
 
-  setlocal statusline+=\ %#StatusLineSurround#
+  setlocal statusline+=\ %#StatusLineSurround#
   setlocal statusline+=%#StatusLineBody#%{SetFiletype(&filetype)}
   setlocal statusline+=%#StatusLineEnd#0
 endfunction

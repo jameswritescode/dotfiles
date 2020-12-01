@@ -20,10 +20,10 @@ function Tabline() abort
     let content = (isFirstTab ? ' ' : '') . tab . '. ' .
           \ (bufname !=# '' ? fnamemodify(bufname, ':t') : '[No Name]')
 
-    let tabline .= !isFirstTab ? symbolHl . '' : ''
+    let tabline .= !isFirstTab ? symbolHl . '' : ''
     let tabline .= (currentTab ? '%#TabLineSel#' : '%#TabLine#')
     let tabline .= content
-    let tabline .= symbolHl . '%#TabLineFill# '
+    let tabline .= symbolHl . '%#TabLineFill# '
   endfor
 
   return tabline
