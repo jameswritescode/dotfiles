@@ -21,6 +21,7 @@ Plug 'kylef/apiblueprint.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'moll/vim-node'
 Plug 'nono/jquery.vim'
+Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'othree/html5.vim'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'sbdchd/neoformat', {'on': 'Neoformat'}
@@ -39,8 +40,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/Io-programming-language-syntax'
 Plug 'vim-scripts/applescript.vim'
-
-Plug 'nvim-treesitter/nvim-treesitter'
 
 Plug 'tpope/vim-markdown'
 let g:markdown_fenced_languages = ['vim', 'typescript', 'help']
