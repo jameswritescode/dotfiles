@@ -5,7 +5,7 @@ VIMPATH="$DOTFILES/vim"
 install() {
   # Neovim Setup
   brew tap neovim/neovim
-  brew install neovim --HEAD
+  brew install neovim --HEAD --build-from-source
   install_nightly
 
   ln -s "$VIMPATH" "$HOME/.config/nvim"
@@ -35,7 +35,7 @@ update_python() {
 
 update() {
   # Client
-  brew reinstall neovim
+  brew reinstall neovim --build-from-source
 
   # Dependencies
   update_python
