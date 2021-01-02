@@ -38,7 +38,7 @@
 
     "haskell": {
       "command": "hie-wrapper",
-      "filetypes": ["hs", "haskell"],
+      "filetypes": ["hs", "haskell"]
     },
 
     "lua": {
