@@ -8,4 +8,5 @@ rubocop-performance
 rubocop-rails
 rubocop-rspec
 solargraph
+solargraph-rails
 tmuxinator

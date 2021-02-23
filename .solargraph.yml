@@ -1,2 +1,4 @@
 reporters:
 - rubocop
+plugins:
+- solargraph-rails
