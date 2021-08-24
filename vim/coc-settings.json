@@ -54,6 +54,13 @@
     "sourcekit-lsp": {
       "command": "sourcekit-lsp",
       "filetypes": ["swift"]
+    },
+
+    "sorbet": {
+      "args": ["tc", "--typed", "true", "--enable-all-experimental-lsp-features", "--lsp", "--disable-watchman"],
+      "command": "srb",
+      "filetypes": ["ruby"],
+      "rootPatterns": ["sorbet/config"]
     }
   },
 
