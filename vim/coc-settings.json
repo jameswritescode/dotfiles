@@ -6,10 +6,9 @@
   "diagnostic.errorSign": "●",
   "diagnostic.hintSign": "☞",
   "diagnostic.infoSign": "●",
-  "diagnostic.maxWindowHeight": 20,
   "diagnostic.warningSign": "●",
-
-  "eslint.filetypes": ["javascript", "javascriptreact", "graphql", "typescript", "typescriptreact"],
+  "diagnostic.maxWindowHeight": 40,
+  "diagnostic.maxWindowWidth": 200,
 
   "languageserver": {
     "ccls": {
@@ -28,12 +27,10 @@
       "filetypes": ["dockerfile"]
     },
 
-    "go": {
+    "golang": {
       "command": "gopls",
-      "filetypes": ["go"],
-      "initializationOptions": {
-        "usePlaceholders": true
-      }
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
     },
 
     "haskell": {
