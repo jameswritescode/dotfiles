@@ -1,5 +1,3 @@
-export GOPATH="$HOME/go"
-
 export VIRTUAL_ENV_DISABLE_PROMPT="true"
 
 export BUNDLE_EDITOR="nvim"

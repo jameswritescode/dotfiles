@@ -155,11 +155,11 @@ __set_versions() {
     local ruby_version=$(ruby --version | awk '{print $2}')
   fi
 
-  if [[ -n $VIRTUAL_ENV ]]; then
+  if [[ -n $VIRTUAL_ENV ]] || __file_exists 'requirements.txt'; then
     local python_version=$(python --version | awk '{print $2}')
   fi
 
-  if [[ $PWD/ = $GOPATH/* ]]; then
+  if __file_exists 'go.mod'; then
     local go_version=$(go version | awk '{print $3}')
   fi
 
