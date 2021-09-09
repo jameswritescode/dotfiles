@@ -1,9 +1,8 @@
 #!/bin/bash
 
-# shellcheck source=/dev/null
-source "${BASH_SOURCE%/*}/helpers/asdf.sh"
+source "$HOME/dotfiles/setup/helpers/asdf.sh"
 
-ln -s "$DOTFILES/.gemrc" "$HOME/.gemrc"
+ln -s "$HOME/dotfiles/.gemrc" "$HOME/.gemrc"
 
 asdf_install ruby
 

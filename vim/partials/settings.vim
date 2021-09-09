@@ -57,7 +57,7 @@ set wildignore+=*.pyc
 set wildignore+=.DS_Store
 
 let g:netrw_localrmdir='rm -r'
-let g:python3_host_prog='/usr/local/opt/python@3.8/libexec/bin/python'
+let g:python3_host_prog=trim(system('which python3'))
 let g:loaded_python_provider=0
 
 scriptencoding utf-8
