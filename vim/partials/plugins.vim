@@ -157,7 +157,8 @@ let g:projectionist_heuristics = {
 \ }
 \}
 
-Plug '/usr/local/opt/fzf'
+Plug trim(system('brew --prefix')).'/opt/fzf'
+Plug $HOME.'/.fzf'
 Plug 'junegunn/fzf.vim'
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 

@@ -1,7 +1,7 @@
 disable r
 
 export DOTFILES="$HOME/dotfiles"
-export ZSH="/Users/$USER/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 hash -d dotfiles="$DOTFILES"
 
