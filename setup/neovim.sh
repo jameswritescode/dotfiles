@@ -1,19 +1,34 @@
 #!/bin/bash
 
-VIMPATH="$DOTFILES/vim"
+set -x
 
-install() {
+VIMPATH="$HOME/dotfiles/vim"
+
+install_standard() {
+  ln -s "$VIMPATH" "$HOME/.config/nvim"
+
+  pip3 install --upgrade pynvim
+  gem install neovim
+  yarn global add neovim
+}
+
+install_macos() {
   # Neovim Setup
   brew tap neovim/neovim
   brew install neovim --HEAD --build-from-source
-  install_nightly
 
-  ln -s "$VIMPATH" "$HOME/.config/nvim"
+  install_standard
+}
 
-  install_python
+install_ubuntu() {
+  sudo add-apt-repository -y ppa:neovim-ppa/unstable
+  sudo apt-get update
+  sudo apt-get install -y neovim
 
-  gem install neovim
-  yarn global add neovim
+  install_standard
+  install_plug
+
+  nvim +PlugInstall +qall >/dev/null
 }
 
 install_plug() {
@@ -21,16 +36,8 @@ install_plug() {
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
-# Neovim Python Host Setup
-install_python() {
-  # virtualenv -p python3 "$VIMPATH/virtual/python3"
-  # "$VIMPATH"/virtual/python3/bin/pip install pynvim
-  pip install pynvim
-}
-
 update_python() {
-  # "$VIMPATH"/virtual/python3/bin/pip install --upgrade pynvim
-  pip install --upgrade pynvim
+  pip3 install --upgrade pynvim
 }
 
 update() {
@@ -45,8 +52,12 @@ update() {
 }
 
 case "$1" in
-  install)
-    install
+  install_macos)
+    install_macos
+  ;;
+
+  install_ubuntu)
+    install_ubuntu
   ;;
 
   install_plug)
