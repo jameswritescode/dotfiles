@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-call plug#begin('$DOTFILES/vim/plugged')
+call plug#begin('$HOME/dotfiles/vim/plugged')
 
 " General {{{
 Plug 'AndrewRadev/splitjoin.vim'
