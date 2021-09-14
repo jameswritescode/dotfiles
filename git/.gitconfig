@@ -27,6 +27,7 @@
 [stash]
 	showPatch = true
 [init]
+	defaultBranch = main
 	templatedir = ~/dotfiles/git/templates
 [commit]
 	gpgsign = true
