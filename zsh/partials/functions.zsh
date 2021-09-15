@@ -121,49 +121,50 @@ vim() {
   fi
 }
 
-# update title when changes are made
+if [[ -n $ZSH ]]; then
+  # update title when changes are made
+  __set_title() {
+    if [[ -z $1 ]]; then
+      title "%2c"
+    else
+      setopt extended_glob
 
-__set_title() {
-  if [[ -z $1 ]]; then
-    title "%2c"
-  else
-    setopt extended_glob
+      title ${1[(wr)^(*=*|sudo|ssh|mosh|rake|-*)]:gs/%/%%}
+    fi
+  }
 
-    title ${1[(wr)^(*=*|sudo|ssh|mosh|rake|-*)]:gs/%/%%}
-  fi
-}
+  precmd_functions+=(__set_title)
+  preexec_functions+=(__set_title)
 
-precmd_functions+=(__set_title)
-preexec_functions+=(__set_title)
+  # Set language versions as ENV variables on chpwd
 
-# Set language versions as ENV variables on chpwd
+  __set_versions() {
+    if __file_exists 'package.json' || __file_exists '.nvmrc'; then
+      local node_version=$(node -v)
+    fi
 
-__set_versions() {
-  if __file_exists 'package.json' || __file_exists '.nvmrc'; then
-    local node_version=$(node -v)
-  fi
+    if __file_exists 'Gemfile' || __file_exists '.ruby-version'; then
+      local ruby_version=$(ruby --version | awk '{print $2}')
+    fi
 
-  if __file_exists 'Gemfile' || __file_exists '.ruby-version'; then
-    local ruby_version=$(ruby --version | awk '{print $2}')
-  fi
+    if [[ -n $VIRTUAL_ENV ]] || __file_exists 'requirements.txt'; then
+      local python_version=$(python --version | awk '{print $2}')
+    fi
 
-  if [[ -n $VIRTUAL_ENV ]] || __file_exists 'requirements.txt'; then
-    local python_version=$(python --version | awk '{print $2}')
-  fi
+    if __file_exists 'go.mod'; then
+      local go_version=$(go version | awk '{print $3}')
+    fi
 
-  if __file_exists 'go.mod'; then
-    local go_version=$(go version | awk '{print $3}')
-  fi
+    if __file_exists 'Setup.hs'; then
+      local haskell_version=$(ghc --version | awk '{print $NF}')
+    fi
 
-  if __file_exists 'Setup.hs'; then
-    local haskell_version=$(ghc --version | awk '{print $NF}')
-  fi
+    export PROMPT_GO_VERSION=$go_version
+    export PROMPT_HASKELL_VERSION=$haskell_version
+    export PROMPT_NODE_VERSION=$node_version
+    export PROMPT_PYTHON_VERSION=$python_version
+    export PROMPT_RUBY_VERSION=$ruby_version
+  }
 
-  export PROMPT_GO_VERSION=$go_version
-  export PROMPT_HASKELL_VERSION=$haskell_version
-  export PROMPT_NODE_VERSION=$node_version
-  export PROMPT_PYTHON_VERSION=$python_version
-  export PROMPT_RUBY_VERSION=$ruby_version
-}
-
-chpwd_functions+=(__set_versions)
+  chpwd_functions+=(__set_versions)
+fi
