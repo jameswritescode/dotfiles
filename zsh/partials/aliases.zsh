@@ -12,7 +12,6 @@ alias r="ranger"
 alias rl="source ~/.zshrc"
 alias ss='open -a ScreenSaverEngine'
 alias v='vim $(fzf --height=25)'
-alias wr="watson report"
 
 # docker
 alias db="docker build"

@@ -27,7 +27,6 @@ brew 'shellcheck'
 brew 'switchaudio-osx'
 brew 'tree'
 brew 'watchman'
-brew 'watson'
 brew 'wget'
 
 cask '1password'
