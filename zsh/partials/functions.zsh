@@ -121,14 +121,6 @@ vim() {
   fi
 }
 
-ws() {
-  if [[ "$(watson status)" == "No project started" ]]; then
-    watson start "$(__git_branch)"
-  else
-    watson stop
-  fi
-}
-
 # update title when changes are made
 
 __set_title() {
