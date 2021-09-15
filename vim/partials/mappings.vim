@@ -81,11 +81,13 @@ let g:which_key_map.f.z =         'edit-zsh'
 let g:which_key_map.g = {
       \ 'name': '+git',
       \ 'a':    [':CocCommand git.chunkStage', 'stage-chunk'],
-      \ 'b':    ['Gblame',                     'blame'],
       \ 'c':    [':CocCommand git.chunkInfo',  'chunk-info'],
       \ 's':    [':GFiles?',                   'status'],
       \ 'u':    [':CocCommand git.chunkUndo',  'chunk-undo'],
       \ }
+
+nnoremap <silent><leader>gb :Git blame<cr>
+let g:which_key_map.g.b = 'blame'
 
 "+ale/coc
 let g:which_key_map.l = {
