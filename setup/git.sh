@@ -19,7 +19,7 @@ case "$1" in
 
     if [[ -n $SPIN ]]; then
       git config --file "$CUSTOMFILE" commit.gpgsign false
-      git config --global user.email "james.newton@shopify.com"
+      git config --file "$CUSTOMFILE" user.email "james.newton@shopify.com"
     fi
   ;;
 esac
