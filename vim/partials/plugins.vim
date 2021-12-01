@@ -24,6 +24,7 @@ Plug 'moll/vim-node'
 Plug 'mracos/mermaid.vim'
 Plug 'nono/jquery.vim'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'othree/html5.vim'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'sbdchd/neoformat', {'on': 'Neoformat'}
@@ -161,7 +162,6 @@ let g:projectionist_heuristics = {
 Plug trim(system('brew --prefix')).'/opt/fzf'
 Plug $HOME.'/.fzf'
 Plug 'junegunn/fzf.vim'
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 command! -bang -nargs=* GGrep
   \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
@@ -177,13 +177,7 @@ let g:haskell_enable_typeroles = 1
 " }}}
 
 if executable('ruby') " Ruby {{{
-  Plug 'tpope/vim-bundler'
   Plug 'sunaku/vim-ruby-minitest'
-  Plug 'nelstrom/vim-textobj-rubyblock', {'for': 'ruby'}
-
-  Plug 'vim-ruby/vim-ruby'
-  let g:ruby_indent_assignment_style = 'variable'
-  let g:ruby_indent_block_style = 'do'
 endif " }}}
 
 if executable('rails') " Rails {{{
