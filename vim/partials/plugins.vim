@@ -159,7 +159,12 @@ let g:projectionist_heuristics = {
 \ }
 \}
 
-Plug trim(system('brew --prefix')).'/opt/fzf'
+let g:plug_brew_prefix = system('brew --prefix')
+
+if v:shell_error == 0
+  Plug trim(g:plug_brew_prefix).'/opt/fzf'
+endif
+
 Plug $HOME.'/.fzf'
 Plug 'junegunn/fzf.vim'
 
