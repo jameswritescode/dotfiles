@@ -10,7 +10,7 @@ touch "$HOME/.zsh_custom"
 
 case "$1" in
   install_macos)
-    brew install zsh antigen
+    brew install zsh
     chsh -s /bin/zsh
     install_omz
   ;;
