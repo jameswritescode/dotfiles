@@ -89,6 +89,10 @@ let g:which_key_map.g = {
 nnoremap <silent><leader>gb :Git blame<cr>
 let g:which_key_map.g.b = 'blame'
 
+let g:which_key_map.g.b = 'open-browser'
+nnoremap <silent><leader>go :GBrowse<cr>
+vnoremap <silent><leader>go :GBrowse<cr>
+
 "+ale/coc
 let g:which_key_map.l = {
       \ 'name': '+ale/coc',
