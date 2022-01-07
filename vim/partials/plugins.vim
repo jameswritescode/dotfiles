@@ -143,21 +143,21 @@ let g:coc_filetype_map = {
       \ 'rspec.ruby': 'ruby',
       \ }
 
-Plug 'tpope/vim-projectionist'
-let g:projectionist_heuristics = {
-\ '*.ex|*.exs': {
-\   'lib/*.ex': { 'alternate': 'test/{}_test.exs', 'type': 'source' },
-\   'test/*_test.exs': { 'alternate': 'lib/{}.ex', 'type': 'test' }
-\ },
-\ '*.js': {
-\   '*.js': { 'alternate': '{}.test.js', 'type': 'source' },
-\   '*.test.js': { 'alternate': '{}.js', 'type': 'test' }
-\ },
-\ '*.go': {
-\   '*.go': { 'alternate': '{}_test.go', 'type': 'source' },
-\   '*_test.go': { 'alternate': '{}.go', 'type': 'test' }
-\ }
-\}
+" Plug 'tpope/vim-projectionist'
+" let g:projectionist_heuristics = {
+" \ '*.ex|*.exs': {
+" \   'lib/*.ex': { 'alternate': 'test/{}_test.exs', 'type': 'source' },
+" \   'test/*_test.exs': { 'alternate': 'lib/{}.ex', 'type': 'test' }
+" \ },
+" \ '*.js': {
+" \   '*.js': { 'alternate': '{}.test.js', 'type': 'source' },
+" \   '*.test.js': { 'alternate': '{}.js', 'type': 'test' }
+" \ },
+" \ '*.go': {
+" \   '*.go': { 'alternate': '{}_test.go', 'type': 'source' },
+" \   '*_test.go': { 'alternate': '{}.go', 'type': 'test' }
+" \ }
+" \}
 
 let g:plug_brew_prefix = system('brew --prefix')
 
