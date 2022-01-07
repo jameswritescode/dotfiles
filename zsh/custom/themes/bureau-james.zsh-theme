@@ -18,6 +18,11 @@ bureau_git_branch () {
 }
 
 bureau_git_status () {
+  if [[ "$ZSH_THEME_GIT_PROMPT_DISABLE" -eq "1" ]]; then
+    echo ""
+    return
+  fi
+
   _STATUS=""
 
   # check status of files
