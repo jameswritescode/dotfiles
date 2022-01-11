@@ -1,4 +1,4 @@
-# oh-my-zsh Bureau Theme
+# oh-my-zsh Bureau Theme (customized by james newton)
 
 ### Git ‹±master ▾●›
 
@@ -11,14 +11,18 @@ ZSH_THEME_GIT_PROMPT_STAGED="%{$fg_bold[green]%}●%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg_bold[yellow]%}●%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}●%{$reset_color%}"
 
+bureau_git_command() {
+  GIT_OPTIONAL_LOCKS=0 command git "$@"
+}
+
 bureau_git_branch () {
-  ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
-  ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
+  ref=$(bureau_git_command symbolic-ref HEAD 2> /dev/null) || \
+  ref=$(bureau_git_command rev-parse --short HEAD 2> /dev/null) || return
   echo "${ref#refs/heads/}"
 }
 
 bureau_git_status () {
-  if [[ "$ZSH_THEME_GIT_PROMPT_DISABLE" -eq "1" ]]; then
+  if [[ "$(bureau_git_command config --get zsh.hide-status 2>/dev/null)" -eq 1 ]]; then
     echo ""
     return
   fi
@@ -26,7 +30,7 @@ bureau_git_status () {
   _STATUS=""
 
   # check status of files
-  _INDEX=$(command git status --porcelain 2> /dev/null)
+  _INDEX=$(bureau_git_command status --porcelain 2> /dev/null)
   if [[ -n "$_INDEX" ]]; then
     if $(echo "$_INDEX" | command grep -q '^[AMRD]. '); then
       _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_STAGED"
@@ -46,7 +50,7 @@ bureau_git_status () {
   fi
 
   # check status of local repository
-  _INDEX=$(command git status --porcelain -b 2> /dev/null)
+  _INDEX=$(bureau_git_command status --porcelain -b 2> /dev/null)
   if $(echo "$_INDEX" | command grep -q '^## .*ahead'); then
     _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_AHEAD"
   fi
