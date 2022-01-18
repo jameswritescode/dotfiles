@@ -1,5 +1,5 @@
 # Remove aliases
-unalias ls
+((${+aliases[ls]})) && unalias ls
 
 # general
 alias c="clear"
