@@ -1,6 +1,6 @@
 # asdf
 export NODEJS_CHECK_SIGNATURES="no"
-ASDF_BREW_PATH=$(brew --prefix asdf)
+ASDF_BREW_PATH=$(brew --prefix asdf 2>/dev/null)
 
 if [ -f $ASDF_BREW_PATH/asdf.sh ]; then
   source $ASDF_BREW_PATH/asdf.sh
