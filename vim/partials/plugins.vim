@@ -9,6 +9,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'chr4/nginx.vim'
+Plug 'diepm/vim-rest-console'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'elzr/vim-json'
 Plug 'jiangmiao/auto-pairs'
