@@ -107,6 +107,12 @@ let g:which_key_map.l = {
       \ 's':    [':echom coc#status()',         'coc-status'],
       \ }
 
+let g:which_key_map.l.d = {}
+let g:which_key_map.l.d.n = 'diagnostic-next'
+nnoremap <silent><leader>ldn :call CocAction('diagnosticNext')<cr>
+let g:which_key_map.l.d.p = 'diagnostic-prev'
+nnoremap <silent><leader>ldp :call CocAction('diagnosticPrevious')<cr>
+
 let g:which_key_map.l.g = {
       \ 'name': '+goto',
       \ 'd':    ['<Plug>(coc-definition)',      'definition'],
