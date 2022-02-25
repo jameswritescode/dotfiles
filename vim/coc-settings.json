@@ -7,8 +7,6 @@
   "diagnostic.hintSign": "☞",
   "diagnostic.infoSign": "●",
   "diagnostic.warningSign": "●",
-  "diagnostic.maxWindowHeight": 40,
-  "diagnostic.maxWindowWidth": 200,
 
   "languageserver": {
     "ccls": {
@@ -61,6 +59,20 @@
       "command": "srb",
       "filetypes": ["ruby"],
       "rootPatterns": ["sorbet/config"]
+    },
+
+    "tailwind-lsp": {
+      "args": ["--stdio"],
+      "command": "tailwindcss-language-server",
+      "filetypes": ["eruby", "html", "css"],
+      "rootPatterns": ["config/tailwind.config.js"],
+      "settings": {
+        "tailwindCSS": {
+          "includeLanguages": {
+            "eruby": "html"
+          }
+        }
+      }
     }
   },
 
