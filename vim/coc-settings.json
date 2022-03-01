@@ -89,6 +89,9 @@
 
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "javascript.validate.enable": false,
+  "javascript.referencesCodeLens.enable": false,
+
+  "typescript.referencesCodeLens.enable": false,
 
   "solargraph.diagnostics": true,
 
