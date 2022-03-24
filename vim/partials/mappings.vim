@@ -86,30 +86,37 @@ let g:which_key_map.g = {
       \ 'u':    [':CocCommand git.chunkUndo',  'chunk-undo'],
       \ }
 
-nnoremap <silent><leader>gb :Git blame<cr>
 let g:which_key_map.g.b = 'blame'
+nnoremap <silent><leader>gb :Git blame<cr>
 
-let g:which_key_map.g.b = 'open-browser'
+let g:which_key_map.g.o = 'open-browser'
 nnoremap <silent><leader>go :GBrowse<cr>
 vnoremap <silent><leader>go :GBrowse<cr>
 
 "+ale/coc
 let g:which_key_map.l = {
       \ 'name': '+ale/coc',
-      \ 'F':    ['<Plug>(coc-smartf-backward)', 'find-forward'],
       \ 'R':    ['CocRestart',                  'coc-restart'],
       \ 'a':    ['<Plug>(coc-codeaction)',      'code-action'],
       \ 'c':    ['<Plug>(coc-codelens-action)', 'code-lens-action'],
       \ 'd':    ['ALEDetail',                   'ale-detail'],
-      \ 'f':    ['<Plug>(coc-smartf-forward)',  'find-forward'],
       \ 'o':    ['lopen',                       'lopen'],
       \ 'r':    ['<Plug>(coc-rename)',          'rename'],
       \ 's':    [':echom coc#status()',         'coc-status'],
       \ }
 
-let g:which_key_map.l.d = {}
+let g:which_key_map.l.F = 'find-backward'
+nnoremap <silent><leader>lF <Plug>(coc-smartf-backward)
+
+let g:which_key_map.l.f = 'find-forward'
+nnoremap <silent><leader>lf <Plug>(coc-smartf-forward)
+
+" +diagnostic
+let g:which_key_map.l.d = { 'name': '+diagnostic' }
+
 let g:which_key_map.l.d.n = 'diagnostic-next'
 nnoremap <silent><leader>ldn :call CocAction('diagnosticNext')<cr>
+
 let g:which_key_map.l.d.p = 'diagnostic-prev'
 nnoremap <silent><leader>ldp :call CocAction('diagnosticPrevious')<cr>
 
