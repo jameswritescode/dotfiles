@@ -26,6 +26,7 @@ Plug 'mracos/mermaid.vim'
 Plug 'nono/jquery.vim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'omnisyle/nvim-hidesig'
 Plug 'othree/html5.vim'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'sbdchd/neoformat', {'on': 'Neoformat'}

@@ -49,6 +49,13 @@
       "filetypes": ["reason"]
     },
 
+    "rubocop-lsp": {
+      "args": ["exec", "rubocop-lsp"],
+      "command": "bundle",
+      "filetypes": ["ruby"],
+      "rootPatterns": ["Gemfile"]
+    },
+
     "sourcekit-lsp": {
       "command": "sourcekit-lsp",
       "filetypes": ["swift"]

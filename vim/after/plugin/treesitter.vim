@@ -19,6 +19,12 @@ if has('nvim')
         },
       },
     },
+
+    hidesig = {
+      enable = true,
+      delay = 200,
+      opacity = 0.75,
+    },
   }
 EOF
 end
