@@ -4,6 +4,8 @@ set -x
 
 if [[ "$OSTYPE" = "darwin"* ]]; then
         echo "TODO initial macos setup"
+elif [[ -n $SPIN ]]; then
+        echo "TODO"
 elif [[ $(awk -F= '/^NAME/{print $2}' /etc/os-release 2>/dev/null) == '"Ubuntu"' ]]; then
         sudo apt-get install -y software-properties-common build-essential
 
