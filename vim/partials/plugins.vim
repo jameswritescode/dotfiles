@@ -171,6 +171,7 @@ if v:shell_error == 0
   Plug trim(g:plug_brew_prefix).'/opt/fzf'
 endif
 
+Plug '/usr/share/doc/fzf/examples'
 Plug $HOME.'/.fzf'
 Plug 'junegunn/fzf.vim'
 
