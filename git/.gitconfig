@@ -29,11 +29,9 @@
 [init]
 	defaultBranch = main
 	templatedir = ~/dotfiles/git/templates
-[commit]
-	gpgsign = true
 [core]
 	; pager = diff-so-fancy | less --tabs=4 -RFX
-	pager = delta --theme TwoDark
+	pager = delta --syntax-theme TwoDark
 	excludesfile = ~/.gitignore_global
 [color "diff-highlight"]
 	oldNormal = red bold
