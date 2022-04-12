@@ -36,7 +36,7 @@ class RPCClient:
             self.socket.connect(os.path.join(os.environ['TMPDIR'], 'discord-ipc-0'))
             self.handshake()
             self.connected = True
-        except OSError:
+        except (OSError, KeyError):
             pass
 
     def handshake(self):
