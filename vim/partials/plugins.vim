@@ -113,6 +113,7 @@ let g:ale_sign_warning = g:ale_sign_error
 let g:ale_linters = {
       \ 'c': [],
       \ 'elixir': [],
+      \ 'eruby': ['erblint'],
       \ 'go': [],
       \ 'javascript': [],
       \ 'javascriptreact': [],
