@@ -49,8 +49,8 @@
       "filetypes": ["reason"]
     },
 
-    "rubocop-lsp": {
-      "args": ["exec", "rubocop-lsp"],
+    "shopify-ruby-lsp": {
+      "args": ["exec", "ruby-lsp"],
       "command": "bundle",
       "filetypes": ["ruby"],
       "rootPatterns": ["Gemfile"]
