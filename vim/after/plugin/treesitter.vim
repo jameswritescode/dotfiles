@@ -16,6 +16,8 @@ if has('nvim')
           ["ic"] = "@class.inner",
           ["af"] = "@function.outer",
           ["if"] = "@function.inner",
+          ["ap"] = "@parameter.outer",
+          ["ip"] = "@parameter.inner",
         },
       },
     },
