@@ -1,6 +1,17 @@
 if has('nvim')
   lua <<EOF
   require'nvim-treesitter.configs'.setup {
+    ensure_installed = {
+      "comment",
+      "css",
+      "html",
+      "javascript",
+      "json",
+      "ruby",
+      "rust",
+      "typescript",
+    },
+
     textobjects = {
       select = {
         enable = true,
