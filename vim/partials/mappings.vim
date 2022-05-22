@@ -134,11 +134,15 @@ let g:which_key_map.l.g = {
 let g:which_key_map.t = {
       \ 'name': '+terminal/toggle',
       \ 'c':    [':call Repl()',     'repl'],
-      \ 'f':    ['TestFile',         'test-file'],
-      \ 'n':    ['TestNearest',      'test-near'],
       \ 'p':    [':setlocal paste!', 'paste-mode'],
       \ 'r':    [':call RunFile()',  'run'],
       \ }
+
+let g:which_key_map.t.f = 'test-file'
+nnoremap <silent><leader>tf :TestFile<cr>
+
+let g:which_key_map.t.n = 'test-near'
+nnoremap <silent><leader>tn :TestNearest<cr>
 
 nnoremap <silent><leader>s :sort<cr>
 vnoremap <silent><leader>s :sort<cr>
