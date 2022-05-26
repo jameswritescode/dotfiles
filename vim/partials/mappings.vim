@@ -1,19 +1,5 @@
 inoremap jk <esc>
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-nmap [c <Plug>(coc-git-prevchunk)
-nmap ]c <Plug>(coc-git-nextchunk)
-
 nnoremap <down>  <c-w>-
 nnoremap <left>  1<c-w>>
 nnoremap <right> 1<c-w><
@@ -34,8 +20,6 @@ nnoremap <silent> K :call <sid>show_documentation()<cr>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
   else
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
@@ -67,68 +51,61 @@ let g:which_key_map.b = {
       \ }
 
 " +file/find
-let g:which_key_map.f = {
-      \ 'name': '+file/find',
-      \ 's':    ['update', 'save-file'],
-      \ }
+let g:which_key_map.f = { 'name': '+file/find' }
 
+let g:which_key_map.f.w = '[BUG] grep-cword'
 nnoremap <expr><silent><leader>fw ':GGrep '.expand('<cword>').'<cr>'
-let g:which_key_map.f.w =         '[BUG] grep-cword'
-nnoremap <silent><leader>fv       :vsplit $DOTFILES/vim<cr>
-let g:which_key_map.f.v =         'edit-vim'
-nnoremap <silent><leader>fz       :vsplit $DOTFILES/zsh<cr>
-let g:which_key_map.f.z =         'edit-zsh'
+
+let g:which_key_map.f.v = 'edit-vim'
+nnoremap <silent><leader>fv :vsplit $DOTFILES/vim<cr>
+
+let g:which_key_map.f.z = 'edit-zsh'
+nnoremap <silent><leader>fz :vsplit $DOTFILES/zsh<cr>
 
 " +git
-let g:which_key_map.g = {
-      \ 'name': '+git',
-      \ 'a':    [':CocCommand git.chunkStage', 'stage-chunk'],
-      \ 'c':    [':CocCommand git.chunkInfo',  'chunk-info'],
-      \ 's':    [':GFiles?',                   'status'],
-      \ 'u':    [':CocCommand git.chunkUndo',  'chunk-undo'],
-      \ }
+let g:which_key_map.g = { 'name': '+git' }
+
+nnoremap <expr><silent>[c &diff ? '[c' : ':Gitsigns prev_hunk<cr>'
+nnoremap <expr><silent>]c &diff ? ']c' : ':Gitsigns next_hunk<cr>'
+
+let g:which_key_map.g.a = 'stage-chunk'
+nnoremap <silent><leader>ga :Gitsigns stage_hunk<cr>
 
 let g:which_key_map.g.b = 'blame'
 nnoremap <silent><leader>gb :Git blame<cr>
+
+let g:which_key_map.g.c = 'chunk-info'
+nnoremap <silent><leader>gc :Gitsigns preview_hunk<cr>
 
 let g:which_key_map.g.o = 'open-browser'
 nnoremap <silent><leader>go :GBrowse<cr>
 vnoremap <silent><leader>go :GBrowse<cr>
 
-"+ale/coc
-let g:which_key_map.l = {
-      \ 'name': '+ale/coc',
-      \ 'R':    ['CocRestart',                  'coc-restart'],
-      \ 'a':    ['<Plug>(coc-codeaction)',      'code-action'],
-      \ 'c':    ['<Plug>(coc-codelens-action)', 'code-lens-action'],
-      \ 'd':    ['ALEDetail',                   'ale-detail'],
-      \ 'o':    ['lopen',                       'lopen'],
-      \ 'r':    ['<Plug>(coc-rename)',          'rename'],
-      \ 's':    [':echom coc#status()',         'coc-status'],
-      \ }
+let g:which_key_map.g.s = 'status'
+nnoremap <silent><leader>gs :GFiles?<cr>
 
-let g:which_key_map.l.F = 'find-backward'
-nnoremap <silent><leader>lF <Plug>(coc-smartf-backward)
+let g:which_key_map.g.u = 'chunk-undo'
+nnoremap <silent><leader>gu :Gitsigns undo_stage_hunk<cr>
 
-let g:which_key_map.l.f = 'find-forward'
-nnoremap <silent><leader>lf <Plug>(coc-smartf-forward)
+" +lsp
+let g:which_key_map.l = { 'name': '+lsp' }
+let g:which_key_map.l.a = 'code-action'
+let g:which_key_map.l.r = 'rename'
 
 " +diagnostic
 let g:which_key_map.l.d = { 'name': '+diagnostic' }
 
 let g:which_key_map.l.d.n = 'diagnostic-next'
-nnoremap <silent><leader>ldn :call CocAction('diagnosticNext')<cr>
+nnoremap <silent><leader>ldn :lua vim.diagnostic.goto_next()<cr>
 
 let g:which_key_map.l.d.p = 'diagnostic-prev'
-nnoremap <silent><leader>ldp :call CocAction('diagnosticPrevious')<cr>
+nnoremap <silent><leader>ldp :lua vim.diagnostic.goto_prev()<cr>
 
-let g:which_key_map.l.g = {
-      \ 'name': '+goto',
-      \ 'd':    ['<Plug>(coc-definition)',      'definition'],
-      \ 'i':    ['<Plug>(coc-implementation)',  'implementation'],
-      \ 'r':    ['<Plug>(coc-references)',      'references'],
-      \ 'y':    ['<Plug>(coc-type-definition)', 'type-definition'],
-      \ }
+let g:which_key_map.l.g = { 'name': '+goto' }
+let g:which_key_map.l.g.d = 'definition'
+let g:which_key_map.l.g.i = 'implementation'
+let g:which_key_map.l.g.r = 'references'
+let g:which_key_map.l.g.y = 'type-definition'
 
 " +test/toggle
 let g:which_key_map.t = {

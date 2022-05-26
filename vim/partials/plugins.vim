@@ -2,6 +2,20 @@ scriptencoding utf-8
 
 call plug#begin('$HOME/dotfiles/vim/plugged')
 
+" neovim
+Plug 'L3MON4D3/LuaSnip'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'onsails/lspkind.nvim'
+Plug 'williamboman/nvim-lsp-installer'
+
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'omnisyle/nvim-hidesig'
+
 " General {{{
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim'
@@ -23,9 +37,6 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'moll/vim-node'
 Plug 'mracos/mermaid.vim'
 Plug 'nono/jquery.vim'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-Plug 'omnisyle/nvim-hidesig'
 Plug 'othree/html5.vim'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'sbdchd/neoformat', {'on': 'Neoformat'}
@@ -107,8 +118,6 @@ let g:ale_lint_on_text_changed = 'normal'
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = g:ale_sign_error
 
-" TODO: Disable sh and install coc-sh once tree-sitter supports node 12:
-" https://github.com/tree-sitter/node-tree-sitter/pull/45
 let g:ale_linters = {
       \ 'c': [],
       \ 'elixir': [],
@@ -122,31 +131,6 @@ let g:ale_linters = {
       \ 'typescript': [],
       \ 'typescriptreact': [],
       \ 'zsh': ['shell', 'shellcheck'],
-      \ }
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = [
-      \ 'coc-css',
-      \ 'coc-elixir',
-      \ 'coc-eslint',
-      \ 'coc-flow',
-      \ 'coc-git',
-      \ 'coc-html',
-      \ 'coc-json',
-      \ 'coc-lists',
-      \ 'coc-prettier',
-      \ 'coc-python',
-      \ 'coc-rls',
-      \ 'coc-smartf',
-      \ 'coc-solargraph',
-      \ 'coc-tsserver',
-      \ 'coc-ultisnips',
-      \ 'coc-vimlsp',
-      \ 'coc-yaml',
-      \ ]
-
-let g:coc_filetype_map = {
-      \ 'rspec.ruby': 'ruby',
       \ }
 
 " Plug 'tpope/vim-projectionist'
