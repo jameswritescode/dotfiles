@@ -15,14 +15,6 @@ filetype off
 
 source ~/dotfiles/vim/partials/plugins.vim
 
-lua <<EOF
-require('nvim-treesitter.configs').setup {
-  highlight = {
-    enable = true,
-  },
-}
-EOF
-
 filetype plugin indent on
 
 if !exists('g:syntax_on')

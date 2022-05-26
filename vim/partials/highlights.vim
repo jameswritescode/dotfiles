@@ -8,28 +8,6 @@ function! CustomHighlights() abort
   hi ALEWarning guifg=yellow gui=underline
   hi ALEWarningSign guifg=yellow
 
-  """"""""""""
-  " coc.nvim "
-  """"""""""""
-  hi CustomCocDiffAdd guifg=#98c379
-  hi CustomCocDiffChange guifg=#e5c07b
-  hi CustomCocDiffDelete guifg=#e06c75
-
-  hi CocErrorHighlight guifg=red gui=underline
-  hi link CocErrorFloat ALEErrorSign
-  hi link CocErrorSign ALEErrorSign
-
-  hi link CocHintLine CustomCocDiffChange
-  hi link CocHintSign CocHintLine
-
-  hi CocInfoHighlight guifg=lightblue gui=underline
-  hi CocInfoSign guifg=lightblue
-  hi CocInfoFloat guifg=lightblue
-
-  hi CocWarningHighlight guifg=yellow gui=underline
-  hi link CocWarningFloat ALEWarningSign
-  hi link CocWarningSign ALEWarningSign
-
   """""""""""
   " matchup "
   """""""""""
@@ -46,6 +24,14 @@ function! CustomHighlights() abort
   """""""""
   hi Pmenu guibg=#262931
   hi jsxAttrib gui=italic guifg=#e5c07b
+
+  """"""""""""""""""
+  " vim.diagnostic "
+  """"""""""""""""""
+  sign define DiagnosticSignError text=● texthl=DiagnosticSignError linehl= numhl=
+  sign define DiagnosticSignWarn text=● texthl=DiagnosticSignWarn linehl= numhl=
+  sign define DiagnosticSignInfo text=● texthl=DiagnosticSignInfo linehl= numhl=
+  sign define DiagnosticSignHint text=● texthl=DiagnosticSignHint linehl= numhl=
 endfunction
 
 augroup custom_highlights
