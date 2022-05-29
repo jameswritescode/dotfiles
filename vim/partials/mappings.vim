@@ -28,12 +28,15 @@ endfunction
 nnoremap <silent> H :call TabControl('tabp', 'bp')<cr>
 nnoremap <silent> L :call TabControl('tabn', 'bn')<cr>
 
-vnoremap <c-c>             y:call system("pbcopy", getreg("\""))<cr>
 vnoremap <silent><leader>  :<c-u>WhichKeyVisual '<Space>'<CR>
 vnoremap J                 :m '>+1<cr>gv=gv
 vnoremap K                 :m '<-2<cr>gv=gv
 
 tnoremap <Esc> <c-\><c-n>
+
+let g:yank_copy_command = trim(system('uname -a')) =~# 'microsoft' ? 'clip.exe' : 'pbcopy'
+
+vnoremap <expr> <c-c> 'y:call system("' . g:yank_copy_command . '", getreg("\""))<cr>'
 
 """"""""""""""""""""""""""""""""""
 " vim-which-key related mappings "
