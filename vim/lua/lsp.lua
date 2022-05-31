@@ -68,6 +68,7 @@ end
 
 local servers = {
   'gopls',
+  'graphql',
   'solargraph',
   'sorbet',
   'sumneko_lua',
@@ -83,6 +84,10 @@ local defaults = {
 }
 
 local overrides = {
+  graphql = {
+    autostart = false,
+  },
+
   sorbet = {
     root_dir = lspconfig.util.root_pattern('sorbet'),
   },
