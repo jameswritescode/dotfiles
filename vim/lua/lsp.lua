@@ -36,9 +36,13 @@ local function on_attach(_, bufnr)
         prefix = '- ',
         scope = 'cursor',
         source = 'always',
+
+        format = function(diagnostic)
+          return string.format("[%s] %s", diagnostic.code, diagnostic.message)
+        end
       }
 
-      vim.diagnostic.open_float(nil, opts)
+      vim.diagnostic.open_float(opts)
     end
   })
 end
