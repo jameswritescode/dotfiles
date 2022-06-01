@@ -67,6 +67,7 @@ local function merge(t1, t2)
 end
 
 local servers = {
+  'bashls',
   'gopls',
   'graphql',
   'solargraph',
