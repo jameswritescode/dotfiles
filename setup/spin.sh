@@ -10,11 +10,16 @@
 # sudo dpkg -i git-delta.deb
 # rm git-delta.deb
 
+# git
 ./setup/git.sh install_ubuntu
-
 git config --global --unset core.pager
 
+# zsh
 ./setup/zsh.sh install_ubuntu
 
+# neovim
 sudo gem install neovim --no-doc
 ./setup/neovim.sh install_ubuntu
+
+# tmux
+./setup/tmux.sh install_ubuntu
