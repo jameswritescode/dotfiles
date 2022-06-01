@@ -88,7 +88,7 @@ let g:which_key_map.g.s = 'status'
 nnoremap <silent><leader>gs :GFiles?<cr>
 
 let g:which_key_map.g.u = 'chunk-undo'
-nnoremap <silent><leader>gu :Gitsigns undo_stage_hunk<cr>
+nnoremap <silent><leader>gu :Gitsigns reset_hunk<cr>
 
 " +lsp
 let g:which_key_map.l = { 'name': '+lsp' }
