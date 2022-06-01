@@ -3,11 +3,13 @@ scriptencoding utf-8
 call plug#begin('$HOME/dotfiles/vim/plugged')
 
 " neovim
-Plug 'L3MON4D3/LuaSnip'
+Plug 'lewis6991/gitsigns.nvim'
+
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'lewis6991/gitsigns.nvim'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+
 Plug 'neovim/nvim-lspconfig'
 Plug 'onsails/lspkind.nvim'
 Plug 'williamboman/nvim-lsp-installer'
