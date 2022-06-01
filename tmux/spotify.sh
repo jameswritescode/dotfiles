@@ -1,3 +1,5 @@
+#!/bin/bash
+
 MAXLEN=30
 playing=$(osascript "$DOTFILES/tmux/spotify.applescript" | tr -d '\n')
 
