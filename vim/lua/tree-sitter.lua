@@ -4,6 +4,7 @@ require'nvim-treesitter.configs'.setup {
   },
 
   ensure_installed = {
+    "bash",
     "comment",
     "css",
     "html",
@@ -40,5 +41,9 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     delay = 200,
     opacity = 0.75,
+  },
+
+  indent = {
+    enable = true
   },
 }
