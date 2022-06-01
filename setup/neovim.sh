@@ -30,7 +30,9 @@ install_ubuntu() {
   install_standard
   install_plug
 
-  [[ -z $SPIN ]] && nvim +PlugInstall +qall >/dev/null
+  if [[ -z $SPIN ]]; then
+    nvim +PlugInstall +qall >/dev/null
+  fi
 }
 
 install_plug() {
