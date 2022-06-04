@@ -50,9 +50,11 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_lsp.update_capabilities(capabilities)
 
-local handlers = {
-  ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, cmp.config.window.bordered())
-}
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, cmp.config.window.bordered())
+
+require('lspfuzzy').setup({
+  methods = {'textDocument/references'},
+})
 
 local function merge(t1, t2)
   local new_table = {}
@@ -80,7 +82,6 @@ local servers = {
 
 local defaults = {
   capabilities = capabilities,
-  handlers = handlers,
   on_attach = on_attach,
 }
 
