@@ -51,7 +51,8 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_lsp.update_capabilities(capabilities)
 
 local handlers = {
-  ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, cmp.config.window.bordered())
+  ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, cmp.config.window.bordered()),
+  ['textDocument/references'] = require('lsp-fzf').handler,
 }
 
 local function merge(t1, t2)
