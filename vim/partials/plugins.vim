@@ -11,6 +11,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
 Plug 'neovim/nvim-lspconfig'
+Plug 'ojroques/nvim-lspfuzzy'
 Plug 'onsails/lspkind.nvim'
 Plug 'williamboman/nvim-lsp-installer'
 
