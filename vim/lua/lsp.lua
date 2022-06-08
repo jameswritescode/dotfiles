@@ -52,9 +52,7 @@ capabilities = cmp_lsp.update_capabilities(capabilities)
 
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, cmp.config.window.bordered())
 
-require('lspfuzzy').setup({
-  methods = {'textDocument/references'},
-})
+require('lspfuzzy').setup()
 
 local function merge(t1, t2)
   local new_table = {}
