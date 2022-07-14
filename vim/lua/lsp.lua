@@ -47,6 +47,14 @@ local function on_attach(_, bufnr)
   })
 end
 
+local null_ls = require('null-ls')
+
+null_ls.setup({
+  sources = {
+    null_ls.builtins.diagnostics.eslint,
+  },
+})
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_lsp.update_capabilities(capabilities)
 
