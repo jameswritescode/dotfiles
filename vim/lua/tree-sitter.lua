@@ -1,5 +1,5 @@
 require'nvim-treesitter.configs'.setup {
-  highlight = {
+  endwise = {
     enable = true,
   },
 
@@ -16,6 +16,24 @@ require'nvim-treesitter.configs'.setup {
     "rust",
     "toml",
     "typescript",
+  },
+
+  hidesig = {
+    enable = true,
+    delay = 200,
+    opacity = 0.75,
+  },
+
+  highlight = {
+    enable = true,
+  },
+
+  indent = {
+    enable = false,
+  },
+
+  matchup = {
+    enable = true,
   },
 
   textobjects = {
@@ -36,18 +54,4 @@ require'nvim-treesitter.configs'.setup {
       },
     },
   },
-
-  hidesig = {
-    enable = true,
-    delay = 200,
-    opacity = 0.75,
-  },
-
-  indent = {
-    enable = false,
-  },
-
-  matchup = {
-    enable = true,
-  }
 }

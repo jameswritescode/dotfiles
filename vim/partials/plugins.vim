@@ -4,9 +4,11 @@ call plug#begin('$HOME/dotfiles/vim/plugged')
 
 " neovim
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'windwp/nvim-autopairs'
 
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
@@ -17,6 +19,7 @@ Plug 'ojroques/nvim-lspfuzzy'
 Plug 'onsails/lspkind.nvim'
 Plug 'williamboman/nvim-lsp-installer'
 
+Plug 'RRethy/nvim-treesitter-endwise'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'omnisyle/nvim-hidesig'
@@ -28,7 +31,6 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'diepm/vim-rest-console'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'jiangmiao/auto-pairs'
 Plug 'kchmck/vim-coffee-script'
 Plug 'keith/rspec.vim'
 Plug 'machakann/vim-highlightedyank'

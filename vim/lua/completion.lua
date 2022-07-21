@@ -1,4 +1,7 @@
 local cmp = require 'cmp'
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
 cmp.setup{
   formatting = {
@@ -39,6 +42,7 @@ cmp.setup{
   sources = cmp.config.sources(
     {
       { name = 'nvim_lsp' },
+      { name = 'cmp-nvim-lsp-signature-help' },
       { name = 'ultisnips' },
     },
     {
@@ -65,3 +69,5 @@ cmp.setup{
     documentation = cmp.config.window.bordered(),
   }
 }
+
+require('nvim-autopairs').setup()
