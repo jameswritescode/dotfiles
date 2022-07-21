@@ -12,6 +12,7 @@ Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/plenary.nvim'
 Plug 'ojroques/nvim-lspfuzzy'
 Plug 'onsails/lspkind.nvim'
 Plug 'williamboman/nvim-lsp-installer'
@@ -25,26 +26,13 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'cespare/vim-toml', {'for': 'toml'}
-Plug 'chr4/nginx.vim'
 Plug 'diepm/vim-rest-console'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'elzr/vim-json'
 Plug 'jiangmiao/auto-pairs'
-Plug 'jparise/vim-graphql'
-Plug 'justinmk/vim-syntax-extra'
-Plug 'jxnblk/vim-mdx-js'
-Plug 'kana/vim-textobj-user'
 Plug 'kchmck/vim-coffee-script'
 Plug 'keith/rspec.vim'
 Plug 'machakann/vim-highlightedyank'
-Plug 'moll/vim-node'
 Plug 'mracos/mermaid.vim'
-Plug 'nono/jquery.vim'
-Plug 'othree/html5.vim'
-Plug 'reasonml-editor/vim-reason-plus'
-Plug 'sbdchd/neoformat', {'on': 'Neoformat'}
-Plug 'solarnz/thrift.vim'
 Plug 'tbastos/vim-lua'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-apathy'
@@ -57,17 +45,12 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
-Plug 'vim-scripts/Io-programming-language-syntax'
-Plug 'vim-scripts/applescript.vim'
 
 Plug 'lifepillar/pgsql.vim'
 let g:sql_type_default = 'pgsql'
 
 Plug 'tpope/vim-markdown'
 let g:markdown_fenced_languages = ['vim', 'typescript', 'help']
-
-Plug 'liuchengxu/graphviz.vim'
-let g:graphviz_shell_option = '-Kcirco'
 
 Plug 'thinca/vim-template'
 augroup vimTemplate
@@ -93,10 +76,6 @@ Plug 'joshdick/onedark.vim'
 let g:onedark_hide_endofbuffer = 1
 let g:onedark_terminal_italics = 1
 
-Plug 'hashivim/vim-terraform'
-let g:terraform_commentstring = '//%s'
-let g:terraform_fmt_on_save = 1
-
 Plug 'janko-m/vim-test', {'on': ['TestNearest', 'TestFile']}
 let test#ruby#rspec#executable = 'RAILS_ENV=test bundle exec rspec'
 
@@ -113,7 +92,6 @@ let g:user_emmet_settings = {
 \ }}
 
 Plug 'dense-analysis/ale'
-let g:ale_graphql_gqlint_executable = $PWD . '/node_modules/.bin/gqlint'
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_filetype_changed = 1
 let g:ale_lint_on_insert_leave = 1
@@ -166,15 +144,6 @@ Plug 'junegunn/fzf.vim'
 
 command! -bang -nargs=* GGrep
   \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
-
-Plug 'neovimhaskell/haskell-vim'
-let g:haskell_backpack = 1
-let g:haskell_enable_arrowsyntax = 1
-let g:haskell_enable_pattern_synonyms = 1
-let g:haskell_enable_quantification = 1
-let g:haskell_enable_recursivedo = 1
-let g:haskell_enable_static_pointers = 1
-let g:haskell_enable_typeroles = 1
 " }}}
 
 if executable('ruby') " Ruby {{{
@@ -262,19 +231,12 @@ if executable('swift') " Swift {{{
 endif " }}}
 
 if executable('elixir') " Elixir {{{
-  Plug 'andyl/vim-textobj-elixir'
   Plug 'c-brenn/phoenix.vim'
   Plug 'elixir-editors/vim-elixir'
 endif " }}}
 
 if executable('rustc') " Rust {{{
   Plug 'rust-lang/rust.vim'
-endif " }}}
-
-if executable('lein') " Clojure {{{
-  Plug 'guns/vim-clojure-highlight'
-  Plug 'tpope/vim-classpath', {'for': 'clojure'}
-  Plug 'tpope/vim-fireplace', {'for': 'clojure'}
 endif " }}}
 
 call plug#end()
