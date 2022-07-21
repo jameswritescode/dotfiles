@@ -7,12 +7,14 @@ require'nvim-treesitter.configs'.setup {
     "bash",
     "comment",
     "css",
+    "graphql",
     "html",
     "javascript",
     "json",
     "lua",
     "ruby",
     "rust",
+    "toml",
     "typescript",
   },
 
@@ -20,11 +22,9 @@ require'nvim-treesitter.configs'.setup {
     select = {
       enable = true,
 
-      -- Automatically jump forward to textobj, similar to targets.vim
       lookahead = true,
 
       keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
         ["ab"] = "@block.outer",
         ["ib"] = "@block.inner",
         ["ac"] = "@class.outer",
@@ -46,4 +46,8 @@ require'nvim-treesitter.configs'.setup {
   indent = {
     enable = false,
   },
+
+  matchup = {
+    enable = true,
+  }
 }

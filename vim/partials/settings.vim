@@ -7,7 +7,7 @@ set backupdir=~/dotfiles/vim/tmp
 set cmdheight=2
 set colorcolumn=+1
 set concealcursor=niv
-set conceallevel=2
+set conceallevel=0
 set cursorline
 set diffopt+=vertical
 set directory=~/dotfiles/vim/tmp
