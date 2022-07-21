@@ -22,7 +22,7 @@ function! CustomHighlights() abort
   """""""""
   " Other "
   """""""""
-  hi Pmenu guibg=#262931
+  hi Pmenu guibg=#282c34
   hi jsxAttrib gui=italic guifg=#e5c07b
 
   """"""""""""""""""
