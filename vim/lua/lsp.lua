@@ -94,7 +94,7 @@ local defaults = {
 
 lspconfigs.shopify_ruby_lsp = {
   default_config = {
-    cmd = { 'bundle exec ruby-lsp' },
+    cmd = { 'bundle', 'exec', 'ruby-lsp' },
     filetypes = { 'ruby' },
     root_dir = lspconfig.util.root_pattern('Gemfile'),
   }
