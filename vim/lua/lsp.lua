@@ -1,6 +1,8 @@
 local cmp = require 'cmp'
 local cmp_lsp = require 'cmp_nvim_lsp'
 local lspconfig = require 'lspconfig'
+local lspconfigs = require 'lspconfig.configs'
+local null_ls = require('null-ls')
 
 require('nvim-lsp-installer').setup {}
 
@@ -47,8 +49,6 @@ local function on_attach(_, bufnr)
   })
 end
 
-local null_ls = require('null-ls')
-
 null_ls.setup({
   sources = {
     null_ls.builtins.diagnostics.eslint,
@@ -78,6 +78,7 @@ local servers = {
   'bashls',
   'gopls',
   'graphql',
+  'shopify_ruby_lsp',
   'solargraph',
   'sorbet',
   'sumneko_lua',
@@ -91,9 +92,27 @@ local defaults = {
   on_attach = on_attach,
 }
 
+lspconfigs.shopify_ruby_lsp = {
+  default_config = {
+    cmd = { 'bundle exec ruby-lsp' },
+    filetypes = { 'ruby' },
+    root_dir = lspconfig.util.root_pattern('Gemfile'),
+  }
+}
+
+local in_spin = os.getenv('SPIN') == '1'
+
 local overrides = {
   graphql = {
     autostart = false,
+  },
+
+  shopify_ruby_lsp = {
+    autostart = in_spin,
+  },
+
+  solargraph = {
+    autostart = not in_spin,
   },
 
   sorbet = {
