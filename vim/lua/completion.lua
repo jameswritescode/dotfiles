@@ -1,5 +1,6 @@
 local cmp = require 'cmp'
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local cmp_ultisnips_mappings = require('cmp_nvim_ultisnips.mappings')
 
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
@@ -20,7 +21,7 @@ cmp.setup{
       if cmp.visible() then
         cmp.select_prev_item()
       else
-        fallback()
+        cmp_ultisnips_mappings.jump_backwards(fallback)
       end
     end, { 'i', 's' }),
 
@@ -28,7 +29,7 @@ cmp.setup{
       if cmp.visible() then
         cmp.select_next_item()
       else
-        fallback()
+        cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
       end
     end, { 'i', 's' }),
   }),
