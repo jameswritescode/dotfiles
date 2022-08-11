@@ -14,8 +14,7 @@ set diffopt+=vertical
 set directory=~/dotfiles/vim/tmp
 set encoding=utf-8
 set expandtab
-set exrc
-set foldcolumn=1
+set foldcolumn=0
 set foldlevel=20
 set foldmethod=indent
 set foldmethod=marker
