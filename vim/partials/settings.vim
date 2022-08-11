@@ -6,6 +6,7 @@ set backspace=2
 set backupdir=~/dotfiles/vim/tmp
 set cmdheight=2
 set colorcolumn=+1
+set completeopt=menu,menuone,noselect
 set concealcursor=niv
 set conceallevel=0
 set cursorline
