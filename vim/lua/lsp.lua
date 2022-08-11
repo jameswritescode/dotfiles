@@ -14,6 +14,14 @@ function lsp_diagnostic_hover_hack()
   vim.cmd([[autocmd CursorMoved <buffer> ++once set eventignore=""]])
 end
 
+local window_opts = cmp.config.window.bordered()
+
+local function set_winhighlight(winnr)
+  if winnr then
+    vim.api.nvim_win_set_option(winnr, 'winhl', window_opts.winhighlight)
+  end
+end
+
 local map_opts = { noremap = true, silent = true }
 
 local function on_attach(_, bufnr)
@@ -35,7 +43,6 @@ local function on_attach(_, bufnr)
         border = 'rounded',
         close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' },
         focusable = false,
-        prefix = '- ',
         scope = 'cursor',
         source = 'always',
 
@@ -44,7 +51,9 @@ local function on_attach(_, bufnr)
         end
       }
 
-      vim.diagnostic.open_float(opts)
+      local _, winnr = vim.diagnostic.open_float(opts)
+
+      set_winhighlight(winnr)
     end
   })
 end
@@ -58,7 +67,15 @@ null_ls.setup({
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_lsp.update_capabilities(capabilities)
 
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, cmp.config.window.bordered())
+local function hover(_, result, ctx, config)
+  local bufnr, winnr = vim.lsp.handlers.hover(_, result, ctx, config)
+
+  set_winhighlight(winnr)
+
+  return bufnr, winnr
+end
+
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(hover, window_opts)
 
 require('lspfuzzy').setup()
 
