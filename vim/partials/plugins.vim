@@ -82,7 +82,6 @@ Plug 'janko-m/vim-test', {'on': ['TestNearest', 'TestFile']}
 let test#ruby#rspec#executable = 'RAILS_ENV=test bundle exec rspec'
 
 Plug 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsEnableSnipMate= 0
 
 Plug 'mattn/emmet-vim'
