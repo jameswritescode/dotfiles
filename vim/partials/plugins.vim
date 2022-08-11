@@ -74,9 +74,11 @@ Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!', 'WhichKeyVisua
 let g:which_key_hspace = 40
 let g:which_key_use_floating_win = 1
 
-Plug 'joshdick/onedark.vim'
-let g:onedark_hide_endofbuffer = 1
-let g:onedark_terminal_italics = 1
+" Plug 'joshdick/onedark.vim'
+" let g:onedark_hide_endofbuffer = 1
+" let g:onedark_terminal_italics = 1
+
+Plug 'navarasu/onedark.nvim'
 
 Plug 'janko-m/vim-test', {'on': ['TestNearest', 'TestFile']}
 let test#ruby#rspec#executable = 'RAILS_ENV=test bundle exec rspec'
