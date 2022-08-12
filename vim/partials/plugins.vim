@@ -4,6 +4,7 @@ call plug#begin('$HOME/dotfiles/vim/plugged')
 
 " neovim
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'mfussenegger/nvim-dap'
 Plug 'windwp/nvim-autopairs'
 
 Plug 'hrsh7th/cmp-buffer'
@@ -17,7 +18,8 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'ojroques/nvim-lspfuzzy'
 Plug 'onsails/lspkind.nvim'
-Plug 'williamboman/nvim-lsp-installer'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'williamboman/mason.nvim'
 
 Plug 'RRethy/nvim-treesitter-endwise'
 Plug 'nvim-treesitter/nvim-treesitter'
