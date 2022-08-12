@@ -4,7 +4,8 @@ local lspconfig = require 'lspconfig'
 local lspconfigs = require 'lspconfig.configs'
 local null_ls = require('null-ls')
 
-require('nvim-lsp-installer').setup {}
+require('mason').setup()
+require('mason-lspconfig').setup()
 
 vim.diagnostic.config { virtual_text = false }
 
