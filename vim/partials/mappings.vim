@@ -53,6 +53,18 @@ let g:which_key_map.b = {
       \ '-':     [':%bd|e#|bd#', 'delete-inactive-buffers'],
       \ }
 
+" +dap
+let g:which_key_map.d = { 'name': '+dap'}
+
+let g:which_key_map.d.b = 'toggle-breakpoint'
+nnoremap <silent><leader>db <cmd>lua require'dap'.toggle_breakpoint()<cr>
+
+let g:which_key_map.d.c = 'continue'
+nnoremap <silent><leader>dc <cmd>lua require'dap'.continue()<cr>
+
+let g:which_key_map.d.r = 'repl-open'
+nnoremap <silent><leader>dr <cmd>lua require'dap'.repl.open()<cr>
+
 " +file/find
 let g:which_key_map.f = { 'name': '+file/find' }
 
