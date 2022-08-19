@@ -58,6 +58,14 @@ function! SetFiletype(filetype)
   return a:filetype ==# '' ? '-' : a:filetype
 endfunction
 
+function! TreeSitterStatus() abort
+  let l:status = nvim_treesitter#statusline({
+        \ 'type_patterns': ['class', 'function', 'method', 'module'],
+        \ })
+
+  return l:status == v:null ? '' : l:status
+endfunction
+
 function StatusLineHighlights() abort
   hi StatusLine guibg=#282c34
   hi StatusLineNC guibg=#282c34
@@ -83,6 +91,8 @@ function DrawStatusLine(inactive) abort
   setlocal statusline+=\ %#StatusLineSurround#
   setlocal statusline+=%#StatusLineBody#%{SetModified()}
   setlocal statusline+=%#StatusLineSurround#
+
+  setlocal statusline+=\ %{TreeSitterStatus()}
 
   " Spacer
   setlocal statusline+=%=
