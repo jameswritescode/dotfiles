@@ -47,11 +47,9 @@ cmp.setup{
     {
       { name = 'nvim_lsp', keyword_length = 3 },
       { name = 'ultisnips' },
-    },
-    {
       {
         name = 'buffer',
-        keyword_length = 3,
+        keyword_length = 5,
 
         option = {
           get_bufnrs = function()
