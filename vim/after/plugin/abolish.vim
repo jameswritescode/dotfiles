@@ -1,3 +1,7 @@
+if !exists('g:loaded_abolish')
+  finish
+endif
+
 " General
 Abolish boostrap bootstrap
 Abolish {,have_}recieve{,d} {}receive{}
