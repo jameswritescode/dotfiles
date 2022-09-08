@@ -35,7 +35,7 @@ function! SetModified() abort
     return '-'
   endif
 
-  if exists('*FugitiveHead')
+  if exists('g:loaded_fugitive')
     hi StatusLineModifiedBody gui=bold guibg=#3d4450 guifg=#282c34
 
     return ' ' . FugitiveHead()
@@ -59,6 +59,10 @@ function! SetFiletype(filetype)
 endfunction
 
 function! TreeSitterStatus() abort
+  if !exists('g:loaded_nvim_treesitter')
+    return ''
+  endif
+
   let l:status = nvim_treesitter#statusline({
         \ 'type_patterns': ['class', 'function', 'method', 'module'],
         \ })
