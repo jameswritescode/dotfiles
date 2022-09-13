@@ -27,7 +27,6 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'omnisyle/nvim-hidesig'
 
 " General {{{
-Plug 'AndrewRadev/splitjoin.vim'
 Plug 'AndrewRadev/switch.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
@@ -49,6 +48,9 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
+
+Plug 'AndrewRadev/splitjoin.vim'
+let g:splitjoin_ruby_hanging_args = 0
 
 Plug 'lifepillar/pgsql.vim'
 let g:sql_type_default = 'pgsql'
