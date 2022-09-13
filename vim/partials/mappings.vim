@@ -111,7 +111,7 @@ let g:which_key_map.l.r = 'rename'
 let g:which_key_map.l.d = { 'name': '+diagnostic' }
 
 let g:which_key_map.l.d.l = 'diagnostic-list'
-nnoremap <slient><leader>ldl :lua vim.diagnostic.setqflist()<cr>
+nnoremap <silent><leader>ldl :lua vim.diagnostic.setqflist()<cr>
 
 let g:which_key_map.l.d.n = 'diagnostic-next'
 nnoremap <silent><leader>ldn :lua vim.diagnostic.goto_next()<cr>
