@@ -6,11 +6,11 @@ nnoremap <right> 1<c-w><
 nnoremap <up>    <c-w>+
 
 nnoremap ;                :
-nnoremap <silent><c-p>    <esc>:Files<cr>
+nnoremap <silent><c-p>    <cmd>Telescope find_files<cr>
 nnoremap <silent><c-t>    <esc>:tabnew<cr>
 nnoremap <silent><c-w>m   :wincmd _<bar>wincmd <bar><cr>
 nnoremap <silent><leader> :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent>\        <esc>:Buffers<cr>
+nnoremap <silent>\        <cmd>Telescope buffers<cr>
 nnoremap gp               `[v`]
 nnoremap j                gj
 nnoremap k                gk
@@ -68,8 +68,11 @@ nnoremap <silent><leader>dr <cmd>lua require'dap'.repl.open()<cr>
 " +file/find
 let g:which_key_map.f = { 'name': '+file/find' }
 
-let g:which_key_map.f.w = '[BUG] grep-cword'
-nnoremap <expr><silent><leader>fw ':GGrep '.expand('<cword>').'<cr>'
+let g:which_key_map.f.g = 'telescope-live-grep'
+nnoremap <silent><leader>fg <cmd>Telescope live_grep<cr>
+
+let g:which_key_map.f.w = 'telescope-grep-string'
+nnoremap <silent><leader>fw <cmd>Telescope grep_string<cr>
 
 let g:which_key_map.f.v = 'edit-vim'
 nnoremap <silent><leader>fv :vsplit $DOTFILES/vim<cr>
@@ -97,7 +100,7 @@ nnoremap <silent><leader>go :GBrowse<cr>
 vnoremap <silent><leader>go :GBrowse<cr>
 
 let g:which_key_map.g.s = 'status'
-nnoremap <silent><leader>gs :GFiles?<cr>
+nnoremap <silent><leader>gs <cmd>Telescope git_status<cr>
 
 let g:which_key_map.g.u = 'chunk-undo'
 nnoremap <silent><leader>gu :Gitsigns reset_hunk<cr>
@@ -111,7 +114,7 @@ let g:which_key_map.l.r = 'rename'
 let g:which_key_map.l.d = { 'name': '+diagnostic' }
 
 let g:which_key_map.l.d.l = 'diagnostic-list'
-nnoremap <silent><leader>ldl :lua vim.diagnostic.setqflist()<cr>
+nnoremap <silent><leader>ldl <cmd>Telescope diagnostics<cr>
 
 let g:which_key_map.l.d.n = 'diagnostic-next'
 nnoremap <silent><leader>ldn :lua vim.diagnostic.goto_next()<cr>

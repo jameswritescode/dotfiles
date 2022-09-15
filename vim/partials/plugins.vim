@@ -4,8 +4,11 @@ call plug#begin('$HOME/dotfiles/vim/plugged')
 
 " neovim
 Plug 'lewis6991/gitsigns.nvim'
-Plug 'mfussenegger/nvim-dap'
+Plug 'nvim-lua/plenary.nvim'
 Plug 'windwp/nvim-autopairs'
+
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -15,8 +18,6 @@ Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'ojroques/nvim-lspfuzzy'
 Plug 'onsails/lspkind.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'williamboman/mason.nvim'
@@ -138,20 +139,6 @@ let g:ale_linters = {
 " \   '*_test.go': { 'alternate': '{}.go', 'type': 'test' }
 " \ }
 " \}
-
-let g:plug_brew_prefix = system('brew --prefix')
-
-if v:shell_error == 0
-  Plug trim(g:plug_brew_prefix).'/opt/fzf'
-endif
-
-Plug '/usr/share/doc/fzf/examples'
-Plug $HOME.'/.fzf'
-Plug 'junegunn/fzf.vim'
-
-command! -bang -nargs=* GGrep
-  \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
-" }}}
 
 if executable('ruby') " Ruby {{{
   Plug 'sunaku/vim-ruby-minitest'

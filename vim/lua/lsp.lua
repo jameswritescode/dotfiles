@@ -31,10 +31,10 @@ local function on_attach(_, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<CR>', map_opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lr', '<cmd>lua vim.lsp.buf.rename()<CR>', map_opts)
 
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lgd', '<cmd>lua vim.lsp.buf.definition()<CR>', map_opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lgi', '<cmd>lua vim.lsp.buf.implementation()<CR>', map_opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lgr', '<cmd>lua vim.lsp.buf.references()<CR>', map_opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lgy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', map_opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lgd', '<cmd>Telescope lsp_definitions<CR>', map_opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lgi', '<cmd>Telescope lsp_implementations<CR>', map_opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lgr', '<cmd>Telescope lsp_references<CR>', map_opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lgy', '<cmd>Telescope lsp_type_definitions<CR>', map_opts)
 
   vim.api.nvim_create_autocmd('CursorHold', {
     buffer = bufnr,
@@ -77,8 +77,6 @@ local function hover(_, result, ctx, config)
 end
 
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(hover, window_opts)
-
-require('lspfuzzy').setup()
 
 local function merge(t1, t2)
   local new_table = {}
