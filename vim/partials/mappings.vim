@@ -6,7 +6,7 @@ nnoremap <right> 1<c-w><
 nnoremap <up>    <c-w>+
 
 nnoremap ;                :
-nnoremap <silent><c-p>    <cmd>Telescope find_files<cr>
+nnoremap <silent><c-p>    <cmd>Telescope find_files previewer=false<cr>
 nnoremap <silent><c-t>    <esc>:tabnew<cr>
 nnoremap <silent><c-w>m   :wincmd _<bar>wincmd <bar><cr>
 nnoremap <silent><leader> :<c-u>WhichKey '<Space>'<CR>
