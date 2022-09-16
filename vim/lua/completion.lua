@@ -7,7 +7,7 @@ cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 cmp.setup{
   formatting = {
     format = require('lspkind').cmp_format({
-      with_text = false,
+      mode = 'symbol',
     }),
   },
 
