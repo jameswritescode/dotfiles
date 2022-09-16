@@ -4,7 +4,7 @@ set autowrite
 set background=dark
 set backspace=2
 set backupdir=~/dotfiles/vim/tmp
-set cmdheight=2
+set cmdheight=1
 set colorcolumn=+1
 set completeopt=menu,menuone,noselect
 set concealcursor=niv
