@@ -22,3 +22,11 @@ telescope.setup({
 })
 
 telescope.load_extension('fzf')
+
+vim.api.nvim_create_user_command(
+  'GGrep',
+  function(opts)
+    require('telescope.builtin').grep_string({ search = opts.args })
+  end,
+  { nargs = 1 }
+)
