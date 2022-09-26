@@ -201,13 +201,6 @@ if executable('rails') " Rails {{{
         \ }}
 endif " }}}
 
-if executable('go') " Go {{{
-  Plug 'fatih/vim-go', {'do': ':GoInstallBinaries', 'for': 'go'}
-  let g:go_code_completion_enabled = 0
-  let g:go_doc_keywordprg_enabled = 0
-  let g:go_fmt_fail_silently = 1
-endif " }}}
-
 if executable('tmux') " Tmux {{{
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'tmux-plugins/vim-tmux'
