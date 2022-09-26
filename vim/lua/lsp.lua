@@ -59,10 +59,28 @@ local function on_attach(_, bufnr)
   })
 end
 
+local formatting_augroup = vim.api.nvim_create_augroup('LspFormatting', {})
+
 null_ls.setup({
   sources = {
     null_ls.builtins.diagnostics.eslint,
+    null_ls.builtins.formatting.gofmt,
+    null_ls.builtins.formatting.goimports,
   },
+
+  on_attach = function(client, bufnr)
+    if client.supports_method('textDocument/formatting') then
+      vim.api.nvim_clear_autocmds({ group = formatting_augroup, buffer = bufnr })
+
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        group = formatting_augroup,
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.format({ bufnr = bufnr })
+        end,
+      })
+    end
+  end,
 })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
