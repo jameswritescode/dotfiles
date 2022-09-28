@@ -61,11 +61,15 @@ packer.startup(function(use)
   -- Treesitter
   use 'RRethy/nvim-treesitter-endwise'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'omnisyle/nvim-hidesig'
 
   use {
     'nvim-treesitter/nvim-treesitter',
     config = function() require('user.treesitter') end,
+  }
+
+  use {
+    'omnisyle/nvim-hidesig',
+    requires = { 'nvim-treesitter/nvim-treesitter' },
   }
 
   use {
