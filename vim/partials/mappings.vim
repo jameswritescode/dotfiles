@@ -9,7 +9,6 @@ nnoremap ;                :
 nnoremap <silent><c-p>    <cmd>Telescope find_files previewer=false<cr>
 nnoremap <silent><c-t>    <esc>:tabnew<cr>
 nnoremap <silent><c-w>m   :wincmd _<bar>wincmd <bar><cr>
-nnoremap <silent><leader> :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent>\        <cmd>Telescope buffers<cr>
 nnoremap gp               `[v`]
 nnoremap j                gj
@@ -28,7 +27,6 @@ endfunction
 nnoremap <silent> H :call TabControl('tabp', 'bp')<cr>
 nnoremap <silent> L :call TabControl('tabn', 'bn')<cr>
 
-vnoremap <silent><leader>  :<c-u>WhichKeyVisual '<Space>'<CR>
 vnoremap J                 :m '>+1<cr>gv=gv
 vnoremap K                 :m '<-2<cr>gv=gv
 
@@ -39,18 +37,19 @@ let g:yank_copy_command = trim(system('uname -a')) =~# 'microsoft' ? 'clip.exe' 
 vnoremap <expr> <c-c> 'y:call system("' . g:yank_copy_command . '", getreg("\""))<cr>'
 
 """"""""""""""""""""""""""""""""""
-" vim-which-key related mappings "
+" which-key related mappings "
 """"""""""""""""""""""""""""""""""
 
 let g:which_key_map = {}
+let g:which_key_visual_map = {}
 
+let g:which_key_map.q = 'no-highlight'
 nnoremap <silent><leader>q :noh<cr>
-let g:which_key_map.q =    'no-highlight'
 
 " +buffer
 let g:which_key_map.b = {
       \ 'name' : '+buffer' ,
-      \ '-':     [':%bd|e#|bd#', 'delete-inactive-buffers'],
+      \ '-':     [':%bd|e#|bd#<cr>', 'delete-inactive-buffers'],
       \ }
 
 " +dap
@@ -82,6 +81,7 @@ nnoremap <silent><leader>fz :vsplit $DOTFILES/zsh<cr>
 
 " +git
 let g:which_key_map.g = { 'name': '+git' }
+let g:which_key_visual_map.g = { 'name': g:which_key_map.g.name }
 
 nnoremap <expr><silent>[c &diff ? '[c' : ':Gitsigns prev_hunk<cr>'
 nnoremap <expr><silent>]c &diff ? ']c' : ':Gitsigns next_hunk<cr>'
@@ -96,6 +96,7 @@ let g:which_key_map.g.c = 'chunk-info'
 nnoremap <silent><leader>gc :Gitsigns preview_hunk<cr>
 
 let g:which_key_map.g.o = 'open-browser'
+let g:which_key_visual_map.g.o = g:which_key_map.g.o
 nnoremap <silent><leader>go :GBrowse<cr>
 vnoremap <silent><leader>go :GBrowse<cr>
 
@@ -129,12 +130,16 @@ let g:which_key_map.l.g.r = 'references'
 let g:which_key_map.l.g.y = 'type-definition'
 
 " +test/toggle
-let g:which_key_map.t = {
-      \ 'name': '+terminal/toggle',
-      \ 'c':    [':call Repl()',     'repl'],
-      \ 'p':    [':setlocal paste!', 'paste-mode'],
-      \ 'r':    [':call RunFile()',  'run'],
-      \ }
+let g:which_key_map.t = { 'name': '+terminal/toggle' }
+
+let g:which_key_map.t.c = 'repl'
+nnoremap <silent><leader>tc :call Repl()<cr>
+
+let g:which_key_map.t.p = 'paste-mode'
+nnoremap <silent><leader>tp :setlocal paste!<cr>
+
+let g:which_key_map.t.r  = 'run'
+nnoremap <silent><leader>tr :call RunFile()<cr>
 
 let g:which_key_map.t.f = 'test-file'
 nnoremap <silent><leader>tf :TestFile<cr>
@@ -142,6 +147,7 @@ nnoremap <silent><leader>tf :TestFile<cr>
 let g:which_key_map.t.n = 'test-near'
 nnoremap <silent><leader>tn :TestNearest<cr>
 
+let g:which_key_map.s = 'sort'
+let g:which_key_visual_map.s = 'sort'
 nnoremap <silent><leader>s :sort<cr>
 vnoremap <silent><leader>s :sort<cr>
-let g:which_key_map.s =    'sort'

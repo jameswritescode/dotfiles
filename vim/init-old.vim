@@ -10,10 +10,7 @@ augroup betterment
   autocmd VimResized * wincmd =
 augroup END
 
-
 filetype off
-
-source ~/dotfiles/vim/partials/plugins.vim
 
 filetype plugin indent on
 
@@ -25,5 +22,3 @@ source ~/dotfiles/vim/partials/highlights.vim
 source ~/dotfiles/vim/partials/functions.vim
 source ~/dotfiles/vim/partials/statusline.vim
 source ~/dotfiles/vim/partials/tabline.vim
-
-colors onedark

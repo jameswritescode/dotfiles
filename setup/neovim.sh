@@ -18,6 +18,7 @@ install_macos() {
   brew install neovim --HEAD --build-from-source
 
   install_standard
+  install_packer
 }
 
 install_ubuntu() {
@@ -28,16 +29,16 @@ install_ubuntu() {
   fi
 
   install_standard
-  install_plug
+  install_packer
 
   if [[ -z $SPIN ]]; then
     nvim +PlugInstall +qall >/dev/null
   fi
 }
 
-install_plug() {
-  curl -fLo "$HOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+install_packer() {
+  git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+    "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 }
 
 update_python() {
@@ -64,8 +65,8 @@ case "$1" in
     install_ubuntu
   ;;
 
-  install_plug)
-    install_plug
+  install_packer)
+    install_packer
   ;;
 
   install_python)
