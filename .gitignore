@@ -17,6 +17,7 @@ vim/langserver/*
 !vim/langserver/.gitkeep
 
 vim/.netrwhist
+vim/plugin/packer_compiled.lua
 
 ranger/plugins/__init__.*
 ranger/plugins/*.pyo
@@ -28,3 +29,5 @@ profile.log
 .vim/
 
 streamdeck/*.png
+
+.luarc.json
