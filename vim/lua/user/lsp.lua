@@ -30,6 +30,7 @@ local function on_attach(_, bufnr)
 
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<CR>', map_opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lr', '<cmd>lua vim.lsp.buf.rename()<CR>', map_opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lf', '<cmd>lua vim.lsp.buf.format()<CR>', map_opts)
 
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lgd', '<cmd>Telescope lsp_definitions<CR>', map_opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lgi', '<cmd>Telescope lsp_implementations<CR>', map_opts)
@@ -99,7 +100,7 @@ vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(hover, window_opts)
 local function merge(t1, t2)
   local new_table = {}
 
-  for _, t in ipairs({t1, t2}) do
+  for _, t in ipairs({ t1, t2 }) do
     for k, v in pairs(t) do
       new_table[k] = v
     end
