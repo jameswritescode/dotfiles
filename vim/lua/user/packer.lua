@@ -69,7 +69,7 @@ packer.startup(function(use)
   }
 
   use {
-    'omnisyle/nvim-hidesig',
+    'jameswritescode/nvim-hidesig',
     requires = { 'nvim-treesitter/nvim-treesitter' },
   }
 
