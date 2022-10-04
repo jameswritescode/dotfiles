@@ -29,6 +29,7 @@ packer.startup(function(use)
   use {
     'nvim-telescope/telescope.nvim',
     config = function() require('user.telescope') end,
+    requires = { 'nvim-lua/plenary.nvim' },
   }
 
   use {
@@ -90,7 +91,6 @@ packer.startup(function(use)
   use 'machakann/vim-highlightedyank'
   use 'mracos/mermaid.vim'
   use 'navarasu/onedark.nvim'
-  use 'nvim-lua/plenary.nvim'
   use 'rust-lang/rust.vim'
   use 'tmux-plugins/vim-tmux'
   use 'tpope/vim-abolish'
