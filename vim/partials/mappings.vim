@@ -109,6 +109,7 @@ nnoremap <silent><leader>gu :Gitsigns reset_hunk<cr>
 " +lsp
 let g:which_key_map.l = { 'name': '+lsp' }
 let g:which_key_map.l.a = 'code-action'
+let g:which_key_map.l.f = 'format'
 let g:which_key_map.l.r = 'rename'
 
 " +diagnostic
