@@ -56,7 +56,7 @@ local function on_attach(_, bufnr)
       local _, winnr = vim.diagnostic.open_float(opts)
 
       set_winhighlight(winnr)
-    end
+    end,
   })
 end
 
@@ -98,15 +98,9 @@ end
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(hover, window_opts)
 
 local function merge(t1, t2)
-  local new_table = {}
+  if not t2 then return t1 end
 
-  for _, t in ipairs({ t1, t2 }) do
-    for k, v in pairs(t) do
-      new_table[k] = v
-    end
-  end
-
-  return new_table
+  return vim.tbl_extend('force', t1, t2)
 end
 
 local servers = {
@@ -144,6 +138,31 @@ local overrides = {
 
   shopify_ruby_lsp = {
     autostart = in_spin,
+    on_attach = function(client, bufnr)
+      on_attach(client, bufnr)
+
+      vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePre', 'CursorHold' }, {
+        buffer = bufnr,
+
+        callback = function()
+          local params = vim.lsp.util.make_text_document_params(bufnr)
+
+          client.request(
+            'textDocument/diagnostic',
+            { textDocument = params },
+            function(err, result)
+              if err then return end
+
+              vim.lsp.diagnostic.on_publish_diagnostics(
+                nil,
+                vim.tbl_extend('keep', params, { diagnostics = result.items }),
+                { client_id = client.id }
+              )
+            end
+          )
+        end,
+      })
+    end,
   },
 
   solargraph = {
