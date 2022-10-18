@@ -145,6 +145,7 @@ packer.startup(function(use)
     'SirVer/ultisnips',
     config = function()
       vim.g.UltiSnipsEnableSnipMate = 0
+      vim.g.UltiSnipsExpandTrigger = '<c-y>'
     end,
   }
 
