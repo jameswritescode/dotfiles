@@ -84,9 +84,6 @@ null_ls.setup({
   end,
 })
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = cmp_lsp.update_capabilities(capabilities)
-
 local function hover(_, result, ctx, config)
   local bufnr, winnr = vim.lsp.handlers.hover(_, result, ctx, config)
 
@@ -117,7 +114,7 @@ local servers = {
 }
 
 local defaults = {
-  capabilities = capabilities,
+  capabilities = cmp_lsp.default_capabilities(),
   on_attach = on_attach,
 }
 
