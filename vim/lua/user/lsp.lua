@@ -67,6 +67,7 @@ null_ls.setup({
     null_ls.builtins.diagnostics.eslint,
     null_ls.builtins.formatting.gofmt,
     null_ls.builtins.formatting.goimports,
+    null_ls.builtins.formatting.rustfmt,
   },
 
   on_attach = function(client, bufnr)
@@ -104,6 +105,7 @@ local servers = {
   'bashls',
   'gopls',
   'graphql',
+  'rust_analyzer',
   'shopify_ruby_lsp',
   'solargraph',
   'sorbet',

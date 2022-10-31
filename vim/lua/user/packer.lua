@@ -180,6 +180,7 @@ packer.startup(function(use)
         javascriptreact = {},
         python = {},
         ruby = { 'reek' },
+        rust = {},
         sh = {},
         swift = {},
         typescript = {},
