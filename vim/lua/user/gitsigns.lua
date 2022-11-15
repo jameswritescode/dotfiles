@@ -7,5 +7,6 @@ gitsigns.setup({
     changedelete = {text = '◢'},
     delete       = {text = '◢'},
     topdelete    = {text = '◥'},
+    untracked    = {text = '┋'},
   }
 })
