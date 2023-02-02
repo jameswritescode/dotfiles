@@ -1,9 +1,6 @@
 # asdf
 export NODEJS_CHECK_SIGNATURES="no"
 
-# fasd
-eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
-
 # fzf
 export FZF_DEFAULT_COMMAND='fd -t f -H -E .git'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
