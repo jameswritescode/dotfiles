@@ -62,16 +62,6 @@ hasura() {
   command hasura $* --admin-secret "$HASURA_ADMIN_SECRET"
 }
 
-j() { # Slightly modified fasd_cd
-  if [ $# -eq 0 ]; then
-    fasd "$@"
-  else
-    local _fasd_ret="$(fasd -e echo "$@")"
-    [ -z "$_fasd_ret" ] && return
-    [ -d "$_fasd_ret" ] && cd "$_fasd_ret" || echo "$_fasd_ret"
-  fi
-}
-
 jv() {
   if [ $# -eq 0 ]; then
     jira view $(__ticket_number)

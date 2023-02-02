@@ -95,3 +95,7 @@ alias ms="osascript -e 'tell application \"Spotify\" to play';"
 alias -s log='less +F'
 alias -s txt='less'
 alias -s {css,haml,js,jsx,md,py,rb,zsh}=vim
+
+if [[ -n $SPIN ]]; then
+  alias j="dev cd"
+fi
