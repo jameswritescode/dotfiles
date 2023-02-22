@@ -172,7 +172,7 @@ local overrides = {
     root_dir = lspconfig.util.root_pattern('sorbet'),
   },
 
-  sumneko_lua = {
+  lua_ls = {
     settings = {
       Lua = {
         diagnostics = {
