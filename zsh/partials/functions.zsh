@@ -35,10 +35,6 @@ fk() {
   ps aux | grep $* | grep -v grep | awk '{print $2}' | xargs kill -9
 }
 
-getpass() {
-  op get item $1 | jq '.details.fields[] | select(.designation=="password").value'
-}
-
 gcm() {
   if [[ -z $1 ]]; then
     echo "Error: No commit message provided."
@@ -58,8 +54,9 @@ gpo() {
   git push -u origin "$(__git_branch)"
 }
 
-hasura() {
-  command hasura $* --admin-secret "$HASURA_ADMIN_SECRET"
+gro() {
+  git fetch origin "$1"
+  git rebase "origin/$1"
 }
 
 jv() {
