@@ -1,6 +1,5 @@
 local cmp = require 'cmp'
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-local cmp_ultisnips_mappings = require('cmp_nvim_ultisnips.mappings')
 
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
@@ -22,7 +21,7 @@ cmp.setup{
       if cmp.visible() then
         cmp.select_prev_item()
       else
-        cmp_ultisnips_mappings.jump_backwards(fallback)
+        fallback()
       end
     end, { 'i', 's' }),
 
@@ -30,16 +29,10 @@ cmp.setup{
       if cmp.visible() then
         cmp.select_next_item()
       else
-        cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
+        fallback()
       end
     end, { 'i', 's' }),
   }),
-
-  snippet = {
-    expand = function(args)
-      vim.fn["UltiSnips#Anon"](args.body)
-    end,
-  },
 
   sources = cmp.config.sources(
     {
@@ -48,7 +41,6 @@ cmp.setup{
     {
       { name = 'copilot' },
       { name = 'nvim_lsp', keyword_length = 3 },
-      { name = 'ultisnips' },
       {
         name = 'buffer',
         keyword_length = 5,
