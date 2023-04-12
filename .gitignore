@@ -31,3 +31,5 @@ profile.log
 streamdeck/*.png
 
 .luarc.json
+
+vim/lazy-lock.json
