@@ -8,6 +8,7 @@ cmp.setup{
   formatting = {
     format = require('lspkind').cmp_format({
       mode = 'symbol',
+      symbol_map = { Copilot = '' },
     }),
   },
 
@@ -45,6 +46,7 @@ cmp.setup{
       { name = 'nvim_lsp_signature_help' },
     },
     {
+      { name = 'copilot' },
       { name = 'nvim_lsp', keyword_length = 3 },
       { name = 'ultisnips' },
       {
