@@ -57,7 +57,6 @@ require('lazy').setup({
   ---------
   -- cmp --
   ---------
-
   {
     'hrsh7th/nvim-cmp',
     config = function() require('user.cmp') end,
@@ -68,6 +67,7 @@ require('lazy').setup({
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'quangnguyen30192/cmp-nvim-ultisnips',
+      'zbirenbaum/copilot-cmp',
     }
   },
 
@@ -76,6 +76,23 @@ require('lazy').setup({
     config = function()
       vim.g.UltiSnipsEnableSnipMate = 0
       vim.g.UltiSnipsExpandTrigger = '<c-y>'
+    end,
+  },
+
+  {
+    'zbirenbaum/copilot-cmp',
+    config = function() require('copilot_cmp').setup() end,
+    dependencies = { 'zbirenbaum/copilot.lua' },
+  },
+
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    config = function()
+      require('copilot').setup({
+        panel = { enabled = false },
+        suggestion = { enabled = false },
+      })
     end,
   },
 
@@ -154,9 +171,7 @@ require('lazy').setup({
   { 'c-brenn/phoenix.vim', event = 'VeryLazy' },
   { 'christoomey/vim-tmux-navigator', event = 'VeryLazy' },
   { 'diepm/vim-rest-console', event = 'VeryLazy' },
-  { 'editorconfig/editorconfig-vim', event = 'VeryLazy' },
   { 'elixir-editors/vim-elixir', event = 'VeryLazy' },
-  { 'github/copilot.vim', event = 'VeryLazy' },
   { 'kchmck/vim-coffee-script', event = 'VeryLazy' },
   { 'machakann/vim-highlightedyank', event = 'VeryLazy' },
   { 'mracos/mermaid.vim', event = 'VeryLazy' },
