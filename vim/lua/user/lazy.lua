@@ -62,21 +62,11 @@ require('lazy').setup({
     config = function() require('user.cmp') end,
     event = 'InsertEnter',
     dependencies = {
-      'SirVer/ultisnips',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-nvim-lsp-signature-help',
-      'quangnguyen30192/cmp-nvim-ultisnips',
       'zbirenbaum/copilot-cmp',
     }
-  },
-
-  {
-    'SirVer/ultisnips',
-    config = function()
-      vim.g.UltiSnipsEnableSnipMate = 0
-      vim.g.UltiSnipsExpandTrigger = '<c-y>'
-    end,
   },
 
   {
@@ -190,7 +180,7 @@ require('lazy').setup({
   { 'tpope/vim-rake', event = 'VeryLazy' },
   { 'tpope/vim-repeat', event = 'VeryLazy' },
   { 'tpope/vim-rhubarb', event = 'VeryLazy' },
-  { 'tpope/vim-sleuth', event = 'VeryLazy' },
+  { 'tpope/vim-sleuth', lazy = false },
   { 'tpope/vim-speeddating', event = 'VeryLazy' },
   { 'tpope/vim-surround', event = 'VeryLazy' },
   { 'tpope/vim-unimpaired', event = 'VeryLazy' },
