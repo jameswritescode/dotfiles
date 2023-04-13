@@ -103,6 +103,7 @@ end
 
 local servers = {
   'bashls',
+  'emmet_ls',
   'gopls',
   'graphql',
   'lua_ls',

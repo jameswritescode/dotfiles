@@ -197,6 +197,7 @@ require('lazy').setup({
   { 'tpope/vim-unimpaired', event = 'VeryLazy' },
   { 'tpope/vim-vinegar', event = 'VeryLazy' },
   { 'windwp/nvim-autopairs', event = 'VeryLazy' },
+  { 'windwp/nvim-ts-autotag', event = 'VeryLazy' },
 }, {
   defaults = { lazy = true },
 })
