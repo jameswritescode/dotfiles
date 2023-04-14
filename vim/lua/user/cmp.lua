@@ -74,12 +74,11 @@ cmp.setup{
       { name = 'nvim_lsp_signature_help' },
     },
     {
-      { name = 'copilot', group_index = 2 },
-      { name = 'nvim_lsp', group_index = 2 },
-      { name = 'luasnip', group_index = 2 },
+      { name = 'copilot' },
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' },
       {
         name = 'buffer',
-        group_index = 2,
         keyword_length = 5,
 
         option = {
