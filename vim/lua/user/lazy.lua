@@ -195,7 +195,7 @@ require('lazy').setup({
   { 'tpope/vim-speeddating', event = 'VeryLazy' },
   { 'tpope/vim-surround', event = 'VeryLazy' },
   { 'tpope/vim-unimpaired', event = 'VeryLazy' },
-  { 'tpope/vim-vinegar', event = 'VeryLazy' },
+  { 'tpope/vim-vinegar', lazy = false },
   { 'windwp/nvim-autopairs', event = 'VeryLazy' },
   { 'windwp/nvim-ts-autotag', event = 'VeryLazy' },
 }, {
