@@ -20,10 +20,18 @@ cmp.setup{
   },
 
   mapping = cmp.mapping.preset.insert({
-    ['<CR>'] = cmp.mapping.confirm {
+    ['<C-s>'] = cmp.mapping.complete({
+      config = {
+        sources = {
+          { name = 'copilot' },
+        },
+      },
+    }),
+
+    ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
       select = false,
-    },
+    }),
 
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
