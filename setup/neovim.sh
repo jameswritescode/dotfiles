@@ -30,10 +30,6 @@ install_ubuntu() {
   fi
 
   install_standard
-
-  if [[ -z $SPIN ]]; then
-    nvim +PlugInstall +qall >/dev/null
-  fi
 }
 
 update_python() {
@@ -48,7 +44,6 @@ update() {
   update_python
   gem update neovim
   yarn global add neovim
-  [[ -z $SPIN ]] && nvim +PlugUpgrade +PlugUpdate +UpdateRemotePlugins +qall >/dev/null
 }
 
 case "$1" in
