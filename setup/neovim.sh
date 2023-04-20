@@ -25,8 +25,6 @@ install_ubuntu() {
     sudo add-apt-repository -y ppa:neovim-ppa/unstable
     sudo apt-get update
     sudo apt-get install -y neovim
-  else
-    sudo zsh -c 'dpkg -i =(curl -L https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.deb)'
   fi
 
   install_standard
