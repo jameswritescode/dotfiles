@@ -152,6 +152,7 @@ local overrides = {
             { textDocument = params },
             function(err, result)
               if err then return end
+              if not result then return end
 
               vim.lsp.diagnostic.on_publish_diagnostics(
                 nil,
@@ -166,7 +167,7 @@ local overrides = {
   },
 
   solargraph = {
-    autostart = not in_spin,
+    root_dir = lspconfig.util.root_pattern('.solargraph.yml'),
   },
 
   sorbet = {
