@@ -6,8 +6,8 @@ case "$1" in
 
     ASDF_BREW_PATH=$(brew --prefix asdf 2>/dev/null)
 
-    if [ -f $ASDF_BREW_PATH/asdf.sh ]; then
-      echo "source $ASDF_BREW_PATH/asdf.sh" >> "$HOME/.zsh_custom"
+    if [ -f $ASDF_BREW_PATH/libexec/asdf.sh ]; then
+      echo "source $ASDF_BREW_PATH/libexec/asdf.sh" >> "$HOME/.zsh_custom"
     fi
   ;;
 
