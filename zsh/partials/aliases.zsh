@@ -29,6 +29,7 @@ alias dcu="docker-compose up"
 
 # git
 alias ga="git add -A"
+alias gan="git add -N"
 alias gap="git add -p"
 alias gb="git branch"
 alias gc="git commit"
