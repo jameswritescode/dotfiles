@@ -25,7 +25,7 @@ set hidden
 set hlsearch
 set inccommand=split
 set incsearch
-set laststatus=2
+set laststatus=3
 set lazyredraw
 set list
 set listchars=tab:›\ ,trail:·,nbsp:·,extends:>,precedes:<
