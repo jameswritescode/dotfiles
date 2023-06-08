@@ -125,10 +125,44 @@ require('lazy').setup({
   },
 
   {
-    'AndrewRadev/splitjoin.vim',
+    'Wansmer/treesj',
     event = 'VeryLazy',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'AndrewRadev/splitjoin.vim',
+    },
     config = function()
+      require('treesj').setup({
+        use_default_keybindings = false,
+        max_join_length = 512,
+      })
+
+      local langs = require'treesj.langs'['presets']
+
+      vim.api.nvim_create_autocmd({ 'FileType' }, {
+        pattern = '*',
+
+        callback = function()
+          local opts = { buffer = true }
+
+          if langs[vim.bo.filetype] then
+            vim.keymap.set('n', 'gS', '<Cmd>TSJSplit<CR>', opts)
+            vim.keymap.set('n', 'gJ', '<Cmd>TSJJoin<CR>', opts)
+          else
+            vim.keymap.set('n', 'gS', '<Cmd>SplitjoinSplit<CR>', opts)
+            vim.keymap.set('n', 'gJ', '<Cmd>SplitjoinJoin<CR>', opts)
+          end
+        end,
+      })
+    end,
+  },
+
+  {
+    'AndrewRadev/splitjoin.vim',
+    init = function()
+      vim.g.splitjoin_join_mapping = ''
       vim.g.splitjoin_ruby_hanging_args = 0
+      vim.g.splitjoin_split_mapping = ''
     end,
   },
 
