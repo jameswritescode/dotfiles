@@ -1,6 +1,6 @@
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   vim.fn.system({
     'git',
     'clone',
@@ -199,6 +199,14 @@ require('lazy').setup({
         typescriptreact = {},
         zsh = { 'shell', 'shellcheck' },
       }
+    end,
+  },
+
+  {
+    'ggandor/leap.nvim',
+    event = 'VeryLazy',
+    config = function()
+      require('leap').add_default_mappings()
     end,
   },
 
