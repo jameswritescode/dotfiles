@@ -210,6 +210,12 @@ require('lazy').setup({
     end,
   },
 
+  {
+    'nvim-zh/colorful-winsep.nvim',
+    config = true,
+    event = 'WinNew',
+  },
+
   { 'AndrewRadev/switch.vim', event = 'VeryLazy' },
   { 'c-brenn/phoenix.vim', event = 'VeryLazy' },
   { 'catppuccin/nvim', name = 'catppuccin' },
