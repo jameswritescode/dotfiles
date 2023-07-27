@@ -130,6 +130,9 @@ let g:which_key_map.l.g.i = 'implementation'
 let g:which_key_map.l.g.r = 'references'
 let g:which_key_map.l.g.y = 'type-definition'
 
+let g:which_key_map.l.l = 'lsp-log'
+nnoremap <silent><leader>ll <cmd>LspLog<cr>
+
 " +test/toggle
 let g:which_key_map.t = { 'name': '+terminal/toggle' }
 
