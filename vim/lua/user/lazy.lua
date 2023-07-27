@@ -126,18 +126,18 @@ require('lazy').setup({
 
   {
     'Wansmer/treesj',
-    event = 'VeryLazy',
+    event = 'BufReadPre',
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
       'AndrewRadev/splitjoin.vim',
     },
     config = function()
       require('treesj').setup({
-        use_default_keybindings = false,
+        use_default_keymaps = false,
         max_join_length = 512,
       })
 
-      local langs = require'treesj.langs'['presets']
+      local langs = require('treesj.langs')['presets']
 
       vim.api.nvim_create_autocmd({ 'FileType' }, {
         pattern = '*',
