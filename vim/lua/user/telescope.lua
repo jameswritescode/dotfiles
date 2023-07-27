@@ -14,7 +14,6 @@ telescope.setup({
       'git',
       'grep',
       '--column',
-      '--full-name',
       '--line-number',
       '--no-color',
     },
