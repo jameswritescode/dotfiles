@@ -17,7 +17,7 @@ nnoremap k                gk
 nnoremap <silent> K :call <sid>show_documentation()<cr>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
+  if (index(['vim', 'help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
     execute '!' . &keywordprg . " " . expand('<cword>')
@@ -55,14 +55,17 @@ let g:which_key_map.b = {
 " +dap
 let g:which_key_map.d = { 'name': '+dap'}
 
-let g:which_key_map.d.b = 'toggle-breakpoint'
+let g:which_key_map.d.b = 'breakpoint-toggle'
 nnoremap <silent><leader>db <cmd>lua require'dap'.toggle_breakpoint()<cr>
 
 let g:which_key_map.d.c = 'continue'
 nnoremap <silent><leader>dc <cmd>lua require'dap'.continue()<cr>
 
-let g:which_key_map.d.r = 'repl-open'
-nnoremap <silent><leader>dr <cmd>lua require'dap'.repl.open()<cr>
+let g:which_key_map.d.d = 'disconnect'
+nnoremap <silent><leader>dd <cmd>lua require'dap'.disconnect()<cr>
+
+let g:which_key_map.d.r = 'repl-toggle'
+nnoremap <silent><leader>dr <cmd>lua require'dap'.repl.toggle()<cr>
 
 " +file/find
 let g:which_key_map.f = { 'name': '+file/find' }

@@ -113,6 +113,12 @@ require('lazy').setup({
   },
 
   {
+    'mfussenegger/nvim-dap',
+    config = function() require('user.dap') end,
+    event = 'VeryLazy',
+  },
+
+  {
     'folke/which-key.nvim',
     config = function() require('user.which-key') end,
     event = 'VeryLazy',
