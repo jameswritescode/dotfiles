@@ -20,3 +20,9 @@ dap.configurations.ruby = {
     type = 'ruby',
   },
 }
+
+vim.api.nvim_create_autocmd('ExitPre', {
+  callback = function()
+    dap.disconnect()
+  end,
+})
