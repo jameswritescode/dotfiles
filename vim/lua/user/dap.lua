@@ -2,12 +2,14 @@ local dap = require('dap')
 
 dap.adapters.ruby = function(callback)
   vim.ui.select(
-    { 'tmp/rdbg-socket-server', 'tmp/rdbg-socket-worker' },
+    vim.fn.readdir('/tmp/ruby-debug'),
     { prompt = 'Select socket' },
     function(pipe)
+      if not pipe then return end
+
       callback {
         type = 'pipe',
-        pipe = pipe,
+        pipe = '/tmp/ruby-debug/' .. pipe,
       }
     end
   )
