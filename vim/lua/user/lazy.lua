@@ -44,6 +44,7 @@ require('lazy').setup({
       'andymass/vim-matchup',
       'jameswritescode/nvim-hidesig',
       'nvim-treesitter/nvim-treesitter-textobjects',
+      'nvim-treesitter/playground',
     }
   },
 
@@ -52,6 +53,11 @@ require('lazy').setup({
     config = function()
       vim.g.matchup_matchparen_deferred = 1
     end,
+  },
+
+  {
+    'nvim-treesitter/playground',
+    cmd = 'TSPlaygroundToggle',
   },
 
   ---------
@@ -141,13 +147,29 @@ require('lazy').setup({
       require('treesj').setup({
         use_default_keymaps = false,
         max_join_length = 512,
+
+        langs = {
+          ruby = {
+            module = {
+              both = {
+                no_format_with = {},
+                fallback = function() vim.cmd('SplitjoinJoin') end,
+              },
+            },
+
+            class = {
+              both = {
+                no_format_with = {},
+                fallback = function() vim.cmd('SplitjoinSplit') end,
+              },
+            },
+          },
+        },
       })
 
       local langs = require('treesj.langs')['presets']
 
       vim.api.nvim_create_autocmd({ 'FileType' }, {
-        pattern = '*',
-
         callback = function()
           local opts = { buffer = true }
 
