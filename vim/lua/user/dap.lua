@@ -1,5 +1,7 @@
 local dap = require('dap')
 
+dap.defaults.fallback.focus_terminal = true
+
 dap.adapters.ruby = function(callback)
   vim.ui.select(
     vim.fn.readdir('/tmp/ruby-debug'),
