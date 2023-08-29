@@ -1,12 +1,4 @@
 bundler
 gem-ctags
 neovim
-pry
-reek
-rubocop
-rubocop-performance
-rubocop-rails
-rubocop-rspec
 solargraph
-solargraph-rails
-tmuxinator
