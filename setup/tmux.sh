@@ -1,7 +1,7 @@
 #!/bin/bash
 
 install_macos() {
-  brew install tmux reattach-to-user-namespace
+  brew install tmux overmind
   ln -s "$DOTFILES/tmux/.tmux.conf" "$HOME/.tmux.conf"
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }
