@@ -18,9 +18,9 @@ end
 local window_opts = cmp.config.window.bordered()
 
 local function set_winhighlight(winnr)
-  if winnr then
-    vim.api.nvim_win_set_option(winnr, 'winhl', window_opts.winhighlight)
-  end
+  if not winnr then return end
+
+  vim.wo[winnr].winhl = window_opts.winhighlight
 end
 
 local map_opts = { noremap = true, silent = true }
