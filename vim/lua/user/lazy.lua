@@ -112,7 +112,7 @@ require('lazy').setup({
     config = function() require('user.lsp') end,
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
-      'jose-elias-alvarez/null-ls.nvim',
+      'nvimtools/none-ls.nvim',
       'onsails/lspkind.nvim',
       'williamboman/mason-lspconfig.nvim',
       'williamboman/mason.nvim',
