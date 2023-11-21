@@ -219,6 +219,7 @@ require('lazy').setup({
         go = {},
         javascript = {},
         javascriptreact = {},
+        kotlin = {},
         python = {},
         ruby = { 'reek' },
         rust = {},
@@ -272,6 +273,7 @@ require('lazy').setup({
   { 'tpope/vim-surround', event = 'VeryLazy' },
   { 'tpope/vim-unimpaired', event = 'VeryLazy' },
   { 'tpope/vim-vinegar', lazy = false },
+  { 'udalov/kotlin-vim', lazy = false },
   { 'windwp/nvim-autopairs', event = 'VeryLazy' },
   { 'windwp/nvim-ts-autotag', event = 'VeryLazy' },
 }, {

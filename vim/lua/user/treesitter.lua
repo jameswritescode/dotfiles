@@ -16,6 +16,7 @@ require'nvim-treesitter.configs'.setup {
     "html",
     "javascript",
     "json",
+    "kotlin",
     "lua",
     "markdown",
     "ruby",
