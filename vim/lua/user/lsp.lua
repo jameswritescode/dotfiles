@@ -106,6 +106,7 @@ local servers = {
   'emmet_ls',
   'gopls',
   'graphql',
+  'kotlin_language_server',
   'lua_ls',
   'rust_analyzer',
   'shopify_ruby_lsp',
