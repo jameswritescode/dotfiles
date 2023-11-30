@@ -102,5 +102,6 @@ alias -s txt='less'
 alias -s {css,haml,js,jsx,md,py,rb,zsh}=vim
 
 if [[ -n $SPIN ]]; then
+  alias dds="dev debug server"
   alias j="dev cd"
 fi
