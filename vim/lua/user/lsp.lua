@@ -196,6 +196,18 @@ local overrides = {
   tailwindcss = {
     autostart = false,
   },
+
+  rust_analyzer = {
+    settings = {
+      ["rust-analyzer"] = {
+        checkOnSave = {
+          allFeatures = true,
+          command = "clippy",
+          extraArgs = { "--no-deps" },
+        },
+      },
+    },
+  },
 }
 
 for _, server in ipairs(servers) do

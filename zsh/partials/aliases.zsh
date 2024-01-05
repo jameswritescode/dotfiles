@@ -13,6 +13,11 @@ alias rl="source ~/.zshrc"
 alias ss='open -a ScreenSaverEngine'
 alias v='vim $(fzf --height=25)'
 
+# cargo
+alias cb="cargo build"
+alias cr="cargo run"
+alias crb="cargo run --bin"
+
 # docker
 alias db="docker build"
 alias dbt="docker build -t"
