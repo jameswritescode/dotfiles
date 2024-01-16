@@ -154,6 +154,10 @@ nnoremap <silent><leader>tf :TestFile<cr>
 let g:which_key_map.t.n = 'test-near'
 nnoremap <silent><leader>tn :TestNearest<cr>
 
+let g:which_key_map.r = { 'name': 'rest' }
+let g:which_key_map.r.r = 'run'
+nnoremap <silent><leader>rr <Plug>RestNvim<cr>
+
 let g:which_key_map.s = 'sort'
 let g:which_key_visual_map.s = 'sort'
 nnoremap <silent><leader>s :sort<cr>
