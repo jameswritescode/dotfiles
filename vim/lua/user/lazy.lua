@@ -246,11 +246,17 @@ require('lazy').setup({
     event = 'WinNew',
   },
 
+  {
+    'rest-nvim/rest.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    event = 'VeryLazy',
+    ft = 'http',
+  },
+
   { 'AndrewRadev/switch.vim', event = 'VeryLazy' },
   { 'c-brenn/phoenix.vim', event = 'VeryLazy' },
   { 'catppuccin/nvim', name = 'catppuccin' },
   { 'christoomey/vim-tmux-navigator', event = 'VeryLazy' },
-  { 'diepm/vim-rest-console', event = 'VeryLazy' },
   { 'elixir-editors/vim-elixir', event = 'VeryLazy' },
   { 'kchmck/vim-coffee-script', event = 'VeryLazy' },
   { 'machakann/vim-highlightedyank', event = 'VeryLazy' },
