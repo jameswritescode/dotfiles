@@ -114,9 +114,10 @@ require('lazy').setup({
     dependencies = {
       'nvimtools/none-ls.nvim',
       'onsails/lspkind.nvim',
+      'scalameta/nvim-metals',
       'williamboman/mason-lspconfig.nvim',
       'williamboman/mason.nvim',
-    }
+    },
   },
 
   {
