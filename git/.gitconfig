@@ -24,6 +24,7 @@
 	decorate = full
 [rebase]
 	autostash = true
+	autosquash = true
 [stash]
 	showPatch = true
 [init]
@@ -47,3 +48,11 @@
 	whitespace = red reverse
 [include]
 	path = ~/.gitconfig_custom
+[merge]
+	conflictstyle = zdiff3
+[commit]
+	verbose = true
+[rerere]
+	enabled = true
+[diff]
+	algorithm = histogram
