@@ -68,8 +68,8 @@ jv() {
 }
 
 ls() {
-  if [[ -n $(command -v exa) && ! $* =~ -A ]]; then
-    exa -a $*
+  if [[ -n $(command -v eza) && ! $* =~ -A ]]; then
+    eza -a $*
   else
     /bin/ls -G -a $*
   fi
