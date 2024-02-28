@@ -23,7 +23,6 @@ require'nvim-treesitter.configs'.setup {
     "markdown",
     "ruby",
     "rust",
-    "scala",
     "toml",
     "tsx",
     "typescript",

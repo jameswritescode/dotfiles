@@ -3,7 +3,6 @@ local cmp_lsp = require 'cmp_nvim_lsp'
 local lspconfig = require 'lspconfig'
 local lspconfigs = require 'lspconfig.configs'
 local null_ls = require('null-ls')
-local metals_config = require("metals").bare_config()
 
 require('mason').setup()
 require('mason-lspconfig').setup()
@@ -62,25 +61,10 @@ local function on_attach(_, bufnr)
 end
 
 local capabilities = cmp_lsp.default_capabilities()
-
-metals_config.on_attach = on_attach
-metals_config.capabilities = capabilities
-
-local metals_augroup = vim.api.nvim_create_augroup('nvim-metals', { clear = true })
-
-vim.api.nvim_create_autocmd('FileType', {
-  group = metals_augroup,
-  pattern = { 'scala', 'sbt', 'java' },
-  callback = function()
-    require("metals").initialize_or_attach(metals_config)
-  end,
-})
-
 local formatting_augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
 null_ls.setup({
   sources = {
-    null_ls.builtins.diagnostics.eslint,
     null_ls.builtins.formatting.gofmt,
     null_ls.builtins.formatting.goimports,
     null_ls.builtins.formatting.rustfmt,
@@ -122,6 +106,7 @@ local servers = {
   'emmet_ls',
   'gopls',
   'graphql',
+  'jdtls',
   'kotlin_language_server',
   'lua_ls',
   'rust_analyzer',
