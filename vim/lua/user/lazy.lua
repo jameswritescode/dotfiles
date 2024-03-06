@@ -109,7 +109,7 @@ require('lazy').setup({
   -----------
   {
     'neovim/nvim-lspconfig',
-    config = function() require('user.lsp') end,
+    config = function() require('user.lsp.lspconfig') end,
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
       'nvimtools/none-ls.nvim',
@@ -123,6 +123,13 @@ require('lazy').setup({
     'mfussenegger/nvim-dap',
     config = function() require('user.dap') end,
     event = 'VeryLazy',
+  },
+
+  {
+    'mfussenegger/nvim-jdtls',
+    config = function() require('user.lsp.jdtls') end,
+    enabled = false,
+    ft = 'java',
   },
 
   {
@@ -217,6 +224,7 @@ require('lazy').setup({
         elixir = {},
         eruby = { 'erblint' },
         go = {},
+        java = {},
         javascript = {},
         javascriptreact = {},
         kotlin = {},
