@@ -17,7 +17,23 @@ function common.set_winhighlight(winnr)
   vim.wo[winnr].winhl = common.window_opts.winhighlight
 end
 
-function common.on_attach(_, bufnr)
+local formatting_augroup = vim.api.nvim_create_augroup('LspFormatting', {})
+
+function common.on_attach_formatting(client, bufnr)
+  if client.supports_method('textDocument/formatting') then
+    vim.api.nvim_clear_autocmds({ group = formatting_augroup, buffer = bufnr })
+
+    vim.api.nvim_create_autocmd('BufWritePre', {
+      group = formatting_augroup,
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.format({ bufnr = bufnr })
+      end,
+    })
+  end
+end
+
+function common.on_attach(client, bufnr)
   local map_opts = { noremap = true, silent = true, buffer = bufnr }
 
   vim.keymap.set('n', 'K', '<cmd>lua lsp_diagnostic_hover_hack()<CR>', map_opts)
@@ -30,6 +46,8 @@ function common.on_attach(_, bufnr)
   vim.keymap.set('n', '<leader>lgi', '<cmd>Telescope lsp_implementations<CR>', map_opts)
   vim.keymap.set('n', '<leader>lgr', '<cmd>Telescope lsp_references<CR>', map_opts)
   vim.keymap.set('n', '<leader>lgy', '<cmd>Telescope lsp_type_definitions<CR>', map_opts)
+
+  common.on_attach_formatting(client, bufnr)
 
   vim.api.nvim_create_autocmd('CursorHold', {
     buffer = bufnr,
