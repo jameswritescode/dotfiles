@@ -11,7 +11,6 @@ require('mason-lspconfig').setup()
 vim.diagnostic.config { virtual_text = false }
 
 local capabilities = cmp_lsp.default_capabilities()
-local formatting_augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
 null_ls.setup({
   sources = {
@@ -19,19 +18,7 @@ null_ls.setup({
     null_ls.builtins.formatting.goimports,
   },
 
-  on_attach = function(client, bufnr)
-    if client.supports_method('textDocument/formatting') then
-      vim.api.nvim_clear_autocmds({ group = formatting_augroup, buffer = bufnr })
-
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        group = formatting_augroup,
-        buffer = bufnr,
-        callback = function()
-          vim.lsp.buf.format({ bufnr = bufnr })
-        end,
-      })
-    end
-  end,
+  on_attach = common.on_attach_formatting,
 })
 
 local function hover(_, result, ctx, config)
