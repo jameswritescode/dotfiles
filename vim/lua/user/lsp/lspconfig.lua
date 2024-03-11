@@ -59,16 +59,23 @@ local overrides = {
   lua_ls = {
     settings = {
       Lua = {
-        diagnostics = {
-          globals = { 'vim' },
-        },
+        runtime = { version = 'LuaJIT' },
 
         telemetry = {
           enable = false,
         },
 
         workspace = {
-          library = vim.api.nvim_get_runtime_file('', true),
+          checkThirdParty = false,
+
+          library = {
+            '${3rd}/luv/library',
+            unpack(vim.api.nvim_get_runtime_file('', true)),
+          },
+
+          completion = {
+            callSnippet = 'Replace',
+          },
         },
       }
     },
