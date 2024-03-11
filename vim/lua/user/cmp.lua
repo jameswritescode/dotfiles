@@ -1,6 +1,6 @@
 local cmp = require 'cmp'
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-local copilot_cmp = require('copilot_cmp.comparators')
+-- local copilot_cmp = require('copilot_cmp.comparators')
 local luasnip = require('luasnip')
 
 local has_words_before = function()
@@ -20,13 +20,13 @@ cmp.setup{
   },
 
   mapping = cmp.mapping.preset.insert({
-    ['<C-s>'] = cmp.mapping.complete({
-      config = {
-        sources = {
-          { name = 'copilot' },
-        },
-      },
-    }),
+    -- ['<C-s>'] = cmp.mapping.complete({
+    --   config = {
+    --     sources = {
+    --       { name = 'copilot' },
+    --     },
+    --   },
+    -- }),
 
     ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
@@ -60,29 +60,29 @@ cmp.setup{
     end
   },
 
-  sorting = {
-    priority_weight = 2,
+  -- sorting = {
+  --   priority_weight = 2,
 
-    comparators = {
-      copilot_cmp.prioritize,
-      copilot_cmp.score,
-      cmp.config.compare.offset,
-      cmp.config.compare.exact,
-      cmp.config.compare.score,
-      cmp.config.compare.recently_used,
-      cmp.config.compare.locality,
-      cmp.config.compare.kind,
-      cmp.config.compare.length,
-      cmp.config.compare.order,
-    },
-  },
+  --   comparators = {
+  --     copilot_cmp.prioritize,
+  --     copilot_cmp.score,
+  --     cmp.config.compare.offset,
+  --     cmp.config.compare.exact,
+  --     cmp.config.compare.score,
+  --     cmp.config.compare.recently_used,
+  --     cmp.config.compare.locality,
+  --     cmp.config.compare.kind,
+  --     cmp.config.compare.length,
+  --     cmp.config.compare.order,
+  --   },
+  -- },
 
   sources = cmp.config.sources(
     {
       { name = 'nvim_lsp_signature_help' },
     },
     {
-      { name = 'copilot' },
+      -- { name = 'copilot' },
       { name = 'luasnip' },
       { name = 'nvim_lsp' },
       {

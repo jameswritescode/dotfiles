@@ -1,7 +1,5 @@
-local cmp_lsp = require 'cmp_nvim_lsp'
+local cmp_nvim_lsp = require 'cmp_nvim_lsp'
 local lspconfig = require 'lspconfig'
-local lspconfigs = require 'lspconfig.configs'
-local null_ls = require('null-ls')
 
 local common = require('user.lsp.common')
 
@@ -9,17 +7,6 @@ require('mason').setup()
 require('mason-lspconfig').setup()
 
 vim.diagnostic.config { virtual_text = false }
-
-local capabilities = cmp_lsp.default_capabilities()
-
-null_ls.setup({
-  sources = {
-    null_ls.builtins.formatting.gofmt,
-    null_ls.builtins.formatting.goimports,
-  },
-
-  on_attach = common.on_attach_formatting,
-})
 
 local function hover(_, result, ctx, config)
   local bufnr, winnr = vim.lsp.handlers.hover(_, result, ctx, config)
@@ -45,67 +32,24 @@ local servers = {
   'jdtls',
   'kotlin_language_server',
   'lua_ls',
+  'ruby_ls',
   'rust_analyzer',
-  'shopify_ruby_lsp',
-  'solargraph',
   'sorbet',
   'tailwindcss',
   'tsserver',
   'vimls',
 }
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = vim.tbl_deep_extend('force', capabilities, cmp_nvim_lsp.default_capabilities())
+
 local defaults = {
   capabilities = capabilities,
-  on_attach = common.on_attach,
 }
-
-lspconfigs.shopify_ruby_lsp = {
-  default_config = {
-    cmd = { 'bundle', 'exec', 'ruby-lsp' },
-    filetypes = { 'ruby' },
-    root_dir = lspconfig.util.root_pattern('Gemfile'),
-  }
-}
-
-local in_spin = os.getenv('SPIN') == '1'
 
 local overrides = {
   graphql = {
     autostart = false,
-  },
-
-  shopify_ruby_lsp = {
-    autostart = in_spin,
-    on_attach = function(client, bufnr)
-      common.on_attach(client, bufnr)
-
-      vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePre', 'CursorHold' }, {
-        buffer = bufnr,
-
-        callback = function()
-          local params = vim.lsp.util.make_text_document_params(bufnr)
-
-          client.request(
-            'textDocument/diagnostic',
-            { textDocument = params },
-            function(err, result)
-              if err then return end
-              if not result then return end
-
-              vim.lsp.diagnostic.on_publish_diagnostics(
-                nil,
-                vim.tbl_extend('keep', params, { diagnostics = result.items }),
-                { client_id = client.id }
-              )
-            end
-          )
-        end,
-      })
-    end,
-  },
-
-  solargraph = {
-    root_dir = lspconfig.util.root_pattern('.solargraph.yml'),
   },
 
   sorbet = {

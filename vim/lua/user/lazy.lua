@@ -73,26 +73,26 @@ require('lazy').setup({
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'saadparwaiz1/cmp_luasnip',
-      'zbirenbaum/copilot-cmp',
+      -- 'zbirenbaum/copilot-cmp',
     }
   },
 
-  {
-    'zbirenbaum/copilot-cmp',
-    config = function() require('copilot_cmp').setup() end,
-    dependencies = { 'zbirenbaum/copilot.lua' },
-  },
+  -- {
+  --   'zbirenbaum/copilot-cmp',
+  --   config = function() require('copilot_cmp').setup() end,
+  --   dependencies = { 'zbirenbaum/copilot.lua' },
+  -- },
 
-  {
-    'zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    config = function()
-      require('copilot').setup({
-        panel = { enabled = false },
-        suggestion = { enabled = false },
-      })
-    end,
-  },
+  -- {
+  --   'zbirenbaum/copilot.lua',
+  --   cmd = 'Copilot',
+  --   config = function()
+  --     require('copilot').setup({
+  --       panel = { enabled = false },
+  --       suggestion = { enabled = false },
+  --     })
+  --   end,
+  -- },
 
   {
     'L3MON4D3/LuaSnip',
@@ -112,7 +112,6 @@ require('lazy').setup({
     config = function() require('user.lsp.lspconfig') end,
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
-      'nvimtools/none-ls.nvim',
       'onsails/lspkind.nvim',
       'williamboman/mason-lspconfig.nvim',
       'williamboman/mason.nvim',
@@ -261,35 +260,50 @@ require('lazy').setup({
     ft = 'http',
   },
 
-  { 'AndrewRadev/switch.vim', event = 'VeryLazy' },
-  { 'c-brenn/phoenix.vim', event = 'VeryLazy' },
-  { 'catppuccin/nvim', name = 'catppuccin' },
+  {
+    'stevearc/conform.nvim',
+    event = { 'LspAttach', 'BufWritePre' },
+    opts = {
+      format_on_save = {
+        lsp_fallback = true,
+        timeout_ms = 500,
+      },
+
+      formatters_by_ft = {
+        go = { 'gofmt', 'goimports' },
+      },
+    },
+  },
+
+  { 'AndrewRadev/switch.vim',         event = 'VeryLazy' },
+  { 'c-brenn/phoenix.vim',            event = 'VeryLazy' },
+  { 'catppuccin/nvim',                name = 'catppuccin' },
   { 'christoomey/vim-tmux-navigator', event = 'VeryLazy' },
-  { 'elixir-editors/vim-elixir', event = 'VeryLazy' },
-  { 'kchmck/vim-coffee-script', event = 'VeryLazy' },
-  { 'machakann/vim-highlightedyank', event = 'VeryLazy' },
-  { 'mracos/mermaid.vim', event = 'VeryLazy' },
-  { 'rust-lang/rust.vim', event = 'VeryLazy' },
-  { 'tmux-plugins/vim-tmux', event = 'VeryLazy' },
-  { 'tpope/vim-abolish', event = 'VeryLazy' },
-  { 'tpope/vim-apathy', event = 'VeryLazy' },
-  { 'tpope/vim-bundler', event = 'VeryLazy' },
-  { 'tpope/vim-commentary', event = 'VeryLazy' },
-  { 'tpope/vim-endwise', event = 'VeryLazy' },
-  { 'tpope/vim-fugitive', event = 'VeryLazy' },
-  { 'tpope/vim-git', event = 'VeryLazy' },
-  { 'tpope/vim-rails', lazy = false },
-  { 'tpope/vim-rake', event = 'VeryLazy' },
-  { 'tpope/vim-repeat', event = 'VeryLazy' },
-  { 'tpope/vim-rhubarb', event = 'VeryLazy' },
-  { 'tpope/vim-sleuth', lazy = false },
-  { 'tpope/vim-speeddating', event = 'VeryLazy' },
-  { 'tpope/vim-surround', event = 'VeryLazy' },
-  { 'tpope/vim-unimpaired', event = 'VeryLazy' },
-  { 'tpope/vim-vinegar', lazy = false },
-  { 'udalov/kotlin-vim', lazy = false },
-  { 'windwp/nvim-autopairs', event = 'VeryLazy' },
-  { 'windwp/nvim-ts-autotag', event = 'VeryLazy' },
+  { 'elixir-editors/vim-elixir',      event = 'VeryLazy' },
+  { 'kchmck/vim-coffee-script',       event = 'VeryLazy' },
+  { 'machakann/vim-highlightedyank',  event = 'VeryLazy' },
+  { 'mracos/mermaid.vim',             event = 'VeryLazy' },
+  { 'rust-lang/rust.vim',             event = 'VeryLazy' },
+  { 'tmux-plugins/vim-tmux',          event = 'VeryLazy' },
+  { 'tpope/vim-abolish',              event = 'VeryLazy' },
+  { 'tpope/vim-apathy',               event = 'VeryLazy' },
+  { 'tpope/vim-bundler',              event = 'VeryLazy' },
+  { 'tpope/vim-commentary',           event = 'VeryLazy' },
+  { 'tpope/vim-endwise',              event = 'VeryLazy' },
+  { 'tpope/vim-fugitive',             event = 'VeryLazy' },
+  { 'tpope/vim-git',                  event = 'VeryLazy' },
+  { 'tpope/vim-rails',                lazy = false },
+  { 'tpope/vim-rake',                 event = 'VeryLazy' },
+  { 'tpope/vim-repeat',               event = 'VeryLazy' },
+  { 'tpope/vim-rhubarb',              event = 'VeryLazy' },
+  { 'tpope/vim-sleuth',               lazy = false },
+  { 'tpope/vim-speeddating',          event = 'VeryLazy' },
+  { 'tpope/vim-surround',             event = 'VeryLazy' },
+  { 'tpope/vim-unimpaired',           event = 'VeryLazy' },
+  { 'tpope/vim-vinegar',              lazy = false },
+  { 'udalov/kotlin-vim',              lazy = false },
+  { 'windwp/nvim-autopairs',          event = 'VeryLazy' },
+  { 'windwp/nvim-ts-autotag',         event = 'VeryLazy' },
 }, {
   defaults = { lazy = true },
 })
