@@ -19,10 +19,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, map_opts)
     vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, map_opts)
 
-    vim.keymap.set('n', '<leader>lgd', fzf.lsp_definitions, map_opts)
     vim.keymap.set('n', '<leader>lgi', fzf.lsp_implementations, map_opts)
-    vim.keymap.set('n', '<leader>lgr', fzf.lsp_references, map_opts)
     vim.keymap.set('n', '<leader>lgy', fzf.lsp_typedefs, map_opts)
+
+    vim.keymap.set('n', '<leader>lgd', function()
+      fzf.lsp_definitions({ jump_to_single_result = true })
+    end, map_opts)
+
+    vim.keymap.set('n', '<leader>lgr', function()
+      fzf.lsp_references({ jump_to_single_result = true })
+    end, map_opts)
 
     vim.api.nvim_create_autocmd('CursorHold', {
       buffer = event.buf,
