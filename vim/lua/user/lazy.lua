@@ -261,7 +261,9 @@ require('lazy').setup({
     'ibhagwan/fzf-lua',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      require('fzf-lua').setup({ 'telescope' })
+      local fzf = require('fzf-lua')
+      fzf.setup({ 'telescope' })
+      fzf.register_ui_select()
     end
   },
 
