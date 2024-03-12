@@ -14,24 +14,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  ---------------
-  -- Telescope --
-  ---------------
-  {
-    'nvim-telescope/telescope.nvim',
-    cmd = { 'Telescope', 'GGrep' },
-    config = function() require('user.telescope') end,
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope-fzf-native.nvim',
-    },
-  },
-
-  {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'make',
-  },
-
   ----------------
   -- Treesitter --
   ----------------
@@ -273,6 +255,14 @@ require('lazy').setup({
         go = { 'gofmt', 'goimports' },
       },
     },
+  },
+
+  {
+    'ibhagwan/fzf-lua',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('fzf-lua').setup({ 'telescope' })
+    end
   },
 
   { 'AndrewRadev/switch.vim',         event = 'VeryLazy' },

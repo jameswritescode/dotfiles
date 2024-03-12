@@ -18,8 +18,6 @@ which_key.setup({
       z = false,
     },
   },
-
-  ignore_missing = true,
 })
 
 which_key.register(
