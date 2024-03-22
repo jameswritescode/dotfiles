@@ -19,9 +19,6 @@ vim/langserver/*
 vim/.netrwhist
 vim/plugin/packer_compiled.lua
 
-ranger/plugins/__init__.*
-ranger/plugins/*.pyo
-
 __pycache__
 
 profile.log
