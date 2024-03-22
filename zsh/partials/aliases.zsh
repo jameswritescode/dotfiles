@@ -8,7 +8,6 @@ alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resourc
 alias mux="tmuxinator"
 alias npmsd="npm install --save-dev"
 alias psa="ps aux"
-alias r="ranger"
 alias rl="source ~/.zshrc"
 alias ss='open -a ScreenSaverEngine'
 alias v='vim $(fzf --height=25)'
