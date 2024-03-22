@@ -34,19 +34,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       buffer = event.buf,
 
       callback = function()
-        local opts = {
-          border = 'rounded',
-          close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' },
-          focusable = false,
-          scope = 'cursor',
-          source = 'always',
-
-          format = function(diagnostic)
-            return string.format("[%s] %s", diagnostic.code, diagnostic.message)
-          end
-        }
-
-        local _, winnr = vim.diagnostic.open_float(opts)
+        local _, winnr = vim.diagnostic.open_float()
 
         common.set_winhighlight(winnr)
       end,
