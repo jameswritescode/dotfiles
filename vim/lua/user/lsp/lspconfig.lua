@@ -6,7 +6,18 @@ local common = require('user.lsp.common')
 require('mason').setup()
 require('mason-lspconfig').setup()
 
-vim.diagnostic.config { virtual_text = false }
+vim.diagnostic.config {
+  virtual_text = false,
+  float = {
+    border = 'rounded',
+    scope = 'cursor',
+    source = true,
+
+    format = function(d)
+      return string.format("[%s] %s", d.code, d.message)
+    end,
+  },
+}
 
 local function hover(_, result, ctx, config)
   local bufnr, winnr = vim.lsp.handlers.hover(_, result, ctx, config)
