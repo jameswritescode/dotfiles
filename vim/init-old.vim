@@ -20,5 +20,4 @@ endif
 
 source ~/dotfiles/vim/partials/highlights.vim
 source ~/dotfiles/vim/partials/functions.vim
-source ~/dotfiles/vim/partials/statusline.vim
 source ~/dotfiles/vim/partials/tabline.vim
