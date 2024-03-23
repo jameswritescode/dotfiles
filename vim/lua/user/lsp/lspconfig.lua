@@ -12,6 +12,7 @@ vim.diagnostic.config {
     border = 'rounded',
     scope = 'cursor',
     source = true,
+    focusable = false,
 
     format = function(d)
       return string.format("[%s] %s", d.code, d.message)

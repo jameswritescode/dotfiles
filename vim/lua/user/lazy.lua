@@ -267,6 +267,12 @@ require('lazy').setup({
     end
   },
 
+  {
+    'nvim-tree/nvim-web-devicons',
+    config = true,
+    lazy = false,
+  },
+
   { 'AndrewRadev/switch.vim',         event = 'VeryLazy' },
   { 'c-brenn/phoenix.vim',            event = 'VeryLazy' },
   { 'catppuccin/nvim',                name = 'catppuccin' },
