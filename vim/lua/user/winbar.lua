@@ -21,7 +21,7 @@ local function treesitter_status()
   local width = vim.api.nvim_win_get_width(win)
 
   local status = require('nvim-treesitter.statusline').statusline({
-    type_patterns = { 'class', 'function', 'method', 'module' },
+    type_patterns = { 'class', 'function', 'method', 'module', 'type' },
     separator = ' %#WinBarSeparator#%#WinBar# ',
     indicator_size = width,
   })

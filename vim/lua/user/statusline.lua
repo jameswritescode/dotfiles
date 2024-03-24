@@ -56,7 +56,7 @@ end
 
 local function filename()
   local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':t')
-  local icon, hl = devicons.get_icon(name, get_filetype())
+  local icon, hl = devicons.get_icon(name)
 
   if not icon then return '%#Normal#%t' end
 
