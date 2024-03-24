@@ -22,7 +22,7 @@ local function treesitter_status()
 
   local status = require('nvim-treesitter.statusline').statusline({
     type_patterns = { 'class', 'function', 'method', 'module' },
-    separator = ' %#WinBarSeparator#%#WinBar# ',
+    separator = ' %#WinBarSeparator#%#WinBar# ',
     indicator_size = width,
   })
 
