@@ -4,6 +4,9 @@ local theme = require('catppuccin.palettes.mocha')
 local modes = {
   unknown = { hl = 'StatuslineModeUnknown', color = theme.subtext0 },
 
+  n = { hl = 'StatuslineModeNormal', color = theme.green, name = 'NORMAL' },
+  nt = { hl = 'StatuslineModeNormal', color = theme.green, name = 'NORMAL' },
+
   v = { hl = 'StatuslineModeVisual', color = theme.yellow, name = 'VISUAL' },
   V = { hl = 'StatuslineModeVisual', color = theme.yellow, name = 'VISUAL BLOCK' },
   [''] = { hl = 'StatuslineModeVisual', color = theme.yellow, name = 'VISUAL BLOCK' },
@@ -11,7 +14,6 @@ local modes = {
   R = { hl = 'StatuslineModeReplace', color = theme.red, name = 'REPLACE' },
   c = { hl = 'StatuslineModeCommand', color = theme.teal, name = 'COMMAND' },
   i = { hl = 'StatuslineModeInsert', color = theme.blue, name = 'INSERT' },
-  n = { hl = 'StatuslineModeNormal', color = theme.green, name = 'NORMAL' },
   t = { hl = 'StatuslineModeTerminal', color = theme.lavender, name = 'TERMINAL' },
 }
 
@@ -37,22 +39,16 @@ vim.cmd(
     [[
       %s
 
+      highlight MsgArea guifg=%s
       highlight StatuslineSubtext guifg=%s
     ]],
     generate_highlights(),
+    theme.overlay0,
     theme.subtext0
   )
 )
 
 vim.cmd(generate_highlights())
-
-local function get_filetype()
-  if vim.bo.buftype ~= '' then
-    return vim.bo.buftype
-  end
-
-  return vim.bo.filetype
-end
 
 local function filename()
   local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':t')
@@ -60,7 +56,7 @@ local function filename()
 
   if not icon then return '%#Normal#%t' end
 
-  return string.format('%%#%s# %s %%t%%#Normal#', hl, icon)
+  return string.format('%%#%s#%s %%t%%#Normal#', hl, icon)
 end
 
 local function git_branch()
