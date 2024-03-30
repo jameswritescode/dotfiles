@@ -1,5 +1,9 @@
-local common = require 'user.lsp.common'
-local fzf = require 'fzf-lua'
+local fzf = require('fzf-lua')
+
+local common = require('user.lsp.common')
+local status = require('user.lsp.status')
+
+status.register_autocmds()
 
 -- TODO: Is there a better way to do this now?
 local function lsp_diagnostic_hover_hack()
