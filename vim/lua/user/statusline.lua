@@ -1,6 +1,8 @@
 local devicons = require('nvim-web-devicons')
 local theme = require('catppuccin.palettes.mocha')
 
+local lsp_status = require('user.lsp.status')
+
 local modes = {
   unknown = { hl = 'StatuslineModeUnknown', color = theme.subtext0 },
 
@@ -41,10 +43,14 @@ vim.cmd(
 
       highlight MsgArea guifg=%s
       highlight StatuslineSubtext guifg=%s
+      highlight LspStatusWorking guifg=%s
+      highlight LspStatusFinished guifg=%s
     ]],
     generate_highlights(),
     theme.overlay0,
-    theme.subtext0
+    theme.subtext0,
+    theme.yellow,
+    theme.green
   )
 )
 
@@ -124,11 +130,15 @@ local function diagnostics()
 end
 
 local function lsp()
-  local clients = #vim.lsp.get_clients({ bufnr = 0 })
+  local status = lsp_status.buffer_status(vim.fn.bufnr())
 
-  if clients == 0 then return '' end
-
-  return '%#StatuslineSubtext#LSP%#Normal#'
+  if status == nil then
+    return nil
+  elseif status then
+    return '%#LspStatusFinished#LSP%#Normal#'
+  else
+    return '%#LspStatusWorking#LSP%#Normal#'
+  end
 end
 
 local function current_mode()
@@ -143,6 +153,9 @@ end
 local spacer = '  '
 
 local function custom_statusline()
+  local lsp_result = lsp()
+  local lsp_buffer_status = lsp_result and lsp_result .. spacer or ''
+
   return table.concat({
     filename(),
     spacer,
@@ -152,8 +165,7 @@ local function custom_statusline()
     '%=',
     diagnostics(),
     spacer,
-    lsp(),
-    spacer,
+    lsp_buffer_status,
     current_mode(),
   })
 end
