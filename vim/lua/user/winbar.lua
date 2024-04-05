@@ -4,7 +4,7 @@ vim.cmd(
   string.format(
     [[
       highlight WinBar guifg=%s
-      highlight WinBarSeparator guifg=%s
+      highlight WinBarSep guifg=%s
     ]],
     theme.subtext0,
     theme.red
@@ -16,14 +16,10 @@ local function treesitter_status()
     return ''
   end
 
-  local buf = vim.api.nvim_get_current_buf()
-  local win = vim.fn.bufwinid(buf)
-  local width = vim.api.nvim_win_get_width(win)
-
   local status = require('nvim-treesitter.statusline').statusline({
     type_patterns = { 'class', 'function', 'method', 'module', 'type' },
-    separator = ' %#WinBarSeparator#%#WinBar# ',
-    indicator_size = width,
+    separator = ' %#WinBarSep#%#WinBar# ',
+    indicator_size = vim.api.nvim_win_get_width(0),
   })
 
   return status
