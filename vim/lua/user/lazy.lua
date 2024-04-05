@@ -115,8 +115,12 @@ require('lazy').setup({
     {
       'CopilotC-Nvim/CopilotChat.nvim',
       branch = 'canary',
-      config = true,
       event = 'VeryLazy',
+      config = function()
+        if require('user.functions').copilot_signed_in() then
+          require('CopilotChat').setup()
+        end
+      end,
       dependencies = {
         'nvim-lua/plenary.nvim',
         'zbirenbaum/copilot.lua',

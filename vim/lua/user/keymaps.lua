@@ -15,13 +15,21 @@ nmap('\\', fzf.buffers)
 
 nmap('<leader>ai', '<cmd>CopilotChatToggle<cr>', 'copilot-chat-toggle')
 
-map({ 'n', 'v' }, '<leader>ah', function()
-  copilot_chat_fzf.pick(copilot_chat_actions.help_actions())
-end, 'copilot-chat-help')
+--- copilot
+if require('user.functions').copilot_signed_in() then
+  local copilot_chat_actions = require('CopilotChat.actions')
+  local copilot_chat_fzf = require('CopilotChat.integrations.fzflua')
 
-map({ 'n', 'v' }, '<leader>ap', function()
-  copilot_chat_fzf.pick(copilot_chat_actions.prompt_actions())
-end, 'copilot-chat-prompts')
+  nmap('<leader>ai', '<cmd>CopilotChatToggle<cr>', 'copilot-chat-toggle')
+
+  map({ 'n', 'v' }, '<leader>ah', function()
+    copilot_chat_fzf.pick(copilot_chat_actions.help_actions())
+  end, 'copilot-chat-help')
+
+  map({ 'n', 'v' }, '<leader>ap', function()
+    copilot_chat_fzf.pick(copilot_chat_actions.prompt_actions())
+  end, 'copilot-chat-prompts')
+end
 
 nmap('<leader>fg', fzf.grep, 'fzf-live-grep')
 nmap('<leader>fw', fzf.grep_cword, 'fzf-grep-string')

@@ -1,18 +1,24 @@
 local clients = {}
 
 local function create_client(client_id)
+  local client = vim.lsp.get_client_by_id(client_id)
+
+  if client and client.name == 'copilot' then return false end
+
   if not clients[client_id] then
     clients[client_id] = {
       buffers = {},
       tokens = {},
     }
   end
+
+  return true
 end
 
 local function process_event(event)
   local data = event.data
 
-  create_client(data.client_id)
+  if not create_client(data.client_id) then return end
 
   local value = data.result.value
 
@@ -40,7 +46,7 @@ end
 local function attach_client(event)
   local client_id = event.data.client_id
 
-  create_client(client_id)
+  if not create_client(client_id) then return end
 
   if not vim.list_contains(clients[client_id].buffers, event.buf) then
     table.insert(clients[client_id].buffers, event.buf)
@@ -93,10 +99,8 @@ local function buffer_status(bufnr)
   return has_lsp or nil
 end
 
-local M = {
+return {
   buffer_status = buffer_status,
   clients = clients,
   register_autocmds = register_autocmds,
 }
-
-return M
