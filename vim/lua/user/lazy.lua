@@ -60,18 +60,6 @@ require('lazy').setup({
   },
 
   {
-    'zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    event = 'InsertEnter',
-    config = function()
-      require('copilot').setup({
-        panel = { enabled = false },
-        suggestion = { enabled = false },
-      })
-    end,
-  },
-
-  {
     'zbirenbaum/copilot-cmp',
     config = function() require('copilot_cmp').setup() end,
     dependencies = { 'zbirenbaum/copilot.lua' },
@@ -87,9 +75,9 @@ require('lazy').setup({
     end,
   },
 
-  -----------
-  -- Other --
-  -----------
+  ---------
+  -- LSP --
+  ---------
   {
     'neovim/nvim-lspconfig',
     config = function() require('user.lsp.lspconfig') end,
@@ -102,16 +90,47 @@ require('lazy').setup({
   },
 
   {
-    'mfussenegger/nvim-dap',
-    config = function() require('user.dap') end,
-    event = 'VeryLazy',
-  },
-
-  {
     'mfussenegger/nvim-jdtls',
     config = function() require('user.lsp.jdtls') end,
     enabled = false,
     ft = 'java',
+  },
+
+  -------------
+  -- Copilot --
+  -------------
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    config = function()
+      require('copilot').setup({
+        panel = { enabled = false },
+        suggestion = { enabled = false },
+      })
+    end,
+  },
+
+  {
+    {
+      'CopilotC-Nvim/CopilotChat.nvim',
+      branch = 'canary',
+      config = true,
+      event = 'VeryLazy',
+      dependencies = {
+        'nvim-lua/plenary.nvim',
+        'zbirenbaum/copilot.lua',
+      },
+    },
+  },
+
+  -----------
+  -- Other --
+  -----------
+  {
+    'mfussenegger/nvim-dap',
+    config = function() require('user.dap') end,
+    event = 'VeryLazy',
   },
 
   {
@@ -323,6 +342,4 @@ require('lazy').setup({
   { 'udalov/kotlin-vim',              lazy = false },
   { 'windwp/nvim-autopairs',          event = 'VeryLazy' },
   { 'windwp/nvim-ts-autotag',         event = 'VeryLazy' },
-}, {
-  defaults = { lazy = true },
 })
