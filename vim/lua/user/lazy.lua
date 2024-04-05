@@ -255,12 +255,12 @@ require('lazy').setup({
     event = 'WinNew',
   },
 
-  {
-    'rest-nvim/rest.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    event = 'VeryLazy',
-    ft = 'http',
-  },
+  -- {
+  --   'rest-nvim/rest.nvim',
+  --   dependencies = { 'nvim-lua/plenary.nvim' },
+  --   event = 'VeryLazy',
+  --   ft = 'http',
+  -- },
 
   {
     'stevearc/conform.nvim',
