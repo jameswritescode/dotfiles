@@ -1,9 +1,15 @@
 local cmp = require 'cmp'
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
--- local copilot_cmp = require('copilot_cmp.comparators')
+local copilot_cmp = require('copilot_cmp.comparators')
 local luasnip = require('luasnip')
 
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+
+local function has_words_before()
+  if vim.api.nvim_get_option_value('buftype', {}) == 'prompt' then return false end
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match('^%s*$') == nil
+end
 
 cmp.setup {
   formatting = {
@@ -14,13 +20,13 @@ cmp.setup {
   },
 
   mapping = cmp.mapping.preset.insert({
-    -- ['<C-s>'] = cmp.mapping.complete({
-    --   config = {
-    --     sources = {
-    --       { name = 'copilot' },
-    --     },
-    --   },
-    -- }),
+    ['<C-s>'] = cmp.mapping.complete({
+      config = {
+        sources = {
+          { name = 'copilot' },
+        },
+      },
+    }),
 
     ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
@@ -38,7 +44,7 @@ cmp.setup {
     end, { 'i', 's' }),
 
     ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
+      if cmp.visible() and has_words_before() then
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
@@ -54,34 +60,33 @@ cmp.setup {
     end
   },
 
-  -- sorting = {
-  --   priority_weight = 2,
+  sorting = {
+    priority_weight = 2,
 
-  --   comparators = {
-  --     copilot_cmp.prioritize,
-  --     copilot_cmp.score,
-  --     cmp.config.compare.offset,
-  --     cmp.config.compare.exact,
-  --     cmp.config.compare.score,
-  --     cmp.config.compare.recently_used,
-  --     cmp.config.compare.locality,
-  --     cmp.config.compare.kind,
-  --     cmp.config.compare.length,
-  --     cmp.config.compare.order,
-  --   },
-  -- },
+    comparators = {
+      copilot_cmp.prioritize,
+      cmp.config.compare.offset,
+      cmp.config.compare.exact,
+      cmp.config.compare.score,
+      cmp.config.compare.recently_used,
+      cmp.config.compare.locality,
+      cmp.config.compare.kind,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
+    },
+  },
 
   sources = cmp.config.sources(
     {
       { name = 'nvim_lsp_signature_help' },
     },
     {
-      -- { name = 'copilot' },
+      { name = 'copilot' },
       { name = 'luasnip' },
       { name = 'nvim_lsp' },
       {
         name = 'buffer',
-        keyword_length = 5,
+        keyword_length = 3,
 
         option = {
           get_bufnrs = function()

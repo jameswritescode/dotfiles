@@ -55,26 +55,27 @@ require('lazy').setup({
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'saadparwaiz1/cmp_luasnip',
-      -- 'zbirenbaum/copilot-cmp',
+      'zbirenbaum/copilot-cmp',
     }
   },
 
-  -- {
-  --   'zbirenbaum/copilot-cmp',
-  --   config = function() require('copilot_cmp').setup() end,
-  --   dependencies = { 'zbirenbaum/copilot.lua' },
-  -- },
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    config = function()
+      require('copilot').setup({
+        panel = { enabled = false },
+        suggestion = { enabled = false },
+      })
+    end,
+  },
 
-  -- {
-  --   'zbirenbaum/copilot.lua',
-  --   cmd = 'Copilot',
-  --   config = function()
-  --     require('copilot').setup({
-  --       panel = { enabled = false },
-  --       suggestion = { enabled = false },
-  --     })
-  --   end,
-  -- },
+  {
+    'zbirenbaum/copilot-cmp',
+    config = function() require('copilot_cmp').setup() end,
+    dependencies = { 'zbirenbaum/copilot.lua' },
+  },
 
   {
     'L3MON4D3/LuaSnip',
