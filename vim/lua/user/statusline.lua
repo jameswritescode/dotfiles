@@ -19,42 +19,14 @@ local modes = {
   t = { hl = 'StatuslineModeTerminal', color = theme.lavender, name = 'TERMINAL' },
 }
 
-local function generate_highlights()
-  local vim_highlights = {}
-
-  for _, config in pairs(modes) do
-    table.insert(
-      vim_highlights,
-      string.format(
-        'highlight %s guifg=%s',
-        config.hl,
-        config.color
-      )
-    )
-  end
-
-  return table.concat(vim_highlights, '\n')
+for _, config in pairs(modes) do
+  vim.api.nvim_set_hl(0, config.hl, { fg = config.color })
 end
 
-vim.cmd(
-  string.format(
-    [[
-      %s
-
-      highlight MsgArea guifg=%s
-      highlight StatuslineSubtext guifg=%s
-      highlight LspStatusWorking guifg=%s
-      highlight LspStatusFinished guifg=%s
-    ]],
-    generate_highlights(),
-    theme.overlay0,
-    theme.subtext0,
-    theme.yellow,
-    theme.green
-  )
-)
-
-vim.cmd(generate_highlights())
+vim.api.nvim_set_hl(0, 'LspStatusFinished', { fg = theme.green })
+vim.api.nvim_set_hl(0, 'LspStatusWorking', { fg = theme.yellow })
+vim.api.nvim_set_hl(0, 'MsgArea', { fg = theme.overlay0 })
+vim.api.nvim_set_hl(0, 'StatuslineSubtext', { fg = theme.subtext0 })
 
 local function filename()
   local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':t')
