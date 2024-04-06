@@ -1,15 +1,7 @@
 local theme = require('catppuccin.palettes.mocha')
 
-vim.cmd(
-  string.format(
-    [[
-      highlight WinBar guifg=%s
-      highlight WinBarSep guifg=%s
-    ]],
-    theme.subtext0,
-    theme.red
-  )
-)
+vim.api.nvim_set_hl(0, 'WinBar', { fg = theme.subtext0 })
+vim.api.nvim_set_hl(0, 'WinBarSep', { fg = theme.red })
 
 local function treesitter_status()
   if not vim.g.loaded_nvim_treesitter then
@@ -18,15 +10,17 @@ local function treesitter_status()
 
   local status = require('nvim-treesitter.statusline').statusline({
     type_patterns = { 'class', 'function', 'method', 'module', 'type' },
-    separator = ' %#WinBarSep#%#WinBar# ',
+    separator = '  ',
     indicator_size = vim.api.nvim_win_get_width(0),
   })
 
-  return status
+  if not status then return '' end
+
+  return string.gsub(status, '', '%%#WinBarSep#%%#WinBar#')
 end
 
 local function custom_winbar()
-  return treesitter_status() or ''
+  return treesitter_status()
 end
 
 _G.custom_winbar = custom_winbar
