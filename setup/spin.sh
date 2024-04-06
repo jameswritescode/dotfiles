@@ -18,7 +18,6 @@ git config --global --unset core.pager
 ./setup/zsh.sh install_ubuntu
 
 # neovim
-sudo gem install neovim --no-doc
 ./setup/neovim.sh install_ubuntu
 
 # tmux
