@@ -277,6 +277,7 @@ require('lazy').setup({
 
       formatters_by_ft = {
         go = { 'gofmt', 'goimports' },
+        sql = { 'sql_formatter' },
       },
     },
   },
