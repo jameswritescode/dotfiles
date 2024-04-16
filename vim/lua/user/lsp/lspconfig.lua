@@ -44,7 +44,7 @@ local servers = {
   'jdtls',
   'kotlin_language_server',
   'lua_ls',
-  'ruby_ls',
+  'ruby_lsp',
   'rust_analyzer',
   'sorbet',
   'tailwindcss',
