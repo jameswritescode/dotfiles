@@ -9,4 +9,6 @@ augroup filetypedetect
   autocmd bufread,bufnewfile *.zsh-theme setf zsh
   autocmd bufread,bufnewfile Brewfile,Guardfile,*.rbi setf ruby
   autocmd bufread,bufnewfile kitty.conf setf kitty
+  autocmd FileType sql setlocal commentstring=--\ %s
+  autocmd FileType proto setlocal commentstring=//\ %s
 augroup END
