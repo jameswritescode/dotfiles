@@ -5,6 +5,7 @@ local common = require('user.lsp.common')
 
 require('mason').setup()
 require('mason-lspconfig').setup()
+require('java').setup()
 
 vim.diagnostic.config {
   virtual_text = false,
