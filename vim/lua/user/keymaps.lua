@@ -38,13 +38,13 @@ end)
 
 -- leader
 nmap('<leader>b-', ':%bd|e#|bd#<cr>', 'delete-inactive-buffers')
-nmap('<leader>ldn', vim.diagnostic.goto_next, 'diagnostic-next')
-nmap('<leader>ldp', vim.diagnostic.goto_prev, 'diagnostic-prev')
 nmap('<leader>q', ':noh<cr>', 'no-highlight')
 nmap('<leader>tc', ':call Repl()<cr>', 'repl')
 nmap('<leader>tf', ':TestFile<cr>', 'test-file')
 nmap('<leader>tn', ':TestNearest<cr>', 'test-near')
 nmap('<leader>tr', ':call RunFile()<cr>', 'run')
+nmap('[d', vim.diagnostic.goto_prev, 'diagnostic-prev')
+nmap(']d', vim.diagnostic.goto_next, 'diagnostic-next')
 vmap('<leader>s', ':sort<cr>', 'sort')
 
 --- copilot
