@@ -1,8 +1,8 @@
-source ~/dotfiles/vim/partials/settings.vim
+source ~/dotfiles/.config/nvim/partials/settings.vim
 
 let g:mapleader="\<Space>"
 
-source ~/dotfiles/vim/partials/mappings.vim
+source ~/dotfiles/.config/nvim/partials/mappings.vim
 
 augroup betterment
   au!
@@ -18,5 +18,5 @@ if !exists('g:syntax_on')
   syntax enable
 endif
 
-source ~/dotfiles/vim/partials/highlights.vim
-source ~/dotfiles/vim/partials/functions.vim
+source ~/dotfiles/.config/nvim/partials/highlights.vim
+source ~/dotfiles/.config/nvim/partials/functions.vim

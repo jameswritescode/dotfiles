@@ -2,14 +2,10 @@
 
 set -x
 
-VIMPATH="$HOME/dotfiles/vim"
+VIMPATH="$HOME/dotfiles/.config/nvim"
 
 install_standard() {
   ln -s "$VIMPATH" "$HOME/.config/nvim"
-
-  pip3 install --upgrade pynvim
-  gem install neovim
-  yarn global add neovim
 }
 
 install_macos() {

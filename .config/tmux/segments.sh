@@ -6,11 +6,11 @@
 find_segment() {
   case "$1" in
     spotify)
-      echo "‹#[fg=white,bold]$("$DOTFILES"/tmux/spotify.sh)#[fg=white,nobold]›"
+      echo "‹#[fg=white,bold]$("$DOTFILES"/.config/tmux/spotify.sh)#[fg=white,nobold]›"
     ;;
 
     whatpulse)
-      echo "‹#[fg=white,bold]$("$DOTFILES"/tmux/whatpulse.sh)#[fg=white,nobold]›"
+      echo "‹#[fg=white,bold]$("$DOTFILES"/.config/tmux/whatpulse.sh)#[fg=white,nobold]›"
     ;;
 
     *)

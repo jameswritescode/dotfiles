@@ -11,3 +11,7 @@ export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+if [[ -z $XDG_CONFIG_HOME ]]; then
+  export XDG_CONFIG_HOME="$HOME/.config"
+fi

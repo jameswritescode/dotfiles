@@ -2,11 +2,12 @@
 
 set -x
 
-ln -sf "$HOME/dotfiles/git/.gitconfig" "$HOME/.gitconfig"
+ln -sf "$HOME/dotfiles/.config/git" "$HOME/.config/git"
 
 CUSTOMFILE="$HOME/.gitconfig_custom"
 
 touch "$CUSTOMFILE"
+touch "$HOME/.gitignore_global"
 
 case "$1" in
   install_macos)

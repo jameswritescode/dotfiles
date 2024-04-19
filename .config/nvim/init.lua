@@ -1,4 +1,4 @@
-vim.cmd('source ~/dotfiles/vim/init-old.vim')
+vim.cmd('source ~/dotfiles/.config/nvim/init-old.vim')
 
 require 'user.options'
 require 'user.lazy'

@@ -3,14 +3,14 @@ set autoread
 set autowrite
 set background=dark
 set backspace=2
-set backupdir=~/dotfiles/vim/tmp
+set backupdir=~/dotfiles/.config/nvim/tmp
 set colorcolumn=+1
 set completeopt=menu,menuone,noselect
 set concealcursor=niv
 set conceallevel=0
 set cursorline
 set diffopt+=vertical
-set directory=~/dotfiles/vim/tmp
+set directory=~/dotfiles/.config/nvim/tmp
 set encoding=utf-8
 set expandtab
 set foldcolumn=0
@@ -45,7 +45,7 @@ set tags^=./.git/tags;
 set termguicolors
 set textwidth=79
 set timeoutlen=500
-set undodir=~/dotfiles/vim/tmp
+set undodir=~/dotfiles/.config/nvim/tmp
 set undofile
 set updatetime=250
 set visualbell

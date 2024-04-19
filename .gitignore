@@ -1,11 +1,13 @@
 *.zwc
 .DS_Store
 
-vim/tmp/*
-!vim/tmp/.gitkeep
+.config/nvim/tmp/*
+!.config/nvim/tmp/.gitkeep
 
-vim/.netrwhist
-vim/lazy-lock.json
+.config/nvim/.netrwhist
+.config/nvim/lazy-lock.json
+
+.config/tmux/plugins/*
 
 __pycache__
 

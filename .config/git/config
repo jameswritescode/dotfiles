@@ -29,7 +29,7 @@
 	showPatch = true
 [init]
 	defaultBranch = main
-	templatedir = ~/dotfiles/git/templates
+	templatedir = ~/dotfiles/.config/git/templates
 [core]
 	; pager = diff-so-fancy | less --tabs=4 -RFX
 	pager = delta --syntax-theme TwoDark
