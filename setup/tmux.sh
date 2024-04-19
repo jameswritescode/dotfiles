@@ -1,7 +1,7 @@
 #!/bin/bash
 
 install_macos() {
-  brew install tmux overmind
+  brew install tmux overmind jq
   ln -s "$DOTFILES/.config/tmux" "$HOME/.config/tmux"
   git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 }
