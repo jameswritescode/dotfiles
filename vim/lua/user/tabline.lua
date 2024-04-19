@@ -1,6 +1,8 @@
 local devicons = require('nvim-web-devicons')
 local theme = require('catppuccin.palettes.mocha')
 
+local vim_test = require('user.vim_test')
+
 local function set_active_highlight(devicon_hl)
   local hl = vim.api.nvim_get_hl(0, { name = devicon_hl })
 
@@ -15,6 +17,11 @@ local function custom_tabline()
     local bufnr = vim.fn.tabpagebuflist(i)[vim.fn.tabpagewinnr(i)]
     local bufname = vim.fn.fnamemodify(vim.fn.bufname(bufnr), ':t')
     local icon, hl = devicons.get_icon(bufname)
+    local test_result = vim_test.buffer_status(bufnr)
+
+    if not icon and test_result then
+      icon, hl = test_result.icon, test_result.hl
+    end
 
     local display = string.format(
       ' %s%s ',
