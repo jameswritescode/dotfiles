@@ -224,8 +224,16 @@ require('lazy').setup({
   },
 
   {
-    'janko-m/vim-test',
+    'vim-test/vim-test',
     cmd = { 'TestNearest', 'TestFile' },
+    config = function()
+      local vim_test = require('user.vim_test')
+
+      vim_test.init()
+
+      vim.g['test#custom_strategies'] = { basic_plus = vim_test.strategy }
+      vim.g['test#strategy'] = 'basic_plus'
+    end,
   },
 
   {
