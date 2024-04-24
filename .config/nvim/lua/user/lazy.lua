@@ -90,6 +90,12 @@ require('lazy').setup({
   },
 
   {
+    'williamboman/mason.nvim',
+    config = true,
+    event = 'VeryLazy',
+  },
+
+  {
     'nvim-java/nvim-java',
     event = 'VeryLazy',
     dependencies = {

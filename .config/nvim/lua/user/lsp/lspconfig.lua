@@ -1,10 +1,8 @@
-local cmp_nvim_lsp = require 'cmp_nvim_lsp'
-local lspconfig = require 'lspconfig'
+local cmp_nvim_lsp = require('cmp_nvim_lsp')
+local lspconfig = require('lspconfig')
 
 local common = require('user.lsp.common')
 
-require('mason').setup()
-require('mason-lspconfig').setup()
 require('java').setup()
 
 vim.diagnostic.config {
@@ -37,22 +35,6 @@ local function merge(t1, t2)
   return vim.tbl_extend('force', t1, t2)
 end
 
-local servers = {
-  'bashls',
-  'emmet_ls',
-  'gopls',
-  'graphql',
-  'jdtls',
-  'kotlin_language_server',
-  'lua_ls',
-  'ruby_lsp',
-  'rust_analyzer',
-  'sorbet',
-  'tailwindcss',
-  'tsserver',
-  'vimls',
-}
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = vim.tbl_deep_extend('force', capabilities, cmp_nvim_lsp.default_capabilities())
 
@@ -60,7 +42,7 @@ local defaults = {
   capabilities = capabilities,
 }
 
-local overrides = {
+local server_configs = {
   graphql = {
     autostart = false,
   },
@@ -111,6 +93,12 @@ local overrides = {
   },
 }
 
-for _, server in ipairs(servers) do
-  lspconfig[server].setup(merge(defaults, overrides[server]))
-end
+require('mason-lspconfig').setup({
+  handlers = {
+    function(server_name)
+      local server_config = server_configs[server_name] or {}
+
+      lspconfig[server_name].setup(merge(defaults, server_config))
+    end
+  },
+})
