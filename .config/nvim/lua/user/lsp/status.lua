@@ -20,23 +20,23 @@ local function process_event(event)
 
   if not create_client(data.client_id) then return end
 
-  local value = data.result.value
+  local value = data.params.value
 
   if value.kind == 'begin' then
-    clients[data.client_id].tokens[data.result.token] = {
+    clients[data.client_id].tokens[data.params.token] = {
       message = value.message,
       percentage = value.percentage,
       state = 'started',
       title = value.title,
     }
   elseif value.kind == 'report' then
-    clients[data.client_id].tokens[data.result.token] = {
+    clients[data.client_id].tokens[data.params.token] = {
       message = value.message,
       percentage = value.percentage,
       state = 'pending',
     }
   elseif value.kind == 'end' then
-    clients[data.client_id].tokens[data.result.token] = {
+    clients[data.client_id].tokens[data.params.token] = {
       message = value.message,
       state = 'finished',
     }
