@@ -48,7 +48,7 @@ nmap(']d', vim.diagnostic.goto_next, 'diagnostic-next')
 vmap('<leader>s', ':sort<cr>', 'sort')
 
 --- copilot
-if require('user.functions').copilot_signed_in() then
+if require('functions').copilot_signed_in() then
   local copilot_chat_actions = require('CopilotChat.actions')
   local copilot_chat_fzf = require('CopilotChat.integrations.fzflua')
 

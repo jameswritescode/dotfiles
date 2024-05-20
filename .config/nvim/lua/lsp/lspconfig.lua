@@ -1,7 +1,7 @@
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 local lspconfig = require('lspconfig')
 
-local common = require('user.lsp.common')
+local common = require('lsp.common')
 
 require('java').setup()
 

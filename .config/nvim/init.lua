@@ -1,12 +1,12 @@
 vim.cmd('source ~/dotfiles/.config/nvim/init-old.vim')
 
-require 'user.options'
-require 'user.lazy'
-require 'user.keymaps'
-require 'user.lsp'
+require 'options'
+require 'plugins.lazy'
+require 'keymaps'
+require 'lsp'
 
 vim.cmd.colorscheme 'catppuccin'
 
-require 'user.statusline'
-require 'user.tabline'
-require 'user.winbar'
+require 'statusline'
+require 'tabline'
+require 'winbar'

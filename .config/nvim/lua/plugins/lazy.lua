@@ -20,7 +20,7 @@ require('lazy').setup({
   {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    config = function() require('user.treesitter') end,
+    config = function() require('plugins.treesitter') end,
     event = { 'BufReadPost', 'BufNewFile' },
     dependencies = {
       'RRethy/nvim-treesitter-endwise',
@@ -48,7 +48,7 @@ require('lazy').setup({
   ---------
   {
     'hrsh7th/nvim-cmp',
-    config = function() require('user.cmp') end,
+    config = function() require('plugins.cmp') end,
     event = 'InsertEnter',
     dependencies = {
       'hrsh7th/cmp-buffer',
@@ -80,7 +80,7 @@ require('lazy').setup({
   ---------
   {
     'neovim/nvim-lspconfig',
-    config = function() require('user.lsp.lspconfig') end,
+    config = function() require('lsp.lspconfig') end,
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
       'onsails/lspkind.nvim',
@@ -140,7 +140,7 @@ require('lazy').setup({
       branch = 'canary',
       event = 'VeryLazy',
       config = function()
-        if require('user.functions').copilot_signed_in() then
+        if require('functions').copilot_signed_in() then
           require('CopilotChat').setup()
         end
       end,
@@ -156,19 +156,19 @@ require('lazy').setup({
   -----------
   {
     'mfussenegger/nvim-dap',
-    config = function() require('user.dap') end,
+    config = function() require('plugins.dap') end,
     event = 'VeryLazy',
   },
 
   {
     'folke/which-key.nvim',
-    config = function() require('user.which-key') end,
+    config = function() require('plugins.which-key') end,
     event = 'VeryLazy',
   },
 
   {
     'lewis6991/gitsigns.nvim',
-    config = function() require('user.gitsigns') end,
+    config = function() require('plugins.gitsigns') end,
     event = { 'BufReadPre', 'BufNewFile' },
   },
 
@@ -234,7 +234,7 @@ require('lazy').setup({
     'vim-test/vim-test',
     cmd = { 'TestNearest', 'TestFile' },
     config = function()
-      local vim_test = require('user.vim_test')
+      local vim_test = require('plugins.vim_test')
 
       vim_test.init()
 

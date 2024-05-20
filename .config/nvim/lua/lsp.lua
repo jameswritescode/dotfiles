@@ -1,7 +1,7 @@
 local fzf = require('fzf-lua')
 
-local common = require('user.lsp.common')
-local status = require('user.lsp.status')
+local common = require('lsp.common')
+local status = require('lsp.status')
 
 status.register_autocmds()
 

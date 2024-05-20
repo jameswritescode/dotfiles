@@ -1,7 +1,7 @@
 local devicons = require('nvim-web-devicons')
 local theme = require('catppuccin.palettes.mocha')
 
-local lsp_status = require('user.lsp.status')
+local lsp_status = require('lsp.status')
 
 local modes = {
   unknown = { hl = 'StatuslineModeUnknown', color = theme.subtext0 },
