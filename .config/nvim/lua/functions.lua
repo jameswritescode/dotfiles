@@ -1,5 +1,7 @@
 local function copilot_signed_in()
-  return pcall(function() require('copilot.auth').get_cred() end)
+  return pcall(function()
+    require('copilot.auth').get_cred()
+  end)
 end
 
 return {

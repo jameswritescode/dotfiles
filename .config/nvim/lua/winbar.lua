@@ -14,7 +14,9 @@ local function treesitter_status()
     indicator_size = vim.api.nvim_win_get_width(0),
   })
 
-  if not status then return '' end
+  if not status then
+    return ''
+  end
 
   return string.gsub(status, '', '%%#WinBarSep#%%#WinBar#')
 end
@@ -25,4 +27,4 @@ end
 
 _G.custom_winbar = custom_winbar
 
-vim.o.winbar = "%{%v:lua.custom_winbar()%}"
+vim.o.winbar = '%{%v:lua.custom_winbar()%}'

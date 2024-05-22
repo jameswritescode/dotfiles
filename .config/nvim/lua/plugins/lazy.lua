@@ -1,3 +1,5 @@
+--# selene: allow(mixed_table)
+
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 local loop = vim.uv or vim.loop
 
@@ -19,16 +21,18 @@ require('lazy').setup({
   ----------------
   {
     'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
-    config = function() require('plugins.treesitter') end,
-    event = { 'BufReadPost', 'BufNewFile' },
     dependencies = {
       'RRethy/nvim-treesitter-endwise',
       'andymass/vim-matchup',
       'jameswritescode/nvim-hidesig',
       'nvim-treesitter/nvim-treesitter-textobjects',
       'nvim-treesitter/playground',
-    }
+    },
+    build = ':TSUpdate',
+    event = { 'BufReadPost', 'BufNewFile' },
+    config = function()
+      require('plugins.treesitter')
+    end,
   },
 
   {
@@ -48,27 +52,29 @@ require('lazy').setup({
   ---------
   {
     'hrsh7th/nvim-cmp',
-    config = function() require('plugins.cmp') end,
-    event = 'InsertEnter',
     dependencies = {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'saadparwaiz1/cmp_luasnip',
       'zbirenbaum/copilot-cmp',
-    }
+    },
+    event = 'InsertEnter',
+    config = function()
+      require('plugins.cmp')
+    end,
   },
 
   {
     'zbirenbaum/copilot-cmp',
-    config = function() require('copilot_cmp').setup() end,
     dependencies = { 'zbirenbaum/copilot.lua' },
+    config = true,
   },
 
   {
     'L3MON4D3/LuaSnip',
-    build = 'make install_jsregexp',
     dependencies = { 'rafamadriz/friendly-snippets' },
+    build = 'make install_jsregexp',
     config = function()
       require('luasnip.loaders.from_vscode').lazy_load()
       require('luasnip').filetype_extend('ruby', { 'rails' })
@@ -80,13 +86,15 @@ require('lazy').setup({
   ---------
   {
     'neovim/nvim-lspconfig',
-    config = function() require('lsp.lspconfig') end,
-    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
       'onsails/lspkind.nvim',
       'williamboman/mason-lspconfig.nvim',
       'williamboman/mason.nvim',
     },
+    event = { 'BufReadPre', 'BufNewFile' },
+    config = function()
+      require('lsp.lspconfig')
+    end,
   },
 
   {
@@ -135,20 +143,18 @@ require('lazy').setup({
   },
 
   {
-    {
-      'CopilotC-Nvim/CopilotChat.nvim',
-      branch = 'canary',
-      event = 'VeryLazy',
-      config = function()
-        if require('functions').copilot_signed_in() then
-          require('CopilotChat').setup()
-        end
-      end,
-      dependencies = {
-        'nvim-lua/plenary.nvim',
-        'zbirenbaum/copilot.lua',
-      },
+    'CopilotC-Nvim/CopilotChat.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'zbirenbaum/copilot.lua',
     },
+    branch = 'canary',
+    event = 'VeryLazy',
+    config = function()
+      if require('functions').copilot_signed_in() then
+        require('CopilotChat').setup()
+      end
+    end,
   },
 
   -----------
@@ -156,29 +162,35 @@ require('lazy').setup({
   -----------
   {
     'mfussenegger/nvim-dap',
-    config = function() require('plugins.dap') end,
     event = 'VeryLazy',
+    config = function()
+      require('plugins.dap')
+    end,
   },
 
   {
     'folke/which-key.nvim',
-    config = function() require('plugins.which-key') end,
     event = 'VeryLazy',
+    config = function()
+      require('plugins.which-key')
+    end,
   },
 
   {
     'lewis6991/gitsigns.nvim',
-    config = function() require('plugins.gitsigns') end,
     event = { 'BufReadPre', 'BufNewFile' },
+    config = function()
+      require('plugins.gitsigns')
+    end,
   },
 
   {
     'Wansmer/treesj',
-    event = 'BufReadPre',
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
       'AndrewRadev/splitjoin.vim',
     },
+    event = 'BufReadPre',
     config = function()
       require('treesj').setup({
         use_default_keymaps = false,
@@ -189,14 +201,18 @@ require('lazy').setup({
             module = {
               both = {
                 no_format_with = {},
-                fallback = function() vim.cmd('SplitjoinJoin') end,
+                fallback = function()
+                  vim.cmd('SplitjoinJoin')
+                end,
               },
             },
 
             class = {
               both = {
                 no_format_with = {},
-                fallback = function() vim.cmd('SplitjoinSplit') end,
+                fallback = function()
+                  vim.cmd('SplitjoinSplit')
+                end,
               },
             },
           },
@@ -244,39 +260,6 @@ require('lazy').setup({
   },
 
   {
-    'dense-analysis/ale',
-    event = { 'BufReadPre', 'BufNewFile' },
-    config = function()
-      vim.g.ale_lint_on_enter = 1
-      vim.g.ale_lint_on_filetype_changed = 1
-      vim.g.ale_lint_on_insert_leave = 1
-      vim.g.ale_lint_on_save = 1
-      vim.g.ale_lint_on_text_changed = 'normal'
-      vim.g.ale_sign_error = '●'
-      vim.g.ale_sign_warning = vim.g.ale_sign_error
-
-      vim.g.ale_linters = {
-        c = {},
-        elixir = {},
-        eruby = { 'erblint' },
-        go = {},
-        java = {},
-        javascript = {},
-        javascriptreact = {},
-        kotlin = {},
-        python = {},
-        ruby = { 'reek' },
-        rust = {},
-        sh = {},
-        swift = {},
-        typescript = {},
-        typescriptreact = {},
-        zsh = { 'shell', 'shellcheck' },
-      }
-    end,
-  },
-
-  {
     'ggandor/leap.nvim',
     event = 'VeryLazy',
     config = function()
@@ -308,6 +291,7 @@ require('lazy').setup({
 
       formatters_by_ft = {
         go = { 'gofmt', 'goimports' },
+        lua = { 'stylua' },
         proto = { 'buf' },
         sql = { 'sql_formatter' },
       },
@@ -321,7 +305,7 @@ require('lazy').setup({
       local fzf = require('fzf-lua')
       fzf.setup({ 'telescope' })
       fzf.register_ui_select()
-    end
+    end,
   },
 
   {
@@ -350,33 +334,55 @@ require('lazy').setup({
     end,
   },
 
-  { 'AndrewRadev/switch.vim',         event = 'VeryLazy' },
-  { 'c-brenn/phoenix.vim',            event = 'VeryLazy' },
-  { 'catppuccin/nvim',                name = 'catppuccin' },
+  {
+    'mfussenegger/nvim-lint',
+    event = { 'BufWritePre' },
+    config = function()
+      local lint = require('lint')
+
+      lint.linters_by_ft = {
+        lua = { 'selene' },
+      }
+
+      vim.api.nvim_create_autocmd(
+        { 'BufWritePre', 'BufReadPost', 'InsertLeave' },
+        {
+          group = vim.api.nvim_create_augroup('nvim-lint', { clear = true }),
+          callback = function()
+            lint.try_lint()
+          end,
+        }
+      )
+    end,
+  },
+
+  { 'AndrewRadev/switch.vim', event = 'VeryLazy' },
+  { 'c-brenn/phoenix.vim', event = 'VeryLazy' },
+  { 'catppuccin/nvim', name = 'catppuccin' },
   { 'christoomey/vim-tmux-navigator', event = 'VeryLazy' },
-  { 'elixir-editors/vim-elixir',      event = 'VeryLazy' },
-  { 'kchmck/vim-coffee-script',       event = 'VeryLazy' },
-  { 'machakann/vim-highlightedyank',  event = 'VeryLazy' },
-  { 'mracos/mermaid.vim',             event = 'VeryLazy' },
-  { 'rust-lang/rust.vim',             event = 'VeryLazy' },
-  { 'tmux-plugins/vim-tmux',          event = 'VeryLazy' },
-  { 'tpope/vim-abolish',              event = 'VeryLazy' },
-  { 'tpope/vim-apathy',               event = 'VeryLazy' },
-  { 'tpope/vim-bundler',              event = 'VeryLazy' },
-  { 'tpope/vim-commentary',           event = 'VeryLazy' },
-  { 'tpope/vim-endwise',              event = 'VeryLazy' },
-  { 'tpope/vim-fugitive',             event = 'VeryLazy' },
-  { 'tpope/vim-git',                  event = 'VeryLazy' },
-  { 'tpope/vim-rails',                lazy = false },
-  { 'tpope/vim-rake',                 event = 'VeryLazy' },
-  { 'tpope/vim-repeat',               event = 'VeryLazy' },
-  { 'tpope/vim-rhubarb',              event = 'VeryLazy' },
-  { 'tpope/vim-sleuth',               lazy = false },
-  { 'tpope/vim-speeddating',          event = 'VeryLazy' },
-  { 'tpope/vim-surround',             event = 'VeryLazy' },
-  { 'tpope/vim-unimpaired',           event = 'VeryLazy' },
-  { 'tpope/vim-vinegar',              lazy = false },
-  { 'udalov/kotlin-vim',              lazy = false },
-  { 'windwp/nvim-autopairs',          event = 'VeryLazy' },
-  { 'windwp/nvim-ts-autotag',         event = 'VeryLazy' },
+  { 'elixir-editors/vim-elixir', event = 'VeryLazy' },
+  { 'kchmck/vim-coffee-script', event = 'VeryLazy' },
+  { 'machakann/vim-highlightedyank', event = 'VeryLazy' },
+  { 'mracos/mermaid.vim', event = 'VeryLazy' },
+  { 'rust-lang/rust.vim', event = 'VeryLazy' },
+  { 'tmux-plugins/vim-tmux', event = 'VeryLazy' },
+  { 'tpope/vim-abolish', event = 'VeryLazy' },
+  { 'tpope/vim-apathy', event = 'VeryLazy' },
+  { 'tpope/vim-bundler', event = 'VeryLazy' },
+  { 'tpope/vim-commentary', event = 'VeryLazy' },
+  { 'tpope/vim-endwise', event = 'VeryLazy' },
+  { 'tpope/vim-fugitive', event = 'VeryLazy' },
+  { 'tpope/vim-git', event = 'VeryLazy' },
+  { 'tpope/vim-rails', lazy = false },
+  { 'tpope/vim-rake', event = 'VeryLazy' },
+  { 'tpope/vim-repeat', event = 'VeryLazy' },
+  { 'tpope/vim-rhubarb', event = 'VeryLazy' },
+  { 'tpope/vim-sleuth', lazy = false },
+  { 'tpope/vim-speeddating', event = 'VeryLazy' },
+  { 'tpope/vim-surround', event = 'VeryLazy' },
+  { 'tpope/vim-unimpaired', event = 'VeryLazy' },
+  { 'tpope/vim-vinegar', lazy = false },
+  { 'udalov/kotlin-vim', lazy = false },
+  { 'windwp/nvim-autopairs', event = 'VeryLazy' },
+  { 'windwp/nvim-ts-autotag', event = 'VeryLazy' },
 })

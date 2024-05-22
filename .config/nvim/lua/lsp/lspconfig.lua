@@ -16,13 +16,19 @@ end
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(hover, common.window_opts)
 
 local function merge(t1, t2)
-  if not t2 then return t1 end
+  if not t2 then
+    return t1
+  end
 
   return vim.tbl_extend('force', t1, t2)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = vim.tbl_deep_extend('force', capabilities, cmp_nvim_lsp.default_capabilities())
+capabilities = vim.tbl_deep_extend(
+  'force',
+  capabilities,
+  cmp_nvim_lsp.default_capabilities()
+)
 
 local defaults = {
   capabilities = capabilities,
@@ -58,7 +64,7 @@ local server_configs = {
             callSnippet = 'Replace',
           },
         },
-      }
+      },
     },
   },
 
@@ -68,11 +74,11 @@ local server_configs = {
 
   rust_analyzer = {
     settings = {
-      ["rust-analyzer"] = {
+      ['rust-analyzer'] = {
         checkOnSave = {
           allFeatures = true,
-          command = "clippy",
-          extraArgs = { "--no-deps" },
+          command = 'clippy',
+          extraArgs = { '--no-deps' },
         },
       },
     },
@@ -85,6 +91,6 @@ require('mason-lspconfig').setup({
       local server_config = server_configs[server_name] or {}
 
       lspconfig[server_name].setup(merge(defaults, server_config))
-    end
+    end,
   },
 })

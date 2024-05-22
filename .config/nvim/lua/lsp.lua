@@ -43,5 +43,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
         common.set_winhighlight(winnr)
       end,
     })
-  end
+  end,
 })

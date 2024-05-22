@@ -20,10 +20,7 @@ which_key.setup({
   },
 })
 
-which_key.register(
-  vim.g.which_key_map,
-  { prefix = '<leader>' }
-)
+which_key.register(vim.g.which_key_map, { prefix = '<leader>' })
 
 which_key.register(
   vim.g.which_key_visual_map,

@@ -3,7 +3,9 @@ local clients = {}
 local function create_client(client_id)
   local client = vim.lsp.get_client_by_id(client_id)
 
-  if client and client.name == 'copilot' then return false end
+  if client and client.name == 'copilot' then
+    return false
+  end
 
   if not clients[client_id] then
     clients[client_id] = {
@@ -18,7 +20,9 @@ end
 local function process_event(event)
   local data = event.data
 
-  if not create_client(data.client_id) then return end
+  if not create_client(data.client_id) then
+    return
+  end
 
   local value = data.params.value
 
@@ -46,7 +50,9 @@ end
 local function attach_client(event)
   local client_id = event.data.client_id
 
-  if not create_client(client_id) then return end
+  if not create_client(client_id) then
+    return
+  end
 
   if not vim.list_contains(clients[client_id].buffers, event.buf) then
     table.insert(clients[client_id].buffers, event.buf)
@@ -65,7 +71,8 @@ local function redraw_after(fn)
 end
 
 local function register_autocmds()
-  local group = vim.api.nvim_create_augroup('UserLspStatusTracking', { clear = true })
+  local group =
+    vim.api.nvim_create_augroup('UserLspStatusTracking', { clear = true })
 
   vim.api.nvim_create_autocmd('LspAttach', {
     callback = redraw_after(attach_client),
@@ -91,7 +98,9 @@ local function buffer_status(bufnr)
       has_lsp = true
 
       for _, token in pairs(client.tokens) do
-        if token.state ~= 'finished' then return false end
+        if token.state ~= 'finished' then
+          return false
+        end
       end
     end
   end

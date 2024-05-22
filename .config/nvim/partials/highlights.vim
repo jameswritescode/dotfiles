@@ -1,13 +1,4 @@
 function! CustomHighlights() abort
-  """""""
-  " ale "
-  """""""
-  hi ALEError   guifg=red gui=underline
-  hi ALEErrorSign guifg=red
-
-  hi ALEWarning guifg=yellow gui=underline
-  hi ALEWarningSign guifg=yellow
-
   """""""""""
   " matchup "
   """""""""""

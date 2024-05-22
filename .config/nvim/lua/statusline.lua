@@ -10,13 +10,26 @@ local modes = {
   nt = { hl = 'StatuslineModeNormal', color = theme.green, name = 'NORMAL' },
 
   v = { hl = 'StatuslineModeVisual', color = theme.yellow, name = 'VISUAL' },
-  V = { hl = 'StatuslineModeVisual', color = theme.yellow, name = 'VISUAL BLOCK' },
-  [''] = { hl = 'StatuslineModeVisual', color = theme.yellow, name = 'VISUAL BLOCK' },
+  V = {
+    hl = 'StatuslineModeVisual',
+    color = theme.yellow,
+    name = 'VISUAL BLOCK',
+  },
+  [''] = {
+    hl = 'StatuslineModeVisual',
+    color = theme.yellow,
+    name = 'VISUAL BLOCK',
+  },
 
   R = { hl = 'StatuslineModeReplace', color = theme.red, name = 'REPLACE' },
   c = { hl = 'StatuslineModeCommand', color = theme.teal, name = 'COMMAND' },
   i = { hl = 'StatuslineModeInsert', color = theme.blue, name = 'INSERT' },
-  t = { hl = 'StatuslineModeTerminal', color = theme.lavender, name = 'TERMINAL' },
+
+  t = {
+    hl = 'StatuslineModeTerminal',
+    color = theme.lavender,
+    name = 'TERMINAL',
+  },
 }
 
 for _, config in pairs(modes) do
@@ -32,7 +45,9 @@ local function filename()
   local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':t')
   local icon, hl = devicons.get_icon(name)
 
-  if not icon then return '%#Normal#%t' end
+  if not icon then
+    return '%#Normal#%t'
+  end
 
   return string.format('%%#%s#%s %%t%%#Normal#', hl, icon)
 end
@@ -40,18 +55,25 @@ end
 local function git_branch()
   local head = vim.g.gitsigns_head
 
-  if not head then return '' end
+  if not head then
+    return ''
+  end
 
-  return string.format('%%#StatuslineSubtext# %s%%#Normal#', vim.g.gitsigns_head)
+  return string.format(
+    '%%#StatuslineSubtext# %s%%#Normal#',
+    vim.g.gitsigns_head
+  )
 end
 
 local function git_status()
   local status = vim.b.gitsigns_status_dict
 
-  if not status then return '' end
+  if not status then
+    return ''
+  end
 
   local parts = {
-    { n = status.added,   str = '%%#GitSignsAdd#+%s%%#Normal#' },
+    { n = status.added, str = '%%#GitSignsAdd#+%s%%#Normal#' },
     { n = status.changed, str = '%%#GitSignsChange#~%s%%#Normal#' },
     { n = status.removed, str = '%%#GitSignsDelete#-%s%%#Normal#' },
   }
@@ -116,8 +138,10 @@ end
 local function current_mode()
   local mode = vim.api.nvim_get_mode().mode
   local mapped_mode = modes[mode]
-  local display = mapped_mode and mapped_mode.name or string.format('UNKNOWN (%s)', mode)
   local hl = (mapped_mode or modes.unknown).hl
+
+  local display = mapped_mode and mapped_mode.name
+    or string.format('UNKNOWN (%s)', mode)
 
   return string.format('%%#%s#%s%%#Normal#', hl, display)
 end
@@ -144,4 +168,4 @@ end
 
 _G.custom_statusline = custom_statusline
 
-vim.o.statusline = "%{%v:lua.custom_statusline()%}"
+vim.o.statusline = '%{%v:lua.custom_statusline()%}'

@@ -56,5 +56,3 @@ set wildignore+=.DS_Store
 
 let g:netrw_localrmdir='rm -r'
 let g:loaded_python_provider=0
-
-scriptencoding utf-8

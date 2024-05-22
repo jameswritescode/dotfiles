@@ -45,4 +45,4 @@ end
 
 _G.custom_tabline = custom_tabline
 
-vim.o.tabline = "%{%v:lua.custom_tabline()%}"
+vim.o.tabline = '%{%v:lua.custom_tabline()%}'

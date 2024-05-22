@@ -6,8 +6,13 @@ local function map(mode, lhs, rhs, desc)
   vim.keymap.set(mode, lhs, rhs, { noremap = true, silent = true, desc = desc })
 end
 
-local function nmap(lhs, rhs, desc) map('n', lhs, rhs, desc) end
-local function vmap(lhs, rhs, desc) map('v', lhs, rhs, desc) end
+local function nmap(lhs, rhs, desc)
+  map('n', lhs, rhs, desc)
+end
+
+local function vmap(lhs, rhs, desc)
+  map('v', lhs, rhs, desc)
+end
 
 map('i', 'jk', '<esc>')
 map('t', '<esc>', '<c-\\><c-n>')

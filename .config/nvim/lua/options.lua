@@ -10,7 +10,7 @@ vim.diagnostic.config({
     focusable = false,
 
     format = function(d)
-      return string.format("[%s] %s", d.code, d.message)
+      return string.format('[%s] %s', d.code, d.message)
     end,
   },
 
@@ -20,6 +20,6 @@ vim.diagnostic.config({
       [vim.diagnostic.severity.WARN] = '┣',
       [vim.diagnostic.severity.INFO] = '┣',
       [vim.diagnostic.severity.HINT] = '┣',
-    }
+    },
   },
 })

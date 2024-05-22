@@ -7,12 +7,14 @@ dap.adapters.ruby = function(callback)
     vim.fn.readdir('/tmp/ruby-debug'),
     { prompt = 'Select socket' },
     function(pipe)
-      if not pipe then return end
+      if not pipe then
+        return
+      end
 
-      callback {
+      callback({
         type = 'pipe',
         pipe = '/tmp/ruby-debug/' .. pipe,
-      }
+      })
     end
   )
 end
