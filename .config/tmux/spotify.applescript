@@ -14,24 +14,20 @@ end tell
 if myList contains "Spotify" then
   tell application "Spotify"
     if player state is stopped then
-      set output to "Spotify: Stopped"
+      set output to "Stopped"
     else
       if player state is paused then
-        set output to "Spotify: Paused"
+        set output to "Paused"
       else
-        set track_album to my escape_quotes(current track's album)
+        -- set track_album to my escape_quotes(current track's album)
         set track_artist to my escape_quotes(current track's artist)
         set track_name to my escape_quotes(current track's name)
-        set output to "[" & track_artist & "] " & track_album
-
-        if track_album is not track_name then
-          set output to output & ": " & track_name
-        end if
+        set output to track_name & " - " & track_artist
 
         set output to output
       end if
     end if
   end tell
 else
-  set output to "Spotify: Offline"
+  set output to "Offline"
 end if
