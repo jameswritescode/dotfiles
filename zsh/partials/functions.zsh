@@ -146,11 +146,16 @@ if [[ -n $ZSH ]]; then
       local haskell_version=$(ghc --version | awk '{print $NF}')
     fi
 
+    if __file_exists 'Cargo.toml'; then
+      local rust_version=$(rustc --version | awk '{print $2}')
+    fi
+
     export PROMPT_GO_VERSION=$go_version
     export PROMPT_HASKELL_VERSION=$haskell_version
     export PROMPT_NODE_VERSION=$node_version
     export PROMPT_PYTHON_VERSION=$python_version
     export PROMPT_RUBY_VERSION=$ruby_version
+    export PROMPT_RUST_VERSION=$rust_version
   }
 
   chpwd_functions+=(__set_versions)
