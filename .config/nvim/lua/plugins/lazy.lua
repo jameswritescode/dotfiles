@@ -310,7 +310,6 @@ require('lazy').setup({
 
   {
     'nvim-tree/nvim-web-devicons',
-    lazy = false,
     config = function()
       local devicons = require('nvim-web-devicons')
       local icons = devicons.get_icons()
@@ -373,16 +372,16 @@ require('lazy').setup({
   { 'tpope/vim-endwise', event = 'VeryLazy' },
   { 'tpope/vim-fugitive', event = 'VeryLazy' },
   { 'tpope/vim-git', event = 'VeryLazy' },
-  { 'tpope/vim-rails', lazy = false },
+  { 'tpope/vim-rails' },
   { 'tpope/vim-rake', event = 'VeryLazy' },
   { 'tpope/vim-repeat', event = 'VeryLazy' },
   { 'tpope/vim-rhubarb', event = 'VeryLazy' },
-  { 'tpope/vim-sleuth', lazy = false },
+  { 'tpope/vim-sleuth' },
   { 'tpope/vim-speeddating', event = 'VeryLazy' },
   { 'tpope/vim-surround', event = 'VeryLazy' },
   { 'tpope/vim-unimpaired', event = 'VeryLazy' },
-  { 'tpope/vim-vinegar', lazy = false },
-  { 'udalov/kotlin-vim', lazy = false },
+  { 'tpope/vim-vinegar' },
+  { 'udalov/kotlin-vim' },
   { 'windwp/nvim-autopairs', event = 'VeryLazy' },
   { 'windwp/nvim-ts-autotag', event = 'VeryLazy' },
 })
