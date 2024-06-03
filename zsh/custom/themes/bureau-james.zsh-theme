@@ -109,7 +109,7 @@ _haskell_theme_prompt() {
 
 _rust_theme_prompt() {
   [[ -n "$PROMPT_RUST_VERSION" ]] &&
-    echo "‹%{$fg_bold[yellow]%}rust-$PROMPT_RUST_VERSION%{$reset_color%}› "
+    echo "‹%B%F{#dea584}rust-$PROMPT_RUST_VERSION%{$reset_color%}› "
 }
 
 _jobs_theme_prompt () {
