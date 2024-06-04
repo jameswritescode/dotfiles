@@ -1,5 +1,6 @@
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 local lspconfig = require('lspconfig')
+local mlsp = require('mason-lspconfig')
 
 local common = require('lsp.common')
 
@@ -35,12 +36,14 @@ local defaults = {
 }
 
 local server_configs = {
-  graphql = {
-    autostart = false,
-  },
-
   sorbet = {
     root_dir = lspconfig.util.root_pattern('sorbet'),
+  },
+}
+
+local mason_server_configs = {
+  graphql = {
+    autostart = false,
   },
 
   lua_ls = {
@@ -85,12 +88,24 @@ local server_configs = {
   },
 }
 
-require('mason-lspconfig').setup({
+-- Sometimes LSP's may already be installed on the system, but Mason should
+-- still be able to install and configure them otherwise.
+local all_server_configs = merge(server_configs, mason_server_configs)
+
+mlsp.setup({
   handlers = {
     function(server_name)
-      local server_config = server_configs[server_name] or {}
+      local server_config = all_server_configs[server_name] or {}
 
       lspconfig[server_name].setup(merge(defaults, server_config))
     end,
   },
 })
+
+local mason_installed_servers = mlsp.get_installed_servers()
+
+for server_name, config in pairs(server_configs) do
+  if not vim.list_contains(mason_installed_servers, server_name) then
+    lspconfig[server_name].setup(config)
+  end
+end
