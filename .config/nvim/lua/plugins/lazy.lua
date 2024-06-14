@@ -125,11 +125,6 @@ require('lazy').setup({
         },
       },
     },
-    opts = {
-      jdk = {
-        auto_install = false,
-      },
-    },
   },
 
   -------------
