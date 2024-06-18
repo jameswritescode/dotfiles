@@ -179,9 +179,16 @@ require('lazy').setup({
   {
     'lewis6991/gitsigns.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
-    config = function()
-      require('plugins.gitsigns')
-    end,
+    opts = {
+      signs = {
+        add = { text = '┃' },
+        change = { text = '┃' },
+        changedelete = { text = '◢' },
+        delete = { text = '◢' },
+        topdelete = { text = '◥' },
+        untracked = { text = '┋' },
+      },
+    },
   },
 
   {
