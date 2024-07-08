@@ -110,4 +110,5 @@ alias -s {css,haml,js,jsx,md,py,rb,zsh}=vim
 if [[ -n $SPIN ]]; then
   alias dds="dev debug server"
   alias j="dev cd"
+  alias refresh="dev reup && dev restart"
 fi
