@@ -23,6 +23,7 @@ case "$1" in
     else
       echo "source $HOME/dotfiles/zsh/partials/aliases.zsh" >> "$HOME/.zsh_custom"
       echo "source $HOME/dotfiles/zsh/partials/functions.zsh" >> "$HOME/.zsh_custom"
+      echo "source $HOME/dotfiles/zsh/partials/exports.zsh" >> "$HOME/.zsh_custom"
       echo "source $HOME/.zsh_custom" >> "$HOME/.zshrc"
     fi
   ;;
