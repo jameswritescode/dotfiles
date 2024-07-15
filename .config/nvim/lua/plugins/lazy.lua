@@ -310,7 +310,10 @@ require('lazy').setup({
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       local fzf = require('fzf-lua')
-      fzf.setup({ 'telescope' })
+      fzf.setup({
+        'telescope',
+        file_ignore_patterns = { '%.rbi' },
+      })
       fzf.register_ui_select()
     end,
   },
