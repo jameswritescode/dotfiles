@@ -4,12 +4,6 @@ local mlsp = require('mason-lspconfig')
 
 local common = require('lsp.common')
 
-require('java').setup({
-  jdk = {
-    auto_install = false,
-  },
-})
-
 local function hover(_, result, ctx, config)
   local bufnr, winnr = vim.lsp.handlers.hover(_, result, ctx, config)
 

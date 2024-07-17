@@ -90,8 +90,14 @@ require('lazy').setup({
       'onsails/lspkind.nvim',
       'williamboman/mason-lspconfig.nvim',
       'williamboman/mason.nvim',
+      {
+        'nvim-java/nvim-java',
+        cond = vim.env.USE_JAVA ~= nil,
+        opts = {
+          spring_boot_tools = { enable = false },
+        },
+      },
     },
-    event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       require('lsp.lspconfig')
     end,
@@ -101,30 +107,6 @@ require('lazy').setup({
     'williamboman/mason.nvim',
     config = true,
     event = 'VeryLazy',
-  },
-
-  {
-    'nvim-java/nvim-java',
-    event = 'VeryLazy',
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-      'mfussenegger/nvim-dap',
-      'neovim/nvim-lspconfig',
-      'nvim-java/lua-async-await',
-      'nvim-java/nvim-java-core',
-      'nvim-java/nvim-java-dap',
-      'nvim-java/nvim-java-refactor',
-      'nvim-java/nvim-java-test',
-      {
-        'williamboman/mason.nvim',
-        opts = {
-          registries = {
-            'github:nvim-java/mason-registry',
-            'github:mason-org/mason-registry',
-          },
-        },
-      },
-    },
   },
 
   -------------
@@ -181,6 +163,15 @@ require('lazy').setup({
     event = { 'BufReadPre', 'BufNewFile' },
     opts = {
       signs = {
+        add = { text = '┃' },
+        change = { text = '┃' },
+        changedelete = { text = '◢' },
+        delete = { text = '◢' },
+        topdelete = { text = '◥' },
+        untracked = { text = '┋' },
+      },
+
+      signs_staged = {
         add = { text = '┃' },
         change = { text = '┃' },
         changedelete = { text = '◢' },
