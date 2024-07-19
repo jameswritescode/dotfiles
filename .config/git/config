@@ -56,5 +56,3 @@
 	enabled = true
 [diff]
 	algorithm = histogram
-[blame]
-	ignoreRevsFile = .git-blame-ignore-revs
