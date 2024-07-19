@@ -1,10 +1,6 @@
 vim.cmd('source ~/dotfiles/.config/nvim/init-old.vim')
 
--- TODO: Remove this after 0.12
-if vim.lsp.get_clients then
-  vim.lsp.get_active_clients = vim.lsp.get_clients
-end
-
+require('compatibility')
 require('options')
 require('plugins.lazy')
 require('keymaps')

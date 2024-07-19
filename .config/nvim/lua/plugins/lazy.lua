@@ -300,12 +300,7 @@ require('lazy').setup({
     'ibhagwan/fzf-lua',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-      local fzf = require('fzf-lua')
-      fzf.setup({
-        'telescope',
-        file_ignore_patterns = { '%.rbi' },
-      })
-      fzf.register_ui_select()
+      require('plugins.fzf').setup()
     end,
   },
 
@@ -356,6 +351,13 @@ require('lazy').setup({
     end,
   },
 
+  {
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    event = 'VeryLazy',
+  },
+
   { 'AndrewRadev/switch.vim', event = 'VeryLazy' },
   { 'c-brenn/phoenix.vim', event = 'VeryLazy' },
   { 'catppuccin/nvim', name = 'catppuccin' },
@@ -366,7 +368,7 @@ require('lazy').setup({
   { 'mracos/mermaid.vim', event = 'VeryLazy' },
   { 'rust-lang/rust.vim', event = 'VeryLazy' },
   { 'tmux-plugins/vim-tmux', event = 'VeryLazy' },
-  { 'tpope/vim-abolish', event = 'VeryLazy' },
+  { 'tpope/vim-abolish' },
   { 'tpope/vim-apathy', event = 'VeryLazy' },
   { 'tpope/vim-bundler', event = 'VeryLazy' },
   { 'tpope/vim-commentary', event = 'VeryLazy' },

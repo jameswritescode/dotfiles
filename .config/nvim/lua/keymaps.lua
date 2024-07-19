@@ -1,6 +1,8 @@
 local dap = require('dap')
 local fzf = require('fzf-lua')
+local fzf_config = require('plugins.fzf')
 local gitsigns = require('gitsigns')
+local harpoon = require('harpoon')
 
 local function map(mode, lhs, rhs, desc)
   vim.keymap.set(mode, lhs, rhs, { noremap = true, silent = true, desc = desc })
@@ -24,6 +26,8 @@ nmap('<right>', '1<c-w><')
 nmap('<up>', '<c-w>+')
 nmap('H', ':call TabControl("tabp", "bp")<cr>')
 nmap('L', ':call TabControl("tabn", "bn")<cr>')
+nmap('[d', vim.diagnostic.goto_prev, 'diagnostic-prev')
+nmap(']d', vim.diagnostic.goto_next, 'diagnostic-next')
 nmap('gp', '`[v`]')
 nmap('j', 'gj')
 nmap('k', 'gk')
@@ -48,8 +52,6 @@ nmap('<leader>tc', ':call Repl()<cr>', 'repl')
 nmap('<leader>tf', ':TestFile<cr>', 'test-file')
 nmap('<leader>tn', ':TestNearest<cr>', 'test-near')
 nmap('<leader>tr', ':call RunFile()<cr>', 'run')
-nmap('[d', vim.diagnostic.goto_prev, 'diagnostic-prev')
-nmap(']d', vim.diagnostic.goto_next, 'diagnostic-next')
 vmap('<leader>s', ':sort<cr>', 'sort')
 
 --- copilot
@@ -100,3 +102,14 @@ nmap('<leader>gc', gitsigns.preview_hunk, 'preview-hunk')
 nmap('<leader>gu', gitsigns.reset_hunk, 'reset-hunk')
 nmap('[c', diff_command('[c', gitsigns.prev_hunk))
 nmap(']c', diff_command(']c', gitsigns.next_hunk))
+
+--- harpoon
+nmap('<leader>ha', function()
+  harpoon:list():add()
+end, 'harpoon-add')
+
+nmap('<leader>hd', function()
+  harpoon:list():remove()
+end, 'harpoon-remove')
+
+nmap('<leader>hl', fzf_config.harpoon_list, 'harpoon-list')

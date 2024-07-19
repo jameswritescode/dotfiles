@@ -25,6 +25,7 @@ which_key.add({
   { '<leader>d', group = 'dap' },
   { '<leader>f', group = 'fzf' },
   { '<leader>g', group = 'git' },
+  { '<leader>h', group = 'harpoon' },
   { '<leader>l', group = 'lsp' },
   { '<leader>la', desc = 'code-action' },
   { '<leader>ld', group = 'diagnostic' },
