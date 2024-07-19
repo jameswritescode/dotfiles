@@ -117,10 +117,7 @@ require('lazy').setup({
     cmd = 'Copilot',
     event = 'InsertEnter',
     config = function()
-      require('copilot').setup({
-        panel = { enabled = false },
-        suggestion = { enabled = false },
-      })
+      require('plugins.copilot').setup()
     end,
   },
 
@@ -133,7 +130,7 @@ require('lazy').setup({
     branch = 'canary',
     event = 'VeryLazy',
     config = function()
-      if require('functions').copilot_signed_in() then
+      if require('plugins.copilot').copilot_signed_in() then
         require('CopilotChat').setup()
       end
     end,

@@ -55,7 +55,7 @@ nmap('<leader>tr', ':call RunFile()<cr>', 'run')
 vmap('<leader>s', ':sort<cr>', 'sort')
 
 --- copilot
-if require('functions').copilot_signed_in() then
+if require('plugins.copilot').copilot_signed_in() then
   local copilot_chat_actions = require('CopilotChat.actions')
   local copilot_chat_fzf = require('CopilotChat.integrations.fzflua')
 
