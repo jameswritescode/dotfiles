@@ -1,17 +1,13 @@
-disable r
-
 export DOTFILES="$HOME/dotfiles"
-export ZSH="$HOME/.oh-my-zsh"
 
 hash -d dotfiles="$DOTFILES"
 
-DISABLE_AUTO_TITLE="true"
-DISABLE_AUTO_UPDATE="true"
-ZSH_CUSTOM="$DOTFILES/zsh/custom"
-ZSH_THEME="bureau-james"
-plugins=()
+if [ -f "$HOME/.df-omz-migration" ]; then
+    source "$DOTFILES/zsh/.zshrc-minus-omz"
+else
+    source "$DOTFILES/zsh/.zshrc-omz"
+fi
 
-source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.zsh_custom" 2>/dev/null
 source "$DOTFILES/zsh/partials/exports.zsh"
 source "$DOTFILES/zsh/partials/aliases.zsh"

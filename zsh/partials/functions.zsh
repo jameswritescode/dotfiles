@@ -110,18 +110,20 @@ vim() {
 
 if [[ -n $ZSH ]]; then
   # update title when changes are made
-  __set_title() {
-    if [[ -z $1 ]]; then
-      title "%2c"
-    else
-      setopt extended_glob
+  if [ $(command -v title) ]; then
+    __set_title() {
+      if [[ -z $1 ]]; then
+        title "%2c"
+      else
+        setopt extended_glob
 
-      title ${1[(wr)^(*=*|sudo|ssh|mosh|rake|-*)]:gs/%/%%}
-    fi
-  }
+        title ${1[(wr)^(*=*|sudo|ssh|mosh|rake|-*)]:gs/%/%%}
+      fi
+    }
 
-  precmd_functions+=(__set_title)
-  preexec_functions+=(__set_title)
+    precmd_functions+=(__set_title)
+    preexec_functions+=(__set_title)
+  fi
 
   # Set language versions as ENV variables on chpwd
 

@@ -285,10 +285,12 @@ require('lazy').setup({
       },
 
       formatters_by_ft = {
+        bash = { 'beautysh', 'shellcheck' },
         go = { 'gofmt', 'goimports' },
         lua = { 'stylua' },
         proto = { 'buf' },
         sql = { 'sql_formatter' },
+        zsh = { 'beautysh' },
       },
     },
   },
@@ -333,7 +335,9 @@ require('lazy').setup({
       local lint = require('lint')
 
       lint.linters_by_ft = {
+        bash = { 'shellcheck' },
         lua = { 'selene' },
+        zsh = { 'zsh' },
       }
 
       vim.api.nvim_create_autocmd(
