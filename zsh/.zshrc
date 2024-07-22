@@ -2,6 +2,8 @@ export DOTFILES="$HOME/dotfiles"
 
 hash -d dotfiles="$DOTFILES"
 
+source "$DOTFILES/zsh/partials/compatibility.zsh"
+
 if [ -f "$HOME/.df-omz-migration" ]; then
     source "$DOTFILES/zsh/.zshrc-minus-omz"
 else
