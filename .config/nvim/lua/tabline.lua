@@ -16,11 +16,14 @@ local function custom_tabline()
   for i = 1, vim.fn.tabpagenr('$') do
     local bufnr = vim.fn.tabpagebuflist(i)[vim.fn.tabpagewinnr(i)]
     local bufname = vim.fn.fnamemodify(vim.fn.bufname(bufnr), ':t')
-    local icon, hl = devicons.get_icon(bufname)
     local test_result = vim_test.buffer_status(bufnr)
 
-    if not icon and test_result then
+    local icon, hl
+
+    if test_result then
       icon, hl = test_result.icon, test_result.hl
+    else
+      icon, hl = devicons.get_icon(bufname)
     end
 
     local display = string.format(

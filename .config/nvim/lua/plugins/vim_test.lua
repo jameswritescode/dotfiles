@@ -45,7 +45,7 @@ local function strategy(cmd)
         { status = 'finished', exit_code = exit_code }
       )
 
-      vim.api.nvim_command('redrawtabline')
+      vim.cmd.redrawtabline()
     end,
   })
 end
