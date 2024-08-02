@@ -10,6 +10,7 @@ alias npmsd="npm install --save-dev"
 alias psa="ps aux"
 alias rl="source ~/.zshrc"
 alias ss='open -a ScreenSaverEngine'
+alias tf="terraform"
 alias v='vim $(fzf --height=25)'
 
 # cargo
@@ -82,8 +83,8 @@ alias mk="minikube"
 
 # kitty
 if ! [[ -z $KITTY_WINDOW_ID ]]; then
-  alias icat="kitty +kitten icat"
-  alias ssh="kitty +kitten ssh"
+    alias icat="kitty +kitten icat"
+    alias ssh="kitty +kitten ssh"
 fi
 
 # ruby
@@ -108,7 +109,7 @@ alias -s txt='less'
 alias -s {css,haml,js,jsx,md,py,rb,zsh}=vim
 
 if [[ -n $SPIN ]]; then
-  alias dds="dev debug server"
-  alias j="dev cd"
-  alias refresh="dev reup && dev restart"
+    alias dds="dev debug server"
+    alias j="dev cd"
+    alias refresh="dev reup && dev restart"
 fi

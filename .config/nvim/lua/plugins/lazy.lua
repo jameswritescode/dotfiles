@@ -337,6 +337,7 @@ require('lazy').setup({
       lint.linters_by_ft = {
         bash = { 'shellcheck' },
         lua = { 'selene' },
+        terraform = { 'tflint', 'tfsec' },
         zsh = { 'zsh' },
       }
 
