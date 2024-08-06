@@ -4,6 +4,9 @@ local fzf_config = require('plugins.fzf')
 local gitsigns = require('gitsigns')
 local harpoon = require('harpoon')
 
+local repl = require('repl')
+local run_file = require('run_file')
+
 local function map(mode, lhs, rhs, desc)
   vim.keymap.set(mode, lhs, rhs, { noremap = true, silent = true, desc = desc })
 end
@@ -24,8 +27,6 @@ nmap('<down>', '<c-w>-')
 nmap('<left>', '1<c-w>>')
 nmap('<right>', '1<c-w><')
 nmap('<up>', '<c-w>+')
-nmap('H', ':call TabControl("tabp", "bp")<cr>')
-nmap('L', ':call TabControl("tabn", "bn")<cr>')
 nmap('[d', vim.diagnostic.goto_prev, 'diagnostic-prev')
 nmap(']d', vim.diagnostic.goto_next, 'diagnostic-next')
 nmap('gp', '`[v`]')
@@ -45,13 +46,42 @@ nmap('K', function()
   ]])
 end)
 
+local yank_copy_command = vim.fn
+  .trim(vim.fn.system('uname -a'))
+  :match('microsoft') and 'clip.exe' or 'pbcopy'
+
+vmap('<c-c>', function()
+  local l = vim.fn.line('.')
+  local c = vim.fn.col('.')
+
+  vim.cmd('normal! "+y')
+  vim.fn.system(yank_copy_command, vim.fn.getreg('"'))
+  vim.fn.cursor(l, c)
+end)
+
+local function tab_control(tab_cmd, buf_cmd)
+  if vim.fn.tabpagenr('$') > 1 then
+    vim.cmd(tab_cmd)
+  else
+    vim.cmd(buf_cmd)
+  end
+end
+
+nmap('H', function()
+  tab_control('tabp', 'bp')
+end)
+
+nmap('L', function()
+  tab_control('tabn', 'bn')
+end)
+
 -- leader
 nmap('<leader>b-', ':%bd|e#|bd#<cr>', 'delete-inactive-buffers')
 nmap('<leader>q', ':noh<cr>', 'no-highlight')
-nmap('<leader>tc', ':call Repl()<cr>', 'repl')
+nmap('<leader>tc', repl.run, 'repl')
 nmap('<leader>tf', ':TestFile<cr>', 'test-file')
 nmap('<leader>tn', ':TestNearest<cr>', 'test-near')
-nmap('<leader>tr', ':call RunFile()<cr>', 'run')
+nmap('<leader>tr', run_file.run, 'run')
 vmap('<leader>s', ':sort<cr>', 'sort')
 
 --- copilot

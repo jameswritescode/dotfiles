@@ -1,7 +1,6 @@
-vim.cmd('source ~/dotfiles/.config/nvim/init-old.vim')
-
 require('compatibility')
 require('options')
+require('betterment')
 require('plugins.lazy')
 require('keymaps')
 require('lsp')
