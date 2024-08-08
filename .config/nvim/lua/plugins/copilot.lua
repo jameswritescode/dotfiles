@@ -4,7 +4,7 @@ local function copilot_signed_in()
   end)
 end
 
-local function setup()
+local function plugin_setup()
   require('copilot').setup({
     panel = { enabled = false },
     suggestion = { enabled = false },
@@ -13,5 +13,5 @@ end
 
 return {
   copilot_signed_in = copilot_signed_in,
-  setup = setup,
+  plugin_setup = plugin_setup,
 }
