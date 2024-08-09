@@ -21,6 +21,7 @@ require('nvim-treesitter.configs').setup({
     'kotlin',
     'lua',
     'markdown',
+    'markdown_inline',
     'ruby',
     'rust',
     'toml',
