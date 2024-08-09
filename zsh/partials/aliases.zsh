@@ -88,16 +88,8 @@ if ! [[ -z $KITTY_WINDOW_ID ]]; then
 fi
 
 # ruby
-alias bdbrb="ber db:rollback"
 alias be="bundle exec"
 alias ber="be rake"
-alias berg="be rails g"
-alias berm="ber db:migrate"
-alias bes="RAILS_ENV=test be rspec"
-alias rc="be rails c"
-alias rdp="be rails db:prepare"
-alias rr="be rake routes"
-alias rs="be rails s"
 
 # music
 alias mp="osascript -e 'tell application \"Spotify\" to pause';"
