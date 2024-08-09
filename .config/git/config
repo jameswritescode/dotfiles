@@ -20,6 +20,7 @@
 	lineNumber = true
 [push]
 	default = simple
+	autoSetupRemote = true
 [log]
 	decorate = full
 [rebase]
