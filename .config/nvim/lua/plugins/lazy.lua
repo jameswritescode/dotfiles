@@ -285,10 +285,11 @@ require('lazy').setup({
       },
 
       formatters_by_ft = {
-        bash = { 'beautysh', 'shellcheck' },
+        bash = { 'beautysh' },
         go = { 'gofmt', 'goimports' },
         lua = { 'stylua' },
         proto = { 'buf' },
+        sh = { 'beautysh' },
         sql = { 'sql_formatter' },
         zsh = { 'beautysh' },
       },
@@ -336,7 +337,9 @@ require('lazy').setup({
 
       lint.linters_by_ft = {
         bash = { 'shellcheck' },
+        eruby = { 'erb_lint' },
         lua = { 'selene' },
+        sh = { 'shellcheck' },
         terraform = { 'tflint', 'tfsec' },
         zsh = { 'zsh' },
       }
