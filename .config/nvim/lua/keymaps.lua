@@ -125,13 +125,23 @@ local function diff_command(original, custom)
   end
 end
 
+--- git
 map({ 'n', 'v' }, '<leader>go', ':GBrowse<cr>', 'open-browser')
-map({ 'n', 'v' }, '<leader>ga', gitsigns.stage_hunk, 'stage-hunk')
 nmap('<leader>gb', ':Git blame<cr>', 'blame')
 nmap('<leader>gc', gitsigns.preview_hunk, 'preview-hunk')
-nmap('<leader>gu', gitsigns.reset_hunk, 'reset-hunk')
+nmap('<leader>gu', gitsigns.undo_stage_hunk, 'undo-stage-hunk')
 nmap('[c', diff_command('[c', gitsigns.prev_hunk))
 nmap(']c', diff_command(']c', gitsigns.next_hunk))
+
+nmap('<leader>ga', gitsigns.stage_hunk, 'stage-hunk')
+vmap('<leader>ga', function()
+  gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+end, 'stage-hunk')
+
+nmap('<leader>gr', gitsigns.reset_hunk, 'reset-hunk')
+vmap('<leader>gr', function()
+  gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+end, 'reset-hunk')
 
 --- harpoon
 nmap('<leader>ha', function()
