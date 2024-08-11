@@ -360,6 +360,12 @@ require('lazy').setup({
     event = 'VeryLazy',
   },
 
+  {
+    'stevearc/oil.nvim',
+    config = true,
+    event = 'VeryLazy',
+  },
+
   { 'AndrewRadev/switch.vim', event = 'VeryLazy' },
   { 'c-brenn/phoenix.vim', event = 'VeryLazy' },
   { 'catppuccin/nvim', name = 'catppuccin' },
@@ -385,7 +391,6 @@ require('lazy').setup({
   { 'tpope/vim-speeddating', event = 'VeryLazy' },
   { 'tpope/vim-surround', event = 'VeryLazy' },
   { 'tpope/vim-unimpaired', event = 'VeryLazy' },
-  { 'tpope/vim-vinegar' },
   { 'udalov/kotlin-vim' },
   { 'windwp/nvim-autopairs', event = 'VeryLazy' },
   { 'windwp/nvim-ts-autotag', event = 'VeryLazy' },

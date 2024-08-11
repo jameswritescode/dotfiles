@@ -21,6 +21,7 @@ end
 
 map('i', 'jk', '<esc>')
 map('t', '<esc>', '<c-\\><c-n>')
+nmap('-', '<cmd>Oil<cr>', 'file-drawer')
 nmap('<c-t>', ':tabnew<cr>')
 nmap('<c-w>m ', ':wincmd _<bar>wincmd <bar><cr>')
 nmap('<down>', '<c-w>-')
