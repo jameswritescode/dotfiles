@@ -2,9 +2,11 @@ local dap = require('dap')
 
 dap.defaults.fallback.focus_terminal = true
 
+local RUBY_PATH = vim.env.DAP_RUBY_DEBUG_SOCKET_PATH or '/tmp/ruby-debug/'
+
 dap.adapters.ruby = function(callback)
   vim.ui.select(
-    vim.fn.readdir('/tmp/ruby-debug'),
+    vim.fn.readdir(RUBY_PATH),
     { prompt = 'Select socket' },
     function(pipe)
       if not pipe then
@@ -13,7 +15,7 @@ dap.adapters.ruby = function(callback)
 
       callback({
         type = 'pipe',
-        pipe = '/tmp/ruby-debug/' .. pipe,
+        pipe = RUBY_PATH .. pipe,
       })
     end
   )
@@ -29,6 +31,8 @@ dap.configurations.ruby = {
 
 vim.api.nvim_create_autocmd('ExitPre', {
   callback = function()
-    dap.disconnect()
+    if dap.session() then
+      dap.disconnect()
+    end
   end,
 })
