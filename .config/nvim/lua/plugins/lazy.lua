@@ -366,7 +366,6 @@ require('lazy').setup({
   {
     'stevearc/oil.nvim',
     config = true,
-    event = 'VeryLazy',
   },
 
   { 'AndrewRadev/switch.vim', event = 'VeryLazy' },
