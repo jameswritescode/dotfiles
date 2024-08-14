@@ -14,6 +14,10 @@ compatibility_override('0.12', 'vim.lsp.get_active_clients', function()
 end)
 
 compatibility_override('0.13', 'vim.diagnostic.goto_* overrides', function()
+  if not vim.diagnostic.jump then
+    return
+  end
+
   ---@diagnostic disable-next-line: duplicate-set-field
   vim.diagnostic.goto_next = function()
     vim.diagnostic.jump({ count = 1, float = true })
