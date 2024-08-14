@@ -368,6 +368,13 @@ require('lazy').setup({
     config = true,
   },
 
+  {
+    'tpope/vim-projectionist',
+    init = function()
+      require('plugins.vim-projectionist')
+    end,
+  },
+
   { 'AndrewRadev/switch.vim', event = 'VeryLazy' },
   { 'c-brenn/phoenix.vim', event = 'VeryLazy' },
   { 'catppuccin/nvim', name = 'catppuccin' },
