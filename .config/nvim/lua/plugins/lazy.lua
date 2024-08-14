@@ -366,6 +366,12 @@ require('lazy').setup({
   {
     'stevearc/oil.nvim',
     config = true,
+    opts = {
+      use_default_keymaps = false,
+      keymaps = {
+        ['<CR>'] = 'actions.select',
+      },
+    },
   },
 
   {
