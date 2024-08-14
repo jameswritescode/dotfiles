@@ -14,7 +14,7 @@ local function build_packwerk_config()
     -- components/a/app
     -- components/a/b/app
     return #vim.split(item, '/') < 5
-  end, vim.split(vim.fn.glob('**/app'), '\n'))
+  end, vim.fn.glob('**/app', true, true))
 
   local components = vim.tbl_map(function(item)
     return vim.fn.trim(item, 'app', 2)
