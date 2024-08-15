@@ -2,8 +2,9 @@ const priority_weights = {
   highest: 1,
   high: 2,
   medium: 3,
-  low: 4,
-  lowest: 5,
+  normal: 4,
+  low: 5,
+  lowest: 6,
 };
 
 const { filter_files = [] } = input;
@@ -17,6 +18,6 @@ dv.taskList(
       return !t.completed && t.status !== "-" && !filter_files.contains(name);
     })
     .sort((t) => {
-      return priority_weights[t.priority];
+      return priority_weights[t.priority] || priority_weights.normal;
     }),
 );
