@@ -287,6 +287,7 @@ require('lazy').setup({
       formatters_by_ft = {
         bash = { 'beautysh' },
         go = { 'gofmt', 'goimports' },
+        javascript = { 'prettier' },
         lua = { 'stylua' },
         proto = { 'buf' },
         sh = { 'beautysh' },
