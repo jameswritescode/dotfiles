@@ -245,7 +245,7 @@ require('lazy').setup({
     'vim-test/vim-test',
     cmd = { 'TestNearest', 'TestFile' },
     config = function()
-      local vim_test = require('plugins.vim_test')
+      local vim_test = require('plugins.vim-test')
 
       vim_test.init()
 
@@ -376,9 +376,10 @@ require('lazy').setup({
   },
 
   {
-    'tpope/vim-projectionist',
-    init = function()
-      require('plugins.vim-projectionist')
+    'tpope/vim-rails',
+    dependencies = { 'tpope/vim-projectionist' },
+    config = function()
+      require('plugins.vim-rails')
     end,
   },
 
@@ -399,7 +400,6 @@ require('lazy').setup({
   { 'tpope/vim-endwise', event = 'VeryLazy' },
   { 'tpope/vim-fugitive', event = 'VeryLazy' },
   { 'tpope/vim-git', event = 'VeryLazy' },
-  { 'tpope/vim-rails' },
   { 'tpope/vim-rake', event = 'VeryLazy' },
   { 'tpope/vim-repeat', event = 'VeryLazy' },
   { 'tpope/vim-rhubarb', event = 'VeryLazy' },

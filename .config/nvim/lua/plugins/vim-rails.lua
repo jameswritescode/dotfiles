@@ -52,7 +52,7 @@ local function build_packwerk_config()
     }
   end
 
-  return { ['Gemfile'] = config }
+  return config
 end
 
-vim.g.projectionist_heuristics = build_packwerk_config()
+vim.g.rails_projections = build_packwerk_config()
