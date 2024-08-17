@@ -21,10 +21,9 @@ local function treesitter_status()
   return string.gsub(status, '', '%%#WinBarSep#%%#WinBar#')
 end
 
-local function custom_winbar()
+-- selene: allow(unused_variable)
+function CustomWinbar()
   return treesitter_status()
 end
 
-_G.custom_winbar = custom_winbar
-
-vim.o.winbar = '%{%v:lua.custom_winbar()%}'
+vim.o.winbar = '%{%v:lua.CustomWinbar()%}'

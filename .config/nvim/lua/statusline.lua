@@ -148,7 +148,8 @@ end
 
 local spacer = '  '
 
-local function custom_statusline()
+-- selene: allow(unused_variable)
+function CustomStatusLine()
   local lsp_result = lsp()
   local lsp_buffer_status = lsp_result and lsp_result .. spacer or ''
 
@@ -166,6 +167,4 @@ local function custom_statusline()
   })
 end
 
-_G.custom_statusline = custom_statusline
-
-vim.o.statusline = '%{%v:lua.custom_statusline()%}'
+vim.o.statusline = '%{%v:lua.CustomStatusLine()%}'

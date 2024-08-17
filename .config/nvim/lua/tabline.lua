@@ -9,7 +9,8 @@ local function set_active_highlight(devicon_hl)
   vim.api.nvim_set_hl(0, 'TabLineSel', { fg = hl.fg, bg = theme.surface0 })
 end
 
-local function custom_tabline()
+-- selene: allow(unused_variable)
+function CustomTabLine()
   local tabs = {}
   local current_tab = vim.fn.tabpagenr()
 
@@ -46,6 +47,4 @@ local function custom_tabline()
   return table.concat(tabs)
 end
 
-_G.custom_tabline = custom_tabline
-
-vim.o.tabline = '%{%v:lua.custom_tabline()%}'
+vim.o.tabline = '%{%v:lua.CustomTabLine()%}'
