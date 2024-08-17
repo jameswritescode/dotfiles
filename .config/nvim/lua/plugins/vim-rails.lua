@@ -1,7 +1,7 @@
 local function build_packwerk_config()
   local config = {}
 
-  if not vim.fn.filereadable('packwerk.yml') then
+  if vim.fn.filereadable('packwerk.yml') == 0 then
     return config
   end
 
