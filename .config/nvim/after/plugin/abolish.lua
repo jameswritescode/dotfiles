@@ -9,6 +9,7 @@ vim.cmd([[
   Abolish precense presence
   Abolish converastion{,_id} conversation{}
   Abolish {,buyer_}ideneity {}identity
+  Abolish materailize{,d} materialize{}
 ]])
 
 -- Rails
