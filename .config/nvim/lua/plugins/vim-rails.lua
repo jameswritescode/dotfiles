@@ -1,58 +1,68 @@
+local cwd = vim.fn.getcwd()
+
+local function remove_cwd(item)
+  return item:sub(#cwd + 2)
+end
+
 local function build_packwerk_config()
-  local config = {}
+  local identifier = 'package.yml'
+  local glob = vim.glob.to_lpeg(cwd .. '/components/**/' .. identifier)
 
-  if vim.fn.filereadable('packwerk.yml') == 0 then
-    return config
-  end
-
-  local apps = vim.tbl_filter(function(item)
-    if not vim.startswith(item, 'component') then
-      return false
-    end
+  local packages = vim.fs.find(function(name, path)
+    local matches = glob:match(path .. '/' .. name)
+    local depth = #vim.split(remove_cwd(path), '/')
 
     -- Anything else is emotional terrorism.
-    -- components/a/app
-    -- components/a/b/app
-    return #vim.split(item, '/') < 5
-  end, vim.fn.glob('**/app', true, true))
+    -- components/a
+    -- components/a/b
+    local within_max_depth = depth > 1 and depth < 4
 
-  local components = vim.tbl_map(function(item)
-    return vim.fn.trim(item, 'app', 2)
-  end, apps)
+    return matches and within_max_depth
+  end, { limit = math.huge, type = 'file' })
+
+  local directories = vim.tbl_map(function(item)
+    local path = remove_cwd(item)
+
+    return path:sub(1, -#identifier - 1)
+  end, packages)
+
+  local config = {}
 
   -- h/t @bartzon
-  for _, component in pairs(components) do
-    config[component .. 'app/*.rb'] = {
+  for _, directory in pairs(directories) do
+    config[directory .. 'app/*.rb'] = {
       type = 'source',
       alternate = {
-        component .. 'test/unit/{}_test.rb',
-        component .. 'test/{}_test.rb',
+        directory .. 'test/unit/{}_test.rb',
+        directory .. 'test/{}_test.rb',
       },
     }
 
-    config[component .. 'app/models/*.rb'] = {
+    config[directory .. 'app/models/*.rb'] = {
       type = 'model',
       alternate = {
-        component .. 'test/unit/{}_test.rb',
-        component .. 'test/{}_test.rb',
+        directory .. 'test/unit/{}_test.rb',
+        directory .. 'test/{}_test.rb',
       },
     }
 
-    config[component .. 'test/unit/*_test.rb'] = {
+    config[directory .. 'test/unit/*_test.rb'] = {
       type = 'test',
       alternate = {
-        component .. 'app/models/{}.rb',
-        component .. 'app/{}.rb',
+        directory .. 'app/models/{}.rb',
+        directory .. 'app/{}.rb',
       },
     }
 
-    config[component .. 'test/*_test.rb'] = {
+    config[directory .. 'test/*_test.rb'] = {
       type = 'test',
-      alternate = component .. 'app/{}.rb',
+      alternate = directory .. 'app/{}.rb',
     }
   end
 
   return config
 end
 
-vim.g.rails_projections = build_packwerk_config()
+if vim.fn.filereadable('packwerk.yml') ~= 0 then
+  vim.g.rails_projections = build_packwerk_config()
+end
