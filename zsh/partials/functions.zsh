@@ -50,6 +50,10 @@ gcm() {
     fi
 }
 
+gsv() {
+    vim $(git status -s | awk '{print $NF}' | fzf --height=25)
+}
+
 gpo() {
     git push -u origin "$(__git_branch)"
 }
