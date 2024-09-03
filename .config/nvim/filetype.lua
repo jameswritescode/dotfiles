@@ -6,6 +6,7 @@ vim.filetype.add({
   },
 
   pattern = {
+    ['*.ejson'] = 'json',
     ['*.rbi'] = 'ruby',
   },
 })
