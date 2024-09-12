@@ -44,6 +44,7 @@ vim.g.loaded_ruby_provider = 0
 vim.g.netrw_localrmdir = 'rm -r'
 
 vim.diagnostic.config({
+  severity_sort = true,
   virtual_text = false,
 
   float = {

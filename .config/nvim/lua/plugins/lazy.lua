@@ -159,6 +159,8 @@ require('lazy').setup({
     'lewis6991/gitsigns.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
     opts = {
+      sign_priority = 100,
+
       signs = {
         add = { text = '┃' },
         change = { text = '┃' },
