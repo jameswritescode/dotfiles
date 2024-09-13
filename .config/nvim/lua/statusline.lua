@@ -92,21 +92,23 @@ end
 local diagnostic_formatting = {
   {
     type = vim.diagnostic.severity.ERROR,
-    str = '%%#DiagnosticFloatingError# %s%%#Normal#',
+    str = '%%#DiagnosticFloatingError#%s %s%%#Normal#',
   },
   {
     type = vim.diagnostic.severity.WARN,
-    str = '%%#DiagnosticFloatingWarn# %s%%#Normal#',
+    str = '%%#DiagnosticFloatingWarn#%s %s%%#Normal#',
   },
   {
     type = vim.diagnostic.severity.INFO,
-    str = '%%#DiagnosticFloatingInfo#󰋼 %s%%#Normal#',
+    str = '%%#DiagnosticFloatingInfo#%s %s%%#Normal#',
   },
   {
     type = vim.diagnostic.severity.HINT,
-    str = '%%#DiagnosticFloatingHint# %s%%#Normal#',
+    str = '%%#DiagnosticFloatingHint#%s %s%%#Normal#',
   },
 }
+
+local signs = vim.diagnostic.config().signs.text or {}
 
 local function diagnostics()
   local counts = vim.diagnostic.count(0)
@@ -116,7 +118,7 @@ local function diagnostics()
     local n = counts[part.type]
 
     if n then
-      table.insert(output, string.format(part.str, n))
+      table.insert(output, string.format(part.str, signs[part.type], n))
     end
   end
 
