@@ -84,6 +84,18 @@ local mason_server_configs = {
       },
     },
   },
+
+  yamlls = {
+    settings = {
+      yaml = {
+        schemas = {
+          ['https://json.schemastore.org/dependabot-2.0.json'] = 'dependabot.yml',
+          ['https://json.schemastore.org/github-workflow.json'] = '/.github/workflows/*',
+          kubernetes = '*.yaml',
+        },
+      },
+    },
+  },
 }
 
 -- Sometimes LSP's may already be installed on the system, but Mason should
