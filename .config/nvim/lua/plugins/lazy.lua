@@ -39,6 +39,10 @@ require('lazy').setup({
     'andymass/vim-matchup',
     config = function()
       vim.g.matchup_matchparen_deferred = 1
+
+      vim.g.matchuppref = {
+        html = { tagnameonly = 1 },
+      }
     end,
   },
 
