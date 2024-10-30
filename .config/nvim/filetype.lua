@@ -2,6 +2,7 @@ vim.filetype.add({
   extension = {
     ejson = 'json',
     rbi = 'ruby',
+    tpl = 'helm',
   },
 
   filename = {
