@@ -32,24 +32,52 @@ local modes = {
   },
 }
 
+local normal = vim.api.nvim_get_hl(0, { name = 'Normal' })
+
 for _, config in pairs(modes) do
-  vim.api.nvim_set_hl(0, config.hl, { fg = config.color })
+  vim.api.nvim_set_hl(0, config.hl, { fg = config.color, bg = normal.bg })
 end
 
-vim.api.nvim_set_hl(0, 'LspStatusFinished', { fg = theme.green })
-vim.api.nvim_set_hl(0, 'LspStatusWorking', { fg = theme.yellow })
-vim.api.nvim_set_hl(0, 'MsgArea', { fg = theme.overlay0 })
-vim.api.nvim_set_hl(0, 'StatuslineSubtext', { fg = theme.subtext0 })
+local git_hl = {
+  add = vim.api.nvim_get_hl(0, { name = 'GitSignsAdd' }),
+  change = vim.api.nvim_get_hl(0, { name = 'GitSignsChange' }),
+  delete = vim.api.nvim_get_hl(0, { name = 'GitSignsDelete' }),
+}
+
+local highlights = {
+  MsgArea = { fg = theme.overlay0 },
+  StatuslineFilename = { fg = theme.text },
+  StatuslineGitAdd = { fg = git_hl.add.fg },
+  StatuslineGitChange = { fg = git_hl.change.fg },
+  StatuslineGitDelete = { fg = git_hl.delete.fg },
+  StatuslineLspFinished = { fg = theme.green },
+  StatuslineLspWorking = { fg = theme.yellow },
+  StatuslineSubtext = { fg = theme.subtext0 },
+}
+
+for name, config in pairs(highlights) do
+  vim.api.nvim_set_hl(
+    0,
+    name,
+    vim.tbl_extend('force', config, { bg = normal.bg })
+  )
+end
 
 local function filename()
   local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':t')
-  local icon, hl = devicons.get_icon(name)
+  local icon, icon_color = devicons.get_icon_colors(name)
+
+  vim.api.nvim_set_hl(
+    0,
+    'StatuslineFilename',
+    { fg = icon_color, bg = normal.bg }
+  )
 
   if not icon then
-    return '%#Normal#%t'
+    return '%#StatuslineFilename#%t'
   end
 
-  return string.format('%%#%s#%s %%t%%#Normal#', hl, icon)
+  return string.format('%%#StatuslineFilename#%s %%t%%#Normal#', icon)
 end
 
 local function git_branch()
@@ -73,9 +101,9 @@ local function git_status()
   end
 
   local parts = {
-    { n = status.added, str = '%%#GitSignsAdd#+%s%%#Normal#' },
-    { n = status.changed, str = '%%#GitSignsChange#~%s%%#Normal#' },
-    { n = status.removed, str = '%%#GitSignsDelete#-%s%%#Normal#' },
+    { n = status.added, str = '%%#StatuslineGitAdd#+%s%%#Normal#' },
+    { n = status.changed, str = '%%#StatuslineGitChange#~%s%%#Normal#' },
+    { n = status.removed, str = '%%#StatuslineGitDelete#-%s%%#Normal#' },
   }
 
   local output = {}
@@ -131,9 +159,9 @@ local function lsp()
   if status == nil then
     return nil
   elseif status then
-    return '%#LspStatusFinished#LSP%#Normal#'
+    return '%#StatuslineLspFinished#LSP%#Normal#'
   else
-    return '%#LspStatusWorking#LSP%#Normal#'
+    return '%#StatuslineLspWorking#LSP%#Normal#'
   end
 end
 
