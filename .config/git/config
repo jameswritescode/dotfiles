@@ -7,7 +7,6 @@
 	co = checkout
 	find = log --source --all -S
 	forget = rm --cached
-	g = grep --break --heading --line-number
 	graph = log --graph --all --decorate --stat --date=iso
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	patch = !git --no-pager diff --no-color
@@ -32,21 +31,8 @@
 	defaultBranch = main
 	templatedir = ~/dotfiles/.config/git/templates
 [core]
-	; pager = diff-so-fancy | less --tabs=4 -RFX
-	pager = delta --syntax-theme TwoDark
+	pager = delta
 	excludesfile = ~/.gitignore_global
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-[color "diff"]
-	meta = yellow
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
 [include]
 	path = ~/.gitconfig_custom
 [merge]
