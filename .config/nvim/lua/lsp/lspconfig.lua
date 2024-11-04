@@ -4,28 +4,16 @@ local mlsp = require('mason-lspconfig')
 
 local common = require('lsp.common')
 
-local function hover(_, result, ctx, config)
-  local bufnr, winnr = vim.lsp.handlers.hover(_, result, ctx, config)
+local original_hover = vim.lsp.buf.hover
 
-  common.set_winhighlight(winnr)
-
-  return bufnr, winnr
+--- @diagnostic disable-next-line: duplicate-set-field
+vim.lsp.buf.hover = function()
+  return original_hover(common.window_opts)
 end
 
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(hover, common.window_opts)
-
-local function merge(t1, t2)
-  if not t2 then
-    return t1
-  end
-
-  return vim.tbl_extend('force', t1, t2)
-end
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = vim.tbl_deep_extend(
+local capabilities = vim.tbl_deep_extend(
   'force',
-  capabilities,
+  vim.lsp.protocol.make_client_capabilities(),
   cmp_nvim_lsp.default_capabilities()
 )
 
@@ -100,14 +88,17 @@ local mason_server_configs = {
 
 -- Sometimes LSP's may already be installed on the system, but Mason should
 -- still be able to install and configure them otherwise.
-local all_server_configs = merge(server_configs, mason_server_configs)
+local all_server_configs =
+  vim.tbl_extend('force', server_configs, mason_server_configs)
 
 mlsp.setup({
   handlers = {
     function(server_name)
       local server_config = all_server_configs[server_name] or {}
 
-      lspconfig[server_name].setup(merge(defaults, server_config))
+      lspconfig[server_name].setup(
+        vim.tbl_extend('force', defaults, server_config)
+      )
     end,
   },
 })
@@ -116,6 +107,6 @@ local mason_installed_servers = mlsp.get_installed_servers()
 
 for server_name, config in pairs(server_configs) do
   if not vim.list_contains(mason_installed_servers, server_name) then
-    lspconfig[server_name].setup(config)
+    lspconfig[server_name].setup(vim.tbl_extend('force', defaults, config))
   end
 end
