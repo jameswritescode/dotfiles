@@ -1,0 +1,72 @@
+## START HISTORY
+HISTSIZE=500000
+SAVEHIST=500000
+
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt share_history
+
+autoload -U up-line-or-beginning-search
+zle -N up-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey -M emacs "^[[A" up-line-or-beginning-search
+
+autoload -U down-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
+bindkey -M emacs "^[[B" down-line-or-beginning-search
+## END HISTORY
+
+## START COMPLETION
+autoload -U compinit && compinit
+
+WORDCHARS=''
+
+unsetopt flowcontrol
+unsetopt menu_complete
+setopt always_to_end
+setopt auto_menu
+setopt complete_in_word
+
+zmodload -i zsh/complist
+bindkey -M menuselect '^o' accept-and-infer-next-history
+
+zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' special-dirs true
+
+# zstyle ':completion:*' list-colors ''
+zstyle ':completion:*:cd:*' tag-order local-directories directory-stack path-directories
+
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+
+zstyle '*' single-ignored show
+
+autoload -U +X bashcompinit && bashcompinit
+## END COMPLETION
+
+autoload -U colors && colors
+
+bindkey -e
+bindkey ' ' magic-space
+
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
+
+setopt auto_cd
+setopt auto_pushd
+setopt interactive_comments
+setopt long_list_jobs
+setopt multios
+setopt prompt_subst
+setopt pushd_ignore_dups
+setopt pushd_minus
+
+source "$DOTFILES/zsh/theme.zsh"
+export LS_COLORS="di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+[[ -z "$LS_COLORS" ]] || zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"

@@ -292,15 +292,47 @@ require('lazy').setup({
 
       formatters_by_ft = {
         bash = { 'beautysh' },
+        blade = { 'blade-formatter' },
         go = { 'gofmt', 'goimports' },
         javascript = { 'prettier' },
         lua = { 'stylua' },
+        php = { 'pint', 'php-cs-fixer' },
         proto = { 'buf' },
         sh = { 'beautysh' },
         sql = { 'sql_formatter' },
+        typescript = { 'prettier' },
+        xml = { 'xmlformat' },
         zsh = { 'beautysh' },
       },
     },
+  },
+
+  {
+    'mfussenegger/nvim-lint',
+    event = { 'BufWritePre' },
+    config = function()
+      local lint = require('lint')
+
+      lint.linters_by_ft = {
+        bash = { 'shellcheck' },
+        eruby = { 'erb_lint' },
+        lua = { 'selene' },
+        php = { 'phpcs', 'phpstan' },
+        sh = { 'shellcheck' },
+        terraform = { 'tflint', 'tfsec' },
+        zsh = { 'zsh' },
+      }
+
+      vim.api.nvim_create_autocmd(
+        { 'BufWritePre', 'BufReadPost', 'InsertLeave' },
+        {
+          group = vim.api.nvim_create_augroup('nvim-lint', { clear = true }),
+          callback = function()
+            lint.try_lint()
+          end,
+        }
+      )
+    end,
   },
 
   {
@@ -337,33 +369,6 @@ require('lazy').setup({
   },
 
   {
-    'mfussenegger/nvim-lint',
-    event = { 'BufWritePre' },
-    config = function()
-      local lint = require('lint')
-
-      lint.linters_by_ft = {
-        bash = { 'shellcheck' },
-        eruby = { 'erb_lint' },
-        lua = { 'selene' },
-        sh = { 'shellcheck' },
-        terraform = { 'tflint', 'tfsec' },
-        zsh = { 'zsh' },
-      }
-
-      vim.api.nvim_create_autocmd(
-        { 'BufWritePre', 'BufReadPost', 'InsertLeave' },
-        {
-          group = vim.api.nvim_create_augroup('nvim-lint', { clear = true }),
-          callback = function()
-            lint.try_lint()
-          end,
-        }
-      )
-    end,
-  },
-
-  {
     'ThePrimeagen/harpoon',
     branch = 'harpoon2',
     dependencies = { 'nvim-lua/plenary.nvim' },
@@ -390,6 +395,12 @@ require('lazy').setup({
     config = function()
       require('plugins.vim-rails')
     end,
+  },
+
+  {
+    'akinsho/git-conflict.nvim',
+    config = true,
+    event = 'VeryLazy',
   },
 
   { 'AndrewRadev/switch.vim', event = 'VeryLazy' },

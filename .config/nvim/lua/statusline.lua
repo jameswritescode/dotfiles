@@ -73,7 +73,9 @@ local function filename()
     { fg = icon_color, bg = normal.bg }
   )
 
-  if not icon then
+  if vim.bo.filetype == 'oil' then
+    return '%#StatuslineFilename#󱡠'
+  elseif not icon then
     return '%#StatuslineFilename#%t'
   end
 

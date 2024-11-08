@@ -7,6 +7,7 @@ vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.concealcursor = 'niv'
 vim.o.cursorline = true
 vim.o.expandtab = true
+vim.o.exrc = true
 vim.o.foldenable = false
 vim.o.gdefault = true
 vim.o.inccommand = 'split'

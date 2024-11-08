@@ -1,14 +1,27 @@
+local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
+
+parser_config.blade = {
+  filetype = 'blade',
+
+  install_info = {
+    branch = 'main',
+    files = { 'src/parser.c' },
+    url = 'https://github.com/EmranMR/tree-sitter-blade',
+  },
+}
+
 require('nvim-treesitter.configs').setup({
   autotag = {
     enable = true,
   },
 
   endwise = {
-    enable = true,
+    enable = false,
   },
 
   ensure_installed = {
     'bash',
+    'blade',
     'comment',
     'css',
     'go',
@@ -22,6 +35,7 @@ require('nvim-treesitter.configs').setup({
     'lua',
     'markdown',
     'markdown_inline',
+    'php',
     'query',
     'ruby',
     'rust',
