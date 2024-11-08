@@ -403,6 +403,11 @@ require('lazy').setup({
     event = 'VeryLazy',
   },
 
+  {
+    'b0o/SchemaStore.nvim',
+    lazy = true,
+  },
+
   { 'AndrewRadev/switch.vim', event = 'VeryLazy' },
   { 'c-brenn/phoenix.vim', event = 'VeryLazy' },
   { 'catppuccin/nvim', name = 'catppuccin' },
