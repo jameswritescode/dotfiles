@@ -131,7 +131,6 @@ require('lazy').setup({
       'nvim-lua/plenary.nvim',
       'zbirenbaum/copilot.lua',
     },
-    branch = 'canary',
     event = 'VeryLazy',
     config = function()
       if require('plugins.copilot').copilot_signed_in() then
