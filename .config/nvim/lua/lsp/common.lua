@@ -1,8 +1,9 @@
-local cmp = require('cmp')
+local blink = require('blink.cmp.config.completion.documentation')
 
 local common = {}
 
-common.window_opts = cmp.config.window.bordered()
+common.window_opts =
+  vim.tbl_extend('force', blink.default.window, { border = 'rounded' })
 
 function common.set_winhighlight(winnr)
   if not winnr then

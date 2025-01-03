@@ -55,33 +55,60 @@ require('lazy').setup({
   -- cmp --
   ---------
   {
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-nvim-lsp-signature-help',
-      'saadparwaiz1/cmp_luasnip',
-      'zbirenbaum/copilot-cmp',
-    },
+    'saghen/blink.cmp',
     event = 'InsertEnter',
-    config = function()
-      require('plugins.cmp')
-    end,
-  },
+    build = 'cargo +nightly build --release',
+    dependencies = {
+      'giuxtaposition/blink-cmp-copilot',
+      'onsails/lspkind.nvim',
+      'rafamadriz/friendly-snippets',
+    },
+    opts = {
+      completion = {
+        documentation = {
+          auto_show = true,
+        },
+        list = {
+          max_items = 10,
+          -- selection = 'auto_insert',
+        },
+        menu = {
+          border = 'rounded',
+        },
+      },
+      keymap = {
+        ['<CR>'] = { 'accept', 'fallback' },
 
-  {
-    'zbirenbaum/copilot-cmp',
-    dependencies = { 'zbirenbaum/copilot.lua' },
-    config = true,
-  },
+        ['<S-Tab>'] = { 'select_prev', 'fallback' },
+        ['<Tab>'] = { 'select_next', 'fallback' },
 
-  {
-    'L3MON4D3/LuaSnip',
-    dependencies = { 'rafamadriz/friendly-snippets' },
-    build = 'make install_jsregexp',
-    config = function()
-      require('luasnip.loaders.from_vscode').lazy_load()
-      require('luasnip').filetype_extend('ruby', { 'rails' })
+        ['<Up>'] = { 'select_prev', 'fallback' },
+        ['<Down>'] = { 'select_next', 'fallback' },
+      },
+      signature = {
+        enabled = true,
+        window = {
+          border = 'rounded',
+        },
+      },
+      sources = {
+        default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
+        cmdline = {},
+
+        providers = {
+          copilot = {
+            name = 'copilot',
+            module = 'blink-cmp-copilot',
+            score_offset = 100,
+            async = true,
+          },
+        },
+      },
+    },
+    config = function(plugin, opts)
+      opts.completion.documentation.window = require('lsp.common').window_opts
+
+      require(plugin.name).setup(opts)
     end,
   },
 
@@ -91,7 +118,6 @@ require('lazy').setup({
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      'onsails/lspkind.nvim',
       'williamboman/mason-lspconfig.nvim',
       'williamboman/mason.nvim',
       {
@@ -407,9 +433,24 @@ require('lazy').setup({
     lazy = true,
   },
 
+  {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    opts = {
+      integrations = {
+        blink_cmp = true,
+      },
+    },
+  },
+
+  {
+    'echasnovski/mini.pairs',
+    config = true,
+    event = 'InsertEnter',
+  },
+
   { 'AndrewRadev/switch.vim', event = 'VeryLazy' },
   { 'c-brenn/phoenix.vim', event = 'VeryLazy' },
-  { 'catppuccin/nvim', name = 'catppuccin' },
   { 'christoomey/vim-tmux-navigator', event = 'VeryLazy' },
   { 'elixir-editors/vim-elixir', event = 'VeryLazy' },
   { 'kchmck/vim-coffee-script', event = 'VeryLazy' },
@@ -432,6 +473,5 @@ require('lazy').setup({
   { 'tpope/vim-surround', event = 'VeryLazy' },
   { 'tpope/vim-unimpaired', event = 'VeryLazy' },
   { 'udalov/kotlin-vim' },
-  { 'windwp/nvim-autopairs', event = 'VeryLazy' },
   { 'windwp/nvim-ts-autotag', event = 'VeryLazy' },
 })

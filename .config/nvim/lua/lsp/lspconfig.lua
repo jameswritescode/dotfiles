@@ -1,4 +1,4 @@
-local cmp_nvim_lsp = require('cmp_nvim_lsp')
+local blink = require('blink.cmp')
 local lspconfig = require('lspconfig')
 local mlsp = require('mason-lspconfig')
 
@@ -11,11 +11,8 @@ vim.lsp.buf.hover = function()
   return original_hover(common.window_opts)
 end
 
-local capabilities = vim.tbl_deep_extend(
-  'force',
-  vim.lsp.protocol.make_client_capabilities(),
-  cmp_nvim_lsp.default_capabilities()
-)
+local capabilities =
+  blink.get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local defaults = {
   capabilities = capabilities,
