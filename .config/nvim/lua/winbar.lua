@@ -1,8 +1,3 @@
-local theme = require('catppuccin.palettes.mocha')
-
-vim.api.nvim_set_hl(0, 'WinBar', { fg = theme.subtext0 })
-vim.api.nvim_set_hl(0, 'WinBarSep', { fg = theme.red })
-
 local function treesitter_status()
   if not vim.g.loaded_nvim_treesitter then
     return ''

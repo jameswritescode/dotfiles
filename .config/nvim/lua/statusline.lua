@@ -1,67 +1,24 @@
 local devicons = require('nvim-web-devicons')
-local theme = require('catppuccin.palettes.mocha')
 
 local lsp_status = require('lsp.status')
 
 local modes = {
-  unknown = { hl = 'StatuslineModeUnknown', color = theme.subtext0 },
+  unknown = { hl = 'StatuslineModeUnknown' },
 
-  n = { hl = 'StatuslineModeNormal', color = theme.green, name = 'NORMAL' },
-  nt = { hl = 'StatuslineModeNormal', color = theme.green, name = 'NORMAL' },
+  n = { hl = 'StatuslineModeNormal', name = 'NORMAL' },
+  nt = { hl = 'StatuslineModeNormal', name = 'NORMAL' },
 
-  v = { hl = 'StatuslineModeVisual', color = theme.yellow, name = 'VISUAL' },
-  V = {
-    hl = 'StatuslineModeVisual',
-    color = theme.yellow,
-    name = 'VISUAL BLOCK',
-  },
-  [''] = {
-    hl = 'StatuslineModeVisual',
-    color = theme.yellow,
-    name = 'VISUAL BLOCK',
-  },
+  v = { hl = 'StatuslineModeVisual', name = 'VISUAL' },
+  V = { hl = 'StatuslineModeVisual', name = 'VISUAL BLOCK' },
+  [''] = { hl = 'StatuslineModeVisual', name = 'VISUAL BLOCK' },
 
-  R = { hl = 'StatuslineModeReplace', color = theme.red, name = 'REPLACE' },
-  c = { hl = 'StatuslineModeCommand', color = theme.teal, name = 'COMMAND' },
-  i = { hl = 'StatuslineModeInsert', color = theme.blue, name = 'INSERT' },
-
-  t = {
-    hl = 'StatuslineModeTerminal',
-    color = theme.lavender,
-    name = 'TERMINAL',
-  },
+  R = { hl = 'StatuslineModeReplace', name = 'REPLACE' },
+  c = { hl = 'StatuslineModeCommand', name = 'COMMAND' },
+  i = { hl = 'StatuslineModeInsert', name = 'INSERT' },
+  t = { hl = 'StatuslineModeTerminal', name = 'TERMINAL' },
 }
 
 local normal = vim.api.nvim_get_hl(0, { name = 'Normal' })
-
-for _, config in pairs(modes) do
-  vim.api.nvim_set_hl(0, config.hl, { fg = config.color, bg = normal.bg })
-end
-
-local git_hl = {
-  add = vim.api.nvim_get_hl(0, { name = 'GitSignsAdd' }),
-  change = vim.api.nvim_get_hl(0, { name = 'GitSignsChange' }),
-  delete = vim.api.nvim_get_hl(0, { name = 'GitSignsDelete' }),
-}
-
-local highlights = {
-  MsgArea = { fg = theme.overlay0 },
-  StatuslineFilename = { fg = theme.text },
-  StatuslineGitAdd = { fg = git_hl.add.fg },
-  StatuslineGitChange = { fg = git_hl.change.fg },
-  StatuslineGitDelete = { fg = git_hl.delete.fg },
-  StatuslineLspFinished = { fg = theme.green },
-  StatuslineLspWorking = { fg = theme.yellow },
-  StatuslineSubtext = { fg = theme.subtext0 },
-}
-
-for name, config in pairs(highlights) do
-  vim.api.nvim_set_hl(
-    0,
-    name,
-    vim.tbl_extend('force', config, { bg = normal.bg })
-  )
-end
 
 local function filename()
   local name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':t')

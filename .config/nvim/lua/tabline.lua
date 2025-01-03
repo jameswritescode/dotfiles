@@ -1,7 +1,7 @@
 local devicons = require('nvim-web-devicons')
 local theme = require('catppuccin.palettes.mocha')
 
-local vim_test = require('plugins.vim-test')
+local vim_test = require('plugins.vim-test.helpers')
 
 local function set_active_highlight(devicon_hl)
   local hl = vim.api.nvim_get_hl(0, { name = devicon_hl })

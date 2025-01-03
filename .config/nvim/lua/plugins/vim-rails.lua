@@ -63,6 +63,12 @@ local function build_packwerk_config()
   return config
 end
 
-if vim.fn.filereadable('packwerk.yml') ~= 0 then
-  vim.g.rails_projections = build_packwerk_config()
-end
+return {
+  'tpope/vim-rails',
+  dependencies = { 'tpope/vim-projectionist' },
+  config = function()
+    if vim.fn.filereadable('packwerk.yml') ~= 0 then
+      vim.g.rails_projections = build_packwerk_config()
+    end
+  end,
+}

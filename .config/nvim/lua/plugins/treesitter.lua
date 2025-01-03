@@ -1,84 +1,157 @@
-local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
+return {
+  {
+    'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      'RRethy/nvim-treesitter-endwise',
+      'andymass/vim-matchup',
+      'jameswritescode/nvim-hidesig',
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      'nvim-treesitter/playground',
+    },
+    build = ':TSUpdate',
+    event = { 'BufReadPost', 'BufNewFile' },
+    config = function()
+      require('nvim-treesitter.configs').setup({
+        autotag = {
+          enable = true,
+        },
 
-parser_config.blade = {
-  filetype = 'blade',
+        endwise = {
+          enable = false,
+        },
 
-  install_info = {
-    branch = 'main',
-    files = { 'src/parser.c' },
-    url = 'https://github.com/EmranMR/tree-sitter-blade',
+        ensure_installed = {
+          'bash',
+          'comment',
+          'css',
+          'go',
+          'graphql',
+          'html',
+          'http',
+          'java',
+          'javascript',
+          'json',
+          'kotlin',
+          'lua',
+          'markdown',
+          'markdown_inline',
+          'php',
+          'query',
+          'ruby',
+          'rust',
+          'toml',
+          'tsx',
+          'typescript',
+          'vimdoc',
+        },
+
+        hidesig = {
+          enable = true,
+          delay = 200,
+          opacity = 0.75,
+        },
+
+        highlight = {
+          enable = true,
+        },
+
+        indent = {
+          enable = true,
+        },
+
+        matchup = {
+          enable = true,
+        },
+
+        textobjects = {
+          select = {
+            enable = true,
+
+            lookahead = true,
+
+            keymaps = {
+              ['ab'] = '@block.outer',
+              ['ib'] = '@block.inner',
+              ['ac'] = '@class.outer',
+              ['ic'] = '@class.inner',
+              ['af'] = '@function.outer',
+              ['if'] = '@function.inner',
+              ['ap'] = '@parameter.outer',
+              ['ip'] = '@parameter.inner',
+            },
+          },
+        },
+      })
+    end,
   },
-}
 
-require('nvim-treesitter.configs').setup({
-  autotag = {
-    enable = true,
+  {
+    'nvim-treesitter/playground',
+    cmd = 'TSPlaygroundToggle',
   },
 
-  endwise = {
-    enable = false,
+  {
+    'andymass/vim-matchup',
+    config = function()
+      vim.g.matchup_matchparen_deferred = 1
+
+      vim.g.matchuppref = {
+        html = { tagnameonly = 1 },
+      }
+    end,
   },
 
-  ensure_installed = {
-    'bash',
-    'blade',
-    'comment',
-    'css',
-    'go',
-    'graphql',
-    'html',
-    'http',
-    'java',
-    'javascript',
-    'json',
-    'kotlin',
-    'lua',
-    'markdown',
-    'markdown_inline',
-    'php',
-    'query',
-    'ruby',
-    'rust',
-    'toml',
-    'tsx',
-    'typescript',
-    'vimdoc',
-  },
+  {
+    'Wansmer/treesj',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'AndrewRadev/splitjoin.vim',
+    },
+    event = 'BufReadPre',
+    opts = {
+      use_default_keymaps = false,
+      max_join_length = 512,
 
-  hidesig = {
-    enable = true,
-    delay = 200,
-    opacity = 0.75,
-  },
+      langs = {
+        ruby = {
+          module = {
+            both = {
+              no_format_with = {},
+              fallback = function()
+                vim.cmd('SplitjoinJoin')
+              end,
+            },
+          },
 
-  highlight = {
-    enable = true,
-  },
-
-  indent = {
-    enable = true,
-  },
-
-  matchup = {
-    enable = true,
-  },
-
-  textobjects = {
-    select = {
-      enable = true,
-
-      lookahead = true,
-
-      keymaps = {
-        ['ab'] = '@block.outer',
-        ['ib'] = '@block.inner',
-        ['ac'] = '@class.outer',
-        ['ic'] = '@class.inner',
-        ['af'] = '@function.outer',
-        ['if'] = '@function.inner',
-        ['ap'] = '@parameter.outer',
-        ['ip'] = '@parameter.inner',
+          class = {
+            both = {
+              no_format_with = {},
+              fallback = function()
+                vim.cmd('SplitjoinSplit')
+              end,
+            },
+          },
+        },
       },
     },
+    config = function(_plugin, opts)
+      require('treesj').setup(opts)
+
+      local langs = require('treesj.langs')['presets']
+
+      vim.api.nvim_create_autocmd({ 'FileType' }, {
+        callback = function()
+          local kopts = { buffer = true }
+
+          if langs[vim.bo.filetype] then
+            vim.keymap.set('n', 'gS', '<Cmd>TSJSplit<CR>', kopts)
+            vim.keymap.set('n', 'gJ', '<Cmd>TSJJoin<CR>', kopts)
+          else
+            vim.keymap.set('n', 'gS', '<Cmd>SplitjoinSplit<CR>', kopts)
+            vim.keymap.set('n', 'gJ', '<Cmd>SplitjoinJoin<CR>', kopts)
+          end
+        end,
+      })
+    end,
   },
-})
+}

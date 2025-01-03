@@ -1,5 +1,3 @@
-local theme = require('catppuccin.palettes.mocha')
-
 local exit_code_hl = {
   [0] = 'VimTestStatusPassed',
   [1] = 'VimTestStatusFailed',
@@ -23,13 +21,6 @@ local function buffer_status(bufnr)
   return { icon = icon, hl = hl }
 end
 
-local function init()
-  vim.api.nvim_set_hl(0, 'VimTestStatusFailed', { fg = theme.red })
-  vim.api.nvim_set_hl(0, 'VimTestStatusPassed', { fg = theme.green })
-  vim.api.nvim_set_hl(0, 'VimTestStatusRunning', { fg = theme.yellow })
-  vim.api.nvim_set_hl(0, 'VimTestStatusUnknown', { fg = theme.blue })
-end
-
 local function strategy(cmd)
   vim.api.nvim_command('-tabnew')
 
@@ -37,7 +28,8 @@ local function strategy(cmd)
 
   vim.b.vim_test_status = { status = 'running' }
 
-  vim.fn.termopen(cmd, {
+  vim.fn.jobstart(cmd, {
+    term = true,
     on_exit = function(_jid, exit_code)
       vim.api.nvim_buf_set_var(
         bufnr,
@@ -52,6 +44,5 @@ end
 
 return {
   buffer_status = buffer_status,
-  init = init,
   strategy = strategy,
 }

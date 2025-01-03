@@ -1,9 +1,10 @@
 local dap = require('dap')
 local fzf = require('fzf-lua')
-local fzf_config = require('plugins.fzf')
 local gitsigns = require('gitsigns')
 local harpoon = require('harpoon')
 
+local copilot_helpers = require('plugins.copilot.helpers')
+local fzf_helpers = require('plugins.fzf-lua.helpers')
 local repl = require('repl')
 local run_file = require('run_file')
 
@@ -86,7 +87,7 @@ nmap('<leader>tr', run_file.run, 'run')
 vmap('<leader>s', ':sort<cr>', 'sort')
 
 --- copilot
-if require('plugins.copilot').copilot_signed_in() then
+if copilot_helpers.copilot_signed_in() then
   local copilot_chat_actions = require('CopilotChat.actions')
   local copilot_chat_fzf = require('CopilotChat.integrations.fzflua')
 
@@ -153,4 +154,4 @@ nmap('<leader>hd', function()
   harpoon:list():remove()
 end, 'harpoon-remove')
 
-nmap('<leader>hl', fzf_config.harpoon_list, 'harpoon-list')
+nmap('<leader>hl', fzf_helpers.harpoon_list, 'harpoon-list')
