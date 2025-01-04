@@ -1,7 +1,7 @@
 local cmds = {
   elixir = 'iex -S mix',
   python = 'python3',
-  ruby = 'rails console',
+  ruby = '[[ -f Gemfile ]] && rails console || irb',
 }
 
 local function run()
