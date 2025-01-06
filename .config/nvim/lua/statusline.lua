@@ -79,19 +79,19 @@ end
 local diagnostic_formatting = {
   {
     type = vim.diagnostic.severity.ERROR,
-    str = '%%#DiagnosticFloatingError#%s %s%%#Normal#',
+    str = '%%#StatuslineDiagnosticError#%s %s%%#Normal#',
   },
   {
     type = vim.diagnostic.severity.WARN,
-    str = '%%#DiagnosticFloatingWarn#%s %s%%#Normal#',
+    str = '%%#StatuslineDiagnosticWarn#%s %s%%#Normal#',
   },
   {
     type = vim.diagnostic.severity.INFO,
-    str = '%%#DiagnosticFloatingInfo#%s %s%%#Normal#',
+    str = '%%#StatuslineDiagnosticInfo#%s %s%%#Normal#',
   },
   {
     type = vim.diagnostic.severity.HINT,
-    str = '%%#DiagnosticFloatingHint#%s %s%%#Normal#',
+    str = '%%#StatuslineDiagnosticHint#%s %s%%#Normal#',
   },
 }
 

@@ -21,6 +21,10 @@ return {
         BlinkCmpMenu = { bg = colors.base },
         BlinkCmpMenuBorder = { bg = colors.base, fg = colors.blue },
 
+        StatuslineDiagnosticError = { fg = colors.red, bg = colors.base },
+        StatuslineDiagnosticHint = { fg = colors.teal, bg = colors.base },
+        StatuslineDiagnosticInfo = { fg = colors.sky, bg = colors.base },
+        StatuslineDiagnosticWarn = { fg = colors.yellow, bg = colors.base },
         StatuslineFilename = { fg = colors.text, bg = colors.base },
         StatuslineGitAdd = { fg = colors.green, bg = colors.base },
         StatuslineGitChange = { fg = colors.yellow, bg = colors.base },

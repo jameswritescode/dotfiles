@@ -14,7 +14,7 @@ return {
       },
       list = {
         max_items = 10,
-        -- selection = 'auto_insert',
+        selection = 'auto_insert',
       },
       menu = {
         border = 'rounded',
