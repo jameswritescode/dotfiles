@@ -1,3 +1,6 @@
+local RUBY_PATH = vim.env.DAP_RUBY_DEBUG_SOCKET_PATH or '/tmp/ruby-debug/'
+local RUST_DEBUG_TARGET_PATH = vim.fn.getcwd() .. '/target/debug/'
+
 return {
   'mfussenegger/nvim-dap',
   event = 'VeryLazy',
@@ -6,7 +9,13 @@ return {
 
     dap.defaults.fallback.focus_terminal = true
 
-    local RUBY_PATH = vim.env.DAP_RUBY_DEBUG_SOCKET_PATH or '/tmp/ruby-debug/'
+    vim.api.nvim_create_autocmd('ExitPre', {
+      callback = function()
+        if dap.session() then
+          dap.disconnect()
+        end
+      end,
+    })
 
     dap.adapters.ruby = function(callback)
       vim.ui.select(
@@ -33,12 +42,32 @@ return {
       },
     }
 
-    vim.api.nvim_create_autocmd('ExitPre', {
-      callback = function()
-        if dap.session() then
-          dap.disconnect()
-        end
-      end,
-    })
+    dap.adapters.codelldb = {
+      type = 'server',
+      port = '${port}',
+      executable = {
+        command = require('mason-registry')
+          .get_package('codelldb')
+          :get_install_path() .. '/codelldb',
+        args = { '--port', '${port}' },
+      },
+    }
+
+    dap.configurations.rust = {
+      {
+        name = 'Debug executable',
+        type = 'codelldb',
+        request = 'launch',
+        program = function()
+          local path = vim.fn.input({
+            prompt = 'Path to executable',
+            default = RUST_DEBUG_TARGET_PATH,
+            completion = 'file',
+          })
+
+          return (path and path ~= '') and path or dap.ABORT
+        end,
+      },
+    }
   end,
 }
