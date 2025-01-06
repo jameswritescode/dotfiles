@@ -8,7 +8,7 @@ return {
       'brewfile',
       'config.ru',
       'erb',
-      'gemfile',
+      'gemfile$',
       'gemspec',
       'rake',
       'rakefile',
