@@ -1,0 +1,9 @@
+copy-on-select = true
+cursor-style-blink = false
+font-family = "JetBrainsMono Nerd Font Propo"
+font-size = 14
+macos-titlebar-style = tabs
+shell-integration-features = no-cursor
+theme = "ITerm2 Default"
+window-inherit-font-size = true
+window-theme = dark
