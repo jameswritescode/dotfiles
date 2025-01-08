@@ -8,15 +8,20 @@ return {
       'brewfile',
       'config.ru',
       'erb',
-      'gemfile$',
       'gemspec',
       'rake',
       'rakefile',
       'rb',
+
+      -- One or both of these have issues on different computers.
+      'gemfile$',
+      'gemfile',
     }
 
     for _, n in pairs(ruby_types) do
-      icons[n].color = '#cc342d'
+      if icons[n] then
+        icons[n].color = '#cc342d'
+      end
     end
 
     devicons.setup()
