@@ -1,8 +1,12 @@
+bold-is-bright = true
 copy-on-select = true
 cursor-style-blink = false
 font-family = "JetBrainsMono Nerd Font Propo"
 font-size = 14
 macos-titlebar-style = tabs
+macos-window-shadow = false
+mouse-hide-while-typing = true
+quit-after-last-window-closed = true
 shell-integration-features = no-cursor
 theme = "ITerm2 Default"
 window-inherit-font-size = true
