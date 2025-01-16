@@ -10,4 +10,5 @@ quit-after-last-window-closed = true
 shell-integration-features = no-cursor
 theme = "ITerm2 Default"
 window-inherit-font-size = true
+window-padding-color = extend
 window-theme = dark
