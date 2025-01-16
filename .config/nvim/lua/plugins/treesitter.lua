@@ -11,37 +11,14 @@ return {
     event = { 'BufReadPost', 'BufNewFile' },
     config = function()
       require('nvim-treesitter.configs').setup({
+        auto_install = true,
+
         autotag = {
           enable = true,
         },
 
         endwise = {
           enable = false,
-        },
-
-        ensure_installed = {
-          'bash',
-          'comment',
-          'css',
-          'go',
-          'graphql',
-          'html',
-          'http',
-          'java',
-          'javascript',
-          'json',
-          'kotlin',
-          'lua',
-          'markdown',
-          'markdown_inline',
-          'php',
-          'query',
-          'ruby',
-          'rust',
-          'toml',
-          'tsx',
-          'typescript',
-          'vimdoc',
         },
 
         -- hidesig = {
@@ -80,6 +57,12 @@ return {
             },
           },
         },
+
+        -- Defaults
+        ensure_installed = {},
+        ignore_install = {},
+        modules = {},
+        sync_install = false,
       })
     end,
   },
