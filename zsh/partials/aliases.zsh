@@ -78,6 +78,8 @@ alias jo="jira browse"
 
 # k8s
 alias k="kubectl"
+alias kp="kubectl get pods"
+alias ks="kubectl scale"
 
 # kitty
 if ! [[ -z $KITTY_WINDOW_ID ]]; then
