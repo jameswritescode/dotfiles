@@ -6,7 +6,6 @@ return {
       'andymass/vim-matchup',
       'jameswritescode/nvim-hidesig',
       'nvim-treesitter/nvim-treesitter-textobjects',
-      'nvim-treesitter/playground',
     },
     build = ':TSUpdate',
     event = { 'BufReadPost', 'BufNewFile' },
@@ -83,11 +82,6 @@ return {
         },
       })
     end,
-  },
-
-  {
-    'nvim-treesitter/playground',
-    cmd = 'TSPlaygroundToggle',
   },
 
   {
