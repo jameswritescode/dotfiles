@@ -1,7 +1,6 @@
 [user]
 	email = hello@jamesnewton.com
 	name = James Newton
-	signingkey = 1DB6B2D6113B1FAD
 [alias]
 	b = branch
 	co = checkout

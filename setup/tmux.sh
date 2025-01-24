@@ -1,22 +1,26 @@
 #!/bin/bash
 
+install_standard() {
+    setup/dotconfig.sh tmux
+    git clone https://github.com/tmux-plugins/tpm "$HOME/.config/tmux/plugins/tpm"
+}
+
 install_macos() {
-  brew install tmux overmind jq
-  ln -s "$DOTFILES/.config/tmux" "$HOME/.config/tmux"
-  git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+    install_standard
+    brew install tmux overmind jq
 }
 
 install_ubuntu() {
-  ln -s "$HOME/dotfiles/.config/tmux" "$HOME/.config/tmux"
-  git clone https://github.com/tmux-plugins/tpm "$HOME/.config/tmux/plugins/tpm"
+    install_standard
+    sudo apt install tmux
 }
 
 case "$1" in
-  install_ubuntu)
-    install_ubuntu
-  ;;
+    install_ubuntu)
+        install_ubuntu
+        ;;
 
-  install_macos)
-    install_macos
-  ;;
+    install_macos)
+        install_macos
+        ;;
 esac
