@@ -19,10 +19,5 @@ return {
     opts = {
       -- model = 'claude-3.5-sonnet',
     },
-    config = function(_plugin, opts)
-      if require('plugins.copilot.helpers').copilot_signed_in() then
-        require('CopilotChat').setup(opts)
-      end
-    end,
   },
 }

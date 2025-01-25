@@ -3,7 +3,6 @@ local fzf = require('fzf-lua')
 local gitsigns = require('gitsigns')
 local harpoon = require('harpoon')
 
-local copilot_helpers = require('plugins.copilot.helpers')
 local fzf_helpers = require('plugins.fzf-lua.helpers')
 local repl = require('repl')
 local run_file = require('run_file')
@@ -87,20 +86,18 @@ nmap('<leader>tr', run_file.run, 'run')
 vmap('<leader>s', ':sort<cr>', 'sort')
 
 --- copilot
-if copilot_helpers.copilot_signed_in() then
-  local copilot_chat_actions = require('CopilotChat.actions')
-  local copilot_chat_fzf = require('CopilotChat.integrations.fzflua')
+local copilot_chat_actions = require('CopilotChat.actions')
+local copilot_chat_fzf = require('CopilotChat.integrations.fzflua')
 
-  nmap('<leader>ai', '<cmd>CopilotChatToggle<cr>', 'copilot-chat-toggle')
+nmap('<leader>ai', '<cmd>CopilotChatToggle<cr>', 'copilot-chat-toggle')
 
-  map({ 'n', 'v' }, '<leader>ah', function()
-    copilot_chat_fzf.pick(copilot_chat_actions.help_actions())
-  end, 'copilot-chat-help')
+map({ 'n', 'v' }, '<leader>ah', function()
+  copilot_chat_fzf.pick(copilot_chat_actions.help_actions())
+end, 'copilot-chat-help')
 
-  map({ 'n', 'v' }, '<leader>ap', function()
-    copilot_chat_fzf.pick(copilot_chat_actions.prompt_actions())
-  end, 'copilot-chat-prompts')
-end
+map({ 'n', 'v' }, '<leader>ap', function()
+  copilot_chat_fzf.pick(copilot_chat_actions.prompt_actions())
+end, 'copilot-chat-prompts')
 
 --- dap
 nmap('<leader>db', dap.toggle_breakpoint, 'toggle-breakpoint')
