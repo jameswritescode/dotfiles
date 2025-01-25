@@ -1,7 +1,7 @@
 #!/bin/bash
 
 install_standard() {
-    setup/dotconfig.sh tmux
+    setup/dotconfig.sh link tmux
     git clone https://github.com/tmux-plugins/tpm "$HOME/.config/tmux/plugins/tpm"
 }
 

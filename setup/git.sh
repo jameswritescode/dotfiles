@@ -2,7 +2,7 @@
 
 set -x
 
-setup/dotconfig.sh git
+setup/dotconfig.sh link git
 
 CUSTOMFILE="$HOME/.gitconfig_custom"
 

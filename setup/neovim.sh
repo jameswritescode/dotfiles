@@ -3,7 +3,7 @@
 set -x
 
 install_standard() {
-    setup/dotconfig.sh nvim
+    setup/dotconfig.sh link nvim
     rustup toolchain install nightly
 }
 

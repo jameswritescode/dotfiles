@@ -1,11 +1,9 @@
 #!/bin/bash
-# shellcheck disable=SC1090
 
-curl https://sh.rustup.rs -sSf | sh -s -- --no-modify-path
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-source "$HOME/.cargo/env"
-
+rustup toolchain add stable
 rustup toolchain add nightly
-rustup component add rust-src rls-preview rust-analysis rustfmt-preview clippy-preview
 
-echo "export PATH=\"$HOME/.cargo/bin:\$PATH\"" >> "$HOME/.zsh_custom"
+# shellcheck disable=SC2016
+echo 'export PATH="$HOME/.cargo/bin:$PATH' >> "$HOME/.zsh_custom"
