@@ -50,14 +50,6 @@ gcm() {
     fi
 }
 
-gsv() {
-    vim $(git status -s | awk '{print $NF}' | fzf --height=25)
-}
-
-gpo() {
-    git push -u origin "$(__git_branch)"
-}
-
 gro() {
     git fetch origin "$1"
     git rebase "origin/$1"
@@ -79,12 +71,20 @@ ls() {
     fi
 }
 
-mkd() {
-    eval $(minikube docker-env -u)
-}
+v() {
+    local files
+    files=("${(f)$(fzf --height=25 -m --bind ctrl-a:select-all,ctrl-d:deselect-all)}")
 
-mku() {
-    eval $(minikube docker-env)
+    if [ "${#files}" -gt 1 ]; then
+        local tmpname
+        tmpname="$(mktemp)"
+
+        echo "${(F)files}" | sed 's/\(.*\)/\1:1:1/' > "$tmpname"
+
+        vim -q "$tmpname" +copen
+    else
+        vim "${files[@]}"
+    fi
 }
 
 vc() {

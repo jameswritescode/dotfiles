@@ -11,7 +11,6 @@ alias psa="ps aux"
 alias rl="source ~/.zshrc"
 alias ss='open -a ScreenSaverEngine'
 alias tf="terraform"
-alias v='vim $(fzf --height=25)'
 
 # cargo
 alias cb="cargo build"
@@ -78,14 +77,9 @@ alias jo="jira browse"
 
 # k8s
 alias k="kubectl"
-alias kp="kubectl get pods"
+alias kgn="kubectl get ns"
+alias kgp="kubectl get pods"
 alias ks="kubectl scale"
-
-# kitty
-if ! [[ -z $KITTY_WINDOW_ID ]]; then
-    alias icat="kitty +kitten icat"
-    alias ssh="kitty +kitten ssh"
-fi
 
 # ruby
 alias be="bundle exec"
