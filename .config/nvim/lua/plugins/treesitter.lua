@@ -44,11 +44,11 @@ return {
           'vimdoc',
         },
 
-        hidesig = {
-          enable = true,
-          delay = 200,
-          opacity = 0.75,
-        },
+        -- hidesig = {
+        --   enable = true,
+        --   delay = 200,
+        --   opacity = 0.75,
+        -- },
 
         highlight = {
           enable = true,

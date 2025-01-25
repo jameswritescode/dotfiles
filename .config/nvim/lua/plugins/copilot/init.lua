@@ -17,7 +17,7 @@ return {
     },
     event = 'VeryLazy',
     opts = {
-      model = 'claude-3.5-sonnet',
+      -- model = 'claude-3.5-sonnet',
     },
     config = function(_plugin, opts)
       if require('plugins.copilot.helpers').copilot_signed_in() then
