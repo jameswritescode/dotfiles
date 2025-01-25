@@ -8,6 +8,7 @@ install_shell_integration() {
 
 case "$1" in
     install_macos)
+        brew install fd
         brew install fzf --HEAD
         install_shell_integration
         ;;

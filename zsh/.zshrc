@@ -14,4 +14,3 @@ source "$HOME/.zsh_custom" 2>/dev/null
 source "$DOTFILES/zsh/partials/exports.zsh"
 source "$DOTFILES/zsh/partials/aliases.zsh"
 source "$DOTFILES/zsh/partials/functions.zsh"
-source "$DOTFILES/zsh/partials/tools.zsh"
