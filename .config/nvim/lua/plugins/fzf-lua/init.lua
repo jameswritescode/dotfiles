@@ -7,6 +7,11 @@ return {
   opts = {
     'telescope',
     file_ignore_patterns = { '%.rbi' },
+    winopts = {
+      on_create = function()
+        vim.keymap.set('t', '<c-j>', '<down>', { silent = true, buffer = true })
+      end,
+    },
   },
   config = function(_plugin, opts)
     local fzf = require('fzf-lua')
