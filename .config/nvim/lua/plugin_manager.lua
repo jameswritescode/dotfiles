@@ -1,6 +1,8 @@
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 local loop = vim.uv or vim.loop
 
+vim.cmd.packadd('cfilter')
+
 if not loop.fs_stat(lazypath) then
   vim.fn.system({
     'git',
