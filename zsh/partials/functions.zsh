@@ -131,37 +131,51 @@ if [[ -n $ZSH ]]; then
 fi
 
 # Set language versions as ENV variables on chpwd
-__set_versions() {
+__chpwd_set_prompt_variables() {
+    local node_version ruby_version python_version go_version haskell_version rust_version
+
     if __file_exists 'package.json' || __file_exists '.nvmrc'; then
-        local node_version=$(node -v)
+        node_version="$(node -v)"
     fi
 
     if __file_exists 'Gemfile' || __file_exists '.ruby-version'; then
-        local ruby_version=$(ruby --version | awk '{print $2}')
+        ruby_version="$(ruby --version | awk '{print $2}')"
     fi
 
     if [[ -n $VIRTUAL_ENV ]] || __file_exists 'requirements.txt'; then
-        local python_version=$(python --version | awk '{print $2}')
+        python_version="$(python --version | awk '{print $2}')"
     fi
 
     if __file_exists 'go.mod'; then
-        local go_version=$(go version | awk '{print $3}')
+        go_version="$(go version | awk '{print $3}')"
     fi
 
     if __file_exists 'Setup.hs'; then
-        local haskell_version=$(ghc --version | awk '{print $NF}')
+        haskell_version="$(ghc --version | awk '{print $NF}')"
     fi
 
     if __file_exists 'Cargo.toml'; then
-        local rust_version=$(rustc --version | awk '{print $2}')
+        rust_version="$(rustc --version | awk '{print $2}')"
     fi
 
-    export PROMPT_GO_VERSION=$go_version
-    export PROMPT_HASKELL_VERSION=$haskell_version
-    export PROMPT_NODE_VERSION=$node_version
-    export PROMPT_PYTHON_VERSION=$python_version
-    export PROMPT_RUBY_VERSION=$ruby_version
-    export PROMPT_RUST_VERSION=$rust_version
+    export PROMPT_GO_VERSION="$go_version"
+    export PROMPT_HASKELL_VERSION="$haskell_version"
+    export PROMPT_NODE_VERSION="$node_version"
+    export PROMPT_PYTHON_VERSION="$python_version"
+    export PROMPT_RUBY_VERSION="$ruby_version"
+    export PROMPT_RUST_VERSION="$rust_version"
 }
 
-chpwd_functions+=(__set_versions)
+chpwd_functions+=(__chpwd_set_prompt_variables)
+
+__precmd_set_prompt_variables() {
+    local k8s_context
+
+    if [[ -n "$KUBECONFIG" ]]; then
+        k8s_context="$(kubectl config current-context)"
+    fi
+
+    export PROMPT_K8S_CONTEXT="$k8s_context"
+}
+
+add-zsh-hook precmd __precmd_set_prompt_variables

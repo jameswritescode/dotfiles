@@ -84,17 +84,17 @@ bureau_git_prompt () {
 
 _node_theme_prompt () {
     [[ -n "$PROMPT_NODE_VERSION" ]] &&
-    echo "‹%{$fg_bold[green]%}node-$PROMPT_NODE_VERSION%{$reset_color%}› "
+    echo "‹%{$fg_bold[green]%}node:$PROMPT_NODE_VERSION%{$reset_color%}› "
 }
 
 _ruby_theme_prompt () {
     [[ -n "$PROMPT_RUBY_VERSION" ]] &&
-    echo "‹%{$fg_bold[red]%}ruby-$PROMPT_RUBY_VERSION%{$reset_color%}› "
+    echo "‹%{$fg_bold[red]%}ruby:$PROMPT_RUBY_VERSION%{$reset_color%}› "
 }
 
 _python_theme_prompt () {
     [[ -n "$PROMPT_PYTHON_VERSION" ]] &&
-    echo "‹%{$fg_bold[yellow]%}python-$PROMPT_PYTHON_VERSION%{$reset_color%}› "
+    echo "‹%{$fg_bold[yellow]%}python:$PROMPT_PYTHON_VERSION%{$reset_color%}› "
 }
 
 _go_theme_prompt() {
@@ -104,12 +104,12 @@ _go_theme_prompt() {
 
 _haskell_theme_prompt() {
     [[ -n "$PROMPT_HASKELL_VERSION" ]] &&
-    echo "‹%{$fg_bold[magenta]%}ghc-$PROMPT_HASKELL_VERSION%{$reset_color%}› "
+    echo "‹%{$fg_bold[magenta]%}ghc:$PROMPT_HASKELL_VERSION%{$reset_color%}› "
 }
 
 _rust_theme_prompt() {
     [[ -n "$PROMPT_RUST_VERSION" ]] &&
-    echo "‹%B%F{#dea584}rust-$PROMPT_RUST_VERSION%{$reset_color%}› "
+    echo "‹%B%F{#dea584}rust:$PROMPT_RUST_VERSION%{$reset_color%}› "
 }
 
 _jobs_theme_prompt () {
@@ -118,6 +118,11 @@ _jobs_theme_prompt () {
     if [[ $running_jobs -gt 0 ]]; then
         echo "‹%{$fg_bold[blue]%}jobs:$running_jobs%{$reset_color%}› "
     fi
+}
+
+_k8s_theme_prompt () {
+    [[ -n "$PROMPT_K8S_CONTEXT" ]] &&
+    echo "‹%B%F{#326ce5}k8s:$PROMPT_K8S_CONTEXT%{$reset_color%}› "
 }
 
 _PATH="%{$fg_bold[white]%}%2c%{$reset_color%}"
@@ -153,7 +158,26 @@ get_space () {
 
 bureau_precmd () {
     _1LEFT="┌‹$_USERNAME› ‹$_PATH›"
-    _1RIGHT="$(_jobs_theme_prompt)$(_go_theme_prompt)$(_python_theme_prompt)$(_node_theme_prompt)$(_ruby_theme_prompt)$(_haskell_theme_prompt)$(_rust_theme_prompt)‹%{$fg_bold[white]%}%*%{$reset_color%}›┐ "
+
+    local prompt_functions=(
+        _jobs_theme_prompt
+        _go_theme_prompt
+        _python_theme_prompt
+        _node_theme_prompt
+        _ruby_theme_prompt
+        _haskell_theme_prompt
+        _rust_theme_prompt
+        _k8s_theme_prompt
+    )
+
+    local _1RIGHT=""
+
+    for func in "${prompt_functions[@]}"; do
+        _1RIGHT+="$($func)"
+    done
+
+    _1RIGHT+="‹%{$fg_bold[white]%}%*%{$reset_color%}›┐ "
+
     _1SPACES=$(get_space $_1LEFT $_1RIGHT)
     print
     print -rP "$_1LEFT$_1SPACES$_1RIGHT"
