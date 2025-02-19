@@ -27,11 +27,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>lgy', fzf.lsp_typedefs, map_opts)
 
     vim.keymap.set('n', '<leader>lgd', function()
-      fzf.lsp_definitions({ jump_to_single_result = true })
+      fzf.lsp_definitions({ jump1 = true })
     end, map_opts)
 
     vim.keymap.set('n', '<leader>lgr', function()
-      fzf.lsp_references({ jump_to_single_result = true })
+      fzf.lsp_references({ jump1 = true })
     end, map_opts)
 
     vim.api.nvim_create_autocmd('CursorHold', {
