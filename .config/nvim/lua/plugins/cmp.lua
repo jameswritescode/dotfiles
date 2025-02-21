@@ -20,6 +20,9 @@ return {
         border = 'rounded',
       },
     },
+    cmdline = {
+      enabled = false,
+    },
     keymap = {
       ['<CR>'] = { 'accept', 'fallback' },
 
@@ -37,7 +40,6 @@ return {
     },
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
-      cmdline = {},
 
       providers = {
         copilot = {
