@@ -15,84 +15,99 @@ bureau_git_command() {
     GIT_OPTIONAL_LOCKS=0 command git "$@"
 }
 
-bureau_git_branch () {
+bureau_git_branch() {
+    local ref
+
     ref=$(bureau_git_command symbolic-ref HEAD 2> /dev/null) || \
         ref=$(bureau_git_command rev-parse --short HEAD 2> /dev/null) || return
+
     echo "${ref#refs/heads/}"
 }
 
-bureau_git_status () {
+bureau_git_status() {
     if [[ "$(bureau_git_command config --get zsh.hide-status 2>/dev/null)" -eq 1 ]]; then
         echo ""
         return
     fi
 
-    _STATUS=""
+    local index git_status
 
     # check status of files
-    _INDEX=$(bureau_git_command status --porcelain 2> /dev/null)
-    if [[ -n "$_INDEX" ]]; then
-        if $(echo "$_INDEX" | command grep -q '^[AMRD]. '); then
-            _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_STAGED"
+    index=$(bureau_git_command status --porcelain 2> /dev/null)
+
+    if [[ -n "$index" ]]; then
+        if $(echo "$index" | command grep -q '^[AMRD]. '); then
+            git_status="$git_status$ZSH_THEME_GIT_PROMPT_STAGED"
         fi
-        if $(echo "$_INDEX" | command grep -q '^.[MTD] '); then
-            _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNSTAGED"
+
+        if $(echo "$index" | command grep -q '^.[MTD] '); then
+            git_status="$git_status$ZSH_THEME_GIT_PROMPT_UNSTAGED"
         fi
-        if $(echo "$_INDEX" | command grep -q -E '^\?\? '); then
-            _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNTRACKED"
+
+        if $(echo "$index" | command grep -q -E '^\?\? '); then
+            git_status="$git_status$ZSH_THEME_GIT_PROMPT_UNTRACKED"
         fi
-        if $(echo "$_INDEX" | command grep -q '^UU '); then
-            _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNMERGED"
+
+        if $(echo "$index" | command grep -q '^UU '); then
+            git_status="$git_status$ZSH_THEME_GIT_PROMPT_UNMERGED"
         fi
     else
-        # _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_CLEAN"
-        _STATUS="$_STATUS"
+        # git_status="$git_status$ZSH_THEME_GIT_PROMPT_CLEAN"
+        git_status="$git_status"
     fi
 
     # check status of local repository
-    _INDEX=$(bureau_git_command status --porcelain -b 2> /dev/null)
-    if $(echo "$_INDEX" | command grep -q '^## .*ahead'); then
-        _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_AHEAD"
+    index=$(bureau_git_command status --porcelain -b 2> /dev/null)
+
+    if $(echo "$index" | command grep -q '^## .*ahead'); then
+        git_status="$git_status$ZSH_THEME_GIT_PROMPT_AHEAD"
     fi
-    if $(echo "$_INDEX" | command grep -q '^## .*behind'); then
-        _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_BEHIND"
+
+    if $(echo "$index" | command grep -q '^## .*behind'); then
+        git_status="$git_status$ZSH_THEME_GIT_PROMPT_BEHIND"
     fi
-    if $(echo "$_INDEX" | command grep -q '^## .*diverged'); then
-        _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_DIVERGED"
+
+    if $(echo "$index" | command grep -q '^## .*diverged'); then
+        git_status="$git_status$ZSH_THEME_GIT_PROMPT_DIVERGED"
     fi
 
     if $(command git rev-parse --verify refs/stash &> /dev/null); then
-        _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_STASHED"
+        git_status="$git_status$ZSH_THEME_GIT_PROMPT_STASHED"
     fi
 
-    echo $_STATUS
+    echo "$git_status"
 }
 
-bureau_git_prompt () {
-    local _branch=$(bureau_git_branch)
-    local _status=$(bureau_git_status)
-    local _result=""
-    if [[ "${_branch}x" != "x" ]]; then
-        _result="$ZSH_THEME_GIT_PROMPT_PREFIX$_branch"
-        if [[ "${_status}x" != "x" ]]; then
-            _result="$_result $_status"
+bureau_git_prompt() {
+    local branch git_status result
+
+    branch="$(bureau_git_branch)"
+    git_status="$(bureau_git_status)"
+
+    if [[ "${branch}x" != "x" ]]; then
+        result="$ZSH_THEME_GIT_PROMPT_PREFIX$branch"
+
+        if [[ "${git_status}x" != "x" ]]; then
+            result="$result $git_status"
         fi
-        _result="$_result$ZSH_THEME_GIT_PROMPT_SUFFIX"
+
+        result="$result$ZSH_THEME_GIT_PROMPT_SUFFIX"
     fi
-    echo $_result
+
+    echo "$result"
 }
 
-_node_theme_prompt () {
+_node_theme_prompt() {
     [[ -n "$PROMPT_NODE_VERSION" ]] &&
     echo "‹%{$fg_bold[green]%}node:$PROMPT_NODE_VERSION%{$reset_color%}› "
 }
 
-_ruby_theme_prompt () {
+_ruby_theme_prompt() {
     [[ -n "$PROMPT_RUBY_VERSION" ]] &&
     echo "‹%{$fg_bold[red]%}ruby:$PROMPT_RUBY_VERSION%{$reset_color%}› "
 }
 
-_python_theme_prompt () {
+_python_theme_prompt() {
     [[ -n "$PROMPT_PYTHON_VERSION" ]] &&
     echo "‹%{$fg_bold[yellow]%}python:$PROMPT_PYTHON_VERSION%{$reset_color%}› "
 }
@@ -112,15 +127,16 @@ _rust_theme_prompt() {
     echo "‹%B%F{#dea584}rust:$PROMPT_RUST_VERSION%{$reset_color%}› "
 }
 
-_jobs_theme_prompt () {
-    local running_jobs="$(jobs -l | wc -l | sed 's/ //g')"
+_jobs_theme_prompt() {
+    local running_jobs
+    running_jobs="$(jobs -l | wc -l | sed 's/ //g')"
 
     if [[ $running_jobs -gt 0 ]]; then
         echo "‹%{$fg_bold[blue]%}jobs:$running_jobs%{$reset_color%}› "
     fi
 }
 
-_k8s_theme_prompt () {
+_k8s_theme_prompt() {
     [[ -n "$PROMPT_K8S_CONTEXT" ]] &&
     echo "‹%B%F{#326ce5}k8s:$PROMPT_K8S_CONTEXT%{$reset_color%}› "
 }
@@ -141,23 +157,22 @@ _USERNAME="$_USERNAME%{$reset_color%}@%m"
 _LIBERTY="$_LIBERTY%{$reset_color%}"
 
 
-get_space () {
-    local STR=$1$2
-    local zero='%([BSUbfksu]|([FB]|){*})'
-    local LENGTH=${#${(S%%)STR//$~zero/}}
-    local SPACES=""
-    (( LENGTH = ${COLUMNS} - $LENGTH - 1))
+get_space() {
+    local str zero length
 
-    for i in {0..$LENGTH}
-    do
-        SPACES="$SPACES "
-    done
+    str="$1$2"
+    zero='%([BSUbfksu]|([FB]|){*})'
 
-    echo $SPACES
+    length="${#${(S%%)str//$~zero/}}"
+    length="$((COLUMNS - length))"
+
+    printf '%*s' "$length"
 }
 
-bureau_precmd () {
-    _1LEFT="┌‹$_USERNAME› ‹$_PATH›"
+bureau_precmd() {
+    local left right spaces
+
+    left="┌‹$_USERNAME› ‹$_PATH›"
 
     local prompt_functions=(
         _jobs_theme_prompt
@@ -170,17 +185,16 @@ bureau_precmd () {
         _k8s_theme_prompt
     )
 
-    local _1RIGHT=""
-
     for func in "${prompt_functions[@]}"; do
-        _1RIGHT+="$($func)"
+        right+="$($func)"
     done
 
-    _1RIGHT+="‹%{$fg_bold[white]%}%*%{$reset_color%}›┐ "
+    right+="‹%{$fg_bold[white]%}%*%{$reset_color%}›┐ "
 
-    _1SPACES=$(get_space $_1LEFT $_1RIGHT)
+    spaces="$(get_space $left $right)"
+
     print
-    print -rP "$_1LEFT$_1SPACES$_1RIGHT"
+    print -rP "$left$spaces$right"
 }
 
 setopt prompt_subst
