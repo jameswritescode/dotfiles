@@ -9,8 +9,5 @@ export HISTCONTROL="ignoreboth:erasedups"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# asdf
-export NODEJS_CHECK_SIGNATURES="no"
-
 # fzf
 export FZF_DEFAULT_COMMAND='fd -t f -H -E .git'

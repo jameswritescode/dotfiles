@@ -4,9 +4,7 @@ set -x
 
 case "$1" in
   install_macos)
-    source "$HOME/dotfiles/setup/helpers/asdf.sh"
-
-    asdf_install nodejs
+    mise use --global node
   ;;
 
   install_ubuntu)

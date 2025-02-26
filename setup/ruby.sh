@@ -1,11 +1,8 @@
 #!/bin/bash
 
-source "$HOME/dotfiles/setup/helpers/asdf.sh"
+mise use --global ruby
 
-ln -s "$HOME/dotfiles/.gemrc" "$HOME/.gemrc"
-
-asdf_install ruby
-
+gem install gem-ctags
 gem ctags
 
 if  [[ "$OSTYPE" == "darwin"* ]]; then
