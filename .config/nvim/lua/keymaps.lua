@@ -89,7 +89,12 @@ vmap('<leader>s', ':sort<cr>', 'sort')
 local copilot_chat_actions = require('CopilotChat.actions')
 local copilot_chat_fzf = require('CopilotChat.integrations.fzflua')
 
-nmap('<leader>ai', '<cmd>CopilotChatToggle<cr>', 'copilot-chat-toggle')
+map(
+  { 'n', 'v' },
+  '<leader>ai',
+  '<cmd>CopilotChatToggle<cr>',
+  'copilot-chat-toggle'
+)
 
 map({ 'n', 'v' }, '<leader>ah', function()
   copilot_chat_fzf.pick(copilot_chat_actions.help_actions())

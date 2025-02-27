@@ -8,6 +8,9 @@ return {
     'rafamadriz/friendly-snippets',
   },
   opts = {
+    enabled = function()
+      return vim.bo.filetype ~= 'copilot-chat'
+    end,
     completion = {
       documentation = {
         auto_show = true,
