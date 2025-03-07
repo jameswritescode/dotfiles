@@ -28,8 +28,7 @@ local function strategy(cmd)
 
   vim.b.vim_test_status = { status = 'running' }
 
-  vim.fn.jobstart(cmd, {
-    term = true,
+  vim.fn.termopen(cmd, {
     on_exit = function(_jid, exit_code)
       vim.api.nvim_buf_set_var(
         bufnr,
