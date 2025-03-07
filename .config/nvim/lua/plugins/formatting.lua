@@ -34,6 +34,7 @@ return {
         bash = { 'shellcheck' },
         eruby = { 'erb_lint' },
         lua = { 'selene' },
+        proto = { 'buf_lint' },
         sh = { 'shellcheck' },
         terraform = { 'tflint', 'tfsec' },
         zsh = { 'zsh' },
