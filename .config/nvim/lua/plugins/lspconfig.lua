@@ -37,6 +37,16 @@ return {
       sorbet = {
         root_dir = lspconfig.util.root_pattern('sorbet'),
       },
+
+      kotlin_language_server = {
+        settings = {
+          kotlin = {
+            formatting = {
+              formatter = 'none',
+            },
+          },
+        },
+      },
     }
 
     local mason_server_configs = {
