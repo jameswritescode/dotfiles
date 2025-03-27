@@ -46,16 +46,12 @@ vim.g.netrw_localrmdir = 'rm -r'
 
 vim.diagnostic.config({
   severity_sort = true,
-  virtual_text = false,
 
-  float = {
-    border = 'rounded',
-    scope = 'cursor',
-    source = true,
-    focusable = false,
+  virtual_lines = {
+    current_line = true,
 
     format = function(d)
-      return string.format('[%s] %s', d.code, d.message)
+      return string.format('%s [%s]', d.message, d.code)
     end,
   },
 
