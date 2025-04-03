@@ -46,6 +46,7 @@ vim.g.netrw_localrmdir = 'rm -r'
 
 vim.diagnostic.config({
   severity_sort = true,
+  update_in_insert = false,
 
   virtual_lines = {
     current_line = true,
