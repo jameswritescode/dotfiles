@@ -1,5 +1,6 @@
 local fzf = require('fzf-lua')
 
+local diagnostics = require('diagnostics')
 local status = require('lsp.status')
 
 status.register_autocmds()
@@ -25,5 +26,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>lgr', function()
       fzf.lsp_references({ jump1 = true })
     end, map_opts)
+
+    vim.api.nvim_create_autocmd('CursorHold', {
+      buffer = event.buf,
+      callback = diagnostics.enable_virtual_lines,
+    })
+
+    vim.api.nvim_create_autocmd('CursorMoved', {
+      buffer = event.buf,
+      callback = diagnostics.disable_virtual_lines,
+    })
   end,
 })

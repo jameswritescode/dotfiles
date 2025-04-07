@@ -1,6 +1,7 @@
 vim.g.mapleader = ' '
 
 vim.o.autowrite = true
+vim.o.breakindent = true
 vim.o.cmdheight = 1
 vim.o.colorcolumn = '+1'
 vim.o.completeopt = 'menu,menuone,noselect'
@@ -12,6 +13,7 @@ vim.o.foldenable = false
 vim.o.gdefault = true
 vim.o.inccommand = 'split'
 vim.o.laststatus = 3
+vim.o.linebreak = true
 vim.o.number = true
 vim.o.showmode = false
 vim.o.signcolumn = 'auto:1-2'
@@ -43,25 +45,3 @@ vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 
 vim.g.netrw_localrmdir = 'rm -r'
-
-vim.diagnostic.config({
-  severity_sort = true,
-  update_in_insert = false,
-
-  virtual_lines = {
-    current_line = true,
-
-    format = function(d)
-      return string.format('%s [%s]', d.message, d.code)
-    end,
-  },
-
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = '',
-      [vim.diagnostic.severity.WARN] = '',
-      [vim.diagnostic.severity.INFO] = '󰋼',
-      [vim.diagnostic.severity.HINT] = '',
-    },
-  },
-})

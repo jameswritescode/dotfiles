@@ -1,5 +1,6 @@
 require('compatibility')
 require('options')
+require('diagnostics').init()
 require('betterment')
 require('plugin_manager')
 require('keymaps')

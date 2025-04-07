@@ -20,11 +20,11 @@ compatibility_override('0.13', 'vim.diagnostic.goto_* overrides', function()
 
   ---@diagnostic disable-next-line: duplicate-set-field
   vim.diagnostic.goto_next = function()
-    vim.diagnostic.jump({ count = 1, float = true })
+    vim.diagnostic.jump({ count = 1 })
   end
 
   ---@diagnostic disable-next-line: duplicate-set-field
   vim.diagnostic.goto_prev = function()
-    vim.diagnostic.jump({ count = -1, float = true })
+    vim.diagnostic.jump({ count = -1 })
   end
 end)
