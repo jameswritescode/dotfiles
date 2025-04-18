@@ -85,9 +85,8 @@ nmap('<leader>tn', ':TestNearest<cr>', 'test-near')
 nmap('<leader>tr', run_file.run, 'run')
 vmap('<leader>s', ':sort<cr>', 'sort')
 
---- copilot
-local copilot_chat_actions = require('CopilotChat.actions')
-local copilot_chat_fzf = require('CopilotChat.integrations.fzflua')
+--- ai
+nmap('<leader>ac', '<cmd>CodeCompanionChat Toggle<cr>', 'code-companion-chat')
 
 map(
   { 'n', 'v' },
@@ -95,6 +94,9 @@ map(
   '<cmd>CopilotChatToggle<cr>',
   'copilot-chat-toggle'
 )
+
+local copilot_chat_actions = require('CopilotChat.actions')
+local copilot_chat_fzf = require('CopilotChat.integrations.fzflua')
 
 map({ 'n', 'v' }, '<leader>ah', function()
   copilot_chat_fzf.pick(copilot_chat_actions.help_actions())
