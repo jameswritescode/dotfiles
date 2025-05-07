@@ -2,8 +2,14 @@ return {
   'neovim/nvim-lspconfig',
   dependencies = {
     'saghen/blink.cmp',
-    'williamboman/mason-lspconfig.nvim',
     'williamboman/mason.nvim',
+    {
+      'williamboman/mason-lspconfig.nvim',
+      opts = {
+        automatic_enable = false,
+        ensure_installed = {},
+      },
+    },
     {
       'nvim-java/nvim-java',
       cond = vim.env.USE_JAVA ~= nil,
@@ -13,9 +19,7 @@ return {
     },
   },
   config = function()
-    local blink = require('blink.cmp')
     local lspconfig = require('lspconfig')
-    local mlsp = require('mason-lspconfig')
 
     local common = require('lsp.common')
 
@@ -26,8 +30,7 @@ return {
       return original_hover(common.window_opts)
     end
 
-    local capabilities =
-      blink.get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
 
     local defaults = {
       capabilities = capabilities,
@@ -47,9 +50,9 @@ return {
           },
         },
       },
-    }
 
-    local mason_server_configs = {
+      sourcekit = {},
+
       graphql = {
         autostart = false,
       },
@@ -127,31 +130,9 @@ return {
       },
     }
 
-    -- Sometimes LSP's may already be installed on the system, but Mason should
-    -- still be able to install and configure them otherwise.
-    local all_server_configs =
-      vim.tbl_extend('force', server_configs, mason_server_configs)
-
-    mlsp.setup({
-      automatic_installation = false,
-      ensure_installed = {},
-      handlers = {
-        function(server_name)
-          local server_config = all_server_configs[server_name] or {}
-
-          lspconfig[server_name].setup(
-            vim.tbl_extend('force', defaults, server_config)
-          )
-        end,
-      },
-    })
-
-    local mason_installed_servers = mlsp.get_installed_servers()
-
     for server_name, config in pairs(server_configs) do
-      if not vim.list_contains(mason_installed_servers, server_name) then
-        lspconfig[server_name].setup(vim.tbl_extend('force', defaults, config))
-      end
+      vim.lsp.config(server_name, vim.tbl_extend('force', defaults, config))
+      vim.lsp.enable(server_name)
     end
   end,
 }
