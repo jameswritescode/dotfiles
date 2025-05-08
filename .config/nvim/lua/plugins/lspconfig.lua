@@ -2,14 +2,8 @@ return {
   'neovim/nvim-lspconfig',
   dependencies = {
     'saghen/blink.cmp',
+    'williamboman/mason-lspconfig.nvim',
     'williamboman/mason.nvim',
-    {
-      'williamboman/mason-lspconfig.nvim',
-      opts = {
-        automatic_enable = false,
-        ensure_installed = {},
-      },
-    },
     {
       'nvim-java/nvim-java',
       cond = vim.env.USE_JAVA ~= nil,
@@ -19,7 +13,7 @@ return {
     },
   },
   config = function()
-    local lspconfig = require('lspconfig')
+    local mlsp = require('mason-lspconfig')
 
     local common = require('lsp.common')
 
@@ -38,7 +32,7 @@ return {
 
     local server_configs = {
       sorbet = {
-        root_dir = lspconfig.util.root_pattern('sorbet'),
+        root_markers = { 'sorbet' },
       },
 
       kotlin_language_server = {
@@ -129,6 +123,19 @@ return {
         },
       },
     }
+
+    mlsp.setup({
+      automatic_enable = false,
+      ensure_installed = {},
+    })
+
+    local mason_installed_servers = mlsp.get_installed_servers()
+
+    for _, server in pairs(mason_installed_servers) do
+      if not server_configs[server] then
+        server_configs[server] = {}
+      end
+    end
 
     for server_name, config in pairs(server_configs) do
       vim.lsp.config(server_name, vim.tbl_extend('force', defaults, config))
