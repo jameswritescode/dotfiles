@@ -24,6 +24,7 @@ vim.o.timeoutlen = 500
 vim.o.undofile = true
 vim.o.updatetime = 250
 vim.o.visualbell = true
+vim.o.winborder = 'rounded'
 
 vim.opt.diffopt:append('vertical')
 vim.opt.shortmess:append('c')

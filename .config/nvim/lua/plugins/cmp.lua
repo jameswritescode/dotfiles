@@ -19,9 +19,6 @@ return {
         max_items = 10,
         selection = { preselect = false, auto_insert = true },
       },
-      menu = {
-        border = 'rounded',
-      },
     },
     cmdline = {
       enabled = false,
@@ -37,9 +34,6 @@ return {
     },
     signature = {
       enabled = true,
-      window = {
-        border = 'rounded',
-      },
     },
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
@@ -68,9 +62,4 @@ return {
       },
     },
   },
-  config = function(plugin, opts)
-    opts.completion.documentation.window = require('lsp.common').window_opts
-
-    require(plugin.name).setup(opts)
-  end,
 }

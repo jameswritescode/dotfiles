@@ -15,15 +15,6 @@ return {
   config = function()
     local mlsp = require('mason-lspconfig')
 
-    local common = require('lsp.common')
-
-    local original_hover = vim.lsp.buf.hover
-
-    --- @diagnostic disable-next-line: duplicate-set-field
-    vim.lsp.buf.hover = function()
-      return original_hover(common.window_opts)
-    end
-
     local capabilities = vim.lsp.protocol.make_client_capabilities()
 
     local defaults = {
