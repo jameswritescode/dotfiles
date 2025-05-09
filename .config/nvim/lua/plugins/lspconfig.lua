@@ -15,127 +15,35 @@ return {
   config = function()
     local mlsp = require('mason-lspconfig')
 
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    vim.lsp.config('*', {
+      capabilities = vim.lsp.protocol.make_client_capabilities(),
+    })
 
-    local defaults = {
-      capabilities = capabilities,
-      enable = true,
-    }
-
-    -- These do not live in the lsp directory because nvim-lspconfig has higher
-    -- precedence when the configs are merged. These are meant to override
-    -- those configurations.
-    local server_configs = {
-      sorbet = {
-        root_markers = { 'sorbet' },
-      },
-
-      kotlin_language_server = {
-        settings = {
-          kotlin = {
-            formatting = {
-              formatter = 'none',
-            },
-          },
-        },
-      },
-
-      sourcekit = {},
-
-      graphql = {
-        enable = false,
-      },
-
-      lua_ls = {
-        settings = {
-          Lua = {
-            runtime = { version = 'LuaJIT' },
-
-            telemetry = {
-              enable = false,
-            },
-
-            workspace = {
-              checkThirdParty = false,
-
-              library = {
-                '${3rd}/luv/library',
-                unpack(vim.api.nvim_get_runtime_file('', true)),
-              },
-
-              completion = {
-                callSnippet = 'Replace',
-              },
-            },
-          },
-        },
-      },
-
-      tailwindcss = {
-        enable = false,
-      },
-
-      rust_analyzer = {
-        settings = {
-          ['rust-analyzer'] = {
-            checkOnSave = {
-              allFeatures = true,
-              command = 'clippy',
-              extraArgs = { '--no-deps' },
-            },
-          },
-        },
-      },
-
-      yamlls = {
-        on_new_config = function(new_config)
-          new_config.settings.yaml.schemas = vim.tbl_deep_extend(
-            'force',
-            new_config.settings.yaml.schemas or {},
-            require('schemastore').yaml.schemas()
-          )
-        end,
-
-        settings = {
-          redhat = {
-            telemetry = {
-              enabled = false,
-            },
-          },
-
-          yaml = {
-            validate = true,
-
-            format = {
-              enable = true,
-            },
-
-            schemaStore = {
-              enable = false,
-              url = '',
-            },
-          },
-        },
-      },
+    local configured_servers = {
+      'graphql',
+      'kotlin_language_server',
+      'lua_ls',
+      'rust_analyzer',
+      'sorbet',
+      'sourcekit',
+      'tailwindcss',
+      'yamlls',
     }
 
     mlsp.setup({
-      automatic_enable = false,
       ensure_installed = {},
+      automatic_enable = false,
     })
 
-    for _, server in pairs(mlsp.get_installed_servers()) do
-      if not server_configs[server] then
-        server_configs[server] = {}
-      end
-    end
+    local servers =
+      vim.tbl_extend('force', configured_servers, mlsp.get_installed_servers())
 
-    for server_name, config in pairs(server_configs) do
-      config = vim.tbl_extend('force', defaults, config)
-      vim.lsp.config(server_name, config)
+    for _, server in ipairs(servers) do
+      local config =
+        vim.tbl_extend('force', { enable = true }, vim.lsp.config[server])
 
       if config.enable then
-        vim.lsp.enable(server_name)
+        vim.lsp.enable(server)
       end
     end
   end,
