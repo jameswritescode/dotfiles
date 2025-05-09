@@ -19,8 +19,12 @@ return {
 
     local defaults = {
       capabilities = capabilities,
+      enable = true,
     }
 
+    -- These do not live in the lsp directory because nvim-lspconfig has higher
+    -- precedence when the configs are merged. These are meant to override
+    -- those configurations.
     local server_configs = {
       sorbet = {
         root_markers = { 'sorbet' },
@@ -39,7 +43,7 @@ return {
       sourcekit = {},
 
       graphql = {
-        autostart = false,
+        enable = false,
       },
 
       lua_ls = {
@@ -68,7 +72,7 @@ return {
       },
 
       tailwindcss = {
-        autostart = false,
+        enable = false,
       },
 
       rust_analyzer = {
@@ -120,17 +124,19 @@ return {
       ensure_installed = {},
     })
 
-    local mason_installed_servers = mlsp.get_installed_servers()
-
-    for _, server in pairs(mason_installed_servers) do
+    for _, server in pairs(mlsp.get_installed_servers()) do
       if not server_configs[server] then
         server_configs[server] = {}
       end
     end
 
     for server_name, config in pairs(server_configs) do
-      vim.lsp.config(server_name, vim.tbl_extend('force', defaults, config))
-      vim.lsp.enable(server_name)
+      config = vim.tbl_extend('force', defaults, config)
+      vim.lsp.config(server_name, config)
+
+      if config.enable then
+        vim.lsp.enable(server_name)
+      end
     end
   end,
 }
