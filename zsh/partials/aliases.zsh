@@ -4,6 +4,7 @@
 # general
 alias c="clear"
 alias cv="rm ~/.config/nvim/tmp/*"
+alias ll="ls -l"
 alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 alias mux="tmuxinator"
 alias npmsd="npm install --save-dev"

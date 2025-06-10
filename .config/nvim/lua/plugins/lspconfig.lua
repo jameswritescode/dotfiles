@@ -23,6 +23,7 @@ return {
       'graphql',
       'kotlin_language_server',
       'lua_ls',
+      'ruby_lsp',
       'rust_analyzer',
       'sorbet',
       'sourcekit',
@@ -35,10 +36,13 @@ return {
       automatic_enable = false,
     })
 
-    local servers =
-      vim.tbl_extend('force', configured_servers, mlsp.get_installed_servers())
+    for _, server in ipairs(mlsp.get_installed_servers()) do
+      if not vim.tbl_contains(configured_servers, server) then
+        table.insert(configured_servers, server)
+      end
+    end
 
-    for _, server in ipairs(servers) do
+    for _, server in ipairs(configured_servers) do
       local config =
         vim.tbl_extend('force', { enable = true }, vim.lsp.config[server])
 
