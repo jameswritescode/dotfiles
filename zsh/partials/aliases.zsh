@@ -77,6 +77,7 @@ alias jo="jira browse"
 
 # k8s
 alias k="kubectl"
+alias kd="kubectl describe"
 alias kg="kubectl get"
 alias kgd="kubectl get deploy"
 alias kgn="kubectl get ns"
