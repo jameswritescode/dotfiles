@@ -18,6 +18,7 @@ case "$1" in
 
         "$HOME/.fzf/install" --key-bindings --completion --no-update-rc
 
+        echo 'export PATH="$HOME/.fzf/bin:$PATH' >> "$HOME/.zsh_custom"
         install_shell_integration
         ;;
 

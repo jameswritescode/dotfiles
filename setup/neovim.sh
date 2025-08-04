@@ -14,12 +14,6 @@ install_macos() {
 }
 
 install_ubuntu() {
-    if [[ -z $SPIN ]]; then
-        sudo add-apt-repository -y ppa:neovim-ppa/unstable
-        sudo apt-get update
-        sudo apt-get install -y neovim
-    fi
-
     install_standard
 }
 
