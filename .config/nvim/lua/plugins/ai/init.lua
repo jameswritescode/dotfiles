@@ -1,4 +1,4 @@
-local model = 'claude-3.5-sonnet'
+local model = 'claude-sonnet-4'
 
 return {
   {
@@ -13,10 +13,7 @@ return {
 
   {
     'CopilotC-Nvim/CopilotChat.nvim',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'zbirenbaum/copilot.lua',
-    },
+    dependencies = { 'nvim-lua/plenary.nvim' },
     event = 'VeryLazy',
     opts = {
       model = model,

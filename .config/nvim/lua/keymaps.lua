@@ -95,16 +95,12 @@ map(
   'copilot-chat-toggle'
 )
 
-local copilot_chat_actions = require('CopilotChat.actions')
-local copilot_chat_fzf = require('CopilotChat.integrations.fzflua')
-
-map({ 'n', 'v' }, '<leader>ah', function()
-  copilot_chat_fzf.pick(copilot_chat_actions.help_actions())
-end, 'copilot-chat-help')
-
-map({ 'n', 'v' }, '<leader>ap', function()
-  copilot_chat_fzf.pick(copilot_chat_actions.prompt_actions())
-end, 'copilot-chat-prompts')
+map(
+  { 'n', 'v' },
+  '<leader>ap',
+  '<cmd>CopilotChatPrompts<CR>',
+  'copilot-chat-prompts'
+)
 
 --- dap
 nmap('<leader>db', dap.toggle_breakpoint, 'toggle-breakpoint')
