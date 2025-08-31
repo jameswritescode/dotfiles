@@ -33,4 +33,8 @@ case "$1" in
         sudo chsh -s zsh
         install_standard
         ;;
+
+    install_infrastructure)
+        install_standard
+        ;;
 esac
