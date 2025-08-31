@@ -13,6 +13,9 @@ alias rl="source ~/.zshrc"
 alias ss='open -a ScreenSaverEngine'
 alias tf="terraform"
 
+# ansible
+alias ap="ansible-playbook"
+
 # cargo
 alias cb="cargo build"
 alias cr="cargo run"
