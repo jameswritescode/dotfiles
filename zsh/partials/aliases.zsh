@@ -85,6 +85,7 @@ alias kg="kubectl get"
 alias kgd="kubectl get deploy"
 alias kgn="kubectl get ns"
 alias kgp="kubectl get pods"
+alias kl="kubectl logs"
 alias ks="kubectl scale"
 
 # ruby
