@@ -45,28 +45,23 @@ return {
       'nvim-lua/plenary.nvim',
     },
     opts = {
-      adapters = {
-        copilot = function()
-          return require('codecompanion.adapters').extend('copilot', {
-            schema = {
-              model = {
-                default = model,
-              },
-            },
-          })
-        end,
+      extensions = {
+        mcphub = {
+          callback = 'mcphub.extensions.codecompanion',
+          opts = {
+            add_mcp_prefix_to_tool_names = true,
+            make_slash_commands = true,
+            make_tools = true,
+            show_result_in_chat = true,
+            show_server_tools_in_chat = true,
+          },
+        },
       },
 
       strategies = {
         chat = {
-          tools = {
-            mcp = {
-              description = 'Call tools and resources from the MCP Servers',
-              callback = function()
-                return require('mcphub.extensions.codecompanion')
-              end,
-            },
-          },
+          name = 'copilot',
+          model = model,
         },
       },
     },
