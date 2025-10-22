@@ -1,0 +1,6 @@
+[git]
+write-change-id-header = true
+
+[user]
+name = "James Newton"
+email = "hello@jamesnewton.com"
