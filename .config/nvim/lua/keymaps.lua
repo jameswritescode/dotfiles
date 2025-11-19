@@ -127,7 +127,6 @@ local function diff_command(original, custom)
   end
 end
 
---- git
 map({ 'n', 'v' }, '<leader>go', ':GBrowse<cr>', 'open-browser')
 nmap('<leader>gb', ':Git blame<cr>', 'blame')
 nmap('<leader>gc', gitsigns.preview_hunk, 'preview-hunk')
@@ -155,3 +154,7 @@ nmap('<leader>hd', function()
 end, 'harpoon-remove')
 
 nmap('<leader>hl', fzf_helpers.harpoon_list, 'harpoon-list')
+
+-- leap
+map({ 'n', 'x', 'o' }, 's', '<Plug>(leap)', 'leap')
+nmap('S', '<Plug>(leap-from-window)', 'leap-from-window')
