@@ -3,14 +3,11 @@ return {
   event = 'InsertEnter',
   build = 'cargo +nightly build --release',
   dependencies = {
-    'giuxtaposition/blink-cmp-copilot',
+    'folke/sidekick.nvim',
     'onsails/lspkind.nvim',
     'rafamadriz/friendly-snippets',
   },
   opts = {
-    enabled = function()
-      return vim.bo.filetype ~= 'copilot-chat'
-    end,
     completion = {
       documentation = {
         auto_show = true,
@@ -27,7 +24,14 @@ return {
       ['<CR>'] = { 'accept', 'fallback' },
 
       ['<S-Tab>'] = { 'select_prev', 'fallback' },
-      ['<Tab>'] = { 'select_next', 'fallback' },
+      ['<Tab>'] = {
+        'select_next',
+        'snippet_forward',
+        function()
+          return vim.lsp.inline_completion.get()
+        end,
+        'fallback',
+      },
 
       ['<Up>'] = { 'select_prev', 'fallback' },
       ['<Down>'] = { 'select_next', 'fallback' },
@@ -36,7 +40,7 @@ return {
       enabled = true,
     },
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
+      default = { 'lsp', 'path', 'snippets', 'buffer' },
 
       per_filetype = {
         codecompanion = { 'codecompanion' },
@@ -51,13 +55,6 @@ return {
               end, vim.api.nvim_list_bufs())
             end,
           },
-        },
-
-        copilot = {
-          name = 'copilot',
-          module = 'blink-cmp-copilot',
-          score_offset = 100,
-          async = true,
         },
       },
     },

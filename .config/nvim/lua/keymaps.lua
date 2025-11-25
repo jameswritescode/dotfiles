@@ -19,6 +19,10 @@ local function vmap(lhs, rhs, desc)
   map('v', lhs, rhs, desc)
 end
 
+local function xmap(lhs, rhs, desc)
+  map('x', lhs, rhs, desc)
+end
+
 map('i', 'jk', '<esc>')
 map('t', '<esc>', '<c-\\><c-n>')
 nmap('-', '<cmd>Oil<cr>', 'file-drawer')
@@ -86,21 +90,29 @@ nmap('<leader>tr', run_file.run, 'run')
 vmap('<leader>s', ':sort<cr>', 'sort')
 
 --- ai
-nmap('<leader>ac', '<cmd>CodeCompanionChat Toggle<cr>', 'code-companion-chat')
+nmap('<leader>aa', function()
+  require('sidekick').nes_jump_or_apply()
+end, 'suggestion-jump-or-apply')
 
-map(
-  { 'n', 'v' },
-  '<leader>ai',
-  '<cmd>CopilotChatToggle<cr>',
-  'copilot-chat-toggle'
-)
+nmap('<leader>af', function()
+  require('sidekick.cli').send({ msg = '{file}' })
+end, 'send-file')
 
-map(
-  { 'n', 'v' },
-  '<leader>ap',
-  '<cmd>CopilotChatPrompts<CR>',
-  'copilot-chat-prompts'
-)
+nmap('<leader>ai', function()
+  require('sidekick.cli').toggle()
+end, 'toggle-ai-cli')
+
+map({ 'n', 'x' }, '<leader>ap', function()
+  require('sidekick.cli').prompt()
+end, 'select-prompt')
+
+map({ 'n', 'x' }, '<leader>at', function()
+  require('sidekick.cli').send({ msg = '{this}' })
+end, 'send-this')
+
+xmap('<leader>av', function()
+  require('sidekick.cli').send({ msg = '{selection}' })
+end, 'send-selection-to-ai')
 
 --- dap
 nmap('<leader>db', dap.toggle_breakpoint, 'toggle-breakpoint')

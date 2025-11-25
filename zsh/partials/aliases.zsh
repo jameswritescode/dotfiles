@@ -81,7 +81,7 @@ alias jo="jira browse"
 # jj
 alias jc="jj commit"
 alias jd="jj describe"
-alias jdm"jj describe -m"
+alias jdm="jj describe -m"
 alias js="jj status"
 
 # k8s

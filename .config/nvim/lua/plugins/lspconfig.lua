@@ -50,5 +50,7 @@ return {
         vim.lsp.enable(server)
       end
     end
+
+    vim.lsp.inline_completion.enable()
   end,
 }
