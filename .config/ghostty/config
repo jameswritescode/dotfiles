@@ -12,3 +12,4 @@ theme = "ITerm2 Default"
 window-inherit-font-size = true
 window-padding-color = extend
 window-theme = dark
+keybind = shift+enter=text:\x1b\r
