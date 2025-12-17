@@ -6,5 +6,9 @@ return {
 
     vim.g['test#custom_strategies'] = { basic_plus = vim_test.strategy }
     vim.g['test#strategy'] = 'basic_plus'
+
+    if vim.env.MARKOS then
+      vim.g['test#javascript#vitest#executable'] = 'npm run test'
+    end
   end,
 }
