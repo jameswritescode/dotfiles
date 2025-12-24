@@ -10,6 +10,8 @@ return {
 
       formatters_by_ft = {
         bash = { 'beautysh' },
+        css = { 'prettier' },
+        eruby = { 'erb_format' },
         go = { 'gofmt', 'goimports' },
         javascript = { 'prettier' },
         json = { 'jq' },
@@ -20,8 +22,8 @@ return {
         typescript = { 'prettier' },
         typescriptreact = { 'prettier' },
         xml = { 'xmlformat' },
-        zsh = { 'beautysh' },
         yaml = { 'yamlfmt' },
+        zsh = { 'beautysh' },
       },
     },
   },
