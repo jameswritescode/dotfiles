@@ -51,6 +51,7 @@ return {
       end
     end
 
-    vim.lsp.inline_completion.enable()
+    -- I'm not sure I like this yet.
+    -- vim.lsp.inline_completion.enable()
   end,
 }

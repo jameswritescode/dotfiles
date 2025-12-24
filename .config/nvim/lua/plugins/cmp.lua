@@ -3,6 +3,7 @@ return {
   event = 'InsertEnter',
   build = 'cargo +nightly build --release',
   dependencies = {
+    'fang2hou/blink-copilot',
     'folke/sidekick.nvim',
     'onsails/lspkind.nvim',
     'rafamadriz/friendly-snippets',
@@ -21,15 +22,17 @@ return {
       enabled = false,
     },
     keymap = {
+      ['<C-Space>'] = { 'show', 'show_documentation', 'hide_documentation' },
       ['<CR>'] = { 'accept', 'fallback' },
 
-      ['<S-Tab>'] = { 'select_prev', 'fallback' },
+      ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
       ['<Tab>'] = {
         'select_next',
         'snippet_forward',
-        function()
-          return vim.lsp.inline_completion.get()
-        end,
+        -- I'm not sure I like this yet.
+        -- function()
+        --   return vim.lsp.inline_completion.get()
+        -- end,
         'fallback',
       },
 
@@ -40,11 +43,7 @@ return {
       enabled = true,
     },
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
-
-      per_filetype = {
-        codecompanion = { 'codecompanion' },
-      },
+      default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
 
       providers = {
         buffer = {
@@ -55,6 +54,12 @@ return {
               end, vim.api.nvim_list_bufs())
             end,
           },
+        },
+
+        copilot = {
+          async = true,
+          module = 'blink-copilot',
+          name = 'copilot',
         },
       },
     },
