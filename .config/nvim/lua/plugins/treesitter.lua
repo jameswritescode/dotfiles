@@ -1,74 +1,43 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'RRethy/nvim-treesitter-endwise',
-      'andymass/vim-matchup',
-      'jameswritescode/nvim-hidesig',
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    },
     build = ':TSUpdate',
     event = { 'BufReadPost', 'BufNewFile' },
     config = function()
-      require('nvim-treesitter.configs').setup({
-        auto_install = true,
+      local group =
+        vim.api.nvim_create_augroup('TreesitterSetup', { clear = true })
 
-        autotag = {
-          enable = true,
-        },
-
-        endwise = {
-          enable = false,
-        },
-
-        -- hidesig = {
-        --   enable = true,
-        --   delay = 200,
-        --   opacity = 0.75,
-        -- },
-
-        highlight = {
-          enable = true,
-        },
-
-        indent = {
-          enable = true,
-        },
-
-        matchup = {
-          enable = true,
-        },
-
-        textobjects = {
-          select = {
-            enable = true,
-
-            lookahead = true,
-
-            keymaps = {
-              ['ab'] = '@block.outer',
-              ['ib'] = '@block.inner',
-              ['ac'] = '@class.outer',
-              ['ic'] = '@class.inner',
-              ['af'] = '@function.outer',
-              ['if'] = '@function.inner',
-              ['ap'] = '@parameter.outer',
-              ['ip'] = '@parameter.inner',
-            },
-          },
-        },
-
-        -- Defaults
-        ensure_installed = {},
-        ignore_install = {},
-        modules = {},
-        sync_install = false,
+      vim.api.nvim_create_autocmd('FileType', {
+        group = group,
+        callback = function()
+          pcall(vim.treesitter.start)
+        end,
       })
     end,
   },
 
   {
+    'RRethy/nvim-treesitter-endwise',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  },
+
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    opts = {
+      max_lines = 3,
+    },
+  },
+
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    branch = 'main',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  },
+
+  {
     'andymass/vim-matchup',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
       vim.g.matchup_matchparen_deferred = 1
 
