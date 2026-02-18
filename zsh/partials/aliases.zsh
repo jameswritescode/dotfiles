@@ -94,6 +94,11 @@ alias kgp="kubectl get pods"
 alias kl="kubectl logs"
 alias ks="kubectl scale"
 
+# podman
+alias pm="podman"
+alias pmc="podman compose"
+alias pmi="podman images"
+
 # ruby
 alias be="bundle exec"
 alias ber="be rake"
