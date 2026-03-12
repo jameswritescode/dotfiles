@@ -11,6 +11,7 @@ return {
       formatters_by_ft = {
         bash = { 'beautysh' },
         css = { 'prettier' },
+        elixir = { 'mix' },
         eruby = { 'erb_format' },
         go = { 'gofmt', 'goimports' },
         javascript = { 'prettier' },
