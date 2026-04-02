@@ -9,10 +9,6 @@ local function compatibility_override(version, name, fn)
   end
 end
 
-compatibility_override('0.12', 'vim.lsp.get_active_clients', function()
-  vim.lsp.get_active_clients = vim.lsp.get_clients
-end)
-
 compatibility_override('0.13', 'vim.diagnostic.goto_* overrides', function()
   if not vim.diagnostic.jump then
     return

@@ -1,5 +1,6 @@
 require('compatibility')
 require('options')
+require('ui2')
 require('diagnostics').init()
 require('betterment')
 require('plugin_manager')

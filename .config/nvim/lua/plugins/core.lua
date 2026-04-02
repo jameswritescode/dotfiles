@@ -96,6 +96,17 @@ return {
     event = 'InsertEnter',
   },
 
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons',
+    },
+    opts = {
+      completions = { lsp = { enabled = true } },
+    },
+  },
+
   { 'AndrewRadev/switch.vim', event = 'VeryLazy' },
   { 'c-brenn/phoenix.vim', event = 'VeryLazy' },
   { 'christoomey/vim-tmux-navigator', event = 'VeryLazy' },

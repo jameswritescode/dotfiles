@@ -2,7 +2,7 @@ vim.g.mapleader = ' '
 
 vim.o.autowrite = true
 vim.o.breakindent = true
-vim.o.cmdheight = 1
+vim.o.cmdheight = 0
 vim.o.colorcolumn = '+1'
 vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.concealcursor = 'niv'

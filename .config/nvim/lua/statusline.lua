@@ -135,6 +135,16 @@ local function current_mode()
   return string.format('%%#%s#%s%%#Normal#', hl, display)
 end
 
+local function macro_recording()
+  local reg = vim.fn.reg_recording()
+
+  if reg == '' then
+    return ''
+  end
+
+  return string.format('%%#StatuslineModeReplace#recording @%s%%#Normal#', reg)
+end
+
 local spacer = '  '
 
 -- selene: allow(unused_variable)
@@ -151,9 +161,17 @@ function CustomStatusLine()
     '%=',
     diagnostics(),
     spacer,
+    macro_recording(),
+    spacer,
     lsp_buffer_status,
     current_mode(),
   })
 end
+
+vim.api.nvim_create_autocmd({ 'RecordingEnter', 'RecordingLeave' }, {
+  callback = function()
+    vim.cmd('redrawstatus')
+  end,
+})
 
 vim.o.statusline = '%{%v:lua.CustomStatusLine()%}'
