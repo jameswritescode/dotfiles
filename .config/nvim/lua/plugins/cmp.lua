@@ -1,12 +1,14 @@
 return {
   'saghen/blink.cmp',
-  event = 'InsertEnter',
+  branch = 'v1',
   build = 'cargo +nightly build --release',
+  event = 'InsertEnter',
   dependencies = {
     'fang2hou/blink-copilot',
     'folke/sidekick.nvim',
     'onsails/lspkind.nvim',
     'rafamadriz/friendly-snippets',
+    'xzbdmw/colorful-menu.nvim',
   },
   opts = {
     completion = {
@@ -16,6 +18,21 @@ return {
       list = {
         max_items = 10,
         selection = { preselect = false, auto_insert = true },
+      },
+      menu = {
+        draw = {
+          columns = { { 'kind_icon' }, { 'label', gap = 1 } },
+          components = {
+            label = {
+              text = function(ctx)
+                return require('colorful-menu').blink_components_text(ctx)
+              end,
+              highlight = function(ctx)
+                return require('colorful-menu').blink_components_highlight(ctx)
+              end,
+            },
+          },
+        },
       },
     },
     cmdline = {
