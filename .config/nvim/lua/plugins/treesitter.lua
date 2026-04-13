@@ -3,6 +3,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     event = { 'BufReadPost', 'BufNewFile' },
+    branch = 'main',
     config = function()
       local group =
         vim.api.nvim_create_augroup('TreesitterSetup', { clear = true })
