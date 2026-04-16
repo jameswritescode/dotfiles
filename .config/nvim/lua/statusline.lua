@@ -8,9 +8,9 @@ local modes = {
   n = { hl = 'StatuslineModeNormal', name = 'NORMAL' },
   nt = { hl = 'StatuslineModeNormal', name = 'NORMAL' },
 
-  v = { hl = 'StatuslineModeVisual', name = 'VISUAL' },
-  V = { hl = 'StatuslineModeVisual', name = 'VISUAL BLOCK' },
-  [''] = { hl = 'StatuslineModeVisual', name = 'VISUAL BLOCK' },
+  v = { hl = 'StatuslineModeVisual', name = 'VISUAL', visual = true },
+  V = { hl = 'StatuslineModeVisual', name = 'VISUAL BLOCK', visual = true },
+  [''] = { hl = 'StatuslineModeVisual', name = 'VISUAL BLOCK', visual = true },
 
   R = { hl = 'StatuslineModeReplace', name = 'REPLACE' },
   c = { hl = 'StatuslineModeCommand', name = 'COMMAND' },
@@ -135,6 +135,18 @@ local function current_mode()
   return string.format('%%#%s#%s%%#Normal#', hl, display)
 end
 
+local function visual_selection()
+  local mode = modes[vim.api.nvim_get_mode().mode]
+
+  if not mode or not mode.visual then
+    return ''
+  end
+
+  local lines = math.abs(vim.fn.line('.') - vim.fn.line('v')) + 1
+
+  return string.format('%%#StatuslineSubtext#%d lines%%#Normal#', lines)
+end
+
 local function macro_recording()
   local reg = vim.fn.reg_recording()
 
@@ -152,6 +164,9 @@ function CustomStatusLine()
   local lsp_result = lsp()
   local lsp_buffer_status = lsp_result and lsp_result .. spacer or ''
 
+  local visual = visual_selection()
+  local visual_display = visual ~= '' and visual .. spacer or ''
+
   return table.concat({
     filename(),
     spacer,
@@ -164,6 +179,7 @@ function CustomStatusLine()
     macro_recording(),
     spacer,
     lsp_buffer_status,
+    visual_display,
     current_mode(),
   })
 end
