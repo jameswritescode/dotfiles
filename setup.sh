@@ -3,7 +3,7 @@
 set -xeuo pipefail
 
 if [[ "$OSTYPE" = "darwin"* ]]; then
-    scripts=(01_brew zsh rust neovim tmux fzf macos)
+    scripts=(01_brew zsh rust neovim tmux fzf cmux macos)
 
     for script in "${scripts[@]}"; do
         path="setup/$script.sh"
