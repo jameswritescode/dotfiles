@@ -2,6 +2,7 @@
 
 install_macos() {
     brew install --cask cmux
+    defaults write com.cmuxterm.app ApplePressAndHoldEnabled -bool false
     setup/dotconfig.sh link cmux
 }
 
