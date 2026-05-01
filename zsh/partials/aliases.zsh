@@ -103,6 +103,9 @@ alias pmi="podman images"
 alias be="bundle exec"
 alias ber="be rake"
 
+# worktrunk
+alias wts="wt switch"
+
 # music
 alias mp="osascript -e 'tell application \"Spotify\" to pause';"
 alias ms="osascript -e 'tell application \"Spotify\" to play';"
