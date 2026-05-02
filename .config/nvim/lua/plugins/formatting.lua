@@ -37,6 +37,7 @@ return {
 
       lint.linters_by_ft = {
         bash = { 'shellcheck' },
+        elixir = { 'credo' },
         eruby = { 'erb_lint' },
         lua = { 'selene' },
         proto = { 'buf_lint' },
