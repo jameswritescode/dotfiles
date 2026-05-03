@@ -3,8 +3,7 @@
 set -xeuo pipefail
 
 install_standard() {
-    setup/dotconfig.sh link pi
-
+    mkdir -p "$HOME/.config/pi"
     mkdir -p "$HOME/.pi"
     ln -sfn "$HOME/.config/pi" "$HOME/.pi/agent"
 
