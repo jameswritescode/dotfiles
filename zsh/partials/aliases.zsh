@@ -104,6 +104,9 @@ alias be="bundle exec"
 alias ber="be rake"
 
 # worktrunk
+alias wtc="wt switch -c"
+alias wtl="wt list"
+alias wtr="wt remove"
 alias wts="wt switch"
 
 # music
