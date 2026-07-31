@@ -13,3 +13,7 @@ profile.log
 
 .config/pi/*
 !.config/pi/settings.json
+
+.config/herdr/*.log
+.config/herdr/session.json
+.config/herdr/session-history.json
